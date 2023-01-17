@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import Link from 'next/link';
 import Image from 'next/image';
-import style from '@/styles/header.module.scss';
+import style from './header.module.scss';
 
 import images from '@/styles/images';
 
