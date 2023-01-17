@@ -1,0 +1,96 @@
+:root {
+    --primary: #fe2c55;
+    --black: #000;
+    --gray: #333;
+    --light: #a9a9ad;
+    --white: #fff;
+
+    --menu-text: #4a4945;
+    --box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    --font-family: 'ProximaNova';
+
+    --default-layout-header-height: 7rem;
+    --default-layout-width: 1150px;
+    --default-layout-hozi-spacer: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.2rem;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#google_translate_element {
+    width: fit-content;
+    background: none;
+    top: 140px;
+    position: fixed;
+    right: 5px;
+}
+
+.goog-te-gadget {
+    height: 38px;
+    overflow: hidden;
+}
+.goog-te-gadget span {
+    display: none;
+}
+.goog-te-combo {
+    padding: 5px;
+    color: #514631;
+    background-color: rgb(246, 248, 246);
+    outline: none;
+}
+
+/* =================== RESPONSIVE GLOBAL ========================= */
+
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 30%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    /* #google_translate_element {
+        top: 70px;
+    } */
+}
+
+@media only screen and (max-width: 450px) {
+    html {
+        font-size: 20%;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');

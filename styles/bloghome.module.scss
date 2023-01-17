@@ -1,0 +1,66 @@
+.container {
+    width: 100%;
+    padding: 5% 20%;
+    background-color: rgb(245 245 245);
+}
+.grid-blog {
+    width: 100%;
+}
+.grid1,
+.grid2 {
+    display: flex;
+    justify-content: space-between;
+}
+.grid1 {
+    height: 25vw;
+}
+.grid2 {
+    margin-top: 1.2vw;
+    height: 20vw;
+}
+.card1 {
+    width: 54%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.card2 {
+    width: 44%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.card3 {
+    width: 32%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.blog {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    div {
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+    }
+    p {
+        color: white;
+    }
+}
+.hr {
+    height: 3px;
+    background-color: #e2b33c;
+    padding: 0;
+    margin: 5px 0;
+    width: 70px;
+}
+.content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-weight: lighter !important;
+    color: rgb(255, 255, 255, 0.8) !important;
+}

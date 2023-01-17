@@ -9,14 +9,14 @@
     width: 100%;
     display: flex;
     color: white;
-    padding: 5% 15%;
+    padding: 5% 20%;
 }
 //
 .infor {
-    width: 35%;
+    width: 32%;
 }
 .logo-img {
-    width: 50%;
+    width: 8vw;
     height: auto;
 }
 .phone,
@@ -31,24 +31,24 @@
 }
 .icon {
     display: flex;
-    width: 200px;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: flex-start;
     color: gray;
 }
 .item-icon {
     border: 1px solid gray;
     border-radius: 50%;
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 7px;
     cursor: pointer;
+    margin-right: 7px;
 }
 //
 .list {
-    width: 20%;
-    font-size: 18px;
+    width: 22%;
 }
 .list > p {
     margin-bottom: 15px;
@@ -56,38 +56,37 @@
 }
 //
 .about {
-    width: 25%;
-    font-size: 18px;
+    width: 24%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .about > .title {
-    margin: 40px 0 0 0;
+    margin-top: 0.8rem;
 }
 .about > p {
     color: gray;
+    text-align: justify;
+    text-justify: inter-word;
 }
 .about > .Newsletter {
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
 }
 .about > .sub {
     display: flex;
     color: black;
 }
 .about > .sub > button {
-    background-color: yellow;
-    width: 120px;
+    background-image: linear-gradient(rgb(251 163 21), rgb(255 206 25));
+    width: 40%;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    font-size: 10px;
 }
 .about > .sub > input {
-    width: 150px;
-    height: 30px;
-    padding: 0 15px;
+    width: 60%;
+    // height: 30px;
+    padding: 5px 15px;
     background-color: black;
     color: white;
     border: 1px solid white;
@@ -97,18 +96,17 @@
 
 .title {
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 40px 0;
+    margin: 0.8rem 0;
 }
 
 .hr {
     border: 0.5px solid rgb(74, 74, 74);
     background-color: rgb(74, 74, 74);
-    width: 72%;
+    width: 60%;
 }
 .end {
     color: white;
-    width: 72%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
     color: gray;
@@ -128,4 +126,14 @@
 .c > div {
     position: relative;
     top: -4px;
+}
+.list-logo {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 2vw 0;
+}
+.img {
+    width: 5vw;
+    height: auto;
 }
