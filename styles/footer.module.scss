@@ -1,0 +1,131 @@
+.footer {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main {
+    width: 100%;
+    display: flex;
+    color: white;
+    padding: 5% 15%;
+}
+//
+.infor {
+    width: 35%;
+}
+.logo-img {
+    width: 50%;
+    height: auto;
+}
+.phone,
+.email {
+    display: flex;
+    margin-bottom: 20px;
+    color: gray;
+}
+.phone > div,
+.email > div {
+    margin-left: 10px;
+}
+.icon {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    color: gray;
+}
+.item-icon {
+    border: 1px solid gray;
+    border-radius: 50%;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    cursor: pointer;
+}
+//
+.list {
+    width: 20%;
+    font-size: 18px;
+}
+.list > p {
+    margin-bottom: 15px;
+    color: gray;
+}
+//
+.about {
+    width: 25%;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.about > .title {
+    margin: 40px 0 0 0;
+}
+.about > p {
+    color: gray;
+}
+.about > .Newsletter {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.about > .sub {
+    display: flex;
+    color: black;
+}
+.about > .sub > button {
+    background-color: yellow;
+    width: 120px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+.about > .sub > input {
+    width: 150px;
+    height: 30px;
+    padding: 0 15px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+//
+
+.title {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 40px 0;
+}
+
+.hr {
+    border: 0.5px solid rgb(74, 74, 74);
+    background-color: rgb(74, 74, 74);
+    width: 72%;
+}
+.end {
+    color: white;
+    width: 72%;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    margin: 30px 0 100px 0;
+}
+.end-left {
+    display: flex;
+}
+.c {
+    border: 1px solid gray;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 1px 5px 0 0;
+}
+.c > div {
+    position: relative;
+    top: -4px;
+}
