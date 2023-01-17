@@ -1,1 +1,26 @@
+.container {
+    margin: auto;
+    display: flex;
+    width: 50%;
+}
 
+.text {
+    width: 35%;
+}
+.text div {
+    color: rgb(255, 255, 0);
+    font-size: 8rem;
+    text-align: right;
+}
+.text p {
+    font-size: 1.4rem;
+    text-align: end;
+}
+.text h5 {
+    text-align: right;
+    font-size: 1.8rem;
+    padding: 2rem 0px;
+}
+.img {
+    margin-left: 8rem;
+}
