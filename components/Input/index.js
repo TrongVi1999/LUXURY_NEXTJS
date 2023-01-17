@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import style from './input.module.scss';
 
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datindex.jsepicker';
+import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const cx = classNames.bind(style);
@@ -50,7 +51,7 @@ function Input({
         <div className={clases}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             {isDateInput ? (
-                <DatePicker
+                <ReactDatePicker
                     selected={valueInput}
                     onChange={(date) => handelChangeInput(date)}
                     isClearable
