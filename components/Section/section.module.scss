@@ -1,0 +1,29 @@
+.wrapper {
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    z-index: 0;
+
+    .shadow {
+        position: absolute;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #0000009e;
+        z-index: -1;
+    }
+}
+
+.wrapper.isWrap {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.wrapper.notPadding {
+    max-width: none;
+}

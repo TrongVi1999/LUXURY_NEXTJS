@@ -1,0 +1,9 @@
+.wrapper {
+    display: flex;
+    border: 1px solid var(--black);
+
+    .input {
+        width: 300px;
+        height: 100%;
+    }
+}
