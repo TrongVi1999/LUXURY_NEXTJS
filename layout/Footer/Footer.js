@@ -15,10 +15,9 @@ import Img3 from '../../public/3.webp';
 import Img4 from '../../public/4.png';
 import Img5 from '../../public/5.webp';
 import Img6 from '../../public/6.webp';
-import Img7 from '../../public/7.png';
 
 const cx = classNames.bind(style);
-const Listimg = [Img1, Img2, Img3, Img4, Img5, Img6, Img7];
+const Listimg = [Img1, Img2, Img3, Img4, Img5, Img6];
 
 function Footer() {
     return (
