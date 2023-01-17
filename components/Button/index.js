@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import style from './button.module.scss';
 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 const cx = classNames.bind(style);
 
 function Buttom({
@@ -36,7 +36,7 @@ function Buttom({
     }
 
     if (to) {
-        props.to = to;
+        props.href = to;
         Comp = Link;
     } else if (href) {
         props.href = href;
