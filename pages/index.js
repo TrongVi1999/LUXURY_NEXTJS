@@ -4,30 +4,21 @@ import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
-
-// import Image from 'next/image';
 import { SwiperSlide, Swiper } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
 import { EffectFade, Pagination, Autoplay, Navigation } from 'swiper';
-
 import SwiperSlideComp from '@/components/SwiperSlideComp';
 import { banners } from '@/styles/images';
 import { Banner, ItemInfoHome } from '@/views';
-
 import { iconInfos } from '@/styles/images';
 import ICON1 from '@/styles/images/icons/iconInfo1.jpg';
 import Country from '@/views/Country/Country';
+import Feedback from '@/views/Feedback';
 
 const cx = classNames.bind(styles);
-
-const inter = Inter({ subsets: ['latin'] });
-
-console.log('iconInfos', iconInfos.icon1);
 
 const InfoFake = [
     {
@@ -119,6 +110,7 @@ export default function Home() {
                 <Country />
                 <Hottour />
                 <BlogHome />
+                <Feedback />
             </div>
         </>
     );
