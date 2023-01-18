@@ -1,0 +1,52 @@
+.container{
+    margin: auto;
+    padding: 0px 30rem;
+    display: flex;  
+}
+.blog{
+    width: 100%;
+}
+.blog .icon {
+    text-align: right; 
+    padding: 1rem 0; 
+}
+.blog .title{
+    font-size: 1.8rem;
+    padding: 2rem  0;
+}
+.blog .hr{
+    border: solid 0.5px #d1d5db;
+    width: 20%;
+    margin-bottom: 2rem;
+}
+
+.blog .icon2 span{
+    margin: 0px 1rem;
+    font-weight: bold;
+    font-size: 12px;
+}
+.blog .text p{
+    color: grey;
+    padding: 2rem 0;
+    line-height: 3rem;
+    width: 85%;
+}
+.blog .readmore button{
+    width: 23rem;
+    height: 6rem;
+    background-color: #2d3a4b;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+.cate{
+    width: 100%
+}

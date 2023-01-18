@@ -13,7 +13,7 @@ import 'swiper/css/scrollbar';
 const cx = classNames.bind(style);
 
 const Feedback = () => {
-    return (
+    return (<>
         <div className={cx('container')}>
             <div className={cx('text')}>
                 <div> &ldquo;</div>
@@ -26,9 +26,10 @@ const Feedback = () => {
                 <h5 className={cx('text2')}>JOHN SMITH</h5>
             </div>
             <div className={cx('img')}>
-                <Image src={feedback} height={300} />
+                <Image src={feedback} height={350} />
             </div>
-        </div>
+        </div></>
+
     );
 };
 
