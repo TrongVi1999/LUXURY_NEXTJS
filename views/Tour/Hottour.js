@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import { Section } from '@/components';
 import { Title } from '@/components';
-import IMG from '@/public/assets/images/tour1.jpg';
+import IMG from '@/public/images/tour1.jpg';
 import Tourcard1 from '../Tourcard/Tourcard1';
 
 const cx = classNames.bind(style);

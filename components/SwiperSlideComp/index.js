@@ -17,7 +17,7 @@ function SwiperSlideComp({ children, className, isnavigation = false }) {
                 navigation={isnavigation}
                 loop={true}
                 autoplay={{
-                    delay: 7000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
                 className={className}

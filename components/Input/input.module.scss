@@ -3,7 +3,37 @@
     border: 1px solid var(--black);
 
     .input {
-        width: 300px;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        background-color: transparent;
+
+        opacity: 1;
+        &::placeholder {
+            opacity: 1;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--black);
+        }
+    }
+
+    .icon {
+        display: flex;
         height: 100%;
+        width: 4rem;
+        font-size: 2rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: var(--black);
+
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            height: 60%;
+            border-right: 0.1rem solid var(--gray);
+            right: 0;
+        }
     }
 }

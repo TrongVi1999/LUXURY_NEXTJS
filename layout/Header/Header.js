@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import classNames from 'classnames/bind';
 import style from './header.module.scss';
 import Image from 'next/image';
 
 import Link from 'next/link';
-import { images } from '@/styles/images';
+import { images } from '@/public/images';
 import Menu from './Menu';
 import { Button } from '@/components';
 
@@ -22,6 +22,20 @@ const Header = () => {
         setShowMenu(!showMenu);
     };
 
+    useEffect(() => {
+        const handelScroll = () => {
+            if (showMenu) {
+                setShowMenu(false);
+            }
+        };
+
+        window.addEventListener('scroll', handelScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handelScroll);
+        };
+    }, [showMenu]);
+
     return (
         <div className={cx('header')}>
             <div className={cx('wrapper')}>
@@ -32,7 +46,9 @@ const Header = () => {
                 <div className={cx('itemRight')}>
                     <AiOutlineUser className={cx('icon', { active: showUser })} />
                     <AiOutlineSearch className={cx('icon', { active: showSearch })} />
-                    <AiOutlineMenu className={cx('icon', { active: showMenu })} onClick={handelShowMenu} />
+
+                    <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
+
                     <Button className={cx('button')}>hotline: 0338204170</Button>
                 </div>
             </div>

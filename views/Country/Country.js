@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import Countrycard from './Countrycard';
-import IMG4 from '@/public/assets/images/d1.jpg';
-import IMG5 from '@/public/assets/images/d22.jpg';
-import IMG3 from '@/public/assets/images/d3.jpg';
-import IMG1 from '@/public/assets/images/d4.jpg';
-import IMG2 from '@/public/assets/images/d55.jpg';
+import IMG4 from '@/public/images/d1.jpg';
+import IMG5 from '@/public/images/d22.jpg';
+import IMG3 from '@/public/images/d3.jpg';
+import IMG1 from '@/public/images/d4.jpg';
+import IMG2 from '@/public/images/d55.jpg';
 
 const cx = classNames.bind(style);
 
