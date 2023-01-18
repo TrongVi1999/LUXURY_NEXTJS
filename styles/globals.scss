@@ -1,5 +1,5 @@
 :root {
-    --primary: #fe2c55;
+    --primary: #fbbe3f;
     --black: #000;
     --gray: #333;
     --light: #a9a9ad;
@@ -8,13 +8,17 @@
     --button: #feba48;
     --box: #101010;
 
+    --background-black: #050505;
+    --background-gray: #101010;
     --menu-text: #4a4945;
+    --linear-gradient-btn: linear-gradient(to right, #fdd223, #fa9834);
     --box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     --font-family: 'ProximaNova';
 
     --default-layout-header-height: 7rem;
     --default-layout-width: 1150px;
     --default-layout-hozi-spacer: 24px;
+    --transition-delay: all 0.2s ease-in;
 }
 
 * {
@@ -24,6 +28,7 @@
     border: none;
     text-decoration: none;
     outline: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 html {
@@ -31,7 +36,7 @@ html {
 }
 
 body {
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 html *::-webkit-scrollbar-thumb {
@@ -78,20 +83,18 @@ html *::-webkit-scrollbar-track {
 
 /* =================== RESPONSIVE GLOBAL ========================= */
 
-@media only screen and (max-width: 1200px) {
+// @media only screen and (max-width: 1200px) {
+// }
+
+@media only screen and (max-width: 991px) {
     html {
-        font-size: 30%;
+        font-size: 55%;
     }
 }
 
-@media only screen and (max-width: 650px) {
-    /* #google_translate_element {
-        top: 70px;
-    } */
-}
-
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 468px) {
     html {
-        font-size: 20%;
+        font-size: 50%;
     }
 }
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');

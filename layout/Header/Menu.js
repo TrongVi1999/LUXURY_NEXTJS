@@ -5,9 +5,10 @@ import style from './header.module.scss';
 
 const cx = classNames.bind(style);
 
-function Menu({ className }) {
+function Menu({ className, showmenu }) {
     const clases = cx('menu', {
         [className]: className,
+        active: showmenu,
     });
 
     return (

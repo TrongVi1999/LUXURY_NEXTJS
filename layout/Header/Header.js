@@ -1,40 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import classNames from 'classnames/bind';
 import style from './header.module.scss';
+import Image from 'next/image';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { images } from '@/styles/images';
 import Menu from './Menu';
 import { Button } from '@/components';
 
-import { AiOutlineUser, AiOutlineSearch } from 'react-icons/ai';
-import images from '@/styles/images';
+import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 
 const Header = () => {
-    console.log(images);
+    const [showMenu, setShowMenu] = useState(false);
+    const [showUser, setShowUser] = useState(false);
+    const [showSearch, setShowSearch] = useState(false);
+
+    const handelShowMenu = () => {
+        setShowMenu(!showMenu);
+    };
 
     return (
         <div className={cx('header')}>
             <div className={cx('wrapper')}>
                 <Link href={'/'}>
-                    <Image
-                        src={images.LOGO}
-                        alt={'errorLogo'}
-                        // width={100}
-                        // height={40}
-                        priority
-                        className={cx('logo')}
-                    />
+                    <Image src={images.LOGO} alt={'errorLogo'} priority className={cx('logo')} />
                 </Link>
-                <Menu className={'menubody'} />
+                <Menu className={'menubody'} showmenu={showMenu} />
                 <div className={cx('itemRight')}>
-                    {/* <AiOul/> */}
-                    <AiOutlineUser className={cx('icon')} />
-                    <AiOutlineSearch className={cx('icon')} />
-                    <Button className={'button'}>0338204170</Button>
+                    <AiOutlineUser className={cx('icon', { active: showUser })} />
+                    <AiOutlineSearch className={cx('icon', { active: showSearch })} />
+                    <AiOutlineMenu className={cx('icon', { active: showMenu })} onClick={handelShowMenu} />
+                    <Button className={cx('button')}>hotline: 0338204170</Button>
                 </div>
             </div>
         </div>
