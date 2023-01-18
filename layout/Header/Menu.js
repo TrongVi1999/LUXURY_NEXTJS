@@ -13,7 +13,7 @@ function Menu({ className, showmenu }) {
 
     return (
         <nav className={clases}>
-            <Link href={'/'} className={cx('item')}>
+            <Link href={'/destination'} className={cx('item')}>
                 description
             </Link>
             <Link href={'/'} className={cx('item')}>

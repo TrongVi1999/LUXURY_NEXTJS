@@ -1,9 +1,10 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
+// import { Inter } from '@next/font/google';
 import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
+
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay } from 'swiper';
 
@@ -11,17 +12,11 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import SwiperSlideComp from '@/components/SwiperSlideComp';
-
-import { CiStar } from 'react-icons/ci';
-import { MdOutlinePlace } from 'react-icons/md';
 
 import { banners } from '@/public/images';
-import { Banner, ItemInfoHome } from '@/views';
-import { Input, Button } from '@/components';
+import { ItemInfoHome, BannerSlide } from '@/views';
 
 import { iconInfos } from '@/public/images';
-// import ICON1 from '@/public/images/icons/iconInfo1.jpg';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
@@ -65,7 +60,11 @@ export default function Home() {
                 <link rel="icon" href="/assets/images/logo.png" />
             </Head>
             <div className={cx('wrapperBanner')}>
-                <SwiperSlideComp className={cx('bodyBanner')}>
+                <BannerSlide
+                    className={cx('bodyBanner')}
+                    imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
+                />
+                {/* <SwiperSlideComp className={cx('bodyBanner')}>
                     <SwiperSlide>
                         <Banner className={cx('bannerMain')} image={banners.halongbay} />
                     </SwiperSlide>
@@ -95,7 +94,7 @@ export default function Home() {
                             <Button className={cx('button')}>Search Tour</Button>
                         </div>
                     </div>
-                </SwiperSlideComp>
+                </SwiperSlideComp> */}
 
                 <Swiper
                     className={cx('boxInfo')}
