@@ -12,7 +12,10 @@ const cx = classNames.bind(style);
 const Tourcard2 = ({ data }) => {
     return (
         <div className={cx('card2')}>
-            <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img2')} />
+            <div className={cx('img-card2')}>
+                <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img2')} />
+            </div>
+
             <div className={cx('infor2')}>
                 <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
                 <p className={cx('rate')}>

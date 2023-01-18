@@ -5,3 +5,19 @@
         height: 70vh;
     }
 }
+.container {
+    padding: 2% 20%;
+}
+.list {
+    width: 80%;
+}
+.sort {
+    display: flex;
+    margin-top: 2vw;
+    margin-bottom: 3vw;
+    justify-content: space-between;
+    p {
+        font-weight: bold;
+        font-size: 15px;
+    }
+}
