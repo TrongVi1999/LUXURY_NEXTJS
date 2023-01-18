@@ -7,16 +7,20 @@ const banners = {
     banner1: require('./banner/banner-vinpearl.png'),
     banner2: require('./banner/doi-cat-mui-ne-phan-thiet-dep-02.jpg'),
     banner3: require('./banner/kinh-nghiem-du-lich-da-nang-1.jpg'),
+    phuquoc: require('./banner/phuquoc.jpg'),
+    thuyendep: require('./banner/thuyendep.jpg'),
+    halongbay: require('./banner/halongbay.jpg'),
+    resolt: require('./banner/resolt.jpg'),
 };
 
 const iconInfos = {
-    icon1: require('./icons/iconInfo1.jpg'),
-    icon2: require('./icons/iconInfo2.jpg'),
-    icon3: require('./icons/iconInfo3.jpg'),
-    icon4: require('./icons/iconInfo4.jpg'),
-    icon5: require('./icons/iconInfo5.jpg'),
-    icon6: require('./icons/iconInfo6.jpg'),
-    icon7: require('./icons/iconInfo7.jpg'),
+    icon1: require('./icons/7.png'),
+    icon2: require('./icons/cọntact (1).png'),
+    icon3: require('./icons/customizBLE ICON (1).png'),
+    icon4: require('./icons/heart icon (1).png'),
+    icon5: require('./icons/logo.png'),
+    icon6: require('./icons/mail (1).png'),
+    icon7: require('./icons/Vector Smart Object (1).png'),
 };
 
 export { images, banners, iconInfos };
