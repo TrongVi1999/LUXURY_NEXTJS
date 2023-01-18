@@ -15,6 +15,7 @@
 .text p {
     font-size: 1.4rem;
     text-align: end;
+    color: #bcbcbc;
 }
 .text h5 {
     text-align: right;
@@ -23,4 +24,46 @@
 }
 .img {
     margin-left: 8rem;
+}
+@media only screen and (max-width: 1500px) {
+    .container{
+        width: 55%;
+    }
+    .text{
+        width: 45%;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .container{
+        width: 60%;
+    }
+    .text{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .container{
+        width: 70%;
+    }
+
+    .img{
+        margin-left: 1rem;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .container{
+        width: 80%;
+    }
+
+    .img{
+        margin-left: 1rem;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .container{
+        width: 90%;
+    }
+    .img{
+        margin-left: 1rem;
+    }
 }
