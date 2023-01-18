@@ -47,3 +47,59 @@
         margin-right: 5px;
     }
 }
+
+//Card 2 -----------------------------------------------------
+
+.card2 {
+    width: 100%;
+    display: flex;
+    height: auto;
+    position: relative;
+}
+.img2 {
+    width: 55%;
+    height: 100%;
+    object-fit: cover;
+}
+.infor2 {
+    padding: 2vw 1.7vw;
+    background-color: rgb(247 247 247);
+    p {
+        padding: 5px 0;
+        color: gray;
+    }
+}
+.highlight {
+    margin: 15px 0;
+    button {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: rgb(203, 144, 26);
+        margin-right: 10px;
+    }
+}
+.book {
+    padding: 10px 20px;
+    color: rgb(203, 144, 26);
+    background-color: black;
+    font-weight: bold;
+}
+.salesticky {
+    position: absolute;
+    top: 0;
+    left: 43%;
+    background-color: rgb(241 164 26);
+    padding: 20px 15px;
+    p {
+        color: white;
+        padding: 0;
+        text-align: center;
+    }
+    .salenumber {
+        font-size: 30px;
+        span {
+            font-size: 15px;
+        }
+    }
+}
