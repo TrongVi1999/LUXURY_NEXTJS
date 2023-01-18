@@ -17,6 +17,7 @@ import { iconInfos } from '@/styles/images';
 import ICON1 from '@/styles/images/icons/iconInfo1.jpg';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
+import Introduce2 from '@/views/Introduce2';
 
 const cx = classNames.bind(styles);
 
@@ -107,6 +108,7 @@ export default function Home() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+                <Introduce2 />
                 <Country />
                 <Hottour />
                 <BlogHome />

@@ -1,0 +1,28 @@
+.container {
+    padding: 0;
+    margin: 2% auto;
+    margin-bottom: 5%;
+}
+.img {
+    display: block;
+    width: 20vw;
+    height: auto;
+    margin: 0 auto;
+    // padding: 2rem 0 0 0;
+}
+.h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0 30%;
+}
+.text span {
+    font-weight: bold;
+    color: black;
+}
+.text {
+    text-align: center;
+    margin: 2rem 22%;
+}
+.text p {
+    color: hsl(0, 0%, 38%, 0.7);
+}

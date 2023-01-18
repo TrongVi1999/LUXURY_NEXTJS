@@ -14,61 +14,21 @@ const cx = classNames.bind(style);
 
 const Feedback = () => {
     return (
-        <>
-            {' '}
-            <Swiper
-                // spaceBetween={50}
-                slidesPerView={1}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-                modules={[Autoplay]}
-                spaceBetween={0}
-                grabCursor={true}
-                autoplay={{
-                    delay: 8000,
-                    disableOnInteraction: false,
-                }}
-                loop={true}
-            >
-                <SwiperSlide>
-                    <div className={cx('container')}>
-                        <div className={cx('text')}>
-                            <div> &ldquo;</div>
+        <div className={cx('container')}>
+            <div className={cx('text')}>
+                <div> &ldquo;</div>
 
-                            <p>
-                                Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis
-                                in faucibus. Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia,
-                                eros vel fermentum consectetur, risus p
-                            </p>
-                            <h5 className={cx('text2')}>JOHN SMITH</h5>
-                        </div>
-                        <div className={cx('img')}>
-                            <Image src={feedback} height={300} />
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className={cx('container')}>
-                        <div className={cx('text')}>
-                            <div> &ldquo;</div>
-
-                            <p>
-                                Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis
-                                in faucibus. Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia,
-                                eros vel fermentum consectetur, risus p
-                            </p>
-                            <h5 className={cx('text2')}>JOHN SMITH</h5>
-                        </div>
-                        <div className={cx('img')}>
-                            <Image src={feedback} height={300} />
-                        </div>
-                    </div>
-                </SwiperSlide>
-                {/* <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide> */}
-                ...
-            </Swiper>
-        </>
+                <p>
+                    Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia, eros vel fermentum
+                    consectetur, risus p
+                </p>
+                <h5 className={cx('text2')}>JOHN SMITH</h5>
+            </div>
+            <div className={cx('img')}>
+                <Image src={feedback} height={300} />
+            </div>
+        </div>
     );
 };
 
