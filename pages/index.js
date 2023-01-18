@@ -15,18 +15,16 @@ import 'swiper/css/pagination';
 import { EffectFade, Pagination, Autoplay, Navigation } from 'swiper';
 
 import SwiperSlideComp from '@/components/SwiperSlideComp';
-import { banners } from '@/styles/images';
+import { banners } from '@/public/images';
 import { Banner, ItemInfoHome } from '@/views';
 
-import { iconInfos } from '@/styles/images';
-import ICON1 from '@/styles/images/icons/iconInfo1.jpg';
+// import { iconInfos } from '@/public/images';
+import ICON1 from '@/public/images/icons/iconInfo1.jpg';
 import Country from '@/views/Country/Country';
 
 const cx = classNames.bind(styles);
 
 const inter = Inter({ subsets: ['latin'] });
-
-console.log('iconInfos', iconInfos.icon1);
 
 const InfoFake = [
     {
