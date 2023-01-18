@@ -5,7 +5,7 @@ import style from './header.module.scss';
 import Image from 'next/image';
 
 import Link from 'next/link';
-import { images } from '@/styles/images';
+import { images } from '@/public/images';
 import Menu from './Menu';
 import { Button } from '@/components';
 
