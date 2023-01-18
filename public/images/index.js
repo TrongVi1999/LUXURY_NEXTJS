@@ -11,6 +11,10 @@ const banners = {
     thuyendep: require('./banner/thuyendep.jpg'),
     halongbay: require('./banner/halongbay.jpg'),
     resolt: require('./banner/resolt.jpg'),
+    banner4: require('./banner/banner4.jpg'),
+    banner6: require('./banner/banner6.jpg'),
+    banner7: require('./banner/banner7.jpg'),
+    banner8: require('./banner/banner8.jpg'),
 };
 
 const iconInfos = {

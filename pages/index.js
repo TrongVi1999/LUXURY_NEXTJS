@@ -17,7 +17,7 @@ import { CiStar } from 'react-icons/ci';
 import { MdOutlinePlace } from 'react-icons/md';
 
 import { banners } from '@/public/images';
-import { Banner, ItemInfoHome } from '@/views';
+import { Banner, ItemInfoHome, BannerSlide } from '@/views';
 import { Input, Button } from '@/components';
 
 import { iconInfos } from '@/public/images';
@@ -65,7 +65,11 @@ export default function Home() {
                 <link rel="icon" href="/assets/images/logo.png" />
             </Head>
             <div className={cx('wrapperBanner')}>
-                <SwiperSlideComp className={cx('bodyBanner')}>
+                <BannerSlide
+                    className={cx('bodyBanner')}
+                    imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
+                />
+                {/* <SwiperSlideComp className={cx('bodyBanner')}>
                     <SwiperSlide>
                         <Banner className={cx('bannerMain')} image={banners.halongbay} />
                     </SwiperSlide>
@@ -95,7 +99,7 @@ export default function Home() {
                             <Button className={cx('button')}>Search Tour</Button>
                         </div>
                     </div>
-                </SwiperSlideComp>
+                </SwiperSlideComp> */}
 
                 <Swiper
                     className={cx('boxInfo')}

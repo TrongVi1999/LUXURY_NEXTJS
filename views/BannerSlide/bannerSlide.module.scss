@@ -1,0 +1,81 @@
+.bannerMain {
+    width: 100%;
+    height: 100%;
+}
+
+.sheaderBox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        color: var(--white);
+        text-shadow: 0.2rem 0.1rem 0.2rem var(--menu-text);
+    }
+
+    .titleHome {
+        font-size: 6rem;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 3rem;
+        text-shadow: 0.2rem 0.1rem 0.2rem var(--menu-text);
+    }
+
+    .boxSearch {
+        display: flex;
+        .input {
+            margin-right: 2rem;
+            background-color: var(--background-white-opacity);
+            font-size: 1.6rem;
+            border: 0.1rem solid var(--menu-text);
+            border-radius: 0.2rem;
+        }
+
+        .input.input1 {
+            width: 20rem;
+        }
+
+        .input.input2 {
+            width: 30rem;
+        }
+
+        .button {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--black);
+            padding: 1rem 2rem;
+            background-image: var(--linear-gradient-btn2);
+            border-radius: 0.2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .boxSearch {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        .input {
+            width: 100% !important;
+            margin: 1rem 0;
+            font-size: 1.4rem !important;
+        }
+
+        .button {
+            margin-top: 1rem;
+            width: 40%;
+            text-align: center;
+        }
+    }
+}
