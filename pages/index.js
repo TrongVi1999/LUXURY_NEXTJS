@@ -3,6 +3,7 @@ import { Inter } from '@next/font/google';
 import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
+import Hottour from '@/views/Tour/Hottour';
 
 // import Image from 'next/image';
 import { SwiperSlide, Swiper } from 'swiper/react';
@@ -116,6 +117,7 @@ export default function Home() {
                     ))}
                 </Swiper>
                 <Country />
+                <Hottour />
                 <BlogHome />
             </div>
         </>

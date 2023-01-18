@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    padding: 5% 20%;
+}
+.tour-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.card {
+    width: 32%;
+}
