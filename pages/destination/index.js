@@ -1,10 +1,12 @@
-import { BannerSlide } from '@/views';
-import { banners } from '@/public/images';
-
 import classNames from 'classnames/bind';
 import style from '@/styles/destinations.module.scss';
 import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import IMG from '@/public/images/tour1.jpg';
+
+import { BannerSlide, CategoryFilter } from '@/views';
+import { banners } from '@/public/images';
+
+import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
 
 const cx = classNames.bind(style);
 const data = {
@@ -39,6 +41,13 @@ function Destimation() {
                         <Tourcard2 data={data} />
                     </div>
                 </div>
+                <CategoryFilter
+                    price
+                    day
+                    category={categoryFillerAddress}
+                    tourTags={tourTagsFilter}
+                    className={cx('boxFilter')}
+                />
             </div>
         </div>
     );
