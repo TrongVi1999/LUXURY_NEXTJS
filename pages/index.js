@@ -6,13 +6,12 @@ import BlogHome from '@/views/BlogHome';
 
 // import Image from 'next/image';
 import { SwiperSlide, Swiper } from 'swiper/react';
+import { Autoplay } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import { EffectFade, Pagination, Autoplay, Navigation } from 'swiper';
 
 import SwiperSlideComp from '@/components/SwiperSlideComp';
 import { banners } from '@/public/images';
@@ -27,12 +26,6 @@ const cx = classNames.bind(styles);
 const inter = Inter({ subsets: ['latin'] });
 
 const InfoFake = [
-    {
-        icon: ICON1,
-        title: 'excellent',
-        content:
-            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
-    },
     {
         icon: ICON1,
         title: 'excellent',
@@ -85,7 +78,6 @@ export default function Home() {
                 <Swiper
                     className={cx('boxInfo')}
                     modules={[Autoplay]}
-                    spaceBetween={0}
                     grabCursor={true}
                     autoplay={{
                         delay: 8000,
@@ -113,9 +105,9 @@ export default function Home() {
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <Country />
-                <BlogHome />
             </div>
+            <BlogHome />
+            <Country />
         </>
     );
 }

@@ -6,7 +6,7 @@
     background-color: var(--background-gray);
     color: white;
 
-    text-align: center;
+    text-align: start;
     align-items: center;
     justify-content: center;
 
@@ -17,8 +17,19 @@
     }
 
     .title {
-        font-size: 1.6rem;
+        position: relative;
+        font-size: 1.8rem;
         text-transform: uppercase;
+        width: 100%;
+        margin-bottom: 2rem;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 4rem;
+            bottom: -3px;
+            border-bottom: 2px solid var(--white);
+        }
     }
 
     .content {
