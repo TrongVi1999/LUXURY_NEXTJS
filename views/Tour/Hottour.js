@@ -5,6 +5,7 @@ import { Section } from '@/components';
 import { Title } from '@/components';
 import IMG from '@/public/images/tour1.jpg';
 import Tourcard1 from '../Tourcard/Tourcard1';
+import Tourcard2 from '../Tourcard/Tourcard2';
 
 const cx = classNames.bind(style);
 
@@ -18,6 +19,7 @@ const data = {
     price: 3000,
     sale: 50,
     destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
+    highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
 };
 
 const Hottour = () => {
@@ -32,6 +34,7 @@ const Hottour = () => {
                 <Tourcard1 data={data} />
                 <Tourcard1 data={data} />
             </div>
+            <Tourcard2 data={data} />
         </div>
     );
 };
