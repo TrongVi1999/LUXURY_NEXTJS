@@ -42,7 +42,11 @@ const index = () => {
                 <div className={cx('main-infor')}>
                     <div className={cx('crumb-cost')}>
                         <Crumb text={Tourdata.TourName} />
-
+                        <div className={cx('cost')}>
+                            <sup>From</sup>
+                            <p>$1000</p>
+                            <span>/PAX</span>
+                        </div>
                     </div>
                 </div>
 
