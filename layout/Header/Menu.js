@@ -14,7 +14,7 @@ function Menu({ className, showmenu }) {
     return (
         <nav className={clases}>
             <Link href={'/destination'} className={cx('item')}>
-                description
+                destination
             </Link>
             <Link href={'/'} className={cx('item')}>
                 way to travel
@@ -23,7 +23,7 @@ function Menu({ className, showmenu }) {
                 blog
             </Link>
             <Link href={'/'} className={cx('item')}>
-                travel
+                about us
             </Link>
         </nav>
     );

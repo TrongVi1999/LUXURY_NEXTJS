@@ -11,7 +11,7 @@
 
     --border-color2: #fa9834;
     --background-black: #050505;
-    --background-gray: #101010;
+    --background-gray: #1b1b1b;
     --background-white-opacity: rgba(255, 255, 255, 0.7);
     --menu-text: #2d2d2a;
     --linear-gradient-btn: linear-gradient(to right, #fdd223, #fa9834);
@@ -102,4 +102,8 @@ html *::-webkit-scrollbar-track {
         font-size: 50%;
     }
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap');
+#act {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

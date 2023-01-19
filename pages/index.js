@@ -26,7 +26,7 @@ const cx = classNames.bind(styles);
 const InfoFake = [
     {
         icon: iconInfos.icon1,
-        title: 'excellent services',
+        title: `excellent <br/>services`,
         content:
             'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
     },
@@ -44,7 +44,7 @@ const InfoFake = [
     },
     {
         icon: iconInfos.icon3,
-        title: 'authentic & tailor-made tours',
+        title: 'authentic <br/>& tailor-made tours',
         content:
             'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
     },
@@ -96,7 +96,7 @@ export default function Home() {
                     </div>
                 </SwiperSlideComp> */}
 
-                <Swiper
+                {/* <Swiper
                     className={cx('boxInfo')}
                     modules={[Autoplay]}
                     grabCursor={true}
@@ -125,7 +125,15 @@ export default function Home() {
                             <ItemInfoHome data={item} id={index + 1} />
                         </SwiperSlide>
                     ))}
-                </Swiper>
+                    
+                </Swiper> */}
+            </div>
+            <div className={cx('inforfake')}>
+                {InfoFake.map((item, index) => (
+                    <div className={cx('item-infor')} key={index}>
+                        <ItemInfoHome data={item} id={index + 1} />
+                    </div>
+                ))}
             </div>
             <Introduce2 />
             <Country />

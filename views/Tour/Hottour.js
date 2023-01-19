@@ -5,7 +5,6 @@ import { Section } from '@/components';
 import { Title } from '@/components';
 import IMG from '@/public/images/tour1.jpg';
 import Tourcard1 from '../Tourcard/Tourcard1';
-import Tourcard2 from '../Tourcard/Tourcard2';
 
 const cx = classNames.bind(style);
 
@@ -34,7 +33,6 @@ const Hottour = () => {
                 <Tourcard1 data={data} />
                 <Tourcard1 data={data} />
             </div>
-            <Tourcard2 data={data} />
         </div>
     );
 };
