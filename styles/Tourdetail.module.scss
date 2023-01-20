@@ -5,6 +5,10 @@
     width: 100%;
     padding: 3% 18%;
 }
+.crumb-cost {
+    display: flex;
+    justify-content: space-between;
+}
 .cost {
     display: flex;
     padding: 10px 20px;
@@ -23,5 +27,163 @@
         height: fit-content;
         margin-top: 5px;
         font-size: 15px;
+    }
+}
+.list-img {
+    display: flex;
+    width: 100%;
+    height: 30vw;
+    justify-content: space-between;
+    margin: 2vw 0;
+}
+.img1 {
+    width: 74%;
+    height: 100%;
+    object-fit: cover;
+}
+.list-right {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.img2 {
+    width: 100%;
+    height: 32%;
+    object-fit: cover;
+}
+
+//Hightlight
+
+.introduce {
+    display: flex;
+    border: 1px solid gray;
+}
+.name {
+    width: 40%;
+    border-right: 1px solid gray;
+    padding: 1vw 2.5vw;
+    font-weight: bold;
+    color: rgb(57, 53, 53);
+    h1 {
+        margin-bottom: 1.5vw;
+    }
+    .long {
+        margin: 5px 0;
+    }
+    svg {
+        margin-right: 10px;
+    }
+
+    div {
+        background-color: #fdd223;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        width: fit-content;
+        margin: 10px 0;
+        p {
+            padding: 8px 12px;
+            margin-right: 5px;
+            border-right: 1px solid gray;
+            font-weight: bold;
+        }
+        svg {
+            margin: 0 5px;
+        }
+    }
+}
+.highlight {
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .hl-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    p {
+        width: 100%;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #fdd223;
+        margin-right: 10px;
+    }
+}
+
+//itinerary
+.iti-container {
+    width: 100%;
+    margin: 2vw 0;
+}
+.iti-menu {
+    display: flex;
+    p {
+        padding: 10px 15px;
+        cursor: pointer;
+        border: 1px solid gray;
+        font-weight: bold;
+    }
+}
+.iti-main {
+    padding: 2vw 2.5vw;
+    border: 1px solid gray;
+}
+.tour-detail {
+    margin: 2vw 0;
+}
+.title-detail {
+    background-color: #fdd223;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+.list-detail {
+    padding: 0 1vw;
+}
+.space {
+    border-left: 1px solid #fdd223;
+    height: 5vw;
+}
+.item-day {
+    border-left: 1px solid #fdd223;
+    border-top: 1px solid #fdd223;
+    position: relative;
+    padding: 1vw 4vw;
+}
+.number-day {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fdd223;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+}
+.title-day {
+    font-size: 14px;
+    font-weight: bold;
+}
+.text-day {
+    margin: 2vw 0;
+    width: 100%;
+    span {
+        font-size: 12px !important;
+    }
+}
+.main-day {
+    img {
+        width: 100%;
+        height: auto;
     }
 }
