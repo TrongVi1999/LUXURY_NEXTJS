@@ -44,7 +44,6 @@ const index = () => {
     };
 
     useEffect(() => {
-
         callApi();
     }, [router.query.id])
 
@@ -67,8 +66,6 @@ const index = () => {
                     <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
                     <Tourrecomment data={data} />
                 </div>
-
-
             </div>}
         </div>
     )
