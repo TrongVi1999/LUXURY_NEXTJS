@@ -24,7 +24,7 @@
             content: '';
             width: 5rem;
             top: -1rem;
-            border-bottom: 2px solid var(--white);
+            border-bottom: 0.2rem solid var(--white);
         }
     }
 }
@@ -58,6 +58,10 @@
 
 .wrapper.backgroundBlack {
     background-color: var(--background-black);
+}
+
+.itemSlide {
+    width: 450px !important;
 }
 
 @media only screen and (max-width: 468px) {
