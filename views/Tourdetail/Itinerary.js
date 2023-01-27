@@ -7,7 +7,8 @@ const cx = classNames.bind(style);
 
 const Itinerary = ({ description, detail }) => {
     const [content, setcontent] = useState(['active', '', '']);
-    console.log(detail[0].Title.split(':')[0]);
+
+
 
     return (
         <div className={cx('iti-container')}>

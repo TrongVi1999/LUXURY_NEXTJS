@@ -58,6 +58,7 @@
 .introduce {
     display: flex;
     border: 1px solid gray;
+    width: 100%;
 }
 .name {
     width: 40%;
@@ -126,7 +127,8 @@
 }
 .iti-container {
     width: 100%;
-    margin: 2vw 0;
+    margin-top: 2vw;
+    margin-bottom: 4vw;
 }
 .iti-menu {
     display: flex;
@@ -190,4 +192,10 @@
         width: 100%;
         height: auto;
     }
+}
+
+//Tourrecomment
+.tour-list {
+    display: flex;
+    justify-content: space-between;
 }

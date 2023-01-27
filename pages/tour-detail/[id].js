@@ -7,36 +7,46 @@ import Crumb from '@/views/Crumb/Crumb';
 import Imglist from '@/views/Tourdetail/Imglist';
 import Highlight from '@/views/Tourdetail/Highlight';
 import Itinerary from '@/views/Tourdetail/Itinerary';
+import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
+import { useRouter } from "next/router";
+import IMG from '@/public/images/tour1.jpg';
 
 const cx = classNames.bind(style);
 
+const data = {
+    img: IMG,
+    title: 'Ha long bay day cruise - paradise explore',
+    rate: 4.7,
+    ratecount: 100,
+    book: 999,
+    long: 15,
+    price: 3000,
+    sale: 50,
+    destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
+    highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
+};
+
 const index = () => {
+    const router = useRouter();
     const [Tourdata, setTourdata] = useState();
 
     const callApi = async () => {
         const response = await axios({
             method: 'post',
-            url: `https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=VNCLASSIC04`,
+            url: `https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=${router.query.id}`,
             type: 'json',
         });
 
         if (response.status === 200) {
             setTourdata(response.data.Object[0]);
-            // setTourtype(response.data.Object[0].TourType);
-            // setdatalink([
-            //     'Home',
-            //     `${response.data.Object[0].Country}`,
-            //     `${response.data.Object[0].TourType.replace('TYPE_', '')}`,
-            //     `${response.data.Object[0].TourName}`,
-            // ]);
         }
-        // setIsLoading(false);
+
     };
 
     useEffect(() => {
+
         callApi();
-    }, [])
-    console.log(Tourdata)
+    }, [router.query.id])
 
     return (
         <div className={cx('container')}>
@@ -55,6 +65,7 @@ const index = () => {
                     <Imglist data={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} />
                     <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} />
                     <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
+                    <Tourrecomment data={data} />
                 </div>
 
 
