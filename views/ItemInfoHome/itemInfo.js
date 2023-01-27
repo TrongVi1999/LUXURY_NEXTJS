@@ -8,11 +8,14 @@ const cx = classNames.bind(style);
 function ItemInfo({ data, id }) {
     const clases = cx('wrapper', { backgroundBlack: id % 2 === 0 });
     const newtitle = data.title.split('<br/>');
+    // console.log(newtitle)
 
     return (
         <div className={clases}>
             <div className={cx('boxTitle')}>
                 <Image src={data.icon} alt="bannerError" className={cx('icon')} />
+
+
 
                 {newtitle.length == 2 ? <h2 className={cx('title')}>{newtitle[0]}<br />{newtitle[1]}</h2> : <h2 className={cx('title')}>{newtitle[0]}</h2>}
 

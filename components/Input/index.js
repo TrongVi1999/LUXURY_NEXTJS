@@ -31,8 +31,6 @@ function Input({
         return value;
     });
 
-    console.log(valueInput);
-
     const clases = cx('wrapper', {
         [className]: className,
     });
@@ -75,7 +73,7 @@ function Input({
                     onChange={(e) => handelChangeInput(e.target.value)}
                 />
             )}
-            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+            {rightIcon && <span className={cx('icon', { [classNameInput]: classNameInput })}>{rightIcon}</span>}
         </div>
     );
 }
