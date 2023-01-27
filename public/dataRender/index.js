@@ -1,3 +1,32 @@
+import { iconInfos } from '@/public/images';
+
+const infoHomeFake = [
+    {
+        icon: iconInfos.icon1,
+        title: `excellent <br/>services`,
+        content:
+            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
+    },
+    {
+        icon: iconInfos.icon4,
+        title: 'local experts',
+        content:
+            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
+    },
+    {
+        icon: iconInfos.icon7,
+        title: 'local price',
+        content:
+            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
+    },
+    {
+        icon: iconInfos.icon3,
+        title: 'authentic <br/>& tailor-made tours',
+        content:
+            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
+    },
+];
+
 const categoryFillerAddress = {
     title: 'category',
     elements: [
@@ -53,4 +82,4 @@ const tourTagsFilter = {
     elements: ['Daily Tour', 'Ha Long', 'Ninh Binh', 'Luxury', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
 };
 
-export { categoryFillerAddress, tourTagsFilter };
+export { categoryFillerAddress, tourTagsFilter, infoHomeFake };

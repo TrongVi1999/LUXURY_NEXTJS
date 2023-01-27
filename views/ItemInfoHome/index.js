@@ -1,26 +1,53 @@
 import classNames from 'classnames/bind';
-import style from './item.module.scss';
+import styles from './item.module.scss';
 
-import Image from 'next/image';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import { Autoplay } from 'swiper';
 
-const cx = classNames.bind(style);
+import 'swiper/css';
 
-function ItemInfoHome({ data, id }) {
-    const clases = cx('wrapper', { backgroundBlack: id % 2 === 0 });
-    const newtitle = data.title.split('<br/>');
-    console.log(newtitle)
+import ItemInfo from './itemInfo';
 
-    return (
-        <div className={clases}>
-            <div className={cx('boxTitle')}>
-                <Image src={data.icon} alt="bannerError" className={cx('icon')} />
+import { infoHomeFake } from '@/public/dataRender';
 
-                {newtitle.length == 2 ? <h2 className={cx('title')}>{newtitle[0]}<br />{newtitle[1]}</h2> : <h2 className={cx('title')}>{newtitle[0]}</h2>}
+const cx = classNames.bind(styles);
 
-            </div>
-            <p className={cx('content')}>{data.content}</p>
-        </div>
-    );
+function ItemInfoHome({ className }) {
+
+    return (<>
+        <Swiper
+            className={cx(className)}
+            modules={[Autoplay]}
+            grabCursor={true}
+            autoplay={{
+                delay: 8000,
+                disableOnInteraction: false,
+            }}
+            loop={true}
+            slidesPerView="auto"
+            breakpoints={{
+                0: {
+                    slidesPerView: 1,
+                },
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+            }}
+        >
+            {infoHomeFake.map((item, index) => (
+                <SwiperSlide key={index}>
+                    <ItemInfo data={item} id={index + 1} />
+                </SwiperSlide>
+            ))}
+
+        </Swiper>
+    </>);
 }
 
 export default ItemInfoHome;
