@@ -139,7 +139,7 @@ export default function Home() {
             <Country />
             <Hottour />
             <BlogHome />
-            <Feedback />
+            {/* <Feedback /> */}
         </>
     );
 }
