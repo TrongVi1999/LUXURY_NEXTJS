@@ -5,50 +5,14 @@ import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
 
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { Autoplay } from 'swiper';
-
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 import { banners } from '@/public/images';
 import { ItemInfoHome, BannerSlide } from '@/views';
 
-import { iconInfos } from '@/public/images';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
 
 const cx = classNames.bind(styles);
-
-const InfoFake = [
-    {
-        icon: iconInfos.icon1,
-        title: `excellent <br/>services`,
-        content:
-            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
-    },
-    {
-        icon: iconInfos.icon4,
-        title: 'local experts',
-        content:
-            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
-    },
-    {
-        icon: iconInfos.icon7,
-        title: 'local price',
-        content:
-            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
-    },
-    {
-        icon: iconInfos.icon3,
-        title: 'authentic <br/>& tailor-made tours',
-        content:
-            'The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration',
-    },
-];
 
 export default function Home() {
     return (
@@ -64,77 +28,9 @@ export default function Home() {
                     className={cx('bodyBanner')}
                     imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
                 />
-                {/* <SwiperSlideComp className={cx('bodyBanner')}>
-                    <SwiperSlide>
-                        <Banner className={cx('bannerMain')} image={banners.halongbay} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Banner className={cx('bannerMain')} image={banners.resolt} />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <Banner className={cx('bannerMain')} image={banners.banner1} />
-                    </SwiperSlide>
-
-                    <div className={cx('sheaderBox')}>
-                        <p className={cx('text')}>Luxury tailor-made tours to</p>
-                        <h1 className={cx('titleHome')}>south asian</h1>
-                        <div className={cx('boxSearch')}>
-                            <Input
-                                type="text"
-                                className={cx('input1', 'input')}
-                                leftIcon={<MdOutlinePlace />}
-                                placeholder="Place"
-                            />
-                            <Input
-                                type="text"
-                                className={cx('input2', 'input')}
-                                leftIcon={<CiStar />}
-                                placeholder="Travel Style"
-                            />
-                            <Button className={cx('button')}>Search Tour</Button>
-                        </div>
-                    </div>
-                </SwiperSlideComp> */}
-
-                {/* <Swiper
-                    className={cx('boxInfo')}
-                    modules={[Autoplay]}
-                    grabCursor={true}
-                    autoplay={{
-                        delay: 8000,
-                        disableOnInteraction: false,
-                    }}
-                    loop={true}
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 1,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                        },
-                        768: {
-                            slidesPerView: 3,
-                        },
-                        1024: {
-                            slidesPerView: 4,
-                        },
-                    }}
-                >
-                    {InfoFake.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <ItemInfoHome data={item} id={index + 1} />
-                        </SwiperSlide>
-                    ))}
-                    
-                </Swiper> */}
+                <ItemInfoHome className={cx('boxInfo')} />
             </div>
-            <div className={cx('inforfake')}>
-                {InfoFake.map((item, index) => (
-                    <div className={cx('item-infor')} key={index}>
-                        <ItemInfoHome data={item} id={index + 1} />
-                    </div>
-                ))}
-            </div>
+
             <Introduce2 />
             <Country />
             <Hottour />
