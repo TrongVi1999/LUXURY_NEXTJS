@@ -35,7 +35,7 @@ const index = () => {
 
     useEffect(() => {
         callApi();
-    }, [])
+    }, [rout])
     console.log(Tourdata)
 
     return (
