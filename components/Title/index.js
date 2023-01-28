@@ -4,8 +4,10 @@ import style from './style.module.scss';
 
 const cx = classNames.bind(style);
 
-const index = ({ text, align }) => {
-    return <h6 className={cx('h6')} style={{ textAlign: align }}>{text.toUpperCase()}</h6>;
+const index = ({ text, align, className }) => {
+    const clases = cx('h6', { [className]: className })
+
+    return <h6 className={clases} style={{ textAlign: align }}>{text.toUpperCase()}</h6>;
 };
 
 export default index;
