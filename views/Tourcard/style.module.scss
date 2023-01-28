@@ -8,6 +8,7 @@
     width: 100%;
     height: 15vw;
     object-fit: cover;
+    min-height: 180px;
 }
 .infor {
     padding: 10px;
@@ -110,5 +111,18 @@
         span {
             font-size: 15px;
         }
+    }
+}
+
+//responsive
+@media only screen and (max-width: 900px) {
+    .card {
+        width: 48%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .card {
+        width: 100%;
+        margin-bottom: 15px;
     }
 }

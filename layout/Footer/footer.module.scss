@@ -1,9 +1,10 @@
 .wrapper {
     width: 100%;
-    background-color: black;
+    background-color: var(--black);
 }
 .footer {
     width: 100%;
+    padding: 0 20%;
 
     display: flex;
     flex-direction: column;
@@ -14,14 +15,21 @@
     width: 100%;
     display: flex;
     color: white;
-    padding: 5% 20%;
+    padding: 3% 0;
 }
-//
+//left
+.main-left {
+    display: flex;
+    flex: 1;
+    margin-right: 10px;
+}
+
 .infor {
-    width: 32%;
+    width: 40%;
 }
 .logo-img {
     width: 8vw;
+    min-width: 80px;
     height: auto;
 }
 .phone,
@@ -43,7 +51,7 @@
 .item-icon {
     border: 1px solid gray;
     border-radius: 50%;
-    font-size: 12px;
+    font-size: 14px;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -53,7 +61,7 @@
 }
 //
 .list {
-    width: 22%;
+    width: 30%;
 }
 .list > p {
     margin-bottom: 15px;
@@ -61,10 +69,9 @@
 }
 //
 .about {
-    width: 24%;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 .about > .title {
     margin-top: 0.8rem;
@@ -76,25 +83,29 @@
 }
 .about > .Newsletter {
     font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .about > .sub {
     display: flex;
     color: black;
 }
 .about > .sub > button {
-    background-image: linear-gradient(rgb(251 163 21), rgb(255 206 25));
-    width: 40%;
+    background-image: var(--linear-gradient-btn2);
+    // width: 40%;
     font-weight: bold;
     cursor: pointer;
-    font-size: 10px;
+    // font-size: 14px;
+    padding: 10px 20px;
 }
 .about > .sub > input {
     width: 60%;
     // height: 30px;
-    padding: 5px 15px;
+    padding: 10px 15px;
     background-color: black;
     color: white;
     border: 1px solid white;
+    // font-size: 14px;
 }
 
 //
@@ -107,11 +118,11 @@
 .hr {
     border: 0.5px solid rgb(74, 74, 74);
     background-color: rgb(74, 74, 74);
-    width: 60%;
+    width: 100%;
 }
 .end {
     color: white;
-    width: 60%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     color: gray;
@@ -119,26 +130,75 @@
 }
 .end-left {
     display: flex;
+    svg {
+        margin-right: 5px;
+    }
 }
-.c {
-    border: 1px solid gray;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    text-align: center;
-    margin: 1px 5px 0 0;
-}
-.c > div {
-    position: relative;
-    top: -4px;
-}
+
 .list-logo {
     display: flex;
     justify-content: space-between;
-    width: 60%;
-    margin: 2vw 0;
+    width: 100%;
+    margin: 2.5vw 0;
 }
 .img {
     width: 5vw;
     height: auto;
+    min-width: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .sub {
+        flex-direction: column;
+        button {
+            margin: 5px 0;
+            width: 100%;
+            padding: 7px !important;
+        }
+        input {
+            width: 100% !important;
+            padding: 7px !important;
+        }
+    }
+    .footer {
+        padding: 0 15%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .footer {
+        padding: 0 10%;
+    }
+    .main {
+        flex-direction: column;
+    }
+    .main-left {
+        margin: 0;
+    }
+    .about {
+        width: 100%;
+    }
+    .sub {
+        flex-direction: row;
+        button {
+            margin: 0 !important;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .end {
+        margin: 20px 0 40px 0;
+    }
+    .item-icon {
+        font-size: 10px;
+        width: 20px;
+        height: 20px;
+        padding-top: 4px;
+        margin-right: 3px;
+    }
+    .phone,
+    .email {
+        div {
+            margin-left: 3px;
+        }
+    }
 }

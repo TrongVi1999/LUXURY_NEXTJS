@@ -48,6 +48,9 @@
         color: white;
     }
 }
+.text-box {
+    background: linear-gradient(rgb(8, 8, 8, 0), rgb(5, 5, 5, 0.8));
+}
 .hr {
     height: 3px;
     background-color: #e2b33c;
@@ -62,5 +65,17 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     font-weight: lighter !important;
-    color: rgb(255, 255, 255, 0.8) !important;
+    // color: rgb(255, 255, 255, 0.8) !important;
+}
+
+//responsive
+@media only screen and (max-width: 1200px) {
+    .container {
+        padding: 5% 15%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .container {
+        padding: 5% 10%;
+    }
 }

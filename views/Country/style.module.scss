@@ -5,16 +5,18 @@
 .grid1 {
     width: 50%;
     height: 50vw;
+    min-height: 250px;
 }
 .grid2 {
     width: 50%;
-    height: 50vw;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
 }
 .card {
     width: 50%;
     height: 25vw;
+    min-height: 250px;
 }
 .card-main {
     width: 100%;
@@ -57,5 +59,27 @@
         background-color: rgb(255 209 35);
         margin: 30px auto;
         font-weight: bold;
+    }
+}
+
+//responsive
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        .grid1 {
+            width: 100%;
+        }
+        .grid2 {
+            width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .grid2 {
+        flex-direction: column;
+        .card {
+            width: 100%;
+        }
     }
 }
