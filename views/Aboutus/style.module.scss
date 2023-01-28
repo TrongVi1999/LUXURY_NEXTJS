@@ -1,0 +1,30 @@
+//History
+.container-history {
+    width: 100%;
+    padding: 5% 25%;
+}
+.text-top {
+    padding: 0% 10% 4% 10%;
+    color: var(--light2);
+}
+.img-history {
+    width: 100%;
+}
+.text-bot {
+    display: flex;
+    padding: 3% 0;
+    width: 100%;
+}
+.text-bot-left {
+    width: 40%;
+    padding-right: 10%;
+
+    .text-bot-left-p {
+        font-size: 30px;
+        color: var(--light2);
+    }
+}
+.text-bot-right {
+    width: 60%;
+    color: var(--light2);
+}
