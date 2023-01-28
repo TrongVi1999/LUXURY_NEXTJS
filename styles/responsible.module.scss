@@ -1,0 +1,32 @@
+.container{
+    width: 100%;
+}
+.text1{
+    padding: 2rem 55rem;
+    text-align: center;
+    line-height: 2.3rem;
+}
+.text1 p{
+    color: #797979;
+    font-size: 14px;
+}
+.text2{
+    display: flex;
+    padding: 10rem 38rem 10rem 38rem;
+}
+
+.text2 .text{
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+.text2 .text p{
+    color:#918f8f;
+    font-size: 14px;
+}
+.image{
+    display: flex;
+    padding: 4rem 38rem;
+}
+.image .img2{
+    padding-left: 2rem;
+}
