@@ -3,6 +3,11 @@ const images = {
     LOGO2: require('./logos/logo-w-2.png'),
 };
 
+const avatars = {
+    avatar1: require('./avt2.png'),
+    avatar2: require('./avt3.png'),
+}
+
 const banners = {
     banner1: require('./banner/banner-vinpearl.png'),
     banner2: require('./banner/doi-cat-mui-ne-phan-thiet-dep-02.jpg'),
@@ -27,4 +32,4 @@ const iconInfos = {
     icon7: require('./icons/Vector Smart Object (1).png'),
 };
 
-export { images, banners, iconInfos };
+export { images, avatars, banners, iconInfos };

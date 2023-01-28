@@ -1,5 +1,4 @@
-import { iconInfos } from '@/public/images';
-
+import { iconInfos, avatars } from '@/public/images';
 const infoHomeFake = [
     {
         icon: iconInfos.icon1,

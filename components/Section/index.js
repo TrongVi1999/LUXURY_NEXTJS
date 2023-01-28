@@ -4,7 +4,7 @@ import style from './section.module.scss';
 
 const cx = classNames.bind(style);
 
-function Section({ className, backgroundImg, isShadowBackground, notPadding, gapBox, isWrap, children }) {
+function Section({ className, backgroundImg, isShadowBackground, maxWidth, notPadding, gapBox, isWrap, children }) {
     const clases = cx('wrapper', {
         [className]: className,
         notPadding: notPadding,
@@ -16,6 +16,7 @@ function Section({ className, backgroundImg, isShadowBackground, notPadding, gap
             className={clases}
             style={{
                 gap: `${gapBox}rem`,
+                maxWidth: `${maxWidth}px`,
                 backgroundImage: `url(${backgroundImg})`,
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
