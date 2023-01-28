@@ -7,6 +7,9 @@ import { banners } from '@/public/images';
 import { ItemInfoHome, BannerSlide } from '@/views';
 import { Section } from '@/components';
 import { OutTeamAboutUs } from '@/views';
+import AboutVideo from '@/views/Aboutus/Video';
+import History from '@/views/Aboutus/History';
+
 const cx = classNames.bind(styles)
 
 const index = () => {
@@ -19,9 +22,11 @@ const index = () => {
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
             </div>
-            <Section backgroundImg={banners.banner1.default.src} notPadding>
+            {/* <Section backgroundImg={banners.banner1.default.src} notPadding>
                 <div className={cx('bannerAboutUs')}></div>
-            </Section>
+            </Section> */}
+            <History />
+            <AboutVideo />
             <Section notPadding>
                 <OutTeamAboutUs />
             </Section>
