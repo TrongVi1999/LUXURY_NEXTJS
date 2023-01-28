@@ -22,7 +22,7 @@ function Menu({ className, showmenu }) {
             <Link href={'/'} className={cx('item')}>
                 blog
             </Link>
-            <Link href={'/'} className={cx('item')}>
+            <Link href={'/about-us'} className={cx('item')}>
                 about us
             </Link>
         </nav>
