@@ -5,6 +5,8 @@ import IMGbn from '@/public/images/blogbn.png';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
+import Author from '@/views/Blogdetail/Author';
+import Share from '@/views/Share/Share';
 
 const cx = classNames.bind(style);
 
@@ -26,21 +28,33 @@ const index = () => {
             <div className={cx('main')}>
                 <div className={cx('main-top')}>
                     <div className={cx('author')}>
-
+                        <Author />
                     </div>
                     <div className={cx('content')} dangerouslySetInnerHTML={{
                         __html: data.content1,
                     }}>
                     </div>
                 </div>
-                <Image src={GalleryIMG} alt='blog-travel' />
+                <Image src={data.galerry} alt='blog-travel' />
                 <div className={cx('main-bot')}>
                     <div className={cx('content')} dangerouslySetInnerHTML={{
                         __html: data.content2,
                     }}>
 
                     </div>
+                    <div className={cx('main-end')}>
+                        <div className={cx('tag-list')}>
+                            {data.hash_tag.map((d, i) =>
+                                <span key={i}>{d.toUpperCase()}</span>
+                            )}
+                        </div>
+                        <div className={cx('share-list')}>
+                            <span>Share</span>
+                            <Share />
+                        </div>
+                    </div>
                 </div>
+
 
             </div>
 
