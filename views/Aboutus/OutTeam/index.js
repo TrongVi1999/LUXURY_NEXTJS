@@ -11,12 +11,12 @@ function OutTeam() {
         <Title text={"Out Team"} align={'center'} />
         <p className={cx('title')}>United by love & help to build great brands</p>
         <Section isWrap gapBox={7} maxWidth={970} className={cx('bodyItem')}>
-            <Item avatar={avatars.avatar1} name='robert long' position='sale manager' />
-            <Item avatar={avatars.avatar2} name='robert long' position='sale manager' />
-            <Item avatar={avatars.avatar2} name='robert long' position='sale manager' />
+            <Item avatar={avatars.avatar1} name='mr. tuan' position='founder' />
+            <Item avatar={avatars.avatar2} name='jennifer rod' position={'co-founder'} />
+            <Item avatar={avatars.avatar2} name='natasha singh' position='marketing head' />
             <Item name='robert long' position='sale manager' />
-            <Item name='robert long' position='sale manager' />
-            <Item name='robert long' position='sale manager' />
+            <Item name='aaron smith' position='digital manager' />
+            <Item name='cyril roy' position='operator' />
         </Section>
     </div>);
 }

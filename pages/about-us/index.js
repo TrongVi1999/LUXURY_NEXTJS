@@ -18,13 +18,13 @@ const index = () => {
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
                     className={cx('bodyBanner')}
-                    imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
+                    titleBanner={"about vnxpedia"}
+                    textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"}
+                    imgBanner={[banners.banner4]}
+                    notSearch
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
             </div>
-            {/* <Section backgroundImg={banners.banner1.default.src} notPadding>
-                <div className={cx('bannerAboutUs')}></div>
-            </Section> */}
             <History />
             <AboutVideo />
             <Section notPadding>
