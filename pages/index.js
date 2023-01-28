@@ -12,6 +12,7 @@ import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
 import History from '@/views/Aboutus/History';
+import AboutVideo from '@/views/Aboutus/Video';
 
 const cx = classNames.bind(styles);
 
@@ -37,6 +38,7 @@ export default function Home() {
             <Hottour />
             <BlogHome />
             <History />
+            <AboutVideo />
             {/* <Feedback /> */}
         </>
     );
