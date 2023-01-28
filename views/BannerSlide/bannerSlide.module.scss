@@ -96,8 +96,11 @@
 //BannerIMG
 .container {
     width: 100%;
-    height: 30vw;
+    height: 35vw;
     position: relative;
+}
+#bg {
+    background: var(--linear-gradient-banner);
 }
 .img {
     width: 100%;
@@ -106,9 +109,13 @@
 }
 .text-img {
     position: absolute;
-    top: 40%;
+    top: 0;
+    height: 100%;
     color: white;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     h1 {
         width: 100%;
         text-align: center;
