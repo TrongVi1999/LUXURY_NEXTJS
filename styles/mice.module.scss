@@ -1,0 +1,24 @@
+.wrapper {
+    width: 100%;
+    .bannerBody {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .sectionDiff {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 9rem;
+
+        .sectionDiffCase {
+            width: 100%;
+            display: flex;
+            gap: 1rem;
+        }
+
+        &:last-child {
+            margin-bottom: 8.5rem;
+        }
+    }
+}
