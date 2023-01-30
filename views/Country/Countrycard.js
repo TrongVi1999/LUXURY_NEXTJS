@@ -13,7 +13,7 @@ const Countrycard = ({ data }) => {
             <div className={cx('text')}>
                 <h1 className={cx('title')}>{data.title.toUpperCase()}</h1>
                 <p className={cx('content')}>{data.content}</p>
-                <Link href="/" className={cx('link')}>
+                <Link href={data.link} className={cx('link')}>
                     FIND A {data.title.toUpperCase()} TOUR
                 </Link>
             </div>

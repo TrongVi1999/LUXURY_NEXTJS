@@ -73,7 +73,7 @@ const menuWayTravel = [
     },
     {
         title: 'luxury cruise',
-        to: '/way-to-travel/TYPY_CRUISE',
+        to: '/way-to-travel/TYPE_CRUISE',
     },
     {
         title: 'luxury transfer',

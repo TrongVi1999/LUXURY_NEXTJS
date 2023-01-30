@@ -7,12 +7,13 @@ import { ImFire } from 'react-icons/im';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
+import Link from 'next/link';
 
 const cx = classNames.bind(style);
 
 const Tourcard1 = ({ data }) => {
     return (
-        <div className={cx('card')}>
+        <Link href={`/tour-detail/${data.TourCode}`} className={cx('card')}>
             <div className={cx('card-img')}>
                 <img src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} />
             </div>
@@ -39,7 +40,7 @@ const Tourcard1 = ({ data }) => {
                     {ChangeTextHTML(data.Destination)}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 };
 

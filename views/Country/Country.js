@@ -13,30 +13,35 @@ const cx = classNames.bind(style);
 const data = [
     {
         img: IMG1,
+        link: '/destination/VietNam',
         title: 'Viet Nam',
         content:
             'Việt Nam – đất nước hình chữ S với những con người kiên cường, bất khuất vẫn đứng hiên ngang trước bao cuộc chiến tranh xâm lược. Với những cảnh sắc thiên nhiên tươi đẹp cùng nguồn tài nguyên thiên nhiên quý giá và dồi dào, chúng ta – những người con của đất Việt vẫn thường hay tự hào khi nhắc về Tổ Quốc, quê hương của mình.',
     },
     {
         img: IMG2,
+        link: '/destination/ThaiLand',
         title: 'Thailand',
         content:
             'Việt Nam – đất nước hình chữ S với những con người kiên cường, bất khuất vẫn đứng hiên ngang trước bao cuộc chiến tranh xâm lược. Với những cảnh sắc thiên nhiên tươi đẹp cùng nguồn tài nguyên thiên nhiên quý giá và dồi dào, chúng ta – những người con của đất Việt vẫn thường hay tự hào khi nhắc về Tổ Quốc, quê hương của mình.',
     },
     {
         img: IMG3,
+        link: '/destination/Cambodia',
         title: 'Cambodia',
         content:
             'Việt Nam – đất nước hình chữ S với những con người kiên cường, bất khuất vẫn đứng hiên ngang trước bao cuộc chiến tranh xâm lược. Với những cảnh sắc thiên nhiên tươi đẹp cùng nguồn tài nguyên thiên nhiên quý giá và dồi dào, chúng ta – những người con của đất Việt vẫn thường hay tự hào khi nhắc về Tổ Quốc, quê hương của mình.',
     },
     {
         img: IMG4,
+        link: '/destination/Myanmar',
         title: 'Myanmar',
         content:
             'Việt Nam – đất nước hình chữ S với những con người kiên cường, bất khuất vẫn đứng hiên ngang trước bao cuộc chiến tranh xâm lược. Với những cảnh sắc thiên nhiên tươi đẹp cùng nguồn tài nguyên thiên nhiên quý giá và dồi dào, chúng ta – những người con của đất Việt vẫn thường hay tự hào khi nhắc về Tổ Quốc, quê hương của mình.',
     },
     {
         img: IMG5,
+        link: '/destination/Laos',
         title: 'Laos',
         content:
             'Việt Nam – đất nước hình chữ S với những con người kiên cường, bất khuất vẫn đứng hiên ngang trước bao cuộc chiến tranh xâm lược. Với những cảnh sắc thiên nhiên tươi đẹp cùng nguồn tài nguyên thiên nhiên quý giá và dồi dào, chúng ta – những người con của đất Việt vẫn thường hay tự hào khi nhắc về Tổ Quốc, quê hương của mình.',
