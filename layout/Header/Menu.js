@@ -30,6 +30,38 @@ const menuDes = [
     }
 ]
 
+const menuWayTravel = [
+    {
+        title: 'luxury tour',
+        children: {
+            title: 'luxury tour',
+            data: [
+                {
+                    title: 'Classic Tour',
+                    to: '/',
+                },
+                {
+                    title: 'Culinary',
+                    to: '/',
+                },
+            ],
+        },
+    },
+    {
+        title: 'luxury cruise',
+        to: '/',
+    },
+    {
+        title: 'luxury transfer',
+        to: '/',
+    },
+    {
+        title: 'luxury hotel',
+        to: '/',
+    },
+
+]
+
 function Menu({ className, showmenu }) {
     const clases = cx('menu', {
         [className]: className,
@@ -38,20 +70,20 @@ function Menu({ className, showmenu }) {
 
     return (
         <nav className={clases}>
-            <Link href={'/destination'} className={cx('item')}>
+            <div className={cx('item')}>
                 destination
-                {/* <MenuHover data={menuDes} />/ */}
-            </Link>
-            <Link href={'/way-to-travel'} className={cx('item')}>
+            </div>
+            <div className={cx('item')}>
                 way to travel
-            </Link>
+                <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} />
+            </div>
 
             <Link href={'/blog-list'} className={cx('item')}>
                 Inspiration
             </Link>
-            <Link href={'/about-us'} className={cx('item')}>
+            <div className={cx('item')}>
                 about us
-            </Link>
+            </div>
         </nav>
     );
 }
