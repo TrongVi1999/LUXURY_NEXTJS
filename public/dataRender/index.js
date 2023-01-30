@@ -1,4 +1,6 @@
 import { iconInfos, avatars } from '@/public/images';
+import { banners } from '@/public/images';
+
 const infoHomeFake = [
     {
         icon: iconInfos.icon1,
@@ -81,4 +83,25 @@ const tourTagsFilter = {
     elements: ['Daily Tour', 'Ha Long', 'Ninh Binh', 'Luxury', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
 };
 
-export { categoryFillerAddress, tourTagsFilter, infoHomeFake };
+const recentPostFake = {
+    title: 'recent post',
+    elements: [
+        {
+            image: banners.banner4,
+            titlePost: 'The Unique Charm in Phong Nha The Unique Charm in Phong Nha',
+            time: 'Post on Set 27'
+        },
+        {
+            image: banners.banner4,
+            titlePost: 'The Unique Charm in Phong Nha',
+            time: 'Post on Set 27'
+        },
+        {
+            image: banners.banner4,
+            titlePost: 'The Unique Charm in Phong Nha',
+            time: 'Post on Set 27'
+        }
+    ]
+}
+
+export { categoryFillerAddress, tourTagsFilter, infoHomeFake, recentPostFake };

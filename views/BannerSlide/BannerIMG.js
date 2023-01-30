@@ -11,9 +11,9 @@ import { BsArrowRightCircle } from 'react-icons/bs'
 import Link from 'next/link';
 
 const cx = classNames.bind(style);
-const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb }) => {
+const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb, className }) => {
     return (
-        <div className={cx('container')}>
+        <div className={cx('container', { [className]: className })}>
             <Image src={img} alt='img tour vnxpedia' className={cx('img')} layout="fill" />
             <div className={cx('text-img')} id={bg}>
                 {type && <TitleLine text={type} color='black' />}
