@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import { Section } from '@/components';
 import { Title } from '@/components';
 import IMG from '@/public/images/tour1.jpg';
 import Tourcard1 from '../Tourcard/Tourcard1';
+import { Tourhot } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -22,17 +23,30 @@ const data = {
 };
 
 const Hottour = () => {
+    const [Data, setdata] = useState();
+    const CallHottour = async () => {
+        const response = await Tourhot();
+        if (response.status == 200) {
+            setdata(response.data.Object.slice(0, 6));
+        }
+    }
+    useEffect(() => {
+        CallHottour();
+    }, []);
+    console.log(Data)
     return (
         <div className={cx('container')}>
             <Title text="TOUR HIGHLIGHT" />
-            <div className={cx('tour-list')}>
-                <Tourcard1 data={data} />
-                <Tourcard1 data={data} />
-                <Tourcard1 data={data} />
-                <Tourcard1 data={data} />
-                <Tourcard1 data={data} />
-                <Tourcard1 data={data} />
-            </div>
+            {Data &&
+
+                <div className={cx('tour-list')}>
+                    {Data.map(d => (
+
+                        <Tourcard1 data={d} />
+                    ))}
+
+                </div>
+            }
         </div>
     );
 };

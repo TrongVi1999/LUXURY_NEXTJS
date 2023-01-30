@@ -18,12 +18,6 @@ const cx = classNames.bind(styles);
 
 export default function Home() {
 
-    const CallAPI = async () => {
-        const response = await Alltour();
-        console.log(response);
-    };
-    CallAPI();
-
 
     return (
         <>
