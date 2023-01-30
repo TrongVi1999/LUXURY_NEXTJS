@@ -2,7 +2,8 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
 import Blogcard3 from '../Blogcard/Blogcard3';
-import IMG from '@/public/images/blogcard3.png'
+import IMG from '@/public/images/blogcard3.png';
+import { Section } from '@/components';
 
 
 const cx = classNames.bind(style);
@@ -19,10 +20,10 @@ const data = {
 
 const Blogrecomment = () => {
     return (
-        <div className={cx('blog-recomment')}>
+        <Section isWrap notPadding className={cx('blog-recomment')} gapBox={0}>
             <Blogcard3 data={data} />
             <Blogcard3 data={data} />
-        </div>
+        </Section>
     )
 }
 
