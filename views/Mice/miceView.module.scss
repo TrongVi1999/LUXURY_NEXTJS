@@ -1,0 +1,130 @@
+.titleBody {
+    max-width: 94rem;
+    width: 95%;
+    text-align: center;
+    margin: 0 auto 5.5rem;
+
+    .title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: var(--title-color);
+        text-transform: uppercase;
+        letter-spacing: 0.15rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .des {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: var(--black);
+    }
+}
+
+.DiffItemBody {
+    width: 100%;
+    height: 43rem;
+    display: flex;
+    flex-direction: row;
+
+    .desBody {
+        width: 50%;
+        padding-right: 6.3rem;
+        background-color: var(--black);
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+
+        .title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .des {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--white);
+            width: 60%;
+            margin-left: auto;
+        }
+    }
+
+    .boxImg {
+        flex: 1;
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.DiffItemBody.DiffItemBodyLeft {
+    flex-direction: row-reverse;
+    .desBody {
+        background-color: var(--black2);
+        text-align: left;
+        padding-left: 6.3rem;
+        margin-right: 0;
+
+        .des {
+            width: 60%;
+            margin-right: auto;
+            margin-left: 0;
+        }
+    }
+}
+
+// =========== BOXIMAGEMICE ====================
+
+.boxImageMice {
+    position: relative;
+    height: 40rem;
+
+    .boxImg {
+        width: 100%;
+        height: 100%;
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .boxDes {
+        position: absolute;
+        bottom: 2rem;
+        width: 100%;
+        z-index: 1;
+
+        .title {
+            width: 60%;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-transform: uppercase;
+            margin: auto;
+            text-align: center;
+        }
+
+        .title.titleDes {
+            font-size: 1.6rem;
+            text-transform: none;
+            font-weight: 700;
+            margin: 0 3rem;
+            text-align: left;
+        }
+
+        .desBoxImg {
+            margin: 0 3rem;
+            font-size: 1.4rem;
+            color: var(--white);
+            font-weight: 500;
+            text-align: left;
+        }
+    }
+}

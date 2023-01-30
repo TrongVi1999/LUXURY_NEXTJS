@@ -1,6 +1,7 @@
 :root {
     --primary: #f5a623;
     --black: #000;
+    --black2: #2a2a2a;
     --gray: #333;
     --yellow: #ffd307;
     --light: #a9a9ad;
@@ -10,6 +11,8 @@
     --title-tour-color: #2d2d2d;
     //home
     --button: #fdd129;
+    --buttonPagination: #2d3a4b;
+    --buttonPagination-active: #cccccc;
     --box: #101010;
     --icon: #f5a623;
     --border-color: #ff9d1f;
@@ -21,6 +24,7 @@
     --menu-text: #464646;
     --linear-gradient-btn: linear-gradient(to right, #fdd727, #fa9b31);
     --linear-gradient-btn2: linear-gradient(#ffb24e, #f9cf27);
+    --linear-gradient-banner: linear-gradient(rgb(248, 248, 247, 0.8), rgba(151, 151, 150, 0), rgb(3, 3, 3, 0.2));
 
     --box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     --font-family: 'ProximaNova';
@@ -111,4 +115,7 @@ html *::-webkit-scrollbar-track {
 #act {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#bg {
+    background: var(--linear-gradient-banner);
 }
