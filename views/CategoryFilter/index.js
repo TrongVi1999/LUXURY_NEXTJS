@@ -1,22 +1,71 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import classNames from 'classnames/bind';
 import style from './filter.module.scss';
 
+import Link from 'next/link';
+
+import { banners } from '@/public/images';
+import { Input } from '@/components';
+import { AiOutlineSearch } from 'react-icons/ai';
 const cx = classNames.bind(style);
 
-function CategoryFilter({ category, price, day, tourTags, className }) {
+const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, archives, banner, className }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
+    const [activeArchive, setActiveArchive] = useState(-1);
 
     const [valuePrice, setValuePrice] = useState(50);
     const [valueDay, setValueDay] = useState(50);
+
+    const [listMonthArchives, setListMonthArchives] = useState([]);
+
+
+
+
+    console.log(listMonthArchives)
+
+    const convertTimeString = () => {
+        const listMonths = [];
+        var key = 0;
+        var today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth();
+
+        do {
+            if (month < 0) {
+
+                listMonths.push({ month: months[month + 12], year: year - 1 })
+            } else {
+                listMonths.push({ month: months[month], year: year })
+            }
+            month--;
+            key++;
+        } while (key < 5);
+
+        return listMonths;
+    }
+
+    useEffect(() => {
+        const listmonth = convertTimeString()
+        if (listmonth.length > 0) {
+            setListMonthArchives(listmonth)
+        }
+    }, [])
 
     const clases = cx('wrapper', {
         [className]: className,
     });
 
+
     return (
         <div className={clases}>
+            {
+                isSearch ? (<Input type='text' className={cx('inputSearch')} classNameInput={cx('searchFilterInput')} rightIcon={<AiOutlineSearch className={cx('icon')} />} placeholder="search" />) : null
+            }
+
             {category ? (
                 <div className={cx('boxCategory')}>
                     <h2 className={cx('title')}>{category.title}</h2>
@@ -88,6 +137,49 @@ function CategoryFilter({ category, price, day, tourTags, className }) {
                     </div>
                 </div>
             ) : null}
+
+            {
+                recentPost ? (<div className={cx('bodyBox', 'boxRecent')}>
+                    <h2 className={cx('title')}>{tourTags.title}</h2>
+                    {
+                        recentPost.elements.map((item, index) => (
+                            <Link key={index} href='/' className={cx('recentItem')}>
+                                <div className={cx('imgBox')}>
+                                    <Image src={item.image} alt="errorImgPostRecent" className={cx('img')} />
+                                </div>
+                                <div className={cx('recentInfo')}>
+                                    <p className={cx('titleRecentPost')}>{item.titlePost}</p>
+                                    <p className={cx('timeRecent')}>{item.time}</p>
+                                </div>
+                            </Link>
+                        ))
+                    }
+                </div>) : null
+            }
+
+            {
+                archives ? (<div className={cx('bodyBox', 'boxArchives')}>
+                    <h2 className={cx('title')}>{tourTags.title}</h2>
+                    {
+                        listMonthArchives.map((time, index) => (
+                            <div className={cx('archivesItem', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
+                                <span>{time.month}</span>
+                                <span>{time.year}</span>
+                            </div>
+                        ))
+                    }
+                </div>) : null
+            }
+
+            {
+                banner ? (<a className={cx('bodyBox', 'boxBanner')}>
+                    <Image src={banners.bannerBlogListFilter} alt="bannerError" className={cx('bannerImg')} />
+                    <div className={cx('content')}>
+                        <span className={cx('number')}>299</span>
+                        <p className={cx('text')}>look hot with style</p>
+                    </div>
+                </a>) : null
+            }
         </div>
     );
 }

@@ -1,0 +1,23 @@
+.bannerBlogList {
+    margin-bottom: 7rem;
+}
+
+.bodyContent {
+    .listBlogBody {
+        flex: 1;
+
+        .bodyBlogItem {
+            width: 100%;
+            border-top: 0.1rem solid var(--light2);
+
+            &:first-child {
+                border-top: none;
+            }
+        }
+    }
+
+    .boxFilter {
+        margin-top: 7rem;
+        width: 30rem;
+    }
+}
