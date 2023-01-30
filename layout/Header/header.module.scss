@@ -27,6 +27,7 @@
 
     .menubody {
         font-size: 1.4rem;
+        display: flex;
         // text-shadow: var(--menu-text) 0.1rem 0 0.8rem;
         .item {
             position: relative;
@@ -36,6 +37,8 @@
             margin: 0 2rem;
             line-height: 1.8rem;
 
+            cursor: pointer;
+
             &::before {
                 position: absolute;
                 content: '';
@@ -44,9 +47,17 @@
                 border-bottom: 0.2rem solid var(--border-color2);
                 transition: var(--transition-delay);
             }
+
+            .menuHoverBody {
+                display: none;
+            }
         }
 
         .item:hover {
+            .menuHoverBody {
+                display: block;
+            }
+
             &::before {
                 width: 100%;
                 transition: var(--transition-delay);
@@ -86,21 +97,73 @@
     }
 }
 
-.bodyMenuHover {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: black;
+.menuHover {
+    position: absolute;
+    width: 17rem;
+    top: 3rem;
+    background-color: var(--white);
     height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // display: none;
 
-    .menuHover {
+    .itemMenuHover {
+        position: relative;
+        display: block;
+        padding: 1rem 0 1rem 1.5rem;
+        background-color: var(--white);
+        color: var(--menu-text);
+        width: 100%;
+        border-bottom: 0.1rem solid var(--border-light);
+    }
+
+    .itemMenuHover:hover {
+        color: var(--primary);
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        border-top: 1rem solid transparent;
+
+        border-bottom: 1rem solid var(--white);
+        border-right: 1rem solid transparent;
+
+        border-left: 1rem solid transparent;
+        top: -1rem;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-color: transparent;
+        width: 100%;
+        height: 3rem;
+        top: -1rem;
+        left: 1rem;
+    }
+
+    .headerBack {
+        width: 100%;
         display: flex;
+        background-color: var(--white);
         align-items: center;
-        justify-content: center;
-        // display: none;
-        .itemMenuHover {
+        padding: 1rem;
+
+        .back-btn {
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+            font-size: 1.8rem;
+            margin-right: 1rem;
+
+            &:hover {
+                color: var(--primary);
+            }
         }
     }
 }
