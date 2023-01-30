@@ -1,18 +1,221 @@
 .conatiner {
+    width: 100%;
+    padding: 5% 20%;
+    background-color: rgb(245 245 245);
+}
+
+.book-title {
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 2.778;
+    text-align: center;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.21);
 }
 
 .booking-infor {
     background-color: #f4f4f4;
+    padding: 0 20%;
 }
 
 .book-crumb {
+    font-size: 22px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 2.556;
 }
 
 .book-content {
+    background-color: white;
+    padding: 20px 70px 35px 39px;
+}
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-name,
+.tour-duration,
+.tour-country {
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.tour-name-content,
+.tour-duration-content,
+.tour-country-content {
+    font-size: 16.667px;
+    font-weight: 400;
+}
+
+.line {
+    width: 96%;
+    background-color: rgb(61, 50, 41);
+    left: 414px;
+    top: 859px;
+    height: 1px;
+    margin: 32px 70px 25px 35px;
+}
+
+.content-mid {
+    width: 1170px;
 }
 
 .item-form {
+    display: flex;
+    margin-bottom: 25px;
 }
 
 .label-booking {
+    font-size: 16px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+    width: 35%;
+}
+
+.book-date {
+    border-radius: 4px;
+    padding: 5px !important;
+    border: 1px solid #b1b1b1;
+    width: 388px !important;
+}
+
+.age-option {
+    display: flex;
+    flex-wrap: wrap;
+    width: 44%;
+}
+
+.age-option div {
+    width: 35%;
+}
+
+.age-option div:nth-child(1) {
+    margin: 0 12px 12px 0;
+}
+
+.age-option div:nth-child(2) {
+    margin: 0 12px 12px 0;
+}
+
+.age-option div:nth-child(4) {
+    margin: 0 0 0 12px;
+}
+
+.book-age {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 5px !important;
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+}
+
+.book-hotel {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.cus-infor {
+    display: flex;
+    flex-direction: column;
+}
+
+.cus-name {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.sex {
+    display: flex;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.form-control {
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.sex-m {
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.book-national {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.cus-mail {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.cus-phone {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.book-note {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    height: 100px;
+    padding: 5px !important;
+}
+
+.our-services {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    width: 388px !important;
+    padding: 5px !important;
+}
+
+.content-bot {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #ffc600;
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+    padding: 8px 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.tour-same {
+}
+
+.tour-same-title {
+    font-size: 25px;
+    font-family: 'Montserrat';
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    line-height: 1;
+    position: absolute;
+    left: 372.036px;
+    top: 2036.859px;
 }
