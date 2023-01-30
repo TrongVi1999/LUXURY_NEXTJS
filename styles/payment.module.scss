@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+}
+.main {
+    width: 100%;
+    padding: 5% 20%;
+    h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 3%;
+        transition: 0.4s;
+    }
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--light);
+    h6 {
+        font-size: 16px;
+        margin: 0 3%;
+        padding-bottom: 30px;
+    }
+}
+.p-bold {
+    font-weight: bold;
+}
+.content {
+    p {
+        margin-bottom: 20px;
+        span {
+            font-weight: bold;
+        }
+    }
+    h6 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+.act {
+    border-bottom: 2px solid var(--border-color2);
+}

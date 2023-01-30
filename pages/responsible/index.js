@@ -15,7 +15,7 @@ const cx = classNames.bind(style);
 const Responsible = () => {
     return (
         <div className={cx('container')}>
-            <BannerIMG img={anh1} title='OUR FOCUS ON SUSTAINABILITY' />
+            <BannerIMG img={anh1} title='OUR FOCUS ON SUSTAINABILITY' bg='bg' />
             <div className={cx('text1')}>
                 <p>At Black Tomato, we believe in the positive influence travel can have. Not just for individuals and their experiences but for the destinations that receive them and the world as a whole.
                     <br />

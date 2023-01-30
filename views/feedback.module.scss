@@ -33,20 +33,29 @@
         width: 55%;
     }
     .text{
-        width: 45%;
+        width: 55%;
     }
 }
 @media only screen and (max-width: 1400px) {
     .container{
-        width: 60%;
+        width: 63%;
     }
     .text{
-        width: 50%;
+        width: 55%;
     }
 }
 @media only screen and (max-width: 1200px) {
     .container{
-        width: 70%;
+        width: 65%;
+    }
+
+    .img{
+        margin-left: 1rem;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .container{
+        width: 72%;
     }
 
     .img{
@@ -57,16 +66,20 @@
     .container{
         width: 80%;
     }
-
+    // .text{
+    //     width: 100%;
+    // }
     .img{
-        margin-left: 1rem;
+        margin-left: 0.5rem;
+        width: 50%;
     }
 }
 @media only screen and (max-width: 700px) {
     .container{
         width: 90%;
     }
-    .img{
-        margin-left: 1rem;
+    .img {
+        width: 58%;
+        margin-right: 2rem;
     }
 }
