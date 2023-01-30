@@ -3,7 +3,32 @@ import Link from 'next/link';
 import classNames from 'classnames/bind';
 import style from './header.module.scss';
 
+import MenuHover from './MenuHover';
+
 const cx = classNames.bind(style);
+
+const menuDes = [
+    {
+        title: 'VietNam',
+        to: '/',
+    },
+    {
+        title: 'ThaiLand',
+        to: '/',
+    },
+    {
+        title: 'Myanmar',
+        to: '/',
+    },
+    {
+        title: 'Laos',
+        to: '/',
+    },
+    {
+        title: 'Cambodia',
+        to: '/',
+    }
+]
 
 function Menu({ className, showmenu }) {
     const clases = cx('menu', {
@@ -15,11 +40,13 @@ function Menu({ className, showmenu }) {
         <nav className={clases}>
             <Link href={'/destination'} className={cx('item')}>
                 destination
+                {/* <MenuHover data={menuDes} />/ */}
             </Link>
             <Link href={'/way-to-travel'} className={cx('item')}>
                 way to travel
             </Link>
-            <Link href={'/'} className={cx('item')}>
+
+            <Link href={'/blog-list'} className={cx('item')}>
                 Inspiration
             </Link>
             <Link href={'/about-us'} className={cx('item')}>
