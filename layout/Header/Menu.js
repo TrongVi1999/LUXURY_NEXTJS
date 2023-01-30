@@ -20,7 +20,7 @@ function Menu({ className, showmenu }) {
                 way to travel
             </Link>
             <Link href={'/'} className={cx('item')}>
-                blog
+                Inspiration
             </Link>
             <Link href={'/about-us'} className={cx('item')}>
                 about us
