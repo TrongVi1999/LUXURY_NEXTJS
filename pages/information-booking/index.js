@@ -2,9 +2,10 @@ import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import IMG from '@/styles/images/banner9.png'
+import IMG from '@/public/images/banner/banner9.png'
 import { Input } from '@/components';
 import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
+import { useForm } from "react-hook-form";
 
 const cx = classNames.bind(style);
 
@@ -22,6 +23,15 @@ const data = {
 };
 
 function index() {
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        reset,
+        formState: { errors },
+    } = useForm();
+
     return (
         <div className={cx('container')}>
             <BannerIMG img={IMG} title='U N S E E N  V I E T N A M' bg='bg' className={cx('book-title')} />
@@ -208,7 +218,7 @@ function index() {
             </div>
             <div className={cx('tour-same')}>
                 <span className={cx('tour-same-title')}>TOUR TƯƠNG TỰ</span>
-                <Tourrecomment data={data} />
+                {/* <Tourrecomment data={data} /> */}
             </div>
         </div>
     );
