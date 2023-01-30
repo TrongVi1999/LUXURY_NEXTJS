@@ -1,0 +1,68 @@
+//blogcard3
+.blogcard3 {
+    width: 50%;
+    height: 35vw;
+    position: relative;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .blog-infor {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .blog-type {
+            position: relative;
+            width: fit-content;
+            .text-line {
+                width: 100%;
+                height: 4px;
+                background-color: var(--yellow);
+                position: relative;
+                top: 12px;
+            }
+            .text-type {
+                font-size: 18px;
+                font-weight: bold;
+                letter-spacing: 3px;
+                position: relative;
+            }
+        }
+        .blog-title {
+            width: 100%;
+            padding: 20px 25%;
+            text-align: center;
+            text-shadow: 0 0 20px #000;
+        }
+        .blog-by {
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px #000;
+            span {
+                font-weight: bold;
+            }
+        }
+        .day {
+            font-size: 60px;
+            font-weight: bold;
+            text-shadow: 0 0 20px #000;
+        }
+        .num-cm {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 10px;
+            text-shadow: 0 0 20px #000;
+            svg {
+                color: var(--yellow);
+            }
+        }
+    }
+}

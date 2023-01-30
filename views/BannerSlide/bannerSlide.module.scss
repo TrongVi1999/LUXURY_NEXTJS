@@ -116,6 +116,7 @@
 .text-img {
     position: absolute;
     top: 0;
+    padding: 0 25%;
     height: 100%;
     color: white;
     width: 100%;
@@ -129,5 +130,8 @@
         letter-spacing: 8px;
         font-size: 30px;
         font-weight: 2000;
+    }
+    .text-des {
+        text-align: center;
     }
 }
