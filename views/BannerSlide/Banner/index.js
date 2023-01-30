@@ -6,7 +6,6 @@ import style from './banner.module.scss';
 const cx = classNames.bind(style);
 
 const Banner = ({ image, className, title, description }) => {
-    console.log('img', image);
     return (
         <>
             {/* <Image

@@ -11,11 +11,20 @@ import { ItemInfoHome, BannerSlide } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
+import { Alltour } from './api/CallAPI';
 
 
 const cx = classNames.bind(styles);
 
 export default function Home() {
+
+    const CallAPI = async () => {
+        const response = await Alltour();
+        console.log(response);
+    };
+    CallAPI();
+
+
     return (
         <>
             <Head>
