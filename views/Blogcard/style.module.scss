@@ -1,7 +1,10 @@
 //blogcard3
 .blogcard3 {
-    width: 50%;
+    flex: 1;
+    min-width: 35rem;
+    // width: 50%;
     height: 35vw;
+    min-height: 40rem;
     position: relative;
     img {
         width: 100%;
@@ -19,23 +22,6 @@
         justify-content: center;
         align-items: center;
 
-        .blog-type {
-            position: relative;
-            width: fit-content;
-            .text-line {
-                width: 100%;
-                height: 4px;
-                background-color: var(--yellow);
-                position: relative;
-                top: 12px;
-            }
-            .text-type {
-                font-size: 18px;
-                font-weight: bold;
-                letter-spacing: 3px;
-                position: relative;
-            }
-        }
         .blog-title {
             width: 100%;
             padding: 20px 25%;
