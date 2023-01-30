@@ -1,0 +1,17 @@
+.title-line {
+    position: relative;
+    width: fit-content;
+    .text-line {
+        width: 100%;
+        height: 4px;
+        background-color: var(--yellow);
+        position: relative;
+        top: 12px;
+    }
+    .text-type {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        position: relative;
+    }
+}

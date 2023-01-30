@@ -21,6 +21,7 @@ const banners = {
     banner6: require('./banner/banner6.jpg'),
     banner7: require('./banner/banner7.jpg'),
     banner8: require('./banner/banner8.jpg'),
+    bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
 };
 
 const iconInfos = {

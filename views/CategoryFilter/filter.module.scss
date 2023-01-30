@@ -1,7 +1,31 @@
 .wrapper {
     padding: 0 2rem;
+
+    .inputSearch {
+        margin-bottom: 7rem;
+    }
+
+    .searchFilterInput {
+        margin-left: 1.5rem;
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+        margin-right: 1rem;
+
+        &::placeholder {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--black);
+        }
+
+        &::before {
+            display: none !important;
+        }
+    }
+
     .boxCategory {
-        margin: 1rem 0;
+        margin-bottom: 6rem;
+
         .itemCategory {
             display: flex;
             padding: 1rem 0;
@@ -42,6 +66,8 @@
 
     .boxTourTags {
         width: 100%;
+        margin-bottom: 6rem;
+
         .boxTourFil {
             width: 100%;
             display: flex;
@@ -81,57 +107,225 @@
     }
 }
 
-.box {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
+.boxPrice-Day {
+    margin-bottom: 6rem;
 
-    .text {
-        display: block;
-        font-size: 1.4rem;
-        color: var(--menu-text);
+    .box {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        .text {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--menu-text);
+        }
+    }
+    .boxRange {
+        position: relative;
+        display: flex;
+        width: 100%;
+        margin: 2rem 0;
+        height: 0.3rem;
+
+        .rangeFilter {
+            position: absolute;
+            width: 100%;
+            -webkit-appearance: none;
+            height: 100%;
+            background: #d3d3d3;
+            outline: none;
+            -webkit-transition: 0.2s;
+            transition: opacity 0.2s;
+            background-color: transparent;
+        }
+
+        .rangeFilter::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 100%;
+            background-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .rangeFilterColor {
+            height: 100%;
+            width: 100%;
+
+            &::-webkit-progress-bar {
+                background-color: var(--light);
+            }
+
+            &::-webkit-progress-value {
+                background-color: var(--primary);
+            }
+        }
     }
 }
 
-.boxRange {
-    position: relative;
-    display: flex;
+.bodyBox {
+    margin-bottom: 6rem;
+}
+
+.boxRecent {
     width: 100%;
-    margin: 2rem 0;
-    height: 0.3rem;
 
-    .rangeFilter {
-        position: absolute;
+    .recentItem {
         width: 100%;
-        -webkit-appearance: none;
-        height: 100%;
-        background: #d3d3d3;
-        outline: none;
-        -webkit-transition: 0.2s;
-        transition: opacity 0.2s;
-        background-color: transparent;
-    }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    .rangeFilter::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 1rem;
-        height: 1rem;
-        border-radius: 100%;
-        background-color: var(--primary);
-        cursor: pointer;
-    }
+        padding: 2rem 1.5rem;
+        border-bottom: 0.1rem solid var(--buttonPagination);
+        .imgBox {
+            width: 7rem;
+            height: 7rem;
+            overflow: hidden;
 
-    .rangeFilterColor {
-        height: 100%;
-        width: 100%;
-
-        &::-webkit-progress-bar {
-            background-color: var(--light);
+            .img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                transition: var(--transition-delay);
+            }
         }
 
-        &::-webkit-progress-value {
-            background-color: var(--primary);
+        .recentInfo {
+            flex: 1;
+            margin-left: 2rem;
+
+            .titleRecentPost {
+                height: 3rem;
+                font-size: 1.2rem;
+                color: var(--menu-text);
+                font-weight: 400;
+                margin-bottom: 1.3rem;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .timeRecent {
+                font-size: 1.2rem;
+                color: var(--buttonPagination);
+                font-weight: 600;
+            }
+        }
+
+        &:hover {
+            .titleRecentPost {
+                color: var(--primary);
+            }
+
+            .img {
+                transform: scale(1.2);
+                transition: var(--transition-delay);
+            }
+        }
+    }
+}
+
+.boxArchives {
+    width: 100%;
+
+    .archivesItem {
+        position: relative;
+        padding: 1rem 0 1rem 1.5rem;
+
+        border-bottom: 0.1rem solid var(--light);
+
+        span {
+            font-size: 1.4rem;
+            color: var(--buttonPagination);
+            font-weight: 400;
+            text-transform: capitalize;
+
+            &:first-child {
+                padding-right: 1rem;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            span {
+                color: var(--primary);
+            }
+
+            &::before {
+                border-left: 0.3rem solid var(--primary);
+            }
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            border-top: 0.3rem solid transparent;
+            border-bottom: 0.3rem solid transparent;
+
+            border-left: 0.3rem solid var(--buttonPagination);
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .archivesItem.active {
+        span {
+            color: var(--primary);
+        }
+
+        &::before {
+            border-left: 0.3rem solid var(--primary);
+        }
+    }
+}
+
+.boxBanner {
+    position: relative;
+    width: 100%;
+    height: 36rem;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+
+    .bannerImg {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        transition: var(--transition-delay);
+    }
+
+    &:hover {
+        .bannerImg {
+            transform: scale(1.2);
+            transition: var(--transition-delay);
+        }
+    }
+
+    .content {
+        position: absolute;
+        z-index: 10;
+        bottom: 6rem;
+        left: 4.5rem;
+
+        width: 40%;
+        .number {
+            font-size: 2.2rem;
+            color: var(--buttonPagination);
+            font-weight: 600;
+        }
+
+        .text {
+            color: var(--yellow);
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 2rem;
         }
     }
 }
@@ -158,6 +352,7 @@
     text-transform: uppercase;
     margin-left: 1rem;
     font-weight: 600;
+    margin-bottom: 2rem;
 
     &::before {
         position: absolute;
