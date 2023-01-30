@@ -7,6 +7,8 @@ import { ImFire } from 'react-icons/im';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 
+import Link from 'next/link';
+
 const cx = classNames.bind(style);
 
 const Tourcard2 = ({ data }) => {
@@ -46,7 +48,7 @@ const Tourcard2 = ({ data }) => {
                         </p>
                     ))}
                 </div>
-                <button className={cx('book')}>BOOK THIS TOUR</button>
+                <Link href={'/tour-detail/FAMILY02'} className={cx('book')}>BOOK THIS TOUR</Link>
             </div>
             <div className={cx('salesticky')}>
                 <p className={cx('salenumber')}>

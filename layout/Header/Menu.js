@@ -10,23 +10,27 @@ const cx = classNames.bind(style);
 const menuDes = [
     {
         title: 'VietNam',
-        to: '/',
+        to: '/destination/VietNam',
     },
     {
         title: 'ThaiLand',
-        to: '/',
+        to: '/destination/ThaiLand',
+
     },
     {
         title: 'Myanmar',
-        to: '/',
+        to: '/destination/Myanmar',
+
     },
     {
         title: 'Laos',
-        to: '/',
+        to: '/destination/Laos',
+
     },
     {
         title: 'Cambodia',
-        to: '/',
+        to: '/destination/Cambodia',
+
     }
 ]
 
@@ -38,18 +42,38 @@ const menuWayTravel = [
             data: [
                 {
                     title: 'Classic Tour',
-                    to: '/',
+                    to: '/way-to-travel/TYPE_CLASSIC',
                 },
                 {
                     title: 'Culinary',
-                    to: '/',
+                    to: '/way-to-travel/TYPE_CULINARY',
+                },
+                {
+                    title: 'Beach Break',
+                    to: '/way-to-travel/TYPE_BEACHBREAK',
+                },
+                {
+                    title: 'Adventure',
+                    to: '/way-to-travel/TYPE_ADVENTURE',
+                },
+                {
+                    title: 'Heritage',
+                    to: '/way-to-travel/TYPE_HERITAGE',
+                },
+                {
+                    title: 'Wellness',
+                    to: '/way-to-travel/TYPE_WELLNESS',
+                },
+                {
+                    title: 'MICE',
+                    to: '/mice',
                 },
             ],
         },
     },
     {
         title: 'luxury cruise',
-        to: '/',
+        to: '/way-to-travel/TYPY_CRUISE',
     },
     {
         title: 'luxury transfer',
@@ -59,7 +83,21 @@ const menuWayTravel = [
         title: 'luxury hotel',
         to: '/',
     },
+]
 
+const menuAbouUs = [
+    {
+        title: 'About Us',
+        to: '/about-us'
+    },
+    {
+        title: 'Payment',
+        to: '/payment'
+    },
+    {
+        title: 'Responsible',
+        to: '/responsible'
+    }
 ]
 
 function Menu({ className, showmenu }) {
@@ -72,6 +110,7 @@ function Menu({ className, showmenu }) {
         <nav className={clases}>
             <div className={cx('item')}>
                 destination
+                <MenuHover items={menuDes} className={cx('menuHoverBody')} />
             </div>
             <div className={cx('item')}>
                 way to travel
@@ -83,6 +122,8 @@ function Menu({ className, showmenu }) {
             </Link>
             <div className={cx('item')}>
                 about us
+                <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} />
+
             </div>
         </nav>
     );
