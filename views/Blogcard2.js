@@ -42,8 +42,7 @@ const Blogcard2 = ({ className }) => {
                         Morbi volutpat leo iaculis elit vehicula, eu convallis magna finibus. Suspendisse tristique ullamcorper erat a elementum. Cras eget elit non nunc aliquam ullamcorper quis sed metus. Lorem ipsum dolor sit amet</p>
                 </div>
                 <div className={cx('btn')}>
-
-                    <Button to={'/'} className={cx('readmore')}>READ MORE</Button>
+                    <Button to={'/blog-detail'} className={cx('readmore')}>READ MORE</Button>
                 </div>
 
             </div>

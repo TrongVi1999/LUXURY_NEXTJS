@@ -22,8 +22,6 @@ function Buttom({
 }) {
     let Comp = 'buttom';
 
-    console.log('comp', Comp)
-
     const props = {
         onClick,
         ...passProps,

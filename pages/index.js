@@ -11,11 +11,14 @@ import { ItemInfoHome, BannerSlide } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
+import { Alltour } from './api/CallAPI';
 
 
 const cx = classNames.bind(styles);
 
 export default function Home() {
+
+
     return (
         <>
             <Head>

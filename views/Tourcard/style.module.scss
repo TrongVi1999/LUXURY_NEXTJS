@@ -3,15 +3,24 @@
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-bottom: 1.8vw;
+    display: flex;
+    flex-direction: column;
+}
+.card-img {
+    width: 100%;
+    height: 15vw;
+    min-height: 180px;
 }
 .img {
     width: 100%;
-    height: 15vw;
+    height: 100%;
     object-fit: cover;
-    min-height: 180px;
 }
 .infor {
     padding: 10px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     p {
         padding: 5px 0;
         color: gray;
@@ -22,6 +31,7 @@
     font-size: 15px;
     margin-bottom: 5px;
     letter-spacing: 2px;
+    flex: 1;
 }
 .rating {
     color: rgb(209, 148, 27);

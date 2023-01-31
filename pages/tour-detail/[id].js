@@ -50,7 +50,11 @@ const index = () => {
     return (
         <div className={cx('container')}>
             {Tourdata && <div className={cx('main')}>
-                <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.BannerImg}`} title={Tourdata.TourName} />
+                {Tourdata.BannerImg ?
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.BannerImg}`} title={Tourdata.TourName} bg='bg' /> :
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} title={Tourdata.TourName} bg='bg' />
+                }
+
                 <div className={cx('main-infor')}>
                     <div className={cx('crumb-cost')}>
                         <Crumb text={Tourdata.TourName} />
@@ -64,7 +68,7 @@ const index = () => {
                     <Imglist data={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} />
                     <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} />
                     <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
-                    <Tourrecomment data={data} />
+                    <Tourrecomment data={Tourdata} />
                 </div>
             </div>}
         </div>

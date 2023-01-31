@@ -6,37 +6,41 @@ import { AiFillStar } from 'react-icons/ai';
 import { ImFire } from 'react-icons/im';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
+import ChangeTextHTML from '@/hook/ChangetextHTML';
+import Link from 'next/link';
 
 const cx = classNames.bind(style);
 
 const Tourcard1 = ({ data }) => {
     return (
-        <div className={cx('card')}>
-            <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
+        <Link href={`/tour-detail/${data.TourCode}`} className={cx('card')}>
+            <div className={cx('card-img')}>
+                <img src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} />
+            </div>
             <div className={cx('infor')}>
-                <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
+                <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
                         <AiFillStar /> 4.8
                     </span>
                     <span className={cx('ratecount')}>
-                        ({data.ratecount} rate) | {data.book} book
+                        (1000 rate) | 1000 book
                     </span>
                 </p>
 
                 <p className={cx('length')}>
-                    <BsCalendarWeek /> {data.long} Day
+                    <BsCalendarWeek /> {data.DETAIL.length} Day
                 </p>
                 <p className={cx('price')}>
-                    <span className={cx('price1')}>$ {(data.price * data.sale) / 100}</span> <ImFire />${' '}
-                    <span className={cx('price2')}>{data.price}</span>
+                    <span className={cx('price1')}>$ {1500 - ((1500 * data.Discount) / 100)}</span> <ImFire />${' '}
+                    <span className={cx('price2')}>1500</span>
                 </p>
                 <p className={cx('place')}>
                     <SlLocationPin />
-                    {data.destination}
+                    {ChangeTextHTML(data.Destination)}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 };
 
