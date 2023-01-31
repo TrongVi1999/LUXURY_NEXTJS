@@ -71,7 +71,7 @@ const index = () => {
                     }}>
                     </div>
                 </div>
-                <Image src={data.galerry} alt='blog-travel' />
+                <Image src={data.galerry} alt='blog-travel' className={cx('img-banner')} />
                 <div className={cx('main-bot')}>
                     <div className={cx('content')} dangerouslySetInnerHTML={{
                         __html: data.content2,

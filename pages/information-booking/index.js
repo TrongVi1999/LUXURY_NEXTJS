@@ -216,10 +216,10 @@ function index() {
                     </div>
                 </div>
             </div>
-            <div className={cx('tour-same')}>
+            {/* <div className={cx('tour-same')}>
                 <span className={cx('tour-same-title')}>TOUR TƯƠNG TỰ</span>
-                {/* <Tourrecomment data={data} /> */}
-            </div>
+                <Tourrecomment data={data} />
+            </div> */}
         </div>
     );
 }
