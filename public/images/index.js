@@ -11,7 +11,7 @@ const avatars = {
 
 const banners = {
     banner1: require('./banner/banner-vinpearl.png'),
-    banner2: require('./banner/doi-cat-mui-ne-phan-thiet-dep-02.jpg'),
+    banner2: require('./banner/bloglist.png'),
     banner3: require('./banner/kinh-nghiem-du-lich-da-nang-1.jpg'),
     phuquoc: require('./banner/phuquoc.jpg'),
     thuyendep: require('./banner/thuyendep.jpg'),
