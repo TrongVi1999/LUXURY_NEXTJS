@@ -33,6 +33,17 @@
     text-justify: inter-word;
     color: var(--light2);
 }
+
+// Contact Us
+.bodyContactUs {
+    width: 100%;
+    max-width: 1170px;
+
+    .itemContact {
+        color: white;
+    }
+}
+
 @media only screen and (max-width: 1200px) {
     .container-history {
         padding: 5% 15%;

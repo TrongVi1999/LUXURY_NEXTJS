@@ -7,7 +7,7 @@ import { Button } from '@/components';
 import classNames from 'classnames/bind';
 import style from './header.module.scss';
 
-
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 const cx = classNames.bind(style);
 
 function MenuHover({ className, showmenu, items, isScroll }) {
@@ -19,12 +19,11 @@ function MenuHover({ className, showmenu, items, isScroll }) {
         return current.data.map((item, index) => {
             const isParent = !!item.children
             return (
-                isParent ? (<div onClick={() => setHistoryMenu((prev) => [...prev, item.children])} className={cx('itemMenuHover')}>{item.title}</div>)
+                isParent ? (<div onClick={() => setHistoryMenu((prev) => [...prev, item.children])} className={cx('itemMenuHover', 'itemIsChildren')}>{item.title} <MdOutlineKeyboardArrowDown className={cx('icon')} /></div>)
                     :
                     <Link key={index} href={item.to} className={cx('itemMenuHover')}>{item.title}</Link>
             )
         })
-
     }
 
 
