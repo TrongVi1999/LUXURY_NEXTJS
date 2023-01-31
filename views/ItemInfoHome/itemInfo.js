@@ -18,7 +18,6 @@ function ItemInfo({ data, id }) {
 
 
                 {newtitle.length == 2 ? <h2 className={cx('title')}>{newtitle[0]}<br />{newtitle[1]}</h2> : <h2 className={cx('title')}>{newtitle[0]}</h2>}
-
             </div>
             <p className={cx('content')}>{data.content}</p>
         </div>
