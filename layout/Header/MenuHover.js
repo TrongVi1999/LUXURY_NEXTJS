@@ -10,8 +10,7 @@ import style from './header.module.scss';
 
 const cx = classNames.bind(style);
 
-function MenuHover({ className, showmenu, items }) {
-
+function MenuHover({ className, showmenu, items, isScroll }) {
     const [historyMenu, setHistoryMenu] = useState([{ data: items }])
 
     const current = historyMenu[historyMenu.length - 1]
@@ -32,6 +31,7 @@ function MenuHover({ className, showmenu, items }) {
     const clases = cx('menuHover', {
         [className]: className,
         active: showmenu,
+        isScroll: isScroll,
     });
 
     return (
