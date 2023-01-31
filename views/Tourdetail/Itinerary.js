@@ -41,6 +41,8 @@ const Itinerary = ({ description, detail }) => {
                         )}
                     </div>
                 </div>
+                <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
+                <button className={cx('btn-design')}>DESIGN YOUR TOUR</button>
             </div>
         </div>
     )

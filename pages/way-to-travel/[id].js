@@ -172,12 +172,13 @@ const index = () => {
 
     return (
         <div className={cx('wrapper')}>
-            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} />
+            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} />
 
             <Title text={'luxury tour'} align={'center'} className={cx('titleTravel')} />
             <Section maxWidth={1170}>
-                <div className={cx('boxFilter')}>
-
+                <div className={cx('sort')}>
+                    <button>Sort by</button>
+                    <button>Filter by</button>
                 </div>
                 <Tourcard2 data={fakeData[0]} />
             </Section>
@@ -187,7 +188,6 @@ const index = () => {
                     {
                         Data.slice(firstIndex, lastIndex).map((data, index) => (
                             <Tourcard1 data={data} key={index} />
-                            // <p>gggggg</p>
                         ))
                     }
 

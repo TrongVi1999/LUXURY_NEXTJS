@@ -203,7 +203,12 @@
         height: auto;
     }
 }
-
+.btn-design {
+    padding: 15px 20px;
+    background-color: #fdd223;
+    font-weight: bold;
+    margin-top: 20px;
+}
 //Tourrecomment
 .tour-list {
     display: flex;
@@ -284,5 +289,8 @@
         span {
             font-size: 10px;
         }
+    }
+    .btn-design {
+        font-size: 12px;
     }
 }
