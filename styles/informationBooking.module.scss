@@ -218,6 +218,193 @@
     cursor: pointer;
 }
 
+@media only screen and (min-width: 1185px) and (max-width: 1350px) {
+    .book-crumb {
+        font-size: 22px;
+        width: 1050px;
+        margin: 0 auto;
+    }
+
+    .book-content {
+        width: 1050px;
+        margin: 0 auto;
+    }
+
+    .content-mid {
+        width: 1050px;
+    }
+
+    .item-form div {
+        width: 590px;
+    }
+
+    .book-note {
+        width: 560px;
+    }
+
+    .age-option div {
+        width: 235px;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1184px) {
+    .book-crumb {
+        font-size: 22px;
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    .book-content {
+        width: 900px;
+        margin: 0 auto;
+    }
+
+    .content-mid {
+        width: 795px;
+    }
+
+    .label-booking {
+        width: 340px;
+    }
+
+    .item-form div {
+        width: 455px;
+    }
+
+    .book-note {
+        width: 425px;
+    }
+
+    .age-option div {
+        width: 185px;
+    }
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1001px) {
+    .book-crumb {
+        font-size: 22px;
+        width: 650px;
+        margin: 0 auto;
+    }
+
+    .book-content {
+        width: 650px;
+        margin: 0 auto;
+    }
+
+    .content-mid {
+        width: 600px;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 210px;
+    }
+
+    .item-form div {
+        width: 360px;
+    }
+
+    .book-note {
+        width: 330px;
+    }
+
+    .age-option div {
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 851px) {
+    .book-crumb {
+        font-size: 22px;
+        width: 482px;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+    }
+
+    .book-content {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .content-mid {
+        width: 580px;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 225px;
+    }
+
+    .item-form div {
+        width: 305px;
+    }
+
+    .book-note {
+        width: 275px;
+    }
+
+    .age-option div {
+        width: 141px;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 425px) {
+    .book-crumb {
+        font-size: 22px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: #f4f4f4;
+    }
+
+    .book-content {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .content-header {
+        margin-left: 18px;
+    }
+
+    .line {
+        width: 85%;
+    }
+
+    .content-mid {
+        width: 350px;
+        margin: 0 70px 35px 18px;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 225px;
+    }
+
+    .cus-infor div {
+        width: 184px !important;
+    }
+
+    .sex {
+        margin-left: 0;
+    }
+
+    .item-form div {
+        width: 255px;
+    }
+
+    .book-note {
+        width: 212px;
+    }
+
+    .age-option div {
+        width: 108px;
+    }
+
+    .age-option div:nth-child(4) {
+        margin: 6px 0 0 0px;
+    }
+}
+
 .tour-same {
 }
 
