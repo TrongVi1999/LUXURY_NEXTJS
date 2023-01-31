@@ -10,6 +10,7 @@ import Itinerary from '@/views/Tourdetail/Itinerary';
 import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
 import { useRouter } from "next/router";
 import IMG from '@/public/images/tour1.jpg';
+import Booking from '@/views/Tourdetail/Booking';
 
 const cx = classNames.bind(style);
 
@@ -29,6 +30,10 @@ const data = {
 const index = () => {
     const router = useRouter();
     const [Tourdata, setTourdata] = useState();
+    const [Book, setBook] = useState(true);
+    const handleBooking = () => {
+        setBook(false);
+    }
 
     const callApi = async () => {
         const response = await axios({
@@ -55,21 +60,30 @@ const index = () => {
                     <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} title={Tourdata.TourName} bg='bg' />
                 }
 
-                <div className={cx('main-infor')}>
-                    <div className={cx('crumb-cost')}>
-                        <Crumb text={Tourdata.TourName} />
-                        <div className={cx('cost')}>
-                            <sup>From</sup>
-                            <p>$1000</p>
-                            <span>/PAX</span>
-                        </div>
-                    </div>
 
-                    <Imglist data={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} />
-                    <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} />
-                    <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
-                    <Tourrecomment data={Tourdata} />
-                </div>
+                {Book ?
+                    <div className={cx('main-infor')}>
+
+                        <div className={cx('crumb-cost')}>
+                            <Crumb text={Tourdata.TourName} />
+                            <div className={cx('cost')}>
+                                <sup>From</sup>
+                                <p>$1000</p>
+                                <span>/PAX</span>
+                            </div>
+                        </div>
+
+                        <Imglist data={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={handleBooking} />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
+
+                    </div> : <Booking />
+
+                }
+                <Tourrecomment data={Tourdata} />
+
+
+
             </div>}
         </div>
     )
