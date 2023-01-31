@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import style from '@/styles/destinations.module.scss';
 import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import IMG from '@/public/images/tour1.jpg';
+import { useRouter } from 'next/router';
 
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
@@ -23,9 +24,10 @@ const data = {
 };
 
 function Destimation() {
+    const router = useRouter();
     return (
         <div className={cx('wrapper')}>
-            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} />
+            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
             <div className={cx('container')}>
                 <div className={cx('list')}>
                     <div className={cx('sort')}>

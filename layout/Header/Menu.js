@@ -9,7 +9,7 @@ const cx = classNames.bind(style);
 
 const menuDes = [
     {
-        title: 'VietNam',
+        title: 'Viet Nam',
         to: '/destination/VietNam',
     },
     {
