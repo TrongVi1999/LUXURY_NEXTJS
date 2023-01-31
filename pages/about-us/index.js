@@ -46,11 +46,6 @@ const index = () => {
                             < Image src={icon3} />
                         </div>
                         <h2>Contacts info</h2>
-
-
-
-                <ItemInfoHome className={cx('boxContact')} />
-
                         <p>+ 84 901591111</p>
                     </div>
                 </div>
