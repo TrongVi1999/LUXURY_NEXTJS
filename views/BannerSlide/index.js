@@ -36,8 +36,6 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                     </SwiperSlide>
                 ))}
                 <div className={cx('sheaderBox')}>
-                    {/* <p className={cx('text')}>Luxury tailor-made tours to</p> */}
-                    {/* <h1 className={cx('titleHome')}>south asian</h1> */}
                     {
                         textTop && <p className={cx('text')}>{textTop}</p>
                     }

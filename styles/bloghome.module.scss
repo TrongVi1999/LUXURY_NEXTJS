@@ -79,3 +79,20 @@
         padding: 5% 10%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .grid-blog {
+        // display: flex;
+        // flex-direction: column;
+
+        .grid1 {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid2 {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
