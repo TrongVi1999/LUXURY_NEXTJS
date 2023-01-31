@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 
 const cx = classNames.bind(style);
 
-function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, className }) {
+function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, className, classNameTitle }) {
     return (
         <>
             <Swiper
@@ -41,7 +41,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                     {
                         textTop && <p className={cx('text')}>{textTop}</p>
                     }
-                    <h1 className={cx('titleHome')}>{titleBanner}</h1>
+                    <h1 className={cx('titleHome', { [classNameTitle]: classNameTitle })}>{titleBanner}</h1>
                     {
                         textBottom && <p className={cx('textBottom')}>{textBottom}</p>
                     }
