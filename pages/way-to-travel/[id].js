@@ -183,7 +183,7 @@ const index = () => {
                 <Tourcard2 data={fakeData[0]} />
             </Section>
 
-            {Data.length &&
+            {Data.length > 0 &&
                 <Section maxWidth={1170} isWrap gapBox={3.2}>
                     {
                         Data.slice(firstIndex, lastIndex).map((data, index) => (
