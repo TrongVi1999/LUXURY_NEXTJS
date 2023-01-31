@@ -13,3 +13,43 @@
         font-size: 3.6rem !important;
     }
 }
+
+.sort {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+
+    top: -6.6rem;
+    left: 0;
+
+    button {
+        position: relative;
+        font-size: 1.8rem;
+
+        color: var(--menu-text);
+        font-weight: 500;
+
+        margin-right: 4rem;
+        background-color: transparent;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            content: '';
+            border-right: 0.3rem solid transparent;
+            border-top: 0.3rem solid var(--menu-text);
+
+            border-left: 0.3rem solid transparent;
+            right: -1rem;
+            top: 50%;
+        }
+
+        &:hover {
+            color: var(--primary);
+
+            &::before {
+                border-top: 0.3rem solid var(--primary);
+            }
+        }
+    }
+}
