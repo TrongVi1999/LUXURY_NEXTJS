@@ -4,8 +4,8 @@ import style from './miceView.module.scss'
 import Image from "next/image";
 const cx = classNames.bind(style)
 
-function BoxImageMice({ title, des, img, size }) {
-    return (<div className={cx('boxImageMice')} style={{ width: size }}>
+function BoxImageMice({ title, des, img, size, minWidth }) {
+    return (<div className={cx('boxImageMice')} style={{ width: size, minWidth: minWidth }}>
         <div className={cx('boxImg')}>
             <Image src={img} alt='boxImageError' className={cx('img')} />
         </div>

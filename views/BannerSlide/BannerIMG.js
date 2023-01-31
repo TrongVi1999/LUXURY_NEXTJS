@@ -11,7 +11,7 @@ import { BsArrowRightCircle } from 'react-icons/bs'
 import Link from 'next/link';
 
 const cx = classNames.bind(style);
-const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb, className }) => {
+const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb, crumbStyle2, className }) => {
     return (
         <div className={cx('container', { [className]: className })}>
             <Image src={img} alt='img tour vnxpedia' className={cx('img')} layout="fill" />
@@ -36,10 +36,10 @@ const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb, cla
                     </div>
                 }
                 {crumb &&
-                    <div className={cx('crumb')}>
-                        <Link href='/'>HOME</Link>
+                    <div className={cx('crumb', { crumbStyle2: crumbStyle2 })}>
+                        <Link href='/' className={cx('titleHome')}>HOME</Link>
                         <BsArrowRightCircle />
-                        <p>BLOG</p>
+                        <p>{crumb.title}</p>
                     </div>}
             </div>
         </div>

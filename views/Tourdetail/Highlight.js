@@ -13,9 +13,11 @@ const Highlight = ({ title, destination, long, highlight }) => {
         <div className={cx('introduce')}>
             <div className={cx('name')}>
                 <h1>{title}</h1>
-                <p className={cx('long')}><SlClock />{long} days</p>
-                <p><SlLocationPin />{ChangeTextHTML(destination)}</p>
-                <div ><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
+                <div>
+                    <p className={cx('long')}><SlClock />{long} days</p>
+                    <p><SlLocationPin />{ChangeTextHTML(destination)}</p>
+                </div>
+                <div className={cx('btn-book')}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
             </div>
             <div className={cx('highlight')}>
                 {ChangeTextHTML(highlight).map((d, i) => (

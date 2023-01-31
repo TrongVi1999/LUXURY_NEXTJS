@@ -13,11 +13,13 @@
     justify-content: space-between;
 }
 .cost {
+    margin-left: 20px;
     display: flex;
     padding: 10px 20px;
     background-color: rgb(157 11 14);
     color: white;
     width: fit-content;
+    height: fit-content;
     sup {
         font-size: 8px;
         margin-right: 5px;
@@ -64,7 +66,10 @@
     width: 100%;
 }
 .name {
-    width: 40%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-right: 1px solid gray;
     padding: 1vw 2.5vw;
     font-weight: bold;
@@ -79,7 +84,7 @@
         margin-right: 10px;
     }
 
-    div {
+    .btn-book {
         background-color: #fdd223;
         display: flex;
         align-items: center;
@@ -98,6 +103,7 @@
     }
 }
 .highlight {
+    width: 70%;
     padding: 2vw;
     display: flex;
     flex-direction: column;
@@ -160,6 +166,7 @@
 .space {
     border-left: 1px solid #fdd223;
     height: 5vw;
+    min-height: 40px;
 }
 .item-day {
     border-left: 1px solid #fdd223;
@@ -196,9 +203,94 @@
         height: auto;
     }
 }
-
+.btn-design {
+    padding: 15px 20px;
+    background-color: #fdd223;
+    font-weight: bold;
+    margin-top: 20px;
+}
 //Tourrecomment
 .tour-list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1500px) {
+    .main-infor {
+        padding: 3% 15%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .main-infor {
+        padding: 3% 10%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .main-infor {
+        padding: 3% 5%;
+    }
+    .crumb-cost {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .cost {
+        margin-top: 20px;
+    }
+    .iti-main {
+        padding: 2vw 25px;
+    }
+    .number-day {
+        width: 40px;
+        height: 40px;
+        top: -20px;
+        left: -20px;
+    }
+    .item-day {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .introduce {
+        flex-direction: column;
+        .name {
+            width: 100%;
+            border-bottom: 1px solid black;
+            border-right: none;
+            h1 {
+                font-size: 12px;
+            }
+        }
+        .highlight {
+            width: 100%;
+            .hl-item {
+                p {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    .title-day {
+        font-size: 12px !important;
+    }
+    .text-day {
+        span {
+            font-size: 10px !important;
+        }
+    }
+    .cost {
+        p {
+            font-size: 15px;
+        }
+        span {
+            font-size: 10px;
+        }
+    }
+    .btn-design {
+        font-size: 12px;
+    }
 }

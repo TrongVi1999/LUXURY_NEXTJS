@@ -1,5 +1,6 @@
 .card {
     width: 31.4%;
+    min-width: 220px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-bottom: 1.8vw;
@@ -32,6 +33,7 @@
     margin-bottom: 5px;
     letter-spacing: 2px;
     flex: 1;
+    color: black;
 }
 .rating {
     color: rgb(209, 148, 27);
@@ -130,9 +132,25 @@
         width: 48%;
     }
 }
+
+@media only screen and (max-width: 700px) {
+    .card2 {
+        width: 95%;
+        margin-bottom: 3rem;
+        flex-direction: column;
+        margin: auto;
+        margin-bottom: 6rem;
+
+        .infor2 {
+            width: 100%;
+            padding: 2rem 2rem 3rem;
+        }
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .card {
-        width: 100%;
-        margin-bottom: 15px;
+        width: 95%;
+        margin-bottom: 1.5rem;
     }
 }

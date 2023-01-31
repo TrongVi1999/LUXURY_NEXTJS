@@ -84,7 +84,9 @@
 .boxImageMice {
     position: relative;
     height: 40rem;
-
+    min-width: 20rem;
+    background-image: var(--linear-gradient-menu);
+    z-index: 1;
     .boxImg {
         width: 100%;
         height: 100%;
@@ -126,5 +128,52 @@
             font-weight: 500;
             text-align: left;
         }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .DiffItemBody {
+        flex-direction: column;
+        height: unset;
+
+        .desBody {
+            width: 100%;
+            padding-right: 6.3rem;
+            background-color: var(--black);
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+
+            .title {
+                font-size: 2.4rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: var(--white);
+                margin-bottom: 2rem;
+            }
+
+            .des {
+                font-size: 1.4rem;
+                font-weight: 500;
+                color: var(--white);
+                width: 60%;
+                margin-left: auto;
+            }
+        }
+
+        .boxImg {
+            flex: none;
+            width: 100%;
+            height: 40rem;
+            overflow: hidden;
+        }
+    }
+
+    .DiffItemBody.DiffItemBodyLeft {
+        flex-direction: column;
     }
 }

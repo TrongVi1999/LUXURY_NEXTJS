@@ -9,7 +9,7 @@ const cx = classNames.bind(style);
 
 const menuDes = [
     {
-        title: 'VietNam',
+        title: 'Viet Nam',
         to: '/destination/VietNam',
     },
     {
@@ -100,7 +100,10 @@ const menuAbouUs = [
     }
 ]
 
-function Menu({ className, showmenu }) {
+function Menu({ className, showmenu, menuBgr }) {
+
+    console.log(!!menuBgr.length)
+
     const clases = cx('menu', {
         [className]: className,
         active: showmenu,
@@ -110,7 +113,7 @@ function Menu({ className, showmenu }) {
         <nav className={clases}>
             <div className={cx('item')}>
                 destination
-                <MenuHover items={menuDes} className={cx('menuHoverBody')} />
+                <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} />
             </div>
             <div className={cx('item')}>
                 way to travel

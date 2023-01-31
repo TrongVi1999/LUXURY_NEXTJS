@@ -315,11 +315,15 @@
 }
 
 @media only screen and (min-width: 426px) and (max-width: 851px) {
+    // .booking-infor {
+    //     background-color: white;
+    // }
+
     .book-crumb {
         font-size: 22px;
-        width: 482px;
+        width: 139%;
         margin: 0 auto;
-        background-color: #f4f4f4;
+        // background-color: #f4f4f4;
     }
 
     .book-content {
@@ -354,7 +358,7 @@
         font-size: 22px;
         width: 100%;
         margin: 0 auto;
-        background-color: #f4f4f4;
+        padding-left: 5%;
     }
 
     .book-content {
@@ -378,6 +382,7 @@
     .label-booking {
         font-size: 14px;
         width: 225px;
+        margin-right: 6px;
     }
 
     .cus-infor div {

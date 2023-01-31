@@ -45,3 +45,32 @@
 .act {
     border-bottom: 2px solid var(--border-color2);
 }
+
+@media only screen and (max-width: 1500px) {
+    .main {
+        padding: 5% 15%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .main {
+        padding: 5% 10%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .menu {
+        h6 {
+            font-size: 12px;
+            padding-bottom: 15px;
+        }
+    }
+    .main {
+        h1 {
+            font-size: 18px;
+        }
+    }
+    .content {
+        h6 {
+            font-size: 12px;
+        }
+    }
+}

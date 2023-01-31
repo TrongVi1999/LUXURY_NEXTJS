@@ -1,3 +1,7 @@
+.wrapper {
+    background: var(--linear-gradient-banner);
+}
+
 .bannerMain {
     width: 100%;
     height: 100%;
@@ -16,6 +20,8 @@
     align-items: center;
     justify-content: center;
 
+    background-image: var(--linear-gradient-banner);
+
     .text {
         font-size: 2.4rem;
         font-weight: 500;
@@ -26,10 +32,14 @@
 
     .textBottom {
         text-align: center;
-        margin-top: -4rem;
+        // margin-top: -4rem;
         font-size: 1.4rem;
-        font-weight: 400;
+        font-weight: lighter;
         color: var(--white);
+        text-shadow: 0.1rem 0.2rem var(--black);
+        margin-bottom: 5rem;
+        max-width: 57rem;
+        width: 95%;
     }
 
     .titleHome {
@@ -37,7 +47,7 @@
         font-weight: 700;
         text-transform: uppercase;
         color: var(--white);
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         text-shadow: 0.2rem 0.1rem 0.2rem var(--menu-text);
     }
 
@@ -103,6 +113,7 @@
         padding: 0 10% !important;
         h1 {
             font-size: 2rem !important;
+            letter-spacing: 0px !important;
         }
     }
 }
@@ -138,6 +149,7 @@
         font-size: 3rem;
         font-weight: 2000;
         margin: 1rem 0;
+        text-transform: uppercase;
     }
     .text-des {
         text-align: center;
@@ -175,7 +187,27 @@
     display: flex;
     color: rgb(54, 54, 54);
     letter-spacing: 2px;
+
+    margin-top: 3rem;
+
+    .titleHome {
+        color: var(--buttonPagination);
+    }
+
     svg {
         margin: 0 10px;
+    }
+}
+
+.crumb.crumbStyle2 {
+    background-color: var(--buttonPagination);
+    color: var(--white);
+
+    .titleHome {
+        color: var(--white);
+
+        &:hover {
+            color: var(--primary);
+        }
     }
 }

@@ -49,7 +49,7 @@ const Header = () => {
                 <Link href={'/'}>
                     <Image src={images.LOGO} alt={'errorLogo'} priority className={cx('logo')} />
                 </Link>
-                <Menu className={'menubody'} showmenu={showMenu} />
+                <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
                     <AiOutlineUser className={cx('icon', { active: showUser })} />
                     <AiOutlineSearch className={cx('icon', { active: showSearch })} />
