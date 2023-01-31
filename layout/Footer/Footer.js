@@ -9,7 +9,6 @@ import { TiSocialInstagram } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 import { TfiGoogle } from 'react-icons/tfi';
-import { Section } from '@/components';
 import Img1 from '../../public/1.webp';
 import Img2 from '../../public/2.webp';
 import Img3 from '../../public/3.webp';
@@ -32,50 +31,56 @@ function Footer() {
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('main')}>
-                    <div className={cx('main-left')}>
-                        <div className={cx('infor')}>
-                            {/* <img src={Logo} className={cx("logo-img")} alt="logo-VNXpedia" /> */}
-                            <Image src={Logo} className={cx('logo-img')} alt="logo-VNXpedia" />
-                            <div className={cx('phone')}>
-                                <GiPhone />
-                                <div>+84901591111</div>
+                    <div className={cx('main-top')}>
+                        <div className={cx('main-left')}>
+                            <div className={cx('infor')}>
+                                {/* <img src={Logo} className={cx("logo-img")} alt="logo-VNXpedia" /> */}
+                                <Image src={Logo} className={cx('logo-img')} alt="logo-VNXpedia" />
+                                <div className={cx('infor-bot')}>
+                                    <div className={cx('phone')}>
+                                        <GiPhone />
+                                        <div>+84901591111</div>
+                                    </div>
+                                    <div className={cx('email')}>
+                                        <MdEmail />
+                                        <div>info@vnxpedia.com</div>
+                                    </div>
+                                    <div className={cx('icon')}>
+                                        <div className={cx('item-icon')}>
+                                            <GrFacebookOption />
+                                        </div>
+                                        <div className={cx('item-icon')}>
+                                            <TiSocialInstagram />
+                                        </div>
+                                        <div className={cx('item-icon')}>
+                                            <BsTwitter />
+                                        </div>
+                                        <div className={cx('item-icon')}>
+                                            <TfiGoogle />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className={cx('email')}>
-                                <MdEmail />
-                                <div>info@vnxpedia.com</div>
+                            <div className={cx('list-link')}>
+                                <div className={cx('list')}>
+                                    <div className={cx('title')}>OUR DESTINATIONS</div>
+                                    <Link href='/destination/VietNam'>VIETNAM tours</Link>
+                                    <Link href='/destination/VietNam'>THAILAND tours</Link>
+                                    <Link href='/destination/VietNam'>CAMBODIA tours</Link>
+                                    <Link href='/destination/VietNam'>LAOS tours</Link>
+                                    <Link href='/destination/VietNam'>MYANMAR tours</Link>
+                                </div>
+                                <div className={cx('list')}>
+                                    <div className={cx('title')}>AS TOUR OPERATOR</div>
+                                    <p>Why travel with us</p>
+                                    <p>About Us</p>
+                                    <p>Meat VNXpedia team</p>
+                                    <p>Resonsible Travel</p>
+                                    <p>Terms & Conditions</p>
+                                    <p>Deposit & Payment</p>
+                                    <p>Cancellation Policy</p>
+                                </div>
                             </div>
-                            <div className={cx('icon')}>
-                                <div className={cx('item-icon')}>
-                                    <GrFacebookOption />
-                                </div>
-                                <div className={cx('item-icon')}>
-                                    <TiSocialInstagram />
-                                </div>
-                                <div className={cx('item-icon')}>
-                                    <BsTwitter />
-                                </div>
-                                <div className={cx('item-icon')}>
-                                    <TfiGoogle />
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cx('list')}>
-                            <div className={cx('title')}>OUR DESTINATIONS</div>
-                            <Link href='/destination/VietNam'>VIETNAM tours</Link>
-                            <Link href='/destination/ThaiLand'>THAILAND tours</Link>
-                            <Link href='/destination/Cambodia'>CAMBODIA tours</Link>
-                            <Link href='/destination/Laos'>LAOS tours</Link>
-                            <Link href='/destination/Myanmar'>MYANMAR tours</Link>
-                        </div>
-                        <div className={cx('list')}>
-                            <div className={cx('title')}>AS TOUR OPERATOR</div>
-                            <p>Why travel with us</p>
-                            <p>About Us</p>
-                            <p>Meat VNXpedia team</p>
-                            <p>Resonsible Travel</p>
-                            <p>Terms & Conditions</p>
-                            <p>Deposit & Payment</p>
-                            <p>Cancellation Policy</p>
                         </div>
                         <div className={cx('about')}>
                             <div className={cx('title')}>ABOUT</div>
