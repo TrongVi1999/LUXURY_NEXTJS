@@ -28,18 +28,18 @@ function Mice() {
             <Section className={cx('sectionDiff')}>
                 <TitleMice title={'WHAT ARE DIFFERENCE'} des={"We research, and select unique and clasey values to put into MICE products Customers can experiance the most different values when they have faith and order with VNXPEDIA"} />
                 <div className={cx('sectionDiffCase')}>
-                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'25%'} />
-                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'25%'} />
-                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'25%'} />
-                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'25%'} />
+                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'23%'} />
+                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'23%'} />
+                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'23%'} />
+                    <BoxImageMice img={images.MICETest} title="INNOVATIVE TEAM-BUIDLING" size={'23%'} />
                 </div>
             </Section>
 
             <Section className={cx('sectionDiff')}>
                 <TitleMice title={'CASE STUDIES'} des={"We research and celegge and May we no out of products Cust"} />
                 <div className={cx('sectionDiffCase')}>
-                    <BoxImageMice img={images.MICETest} title="Night barbecue party in Mui Ne for 120 paxs" des={"Recreate the image of a barbecue party in the desert at the sand dunes of Phan Thiet"} size={'50%'} />
-                    <BoxImageMice img={images.MICETest} title="A unique and luxurious wedding takes place on Phu Quoc beach" des={"With the request to organize a private and luxurious wedding space on Phu Quoc pearl beach it was perfectly fulfilled"} size={'50%'} />
+                    <BoxImageMice img={images.MICETest} title="Night barbecue party in Mui Ne for 120 paxs" des={"Recreate the image of a barbecue party in the desert at the sand dunes of Phan Thiet"} size={'48%'} minWidth={'40rem'} />
+                    <BoxImageMice img={images.MICETest} title="A unique and luxurious wedding takes place on Phu Quoc beach" des={"With the request to organize a private and luxurious wedding space on Phu Quoc pearl beach it was perfectly fulfilled"} size={'48%'} minWidth={'40rem'} />
                 </div>
             </Section>
 

@@ -176,8 +176,9 @@ const index = () => {
 
             <Title text={'luxury tour'} align={'center'} className={cx('titleTravel')} />
             <Section maxWidth={1170}>
-                <div className={cx('boxFilter')}>
-
+                <div className={cx('sort')}>
+                    <button>Sort by</button>
+                    <button>Filter by</button>
                 </div>
                 <Tourcard2 data={fakeData[0]} />
             </Section>
