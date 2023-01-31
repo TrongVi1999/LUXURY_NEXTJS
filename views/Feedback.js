@@ -26,7 +26,7 @@ const Feedback = () => {
                 <h5 className={cx('text2')}>JOHN SMITH</h5>
             </div>
             <div className={cx('img')}>
-                <Image src={feedback} height={350} />
+                <Image src={feedback} />
             </div>
         </div></>
 

@@ -10,13 +10,14 @@
     align-items: center;
     justify-content: flex-start;
 
-    padding: 2rem 3rem;
+    padding: 2rem 3rem ;
     box-sizing: border-box;
 
     .content {
         position: relative;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         font-weight: 350;
+        margin: 0rem 5rem;
 
         &::before {
             position: absolute;
@@ -34,22 +35,23 @@
     justify-content: flex-start;
     align-items: flex-start;
     text-align: start;
-    flex: 1;
+    // flex: 1;
 
     margin-bottom: 0.5rem;
     .icon {
         display: block;
-        height: 3rem;
+        height: 8rem;
 
         object-fit: contain;
-        margin-bottom: 1rem;
+        // margin-bottom: 1rem;
+        margin: 5rem 0px 1.4rem 5rem;
     }
 
     .title {
-        font-size: 1.6rem;
+        font-size: 2rem;
         text-transform: uppercase;
         width: 100%;
-        margin-bottom: 0.5rem;
+        margin:0rem 0rem 1rem 5rem;
         font-weight: normal;
     }
 }
@@ -59,10 +61,46 @@
 }
 
 .itemSlide {
-    width: 450px !important;
+    width: 480px !important;
+}
+@media only screen and (max-width: 1500px) {
+    .icon {
+        height: 5rem !important;
+        margin: 4rem 0px 1.8rem 4rem !important;
+        }
+        .title{
+            margin: 0 0 1rem 4rem !important;
+        }
+        .content{
+            margin: 0rem 4rem !important;
+        }
+}
+@media only screen and (max-width: 1350px) {
+    .icon {
+        height: 4rem !important;
+        margin: 2rem 0px 1.4rem 2rem !important;
+        }
+        .title{
+            margin: 1rem 0 1rem 2rem !important;
+        }
+        .content{
+            margin: 0rem 2rem !important;
+        }
+}
+@media only screen and (max-width: 1200px) {
+    .icon {
+        height: 3rem !important;
+        margin: 3rem 0px 1.4rem 0rem !important;
+        }
+        .title{
+            margin: 1rem 0 1rem 1rem !important;
+        }
+        .content{
+            margin: 0rem 1rem !important;
+        }
 }
 
-@media only screen and (max-width: 968px) {
+@media only screen and (max-width: 1024px) {
     .wrapper {
         padding: 4rem !important;
     }
