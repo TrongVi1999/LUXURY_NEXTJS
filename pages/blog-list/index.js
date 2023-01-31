@@ -16,7 +16,7 @@ const cx = classNames.bind(style)
 
 function BlogList() {
     return (<div className={cx('wrapper')}>
-        <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='OUR FOCUS ON SUSTAINABILITY' bg='bg' />
+        <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='vnxpedia blog list' bg='bg' crumb={{ title: 'BLOG' }} />
 
         <Section className={cx('bodyContent')} gapBox={1}>
             <div className={cx('listBlogBody')}>
