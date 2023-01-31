@@ -62,10 +62,10 @@ function Footer() {
                         <div className={cx('list')}>
                             <div className={cx('title')}>OUR DESTINATIONS</div>
                             <Link href='/destination/VietNam'>VIETNAM tours</Link>
-                            <Link href='/destination/ThaiLand'>THAILAND tours</Link>
-                            <Link href='/destination/Cambodia'>CAMBODIA tours</Link>
-                            <Link href='/destination/Laos'>LAOS tours</Link>
-                            <Link href='/destination/Myanmar'>MYANMAR tours</Link>
+                            <Link href='/destination/VietNam'>THAILAND tours</Link>
+                            <Link href='/destination/VietNam'>CAMBODIA tours</Link>
+                            <Link href='/destination/VietNam'>LAOS tours</Link>
+                            <Link href='/destination/VietNam'>MYANMAR tours</Link>
                         </div>
                         <div className={cx('list')}>
                             <div className={cx('title')}>AS TOUR OPERATOR</div>
