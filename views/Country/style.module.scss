@@ -43,6 +43,7 @@
     h1 {
         padding: 30px;
         text-align: center;
+        text-shadow: var(--text-shadow);
     }
     p {
         overflow: hidden;
@@ -50,6 +51,7 @@
         -webkit-line-clamp: 3;
         display: -webkit-box;
         -webkit-box-orient: vertical;
+        text-shadow: var(--text-shadow);
     }
     .link {
         display: block;

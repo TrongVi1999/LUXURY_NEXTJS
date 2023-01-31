@@ -5,10 +5,10 @@ import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { GiCheckMark } from 'react-icons/gi';
 import { SlClock, SlLocationPin } from 'react-icons/sl';
 import Share from '../Share/Share';
-
+import Link from 'next/link';
 const cx = classNames.bind(style);
 
-const Highlight = ({ title, destination, long, highlight }) => {
+const Highlight = ({ title, destination, long, highlight, click }) => {
     return (
         <div className={cx('introduce')}>
             <div className={cx('name')}>
@@ -17,7 +17,7 @@ const Highlight = ({ title, destination, long, highlight }) => {
                     <p className={cx('long')}><SlClock />{long} days</p>
                     <p><SlLocationPin />{ChangeTextHTML(destination)}</p>
                 </div>
-                <div className={cx('btn-book')}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
+                <div className={cx('btn-book')} onClick={() => click()}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
             </div>
             <div className={cx('highlight')}>
                 {ChangeTextHTML(highlight).map((d, i) => (

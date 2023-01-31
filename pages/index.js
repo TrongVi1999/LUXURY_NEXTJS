@@ -41,9 +41,8 @@ export default function Home() {
             <Country />
             <Hottour />
             <BlogHome />
-            {/* <History />
-            <AboutVideo /> */}
             <Feedback />
         </>
     );
 }
+
