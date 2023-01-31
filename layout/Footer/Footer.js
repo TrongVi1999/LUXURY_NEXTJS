@@ -16,6 +16,7 @@ import Img3 from '../../public/3.webp';
 import Img4 from '../../public/4.png';
 import Img5 from '../../public/5.webp';
 import Img6 from '../../public/6.webp';
+import Link from 'next/link';
 
 const cx = classNames.bind(style);
 const Listimg = [Img1, Img2, Img3, Img4, Img5, Img6];
@@ -59,43 +60,44 @@ function Footer() {
                             </div>
                         </div>
                         <div className={cx('list')}>
-                            <div className={cx('title')}>OUR TOUR</div>
-                            <p>vietnam</p>
-                            <p>vietnam</p>
-                            <p>vietnam</p>
-                            <p>vietnam</p>
-                            <p>vietnam</p>
-                            <p>vietnam</p>
+                            <div className={cx('title')}>OUR DESTINATIONS</div>
+                            <Link href='/destination/VietNam'>VIETNAM tours</Link>
+                            <Link href='/destination/ThaiLand'>THAILAND tours</Link>
+                            <Link href='/destination/Cambodia'>CAMBODIA tours</Link>
+                            <Link href='/destination/Laos'>LAOS tours</Link>
+                            <Link href='/destination/Myanmar'>MYANMAR tours</Link>
                         </div>
                         <div className={cx('list')}>
                             <div className={cx('title')}>AS TOUR OPERATOR</div>
-                            <p>Why travel</p>
-                            <p>Why travel</p>
-                            <p>Why travel</p>
-                            <p>Why travel</p>
-                            <p>Why travel</p>
+                            <p>Why travel with us</p>
+                            <p>About Us</p>
+                            <p>Meat VNXpedia team</p>
+                            <p>Resonsible Travel</p>
+                            <p>Terms & Conditions</p>
+                            <p>Deposit & Payment</p>
+                            <p>Cancellation Policy</p>
+                        </div>
+                        <div className={cx('about')}>
+                            <div className={cx('title')}>ABOUT</div>
+                            <p>
+                                img elements must have an alt prop, either with meaningful text, or an empty string for
+                                decorative img elements must have an alt prop, either with meaningful text
+                            </p>
+                            <div className={cx('Newsletter')}>Newsletter Sign up</div>
+                            <div className={cx('sub')}>
+                                <input type="text" placeholder="Your Email Address" />
+                                <button type="button">SUBSCRIBE</button>
+                            </div>
                         </div>
                     </div>
-                    <div className={cx('about')}>
-                        <div className={cx('title')}>ABOUT</div>
-                        <p>
-                            img elements must have an alt prop, either with meaningful text, or an empty string for
-                            decorative img elements must have an alt prop, either with meaningful text
-                        </p>
-                        <div className={cx('Newsletter')}>Newsletter Sign up</div>
-                        <div className={cx('sub')}>
-                            <input type="text" placeholder="Your Email Address" />
-                            <button type="button">SUBSCRIBE</button>
+                    <hr className={cx('hr')} />
+                    <div className={cx('end')}>
+                        <div className={cx('end-left')}>
+                            <BiCopyright />
+                            <div>Copyright 2019 VNXpedia</div>
                         </div>
+                        <div>All Rights Reserved</div>
                     </div>
-                </div>
-                <hr className={cx('hr')} />
-                <div className={cx('end')}>
-                    <div className={cx('end-left')}>
-                        <BiCopyright />
-                        <div>Copyright 2019 VNXpedia</div>
-                    </div>
-                    <div>All Rights Reserved</div>
                 </div>
             </div>
         </div>
