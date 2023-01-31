@@ -10,6 +10,7 @@ import Menu from './Menu';
 import { Button } from '@/components';
 
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
+import Login from '@/components/Login';
 
 const cx = classNames.bind(style);
 
@@ -51,7 +52,14 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-                    <AiOutlineUser className={cx('icon', { active: showUser })} />
+
+
+                    <div className={cx('user')}>
+                        <AiOutlineUser className={cx('icon', { active: showUser })} />
+                        <div className={cx('login')}>
+                            <Login />
+                        </div>
+                    </div>
                     <AiOutlineSearch className={cx('icon', { active: showSearch })} />
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
