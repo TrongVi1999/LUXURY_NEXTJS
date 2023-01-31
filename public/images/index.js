@@ -26,11 +26,12 @@ const banners = {
 
 const iconInfos = {
     icon1: require('./icons/7.png'),
-    icon2: require('./icons/cọntact (1).png'),
+    phone: require('./icons/cọntact (1).png'),
     icon3: require('./icons/customizBLE ICON (1).png'),
     icon4: require('./icons/heart icon (1).png'),
     icon5: require('./icons/logo.png'),
-    icon6: require('./icons/mail (1).png'),
+    mail: require('./icons/mail (1).png'),
+    place: require('./icons/place (1).png'),
     icon7: require('./icons/Vector Smart Object (1).png'),
 };
 

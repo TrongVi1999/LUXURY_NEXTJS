@@ -11,7 +11,9 @@ import { OutTeamAboutUs } from '@/views';
 import History from '@/views/Aboutus/History';
 import AboutVideo from '@/views/Aboutus/Video';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+
 import Image from 'next/image';
+
 
 const cx = classNames.bind(styles)
 
@@ -45,9 +47,14 @@ const index = () => {
                         </div>
                         <h2>Contacts info</h2>
 
+
+
+                <ItemInfoHome className={cx('boxContact')} />
+
                         <p>+ 84 901591111</p>
                     </div>
                 </div>
+
             </div>
             <History />
             <AboutVideo />
