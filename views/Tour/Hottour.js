@@ -36,7 +36,7 @@ const Hottour = () => {
     console.log(Data)
     return (
         <div className={cx('container')}>
-            <Title text="TOUR HIGHLIGHT" />
+            <Title text="TOUR HIGHLIGHT" align='center' />
             {Data &&
 
                 <div className={cx('tour-list')}>

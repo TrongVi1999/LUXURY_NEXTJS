@@ -52,3 +52,16 @@
         }
     }
 }
+
+//blogcard4
+
+.blogcard4 {
+    width: 100%;
+    display: flex;
+    img {
+        width: 40%;
+    }
+    .text-box {
+        width: 60%;
+    }
+}

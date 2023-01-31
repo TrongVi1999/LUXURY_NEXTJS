@@ -1,5 +1,6 @@
 .card {
     width: 31.4%;
+    min-width: 220px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-bottom: 1.8vw;
@@ -32,6 +33,7 @@
     margin-bottom: 5px;
     letter-spacing: 2px;
     flex: 1;
+    color: black;
 }
 .rating {
     color: rgb(209, 148, 27);
