@@ -168,7 +168,7 @@ const index = () => {
     useEffect(() => {
         CallAPI();
     }, [router.query.id]);
-    console.log(Data)
+
 
     return (
         <div className={cx('wrapper')}>
@@ -193,8 +193,8 @@ const index = () => {
 
                 </Section>
             }
-
-            <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            {/* {Data.length && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+            {/* <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} /> */}
         </div>
     )
 }
