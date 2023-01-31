@@ -1,18 +1,16 @@
-import React from 'react'
 
-import classNames from 'classnames/bind';
 import styles from '@/styles/aboutUs.module.scss';
+import classNames from 'classnames/bind';
 
-import { banners } from '@/public/images';
-import { ItemInfoHome, BannerSlide } from '@/views';
 import { Section } from '@/components';
+import icon2 from '@/public/icon/email.png';
+import icon3 from '@/public/icon/phone.png';
+import icon1 from '@/public/icon/vitri.png';
+import { banners } from '@/public/images';
 import { OutTeamAboutUs } from '@/views';
-import AboutVideo from '@/views/Aboutus/Video';
 import History from '@/views/Aboutus/History';
+import AboutVideo from '@/views/Aboutus/Video';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import icon1 from '@/public/icon/vitri.png'
-import icon2 from '@/public/icon/email.png'
-import icon3 from '@/public/icon/phone.png'
 import Image from 'next/image';
 
 const cx = classNames.bind(styles)
@@ -22,8 +20,6 @@ const index = () => {
         <>
             <div className={cx('wrapperBanner')}>
                 <BannerIMG className={cx('bodyBanner')} bg='bg' title={"about vnxpedia"} descrip={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} img={banners.banner4} crumb={{ title: 'About' }} crumbStyle2 />
-
-                {/* <ItemInfoHome className={cx('boxInfo')} /> */}
                 <div className={cx('boxInfo')}>
                     <div className={cx('box')}>
                         <div className={cx('icon')}>
