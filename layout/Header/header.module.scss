@@ -107,7 +107,7 @@
     align-items: center;
     justify-content: center;
     // display: none;
-
+    z-index: 10000;
     .itemMenuHover {
         position: relative;
         display: block;
