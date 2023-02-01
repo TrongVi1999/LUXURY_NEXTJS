@@ -50,4 +50,46 @@ export const Allblog = () =>
         type: 'json',
     });
 
+//Lấy 1 blog"
+export const Getblog = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostWithId?Id=${id}`,
+        type: 'json',
+    });
+
+
+//Lấy tour theo location"
+export const Gettourdestination = (location) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/AllTourDestination?destination=${location}`,
+        type: 'json',
+    });
+
+//Lấy tour theo location"
+export const Gettourcountry = (country) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/AllTourRegion?region=${country}`,
+        type: 'json',
+    });
+
+
+//rate tour
+export const Ratetour = (tourcode, rate, ip) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/InsertRatingTour?TourCode=${tourcode}&Rate=${rate}&Ip=${ip}`,
+        type: 'json',
+    });
+
+//
+export const Commentblog = (id, reply, username, comment) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost?PostId=${id}&ParentId=${reply}&UserName=${username}&Comment=${comment}`,
+        type: 'json',
+    });
+
 

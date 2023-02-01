@@ -193,7 +193,7 @@ const index = () => {
 
                 </Section>
             }
-            {/* {Data.length && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+            {/* {Data.length > 0 && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
             {/* <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} /> */}
         </div>
     )
