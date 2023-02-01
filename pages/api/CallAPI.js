@@ -67,7 +67,7 @@ export const Gettourdestination = (location) =>
         type: 'json',
     });
 
-//Lấy tour theo location"
+//Lấy tour theo country
 export const Gettourcountry = (country) =>
     axios({
         method: 'post',
@@ -84,7 +84,7 @@ export const Ratetour = (tourcode, rate, ip) =>
         type: 'json',
     });
 
-//
+//comment blog
 export const Commentblog = (id, reply, username, comment) =>
     axios({
         method: 'post',
