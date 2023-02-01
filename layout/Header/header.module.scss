@@ -22,7 +22,7 @@
 
     .logo {
         width: 13rem;
-        height: 6.5rem;
+        height: 7.5rem;
     }
 
     .menubody {
@@ -207,7 +207,9 @@
 
         .item {
             display: block;
-            margin: 2rem 2rem !important;
+            padding: 2rem 2rem !important;
+            margin: 0 !important;
+            background: linear-gradient(90deg, white, transparent);
         }
 
         .item:hover {
@@ -227,28 +229,13 @@
 
     .menuHover {
         left: 15rem;
-        top: -1.8rem;
+        top: 2.2rem;
 
-        .itemMenuHover {
-        }
-
-        .itemMenuHover:hover {
-        }
-        &::after {
-            top: 0.7rem;
-            left: -2.8rem;
-            transform: translateY(-50%);
-            transform: rotate(269deg);
-        }
-
-        &::before {
-            position: absolute;
-            content: '';
-            background-color: transparent;
-            width: 100%;
-            height: 4rem;
-            top: -3rem;
-            left: 1rem;
-        }
+        // &::after {
+        //     top: 0.7rem;
+        //     left: -2.8rem;
+        //     transform: translateY(-50%);
+        //     transform: rotate(269deg);
+        // }
     }
 }
