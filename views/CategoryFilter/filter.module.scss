@@ -366,54 +366,60 @@
         transform: translateY(-50%);
     }
 }
-@media only screen and (max-width: 500px){
-    .inputSearch .searchFilterInput{
+@media only screen and (max-width: 500px) {
+    // .wrapper {
+    //     position: absolute;
+    //     top: 0;
+    //     width: 100%;
+    //     height: 10rem;
+    //     overflow: hidden;
+    // }
+
+    .inputSearch .searchFilterInput {
         margin: 0rem;
         padding: 0rem;
     }
-    .boxTourTags .title  {
+    .boxTourTags .title {
         font-size: 12px;
         padding: none;
     }
     .boxTourTags .itemTourFil {
         font-size: 8px;
     }
-    .boxCategory .title  {
+    .boxCategory .title {
         font-size: 12px;
         padding: none;
     }
-    .boxCategory .itemCategory{
+    .boxCategory .itemCategory {
         font-size: 8px;
     }
-    .boxRecent .title  {
+    .boxRecent .title {
         font-size: 12px;
         padding: none;
     }
-    .boxRecent .recentItem{
+    .boxRecent .recentItem {
         display: block;
-    
+
         padding: 0.5rem;
     }
-    .boxRecent .recentItem .imgBox{
+    .boxRecent .recentItem .imgBox {
         width: 100%;
     }
-    .boxRecent .recentInfo{
+    .boxRecent .recentInfo {
         width: 100%;
         height: auto;
         margin: 0rem !important;
     }
-    .boxArchives .title{
+    .boxArchives .title {
         font-size: 12px;
         padding: none;
     }
-    .boxArchives .archivesItem{
+    .boxArchives .archivesItem {
         margin: 1rem 0;
         padding: 0;
         position: static;
-
     }
-    .boxBanner{
+    .boxBanner {
         opacity: 0;
     }
-
 }
