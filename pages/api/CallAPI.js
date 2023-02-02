@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
 //lấy tất cả tour
 export const Alltour = () =>
     axios({
@@ -18,7 +17,7 @@ export const Gettour = (tourcode) =>
         type: 'json',
     });
 
-//lấy tour hot   
+//lấy tour hot
 export const Tourhot = () =>
     axios({
         method: 'post',
@@ -34,7 +33,7 @@ export const Tourtype = (tourtype) =>
         type: 'json',
     });
 
-//lấy danh sách country  
+//lấy danh sách country
 export const CallAllcountry = async (setdata) => {
     const response = await axios({
         method: 'post',
@@ -86,7 +85,6 @@ export const Gettourcountry = (country) =>
         type: 'json',
     });
 
-
 //rate tour
 export const Ratetour = (tourcode, rate, ip) =>
     axios({
@@ -129,6 +127,7 @@ export const Searchtour = (key) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
         type: 'json',
     });
+
 //search blog
 export const Searchblog = (key) =>
     axios({
