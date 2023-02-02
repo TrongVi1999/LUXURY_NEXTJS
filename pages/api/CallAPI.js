@@ -54,10 +54,10 @@ export const AllCountry = () =>
     });
 
 //lấy tất cả blog : 
-export const Allblog = () =>
+export const Allblog = (page) =>
     axios({
         method: 'post',
-        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPost?language=en_US&hastag=Blog`,
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=Blog&CurrentPage=${page}`,
         type: 'json',
     });
 

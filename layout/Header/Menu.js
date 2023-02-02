@@ -77,7 +77,7 @@ const menuWayTravel = [
     },
     {
         title: 'luxury transfer',
-        to: '/',
+        to: '/luxury-transfer',
     },
     {
         title: 'luxury hotel',

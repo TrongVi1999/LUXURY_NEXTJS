@@ -3,6 +3,7 @@
     .bannerBody {
         width: 100%;
         height: 70vh;
+        z-index: -1;
     }
 
     .boxFilter {
@@ -29,6 +30,7 @@
     margin-bottom: 4rem;
     justify-content: space-between;
     align-items: center;
+
     .sortContent {
         display: flex;
         justify-content: space-between;
@@ -63,17 +65,21 @@
                 }
             }
         }
-        // p {
-        //     font-weight: bold;
-        //     font-size: 15px;
-        // }
     }
 }
 
 @media only screen and (max-width: 768px) {
     .wrapper {
         .boxFilter {
-            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100% !important;
+            height: 100vh;
+            z-index: 1000;
+            background-color: var(--white);
+            // display: none;
         }
     }
 
@@ -83,6 +89,10 @@
         .list {
             width: 95%;
             margin: auto;
+
+            .sort span {
+                display: none;
+            }
         }
     }
 }

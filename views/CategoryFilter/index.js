@@ -140,7 +140,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
 
             {
                 recentPost ? (<div className={cx('bodyBox', 'boxRecent')}>
-                    <h2 className={cx('title')}>{tourTags.title}</h2>
+                    <h2 className={cx('title')}>{recentPost.title}</h2>
                     {
                         recentPost.elements.map((item, index) => (
                             <Link key={index} href='/' className={cx('recentItem')}>
@@ -159,7 +159,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
 
             {
                 archives ? (<div className={cx('bodyBox', 'boxArchives')}>
-                    <h2 className={cx('title')}>{tourTags.title}</h2>
+                    <h2 className={cx('title')}>archives</h2>
                     {
                         listMonthArchives.map((time, index) => (
                             <div className={cx('archivesItem', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>

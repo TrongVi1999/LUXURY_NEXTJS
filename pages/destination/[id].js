@@ -3,11 +3,9 @@ import style from '@/styles/destinations.module.scss';
 import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import IMG from '@/public/images/tour1.jpg';
 import { useRouter } from 'next/router';
-
-import { Section } from '@/components';
+import { Section, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
-
 import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
 import { Gettourcountry } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
@@ -25,6 +23,7 @@ const data = {
     destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
     highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
 };
+const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function Destimation() {
 
@@ -42,6 +41,11 @@ function Destimation() {
     }, [router.query.id]);
     console.log(Data)
 
+
+    const [page, setPage] = useState(1)
+
+    const lastIndex = page * 4;
+    const firstIndex = lastIndex - 4;
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
@@ -65,6 +69,9 @@ function Destimation() {
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} /> */}
                     </div>
+
+                    <Pagination totalPosts={datafa.length} postPerPage={4} setPage={setPage} pageIndex={page} />
+
                 </div>
                 <CategoryFilter
                     price
