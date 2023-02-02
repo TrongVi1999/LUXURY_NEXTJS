@@ -43,7 +43,7 @@ function Booking({ onClick, datas, title, long }) {
 
     const handleEnquire = (data) => {
         callApi(data);
-        // callApiSendmail(data);
+        callApiSendmail(data);
     };
 
     // lay ip address
@@ -52,6 +52,11 @@ function Booking({ onClick, datas, title, long }) {
         ip_address = ip_address.ip;
         setIpAddress(ip_address);
     });
+
+    useEffect(() => {
+        setBookinfor({ ...Bookinfor });
+    }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
+
 
     const callApi = async (data) => {
         const response = await axios({
@@ -78,16 +83,31 @@ function Booking({ onClick, datas, title, long }) {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
+        console.log(response.data)
 
         if (response.status === 200) {
-            console.log(response.status)
+            console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
             setTimeout(() => onClick(), 2000);
-            console.log(response.data)
             setTimeout(() => onClick(), 2000);
-        } else alert('Invaild infor');
+        } else alert('Invaild infor')
+        console.log('Invaild infor');
     };
 
+    const callApiSendmail = async (data) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+            data: qs.stringify({
+                header: `You have new travel from VNXpedia`,
+                content: `Tour name: ${datas.TourName}`,
+                mail: data.Email,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+    };
 
     return (
         <div className={cx("booking-infor")}>
@@ -124,12 +144,6 @@ function Booking({ onClick, datas, title, long }) {
                                 type="date"
                                 name="date"
                                 className={cx("book-date")}
-                                // onChange={(e) =>
-                                //     setBookinfor({
-                                //         ...Bookinfor,
-                                //         StartDate: e.target.value,
-                                //     })
-                                // }
                                 {...register('StartDate', { required: true })}
                             />
                             {errors.StartDate && errors.StartDate.type === 'required' && (
@@ -205,7 +219,6 @@ function Booking({ onClick, datas, title, long }) {
                             type="select"
                             className={cx("book-hotel")}
                         /> */}
-
                         <div>
                             <select name='ourServices' className={cx("our-services")}>
                                 <option value="">-- Select --</option>
@@ -280,7 +293,6 @@ function Booking({ onClick, datas, title, long }) {
                                 type="text"
                                 placeholder="Enter Your Email"
                                 className={cx("cus-mail")}
-                                // value={Bookinfor.Email}
                                 {...register('Email', {
                                     required: true,
                                     pattern: {
@@ -305,7 +317,6 @@ function Booking({ onClick, datas, title, long }) {
                                 type="text"
                                 placeholder="Confirm Email"
                                 className={cx("cus-mail")}
-                                // value={Bookinfor.Email}
                                 {...register('Email', {
                                     required: true,
                                     pattern: {
@@ -333,7 +344,6 @@ function Booking({ onClick, datas, title, long }) {
                                 type="text"
                                 placeholder="Enter Your Phone"
                                 className={cx("cus-phone")}
-                                // value={Bookinfor.Phone}
                                 {...register('Phone', {
                                     required: true,
                                     minLength: 9,
