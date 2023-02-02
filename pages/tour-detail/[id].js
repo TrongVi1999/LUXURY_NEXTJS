@@ -77,7 +77,10 @@ const index = () => {
                         <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={handleBooking} />
                         <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
 
-                    </div> : <Booking />
+                    </div> : <Booking
+                        onClick={() => handleBooking()}
+                        datas={Tourdata}
+                    />
 
                 }
                 <Tourrecomment type={Tourdata.TourType} />

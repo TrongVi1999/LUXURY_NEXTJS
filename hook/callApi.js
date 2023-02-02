@@ -10,7 +10,6 @@ export const callApi = () => {
 
     if (response.status === 200) {
         return response.data.Object[0]
-
     }
 }
 
