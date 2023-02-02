@@ -12,6 +12,7 @@ import { Button } from '@/components';
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
+import Searchkey from '@/views/Searchkey/Searchkey';
 
 const cx = classNames.bind(style);
 
@@ -62,12 +63,15 @@ const Header = () => {
                             <Login Click={setsignup} />
                         </div>
                     </div>
-                    <AiOutlineSearch className={cx('icon', { active: showSearch })} />
+                    <div className={cx('search-icon')}>
+                        <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
+
+                    </div>
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
-
+                    {showSearch && <Searchkey />}
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}

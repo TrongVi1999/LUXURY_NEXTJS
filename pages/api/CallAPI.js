@@ -111,3 +111,28 @@ export const Bloghot = () =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostPriority?hastag=Blog`,
         type: 'json',
     });
+
+//search tour
+// export const Searchtour = async(key,setdata) =>{
+//    const response =await axios({
+//         method: 'post',
+//         url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
+//         type: 'json',
+//     });
+//      if(response.data.status==200){
+//         setdata(response.data.Object);
+//      }
+// }
+export const Searchtour = (key) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
+        type: 'json',
+    });
+//search blog
+export const Searchblog = (key) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`,
+        type: 'json',
+    });

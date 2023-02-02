@@ -7,7 +7,7 @@ import { Tourtype } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
-const Tourrecomment = ({ data, type }) => {
+const Tourrecomment = ({ type }) => {
     const [Data, setdata] = useState();
     const CAllAPI = async () => {
         const response = await Tourtype(type);
