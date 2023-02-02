@@ -9,6 +9,8 @@ import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 
 import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
+import { Gettourcountry } from '../api/CallAPI';
+import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(style);
 const data = {
@@ -25,7 +27,21 @@ const data = {
 };
 
 function Destimation() {
+
+    const [Data, setdata] = useState();
     const router = useRouter();
+    const CallAPI = async () => {
+        const response = await Gettourcountry(router.query.id);
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+
+    useEffect(() => {
+        CallAPI();
+    }, [router.query.id]);
+    console.log(Data)
+
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
@@ -39,12 +55,15 @@ function Destimation() {
                         <span>Showing 1 - 10 of 30 products</span>
                     </div>
                     <div className={cx('tour-list')}>
+                        {Data && Data.map((d, i) =>
+                            <Tourcard2 data={d} />
+                        )}
+                        {/* <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
+                        <Tourcard2 data={data} /> */}
                     </div>
                 </div>
                 <CategoryFilter

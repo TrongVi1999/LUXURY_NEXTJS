@@ -34,7 +34,18 @@ export const Tourtype = (tourtype) =>
         type: 'json',
     });
 
-//lấy danh sách country   
+//lấy danh sách country  
+export const CallAllcountry = async (setdata) => {
+    const response = await axios({
+        method: 'post',
+        url: 'https://vnxpedia.3i.com.vn/TravelAPI/GetAllCountry?language=en_US',
+        type: 'json',
+    });
+    if (response.status == 200) {
+        setdata(response.data.Object);
+    }
+}
+
 export const AllCountry = () =>
     axios({
         method: 'post',
@@ -93,3 +104,10 @@ export const Commentblog = (id, reply, username, comment) =>
     });
 
 
+//blog nổi bật
+export const Bloghot = () =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostPriority?hastag=Blog`,
+        type: 'json',
+    });

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
 import IMGbn from '@/public/images/blogbn.png';
@@ -11,6 +11,8 @@ import WriteComment from '@/views/Blogdetail/WriteComment';
 import Blogrecomment from '@/views/Blogdetail/Blogrecomment';
 import Comments from '@/views/Blogdetail/Comments';
 import TitleLine from '@/components/TitleLine';
+import { useRouter } from "next/router";
+import { Getblog } from '../api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -58,6 +60,19 @@ const data = {
 
 
 const index = () => {
+    const router = useRouter();
+    const [Data, setdata] = useState()
+    const CallAPI = async () => {
+        const response = await Getblog(router.query.id);
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+
+    useEffect(() => {
+        CallAPI();
+    }, [router.query.id]);
+    console.log(Data)
     return (
         <div className={cx('container')}>
             <BannerIMG img={data.banner} title={data.title.toUpperCase()} descrip={data.description} bg='bg' type={data.type} color='black' date={data.date} by={data.author} number={data.comments.length} />

@@ -72,13 +72,13 @@ function Footer() {
                                 </div>
                                 <div className={cx('list')}>
                                     <div className={cx('title')}>AS TOUR OPERATOR</div>
-                                    <p>Why travel with us</p>
-                                    <p>About Us</p>
-                                    <p>Meat VNXpedia team</p>
-                                    <p>Resonsible Travel</p>
-                                    <p>Terms & Conditions</p>
-                                    <p>Deposit & Payment</p>
-                                    <p>Cancellation Policy</p>
+                                    <Link href='/about-us'>Why travel with us</Link>
+                                    <Link href='/about-us#this' >Meat VNXpedia team</Link>
+
+                                    <Link href='/responsible'>Responsible Travel</Link>
+                                    <Link href='/payment/conditions'>Terms & Conditions</Link>
+                                    <Link href='/payment/payment'>Deposit & Payment</Link>
+                                    <Link href='/payment/policy'>Cancellation Policy</Link>
                                 </div>
                             </div>
                         </div>

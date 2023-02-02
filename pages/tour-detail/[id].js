@@ -80,7 +80,7 @@ const index = () => {
                     </div> : <Booking />
 
                 }
-                <Tourrecomment data={Tourdata} />
+                <Tourrecomment type={Tourdata.TourType} />
 
 
 

@@ -8,6 +8,8 @@ import { Section } from '@/components';
 import { banners } from '@/public/images';
 import { BlogCard2, CategoryFilter } from '@/views';
 import { categoryFillerAddress, tourTagsFilter, recentPostFake } from '@/public/dataRender';
+import { Allblog } from '../api/CallAPI';
+import { useState, useEffect } from 'react';
 
 
 const cx = classNames.bind(style)
@@ -15,16 +17,29 @@ const cx = classNames.bind(style)
 // import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
 
 function BlogList() {
+
+    const [Data, setdata] = useState();
+    const CallAPI = async () => {
+        const response = await (Allblog());
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+
+
     return (<div className={cx('wrapper')}>
         <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='vnxpedia blog list' bg='bg' crumb={{ title: 'BLOG' }} />
 
         <Section className={cx('bodyContent')} gapBox={1}>
             <div className={cx('listBlogBody')}>
+                {Data && Data.map((d) =>
+                    <BlogCard2 className={cx('bodyBlogItem')} data={d} />)
+                }
+
+                {/* <BlogCard2 className={cx('bodyBlogItem')} />
                 <BlogCard2 className={cx('bodyBlogItem')} />
                 <BlogCard2 className={cx('bodyBlogItem')} />
-                <BlogCard2 className={cx('bodyBlogItem')} />
-                <BlogCard2 className={cx('bodyBlogItem')} />
-                <BlogCard2 className={cx('bodyBlogItem')} />
+                <BlogCard2 className={cx('bodyBlogItem')} /> */}
 
             </div>
             <CategoryFilter

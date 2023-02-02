@@ -169,6 +169,8 @@ const index = () => {
         CallAPI();
     }, [router.query.id]);
 
+    console.log(Data);
+
 
     return (
         <div className={cx('wrapper')}>
@@ -180,21 +182,23 @@ const index = () => {
                     <button>Sort by</button>
                     <button>Filter by</button>
                 </div>
-                <Tourcard2 data={fakeData[0]} />
+                {Data.length > 0 && <Tourcard2 data={Data[0]} />}
             </Section>
 
             {Data.length > 0 &&
                 <Section maxWidth={1170} isWrap gapBox={3.2}>
                     {
-                        Data.slice(firstIndex, lastIndex).map((data, index) => (
+                        Data.filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((data, index) => (
                             <Tourcard1 data={data} key={index} />
                         ))
                     }
 
                 </Section>
+
             }
-            {/* {Data.length > 0 && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+            {/* {Data.length > 0 && <Pagination totalPosts={Data.length-1} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
             {/* <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} /> */}
+
         </div>
     )
 }
