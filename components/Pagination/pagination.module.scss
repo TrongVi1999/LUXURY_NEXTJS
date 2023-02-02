@@ -10,6 +10,10 @@
         height: 2.4rem;
         font-size: 2rem;
         color: var(--black);
+        background: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
             cursor: pointer;
