@@ -21,15 +21,38 @@
         width: 30rem;
     }
 }
-@media only screen and (max-width: 1180px){
+@media only screen and (max-width: 1250px){
     .listBlogBody{
-        margin-left: 2rem;
+        // margin-left: 2rem;
+        // margin-top: 5rem;
+        margin: 2.2rem 0 0.5rem 2rem;
+    }
+    .bannerBlogList{
+        margin-bottom: 0rem;
     }
 
 }
 @media only screen and (max-width: 868px){
     .boxFilter{
         width: 25rem !important;
+    }
+    .bannerBlogList{
+        margin-bottom: 0rem;
+    }
+
+
+}
+@media only screen and (max-width: 660px){
+    .boxFilter{
+        width: 25rem !important;
+    }
+    .listBlogBody{
+        // margin-left: 2rem;
+        // margin-top: 5rem;
+        margin: 5rem 0 0.5rem 2rem;
+    }
+    .bannerBlogList{
+        margin-bottom: 0rem;
     }
 
 }

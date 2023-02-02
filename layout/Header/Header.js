@@ -10,6 +10,8 @@ import Menu from './Menu';
 import { Button } from '@/components';
 
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
+import Login from '@/components/Login';
+import Signup from '@/components/SignUp';
 
 const cx = classNames.bind(style);
 
@@ -18,6 +20,7 @@ const Header = () => {
     const [showUser, setShowUser] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     const [bgheader, setbgheader] = useState('');
+    const [signup, setsignup] = useState(false);
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -51,14 +54,23 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-                    <AiOutlineUser className={cx('icon', { active: showUser })} />
+
+
+                    <div className={cx('user')}>
+                        <AiOutlineUser className={cx('icon', { active: showUser })} />
+                        <div className={cx('login')}>
+                            <Login Click={setsignup} />
+                        </div>
+                    </div>
                     <AiOutlineSearch className={cx('icon', { active: showSearch })} />
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
+
                 </div>
             </div>
+            {signup && <Signup Click={setsignup} />}
         </div>
     );
 };

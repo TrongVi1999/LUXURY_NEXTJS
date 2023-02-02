@@ -169,6 +169,7 @@ const index = () => {
     }, [router.query.id]);
 
 
+
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} />
@@ -179,18 +180,19 @@ const index = () => {
                     <button>Sort by</button>
                     <button>Filter by</button>
                 </div>
-                <Tourcard2 data={fakeData[0]} />
+                {data.length > 0 && <Tourcard2 data={data[0]} />}
             </Section>
 
             {data.length > 0 &&
                 <Section maxWidth={1170} isWrap gapBox={3.2}>
                     {
-                        data.slice(firstIndex, lastIndex).map((data, index) => (
+                        data.filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((data, index) => (
                             <Tourcard1 data={data} key={index} />
                         ))
                     }
 
                 </Section>
+
             }
             {/* {Data.length > 0 && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
             <Pagination totalPosts={data.length} postPerPage={9} setPage={setPage} pageIndex={page} />

@@ -366,15 +366,13 @@
         transform: translateY(-50%);
     }
 }
+@media only screen and (max-width: 1250px) {
+    .searchFilterInput {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
 @media only screen and (max-width: 500px) {
-    // .wrapper {
-    //     position: absolute;
-    //     top: 0;
-    //     width: 100%;
-    //     height: 10rem;
-    //     overflow: hidden;
-    // }
-
     .inputSearch .searchFilterInput {
         margin: 0rem;
         padding: 0rem;

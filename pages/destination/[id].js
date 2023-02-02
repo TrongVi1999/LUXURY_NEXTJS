@@ -3,12 +3,12 @@ import style from '@/styles/destinations.module.scss';
 import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import IMG from '@/public/images/tour1.jpg';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { Section, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
-
 import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
+import { Gettourcountry } from '../api/CallAPI';
+import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(style);
 const data = {
@@ -26,7 +26,21 @@ const data = {
 const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function Destimation() {
+
+    const [Data, setdata] = useState();
     const router = useRouter();
+    const CallAPI = async () => {
+        const response = await Gettourcountry(router.query.id);
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+
+    useEffect(() => {
+        CallAPI();
+    }, [router.query.id]);
+    console.log(Data)
+
 
     const [page, setPage] = useState(1)
 
@@ -45,12 +59,15 @@ function Destimation() {
                         <span>Showing 1 - 10 of 30 products</span>
                     </div>
                     <div className={cx('tour-list')}>
+                        {Data && Data.map((d, i) =>
+                            <Tourcard2 data={d} />
+                        )}
+                        {/* <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
                         <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
+                        <Tourcard2 data={data} /> */}
                     </div>
 
                     <Pagination totalPosts={datafa.length} postPerPage={4} setPage={setPage} pageIndex={page} />
