@@ -1,18 +1,20 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import style from './style.module.scss';
-import { CiTwitter, CiBasketball, CiMail } from 'react-icons/ci';
+import Link from 'next/link';
+import { CiMail, CiTwitter } from 'react-icons/ci';
+import { FaLinkedin } from 'react-icons/fa';
 import { SlSocialFacebook } from 'react-icons/sl';
+import style from './style.module.scss';
+
 
 const cx = classNames.bind(style);
 
 const Share = () => {
     return (
         <div className={cx('container')}>
-            <SlSocialFacebook />
-            <CiTwitter />
-            <CiBasketball />
-            <CiMail />
+            <Link href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank"><SlSocialFacebook /></Link>
+            <Link href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=`} target="_blank"><CiTwitter /></Link>
+            <Link href={`mailto:info@example.com?&subject=&cc=&bcc=&body=${window.location.href}%0A`} target="_blank"><CiMail /></Link>
+            <Link href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}`} target="_blank"><FaLinkedin /></Link>
         </div>
     )
 }
