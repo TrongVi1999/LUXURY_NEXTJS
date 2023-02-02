@@ -129,6 +129,7 @@ export const Searchtour = (key) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
         type: 'json',
     });
+
 //search blog
 export const Searchblog = (key) =>
     axios({
@@ -136,3 +137,4 @@ export const Searchblog = (key) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`,
         type: 'json',
     });
+
