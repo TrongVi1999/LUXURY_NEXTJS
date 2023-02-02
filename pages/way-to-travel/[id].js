@@ -153,9 +153,8 @@ const fakeData = [
 
 const index = () => {
     const router = useRouter();
-    const [Data, setdata] = useState([]);
+    const [data, setdata] = useState([]);
     const [page, setPage] = useState(1)
-
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
@@ -168,7 +167,7 @@ const index = () => {
     useEffect(() => {
         CallAPI();
     }, [router.query.id]);
-    console.log(Data)
+
 
     return (
         <div className={cx('wrapper')}>
@@ -183,18 +182,18 @@ const index = () => {
                 <Tourcard2 data={fakeData[0]} />
             </Section>
 
-            {Data.length &&
+            {data.length > 0 &&
                 <Section maxWidth={1170} isWrap gapBox={3.2}>
                     {
-                        Data.slice(firstIndex, lastIndex).map((data, index) => (
+                        data.slice(firstIndex, lastIndex).map((data, index) => (
                             <Tourcard1 data={data} key={index} />
                         ))
                     }
 
                 </Section>
             }
-
-            <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            {/* {Data.length > 0 && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+            <Pagination totalPosts={data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     )
 }

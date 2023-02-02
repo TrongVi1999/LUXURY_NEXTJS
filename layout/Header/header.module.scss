@@ -22,7 +22,7 @@
 
     .logo {
         width: 13rem;
-        height: 6.5rem;
+        height: 7.5rem;
     }
 
     .menubody {
@@ -101,18 +101,18 @@
     position: absolute;
     width: 17rem;
     top: 4rem;
-    height: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // display: none;
+    z-index: 10000;
+    box-shadow: 0 0.2rem 0.3rem rgb(0 0 0 / 40%);
 
     .itemMenuHover {
         position: relative;
         display: block;
         padding: 1rem 0 1rem 1.5rem;
-        background-color: #e2e2ab;
+        background-color: var(--white);
         color: var(--menu-text);
         width: 100%;
         border-bottom: 0.1rem solid var(--border-light);
@@ -122,20 +122,32 @@
         }
     }
 
+    .itemIsChildren {
+        position: relative;
+        .icon {
+            position: absolute;
+            right: 1rem;
+            font-size: 2.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
     .itemMenuHover:hover {
         color: var(--primary);
     }
-    &::after {
-        position: absolute;
-        content: '';
-        border-top: 1.5rem solid transparent;
-        border-bottom: 1.5rem solid #e2e2ab;
-        border-right: 1.5rem solid transparent;
-        border-left: 1.5rem solid transparent;
-        top: -1.3rem;
-        left: 1rem;
-        transform: translateY(-50%);
-    }
+    // &::after {
+    //     position: absolute;
+    //     content: '';
+    //     width: 3rem;
+    //     height: 3rem;
+    //     background-color: var(--white);
+    //     border-top: 0.2rem solid var(--black2);
+    //     border-left: 0.2rem solid var(--black2);
+    //     top: -1.2rem;
+    //     left: 1rem;
+    //     transform: translateY(-50%);
+    // }
 
     &::before {
         position: absolute;
@@ -153,7 +165,7 @@
         background-color: #e2e2ab;
         align-items: center;
         padding: 1rem;
-
+        border-top: 0.2rem solid var(--black2);
         .back-btn {
             text-align: center;
             display: flex;
@@ -168,10 +180,6 @@
         }
     }
 }
-
-// .isScroll {
-//     border: 1px solid black;
-// }
 
 @media only screen and (max-width: 868px) {
     .itemRight .icon.active {
@@ -192,11 +200,16 @@
         background-color: var(--white-color);
         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 
+        height: 100vh;
         transition: var(--transition-delay);
+
+        flex-direction: column;
 
         .item {
             display: block;
-            margin: 2rem 2rem !important;
+            padding: 2rem 2rem !important;
+            margin: 0 !important;
+            background: linear-gradient(90deg, white, transparent);
         }
 
         .item:hover {
@@ -212,5 +225,17 @@
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
         transition: var(--transition-delay);
+    }
+
+    .menuHover {
+        left: 15rem;
+        top: 2.2rem;
+
+        // &::after {
+        //     top: 0.7rem;
+        //     left: -2.8rem;
+        //     transform: translateY(-50%);
+        //     transform: rotate(269deg);
+        // }
     }
 }

@@ -50,7 +50,7 @@ const menuWayTravel = [
                 },
                 {
                     title: 'Beach Break',
-                    to: '/way-to-travel/TYPE_BEACHBREAK',
+                    to: '/way-to-travel/TYPE_BEACH',
                 },
                 {
                     title: 'Adventure',
@@ -58,7 +58,7 @@ const menuWayTravel = [
                 },
                 {
                     title: 'Heritage',
-                    to: '/way-to-travel/TYPE_HERITAGE',
+                    to: '/way-to-travel/TYPE_HERITAGES',
                 },
                 {
                     title: 'Wellness',
@@ -77,7 +77,7 @@ const menuWayTravel = [
     },
     {
         title: 'luxury transfer',
-        to: '/',
+        to: '/luxury-transfer',
     },
     {
         title: 'luxury hotel',

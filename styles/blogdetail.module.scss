@@ -9,7 +9,8 @@
     width: 100%;
     display: flex;
     .content {
-        width: 80%;
+        width: 50%;
+        flex: 1;
     }
 }
 .main-bot {
@@ -21,8 +22,14 @@
         border-bottom: 1px solid var(--light);
     }
 }
+.img-banner {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+}
 .author {
     width: 20%;
+    min-width: 120px;
 }
 .content {
     color: gray;
@@ -43,6 +50,7 @@
     justify-content: space-between;
 }
 .tag-list {
+    padding-right: 20px;
     span {
         font-size: 14px;
         margin-right: 20px;
@@ -55,6 +63,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: nowrap;
     span {
         margin-right: 10px;
     }
@@ -158,5 +167,46 @@
     img {
         width: 100%;
         height: 100%;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+    .main-top {
+        padding: 5% 23% 5% 13%;
+    }
+    .main-bot {
+        padding: 5% 23% 5% 23%;
+    }
+    .comment-container {
+        padding: 5% 20%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .main-top {
+        padding: 5% 18% 5% 8%;
+    }
+    .main-bot {
+        padding: 5% 18% 5% 18%;
+    }
+    .comment-container {
+        padding: 5% 12%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .main-top {
+        padding: 5%;
+    }
+    .main-bot {
+        padding: 5% 5% 5% 5%;
+    }
+    .comment-container {
+        padding: 5% 10%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .tag-list {
+        span {
+            font-size: 12px;
+        }
     }
 }

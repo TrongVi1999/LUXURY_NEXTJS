@@ -11,27 +11,36 @@ const avatars = {
 
 const banners = {
     banner1: require('./banner/banner-vinpearl.png'),
-    banner2: require('./banner/doi-cat-mui-ne-phan-thiet-dep-02.jpg'),
+    banner2: require('./banner/bloglist.png'),
     banner3: require('./banner/kinh-nghiem-du-lich-da-nang-1.jpg'),
     phuquoc: require('./banner/phuquoc.jpg'),
     thuyendep: require('./banner/thuyendep.jpg'),
     halongbay: require('./banner/halongbay.jpg'),
     resolt: require('./banner/resolt.jpg'),
-    banner4: require('./banner/banner4.jpg'),
+    banner4: require('./banner/banner4.png'),
     banner6: require('./banner/banner6.jpg'),
     banner7: require('./banner/banner7.jpg'),
     banner8: require('./banner/banner8.jpg'),
     bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
+    luxuryTransfer: require('./xeBanner.jpg'),
 };
 
 const iconInfos = {
     icon1: require('./icons/7.png'),
-    icon2: require('./icons/cọntact (1).png'),
+    phone: require('./icons/cọntact (1).png'),
     icon3: require('./icons/customizBLE ICON (1).png'),
     icon4: require('./icons/heart icon (1).png'),
     icon5: require('./icons/logo.png'),
-    icon6: require('./icons/mail (1).png'),
+    mail: require('./icons/mail (1).png'),
+    place: require('./icons/place (1).png'),
     icon7: require('./icons/Vector Smart Object (1).png'),
 };
 
-export { images, avatars, banners, iconInfos };
+const carTrans = {
+    xe1: require('./xe1.jpg'),
+    xe2: require('./xe1.jpg'),
+    xe3: require('./xe1.jpg'),
+
+}
+
+export { images, avatars, banners, iconInfos, carTrans };
