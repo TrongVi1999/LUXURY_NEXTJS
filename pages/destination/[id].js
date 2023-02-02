@@ -26,6 +26,7 @@ const data = {
 const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function Destimation() {
+    const [showFilterMobile, setShowFilterMobile] = useState(false)
 
     const [Data, setdata] = useState();
     const router = useRouter();
@@ -39,13 +40,27 @@ function Destimation() {
     useEffect(() => {
         CallAPI();
     }, [router.query.id]);
-    console.log(Data)
 
+    useEffect(() => {
+        const showFilterMobilef = () => {
+            if (showFilterMobile) {
+
+                setShowFilterMobile(false)
+            }
+        }
+
+        window.addEventListener('scroll', showFilterMobilef)
+
+        return (() => {
+            window.removeEventListener('scroll', showFilterMobilef)
+        })
+    }, [showFilterMobile])
 
     const [page, setPage] = useState(1)
 
     const lastIndex = page * 4;
     const firstIndex = lastIndex - 4;
+
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
@@ -54,7 +69,7 @@ function Destimation() {
                     <div className={cx('sort')}>
                         <div className={cx('sortContent')}>
                             <button>Sort by</button>
-                            <button>Filter by</button>
+                            <button onClick={() => setShowFilterMobile(!showFilterMobile)}>Filter by</button>
                         </div>
                         <span>Showing 1 - 10 of 30 products</span>
                     </div>
@@ -62,12 +77,6 @@ function Destimation() {
                         {Data && Data.map((d, i) =>
                             <Tourcard2 data={d} />
                         )}
-                        {/* <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} />
-                        <Tourcard2 data={data} /> */}
                     </div>
 
                     <Pagination totalPosts={datafa.length} postPerPage={4} setPage={setPage} pageIndex={page} />
@@ -79,6 +88,7 @@ function Destimation() {
                     category={categoryFillerAddress}
                     tourTags={tourTagsFilter}
                     className={cx('boxFilter')}
+                    showFilterMobile={showFilterMobile}
                 />
             </Section>
         </div>
