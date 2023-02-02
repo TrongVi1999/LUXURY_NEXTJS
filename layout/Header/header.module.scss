@@ -69,8 +69,7 @@
         color: var(--gray);
         display: flex;
         align-items: center;
-
-       
+        position: relative;
 
         .icon {
             font-size: 2.4rem;
@@ -183,17 +182,18 @@
     }
 }
 
-.user{
-    .login{
+.user {
+    .login {
         display: none;
         position: absolute;
         border: 3px solid rgb(224, 224, 18);
-    }}
-   .user:hover{
-        .login{
-            display: block;
-        }
     }
+}
+.user:hover {
+    .login {
+        display: block;
+    }
+}
 @media only screen and (max-width: 868px) {
     .itemRight .icon.active {
         color: var(--primary);
