@@ -18,8 +18,6 @@ import Image from 'next/image';
 const cx = classNames.bind(styles)
 
 const index = () => {
-
-
     return (
         <>
             <div className={cx('wrapperBanner')}>
@@ -59,7 +57,6 @@ const index = () => {
             <Section notPadding>
                 <OutTeamAboutUs />
             </Section>
-
         </>
     )
 }
