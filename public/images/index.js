@@ -22,6 +22,7 @@ const banners = {
     banner7: require('./banner/banner7.jpg'),
     banner8: require('./banner/banner8.jpg'),
     bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
+    luxuryTransfer: require('./xeBanner.jpg'),
 };
 
 const iconInfos = {
@@ -35,4 +36,11 @@ const iconInfos = {
     icon7: require('./icons/Vector Smart Object (1).png'),
 };
 
-export { images, avatars, banners, iconInfos };
+const carTrans = {
+    xe1: require('./xe1.jpg'),
+    xe2: require('./xe1.jpg'),
+    xe3: require('./xe1.jpg'),
+
+}
+
+export { images, avatars, banners, iconInfos, carTrans };

@@ -11,17 +11,17 @@
         background-color: black;
         padding: 5rem 15%;
 
-        .box{
+        .box {
             width: 35%;
             text-align: center;
 
-            h2{
+            h2 {
                 margin-top: 2rem;
-                color:#ffd800;
+                color: #ffd800;
                 font-size: 24px;
                 text-align: center;
             }
-             p{
+            p {
                 color: white;
                 margin-top: 1rem;
                 font-size: 16px;
@@ -30,7 +30,6 @@
             }
         }
     }
-
 
     .bodyBanner {
         position: relative;
@@ -45,31 +44,30 @@
     object-fit: cover;
 }
 
-@media only screen and (max-width : 1150px){
-    .boxInfo .box .icon img{
-        width:auto;
+@media only screen and (max-width: 1150px) {
+    .boxInfo .box .icon img {
+        width: auto;
         height: 35px;
     }
-    .boxInfo .box h2{
+    .boxInfo .box h2 {
         font-size: 16px !important;
     }
-    .boxInfo .box p{
+    .boxInfo .box p {
         font-size: 12px !important;
     }
-
 }
-@media only screen and (max-width : 750px){
-    .boxInfo .box .icon img{
-        width:auto;
+@media only screen and (max-width: 750px) {
+    .boxInfo .box .icon img {
+        width: auto;
         height: 15px;
     }
-    .boxInfo .box h2{
+    .boxInfo .box h2 {
         font-size: 12px !important;
     }
-    .boxInfo .box p{
+    .boxInfo .box p {
         font-size: 8px !important;
     }
-    .boxInfo{
+    .boxInfo {
         padding: 5% !important;
     }
 }

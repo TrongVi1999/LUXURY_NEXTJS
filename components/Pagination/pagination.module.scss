@@ -5,6 +5,26 @@
     gap: 1rem;
     margin: 7rem 0;
 
+    .buttonIcon {
+        width: 2.4rem;
+        height: 2.4rem;
+        font-size: 2rem;
+        color: var(--black);
+
+        &:hover {
+            cursor: pointer;
+            color: var(--primary);
+        }
+    }
+
+    .buttonIcon.dis {
+        opacity: 0.5;
+
+        &:hover {
+            color: var(--black);
+        }
+    }
+
     .button {
         width: 2.4rem;
         height: 2.4rem;

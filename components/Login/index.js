@@ -1,21 +1,115 @@
+import axios from 'axios';
 import classNames from 'classnames/bind';
-import Input from '../Input';
-import style from './login.module.scss';
+import Link from 'next/link';
+// import { useNavigate } from "react-router-dom";
+import qs from "qs";
+import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa';
+import { toast } from "react-toastify";
+import style from './login.module.scss';
 const cx = classNames.bind(style);
 
 const Login = ({ Click }) => {
+    // const navigate = useNavigate();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const callApi = async (data) => {
+        const response = await axios({
+            method: "post",
+            url: "https://vnxpedia.3i.com.vn/TravelAPI/LoginXpedia",
+            data: qs.stringify({
+                UserName: data.Username,
+                Password: data.Pass,
+            }),
+            headers: {
+                "content-type":
+                    "application/x-www-form-urlencoded;charset=utf-8",
+            },
+        });
+        (response.data.Error === false) ? alert('Đăng Nhập Thành Công!') : alert('Đăng Nhập Không Thành Công!');
+
+
+        if (response.data.Error === true) {
+            toastError("Error!");
+        } else {
+            toastSuccess("Login success.");
+            localStorage.setItem("VNXUser", JSON.stringify(response.data));
+        }
+        console.log(response);
+    };
+
+    const handleLogin = (data) => {
+        callApi(data);
+        console.log(data);
+        // { (e) => e.preventDefault() }
+        setTimeout(() => <Link href={'/bloglist'} />, 2000);
+        // alert('1')
+    };
+    const toastSuccess = (text) => {
+        return toast.success(`${text}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+    const toastError = (text) => {
+        return toast.error(`${text}`, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
+    const toastWarning = (text) => {
+        return toast.warning(`${text}`, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     return (
         <div className={cx('container')}>
-            <form action="" method="post" onClick={(e) => e.preventDefault()}>
+            <form action="" onSubmit={handleSubmit(handleLogin)} >
                 <label>USER NAME</label>
                 <br />
-                <input type="text" />
+                <input type="text" id='username'  {...register("Username", { required: true })} />
+                {errors.Username &&
+                    errors.Username.type === "required" && (
+                        <span className={cx('error-message')}>
+                            Username cannot be empty !
+                            <br />
+                        </span>
+
+                    )}
                 <br />
                 <label>PASSWORD</label>
                 <br />
-                <input type="password" className={cx('input')} />
+                <input type="password" className={cx('input')} id='password'  {...register("Pass", { required: true })} />
+                {errors.Pass && errors.Pass.type === "required" && (
+                    <span className={cx('error-message')}>
+                        Password cannot be empty !
+                    </span>
+                )}
                 <br />
 
                 <button type="submit">LOGIN</button>
@@ -26,11 +120,11 @@ const Login = ({ Click }) => {
                 <span>Don&rsquo;t have account yet?</span>
                 <br />
                 <div className={cx('group')}>
-                    <button type="submit" onClick={() => Click(true)}>SIGN UP</button>
-                    <button type="submit" className={cx('fb')}><FaFacebook />LOGIN</button>
+                    <button onClick={() => Click(true)}>SIGN UP</button>
+                    <button className={cx('fb')}><FaFacebook />LOGIN</button>
                 </div>
             </form>
-        </div>
+        </div >
 
 
     )

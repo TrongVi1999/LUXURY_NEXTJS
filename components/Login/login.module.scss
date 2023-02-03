@@ -1,6 +1,6 @@
 .container{
     width: 45rem;
-    height: 45rem;
+    height: 50rem;
     background-color: white;
     padding: 2rem;
     
@@ -60,4 +60,7 @@
 }
 .fb {
     text-align: center;
+}
+.error-message{
+    color: red;
 }

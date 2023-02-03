@@ -12,6 +12,7 @@ import { Button } from '@/components';
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const cx = classNames.bind(style);
 
@@ -21,10 +22,13 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [bgheader, setbgheader] = useState('');
     const [signup, setsignup] = useState(false);
+    const [login, setlogin] = useState(false)
+    const [showlogin, setshowlogin] = useState(false)
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
     };
+
 
     useEffect(() => {
         const handelScroll = () => {
@@ -57,10 +61,12 @@ const Header = () => {
 
 
                     <div className={cx('user')}>
-                        <AiOutlineUser className={cx('icon', { active: showUser })} />
-                        <div className={cx('login')}>
-                            <Login Click={setsignup} />
-                        </div>
+                        <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
+                        <OutsideClickHandler onOutsideClick={() => showlogin ? setshowlogin(false) : setshowlogin(true)}>
+                            <div className={cx('login')}>
+                                {login && < Login Click={setsignup} />}
+                            </div>
+                        </OutsideClickHandler>
                     </div>
                     <AiOutlineSearch className={cx('icon', { active: showSearch })} />
 
