@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
+import { Getblog } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
 const Itinerary = ({ description, detail }) => {
     const [content, setcontent] = useState(['active', '', '']);
+    const [Data, setData] = useState();
 
-
+    const CallAPI = async () => {
+        const response = await Getblog(5044);
+        if (response.status == 200) {
+            setData(response.data.Object)
+        }
+    }
+    useEffect(() => {
+        CallAPI()
+    }, []);
 
     return (
         <div className={cx('iti-container')}>
@@ -17,33 +27,40 @@ const Itinerary = ({ description, detail }) => {
                 <p onClick={() => setcontent(['', 'active', ''])} className={cx(content[1])}>PRICE & POLICY</p>
                 <p onClick={() => setcontent(['', '', 'active'])} className={cx(content[2])}>TERM & CONDITIONS</p>
             </div>
-            <div className={cx('iti-main')}>
-                <p className={cx('tour-description')}>
-                    {ChangeTextHTML(description)}
-                </p>
-                <div className={cx('tour-detail')}>
-                    <p className={cx('title-detail')}>
-                        DETAIL ITINERARY
+            {content[0] == 'active' &&
+                <div className={cx('iti-main')}>
+                    <p className={cx('tour-description')}>
+                        {ChangeTextHTML(description)}
                     </p>
-                    <div className={cx('list-detail')}>
-                        <div className={cx('space')}></div>
-                        {detail.map((d, i) =>
-                            <div className={cx('item-day')} key={i}>
-                                <div className={cx('number-day')}>{d.Title.split(':')[0]}</div>
-                                <div className={cx('main-day')}>
-                                    <p className={cx('title-day')}>{d.Title.split(':')[1]}</p>
-                                    <p className={cx('text-day')} dangerouslySetInnerHTML={{
-                                        __html: d.Description,
-                                    }}></p>
-                                    {d.Image && <img src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" />}
+                    <div className={cx('tour-detail')}>
+                        <p className={cx('title-detail')}>
+                            DETAIL ITINERARY
+                        </p>
+                        <div className={cx('list-detail')}>
+                            <div className={cx('space')}></div>
+                            {detail.map((d, i) =>
+                                <div className={cx('item-day')} key={i}>
+                                    <div className={cx('number-day')}>{d.Title.split(':')[0]}</div>
+                                    <div className={cx('main-day')}>
+                                        <p className={cx('title-day')}>{d.Title.split(':')[1]}</p>
+                                        <p className={cx('text-day')} dangerouslySetInnerHTML={{
+                                            __html: d.Description,
+                                        }}></p>
+                                        {d.Image && <img src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" />}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
+                    <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
+                    <button className={cx('btn-design')}>DESIGN YOUR TOUR</button>
                 </div>
-                <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                <button className={cx('btn-design')}>DESIGN YOUR TOUR</button>
-            </div>
+            }
+            {content[1] == 'active' && Data &&
+                <div className={cx('iti-main')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}>
+
+                </div>
+            }
         </div>
     )
 }

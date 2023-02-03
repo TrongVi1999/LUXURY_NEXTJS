@@ -92,7 +92,7 @@ const menuAbouUs = [
     },
     {
         title: 'Payment',
-        to: '/payment'
+        to: '/payment/DEPOSIT & PAYMENT'
     },
     {
         title: 'Responsible',

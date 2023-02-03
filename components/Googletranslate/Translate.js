@@ -1,10 +1,7 @@
-import '@/styles/globals.scss';
-import Layout from '../layout/Layout';
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-export default function App({ Component, pageProps }) {
-
+const MyApp = ({ Component, pageProps }) => {
     const { isFallback, events } = useRouter()
 
     const googleTranslateElementInit = () => {
@@ -43,9 +40,7 @@ export default function App({ Component, pageProps }) {
         }
     }, [])
 
-    return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
-    );
+    return <Component {...pageProps} />
 }
+
+export default MyApp
