@@ -11,19 +11,19 @@ import { Gettourcountry } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(style);
-const data = {
-    img: IMG,
-    title: 'Ha long bay day cruise - paradise explore',
-    rate: 4.7,
-    ratecount: 100,
-    book: 999,
-    long: 15,
-    price: 3000,
-    sale: 50,
-    destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-    highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-};
-const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// const data = {
+//     img: IMG,
+//     title: 'Ha long bay day cruise - paradise explore',
+//     rate: 4.7,
+//     ratecount: 100,
+//     book: 999,
+//     long: 15,
+//     price: 3000,
+//     sale: 50,
+//     destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
+//     highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
+// };
+// const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 function Destimation() {
     const [showFilterMobile, setShowFilterMobile] = useState(false)
@@ -58,30 +58,32 @@ function Destimation() {
 
     const [page, setPage] = useState(1)
 
-    const lastIndex = page * 4;
-    const firstIndex = lastIndex - 4;
+    const lastIndex = page * 9;
+    const firstIndex = lastIndex - 9;
 
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
             <Section maxWidth={1170} className={cx('container')}>
-                <div className={cx('list')}>
-                    <div className={cx('sort')}>
-                        <div className={cx('sortContent')}>
-                            <button>Sort by</button>
-                            <button onClick={() => setShowFilterMobile(!showFilterMobile)}>Filter by</button>
+                {Data &&
+                    <div className={cx('list')}>
+                        <div className={cx('sort')}>
+                            <div className={cx('sortContent')}>
+                                <button>Sort by</button>
+                                <button onClick={() => setShowFilterMobile(!showFilterMobile)}>Filter by</button>
+                            </div>
+                            <span>Showing 1 - 9 of {Data.length} products</span>
                         </div>
-                        <span>Showing 1 - 10 of 30 products</span>
-                    </div>
-                    <div className={cx('tour-list')}>
-                        {Data && Data.map((d, i) =>
-                            <Tourcard2 data={d} />
-                        )}
-                    </div>
+                        <div className={cx('tour-list')}>
+                            {Data.slice(firstIndex, lastIndex).map((d, i) =>
+                                <Tourcard2 data={d} />
+                            )}
+                        </div>
 
-                    <Pagination totalPosts={datafa.length} postPerPage={4} setPage={setPage} pageIndex={page} />
+                        <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
 
-                </div>
+                    </div>
+                }
                 <CategoryFilter
                     price
                     day
