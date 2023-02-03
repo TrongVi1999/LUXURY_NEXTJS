@@ -1,22 +1,30 @@
-import React from 'react'
-import classNames from 'classnames/bind';
-import style from '@/styles/Hoteldetail.module.scss';
-import Image from 'next/image';
-import { AiFillStar } from 'react-icons/ai';
-import { CiLocationOn } from 'react-icons/ci';
-import { GoPrimitiveDot } from 'react-icons/go'
-import { BsCheckLg } from 'react-icons/bs';
-import a1 from '@/public/a1.png'
-import a2 from '@/public/a2.png'
-import a3 from '@/public/a3.png'
-import a4 from '@/public/a4.png'
-import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import ChangeTextHTML from '@/hook/ChangetextHTML';
+import a1 from '@/public/a1.png';
+import a2 from '@/public/a2.png';
+import a3 from '@/public/a3.png';
+import a4 from '@/public/a4.png';
 import { banners } from '@/public/images';
+import style from '@/styles/Hoteldetail.module.scss';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Imglist from '@/views/Tourdetail/Imglist';
+import classNames from 'classnames/bind';
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiFillStar } from 'react-icons/ai';
+import { BsCheckLg } from 'react-icons/bs';
+import { CiLocationOn } from 'react-icons/ci';
+import { GoPrimitiveDot } from 'react-icons/go';
+import { SlLocationPin } from 'react-icons/sl';
 
 const cx = classNames.bind(style);
 
 const Index = () => {
+    const data = {
+        img: a1,
+        title: 'HA LONG BAY DAY CRUISE - PARADISE EXPLORER',
+        price: 200000000,
+        destination: 'Sung Sot Cave -Luon Cave- Soi Sim Beach'
+    }
     return (
         <div>
             <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
@@ -157,9 +165,83 @@ const Index = () => {
 
 
                     </table>
+                    <div className={cx('Siminal-Hotel')}>
+                        <Link href={``} className={cx('card')}>
+                            <div className={cx('card-img')}>
+                                <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
+                            </div>
+                            <div className={cx('infor')}>
+                                <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
+                                <p className={cx('rate')}>
+                                    <span className={cx('rating')}>
+                                        <AiFillStar /> 4.8
+                                    </span>
+                                    <span className={cx('ratecount')}>
+                                        (1000 rate) | 1000 book
+                                    </span>
+                                </p>
+                                <p className={cx('price')}>
+                                    <span className={cx('price1')}>$ {data.price}</span>
+                                    {/* <span className={cx('price2')}>1500</span> */}
+                                </p>
+                                <p className={cx('place')}>
+                                    <SlLocationPin />
+                                    {(data.destination)}
+                                </p>
+                            </div>
+                        </Link>
+                        <Link href={``} className={cx('card')}>
+                            <div className={cx('card-img')}>
+                                <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
+                            </div>
+                            <div className={cx('infor')}>
+                                <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
+                                <p className={cx('rate')}>
+                                    <span className={cx('rating')}>
+                                        <AiFillStar /> 4.8
+                                    </span>
+                                    <span className={cx('ratecount')}>
+                                        &#40; 28.091 Đánh giá &#41; |600 Đã được đặt
+                                    </span>
+                                </p>
+                                <p className={cx('price')}>
+                                    <span className={cx('price1')}>	&#36; {data.price}</span>
+                                    {/* <span className={cx('price2')}>1500</span> */}
+                                </p>
+                                <p className={cx('place')}>
+                                    <SlLocationPin />
+                                    {(data.destination)}
+                                </p>
+                            </div>
+                        </Link>
+                        <Link href={``} className={cx('card')}>
+                            <div className={cx('card-img')}>
+                                <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
+                            </div>
+                            <div className={cx('infor')}>
+                                <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
+                                <p className={cx('rate')}>
+                                    <span className={cx('rating')}>
+                                        <AiFillStar /> 4.8
+                                    </span>
+                                    <span className={cx('ratecount')}>
+                                        (1000 rate) | 1000 book
+                                    </span>
+                                </p>
+                                <p className={cx('price')}>
+                                    <span className={cx('price1')}>$ {data.price}</span>
+                                    {/* <span className={cx('price2')}>1500</span> */}
+                                </p>
+                                <p className={cx('place')}>
+                                    <SlLocationPin />
+                                    {(data.destination)}
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
