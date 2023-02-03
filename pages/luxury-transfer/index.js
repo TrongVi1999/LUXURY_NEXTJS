@@ -6,6 +6,7 @@ import { Section, Button } from '@/components';
 import { BannerSlide, BoxCarTrans } from '@/views';
 import { banners, carTrans } from '@/public/images';
 import { useState } from 'react';
+import Contact from '@/views/LuxuryTrans/Contact';
 import { Pagination } from 'antd';
 
 const cx = classNames.bind(style);
@@ -50,6 +51,11 @@ const fakeDataTrans = [[
 function Destimation() {
 
     const [transActive, setTransActive] = useState(0)
+    const [Book, setBook] = useState(true);
+    const handleBooking = () => {
+        setBook(false);
+    }
+
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
@@ -67,19 +73,17 @@ function Destimation() {
                 <Button className={cx('btn', transActive === 2 ? 'active' : null)} onClick={() => setTransActive(2)}>HELICOPTERS </Button>
             </Section>
 
+
             <Section maxWidth={1170} isWrap gapBox={3}>
                 {
                     fakeDataTrans[transActive].map((item, index) => (
-                        <BoxCarTrans img={item.img} name={item.name} key={index} />
+                        <BoxCarTrans img={item.img} name={item.name} key={index} click={handleBooking} />
                     ))
                 }
             </Section>
-            {/* <Pagination
-                defaultCurrent={1}
-                total={Tourresult.length}
-                onChange={onChangePag}
-                defaultPageSize={9}
-            /> */}
+            <Contact
+
+            />
         </div>
     );
 }
