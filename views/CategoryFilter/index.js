@@ -13,7 +13,7 @@ const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, archives, banner, showFilterMobile = false, className }) {
+function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
     const [activeArchive, setActiveArchive] = useState(-1);
@@ -25,9 +25,6 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
 
     // active show filter mobile
     const [showFillter, setShowFillter] = useState(0)
-
-    console.log('fil', showFillter)
-    // console.log(listMonthArchives)
 
     const convertTimeString = () => {
         const listMonths = [];
@@ -91,8 +88,13 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
 
     const clases = cx('wrapper', {
         [className]: className,
-        active: showFilterMobile,
     });
+
+    useEffect(() => {
+        if (setValueFillter) {
+            setValueFillter({ category: activeCategory, tourTag: activeTour })
+        }
+    }, [activeCategory, activeTour])
 
 
     return (
@@ -102,6 +104,8 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
                 <Buttom className={cx('btnFilter', showFillter === 2 ? 'activeBtn' : null)} onClick={() => handelShowfillter(2)}>fillter by price <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
                 <Buttom className={cx('btnFilter', showFillter === 3 ? 'activeBtn' : null)} onClick={() => handelShowfillter(3)}>fillter by day <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
                 <Buttom className={cx('btnFilter', showFillter === 4 ? 'activeBtn' : null)} onClick={() => handelShowfillter(4)}>tour tags <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
+                <Buttom className={cx('btnFilter', showFillter === 5 ? 'activeBtn' : null)} onClick={() => handelShowfillter(5)}>season <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
+                <Buttom className={cx('btnFilter', showFillter === 6 ? 'activeBtn' : null)} onClick={() => handelShowfillter(6)}>groupsize <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
             </div>
 
             {
@@ -184,6 +188,35 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, recentPost, 
                     </div>
                 </div>
             ) : null}
+
+            {/* ================ groupSize ==============  */}
+            {
+                groupSize ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 5 ? 'active' : null)}>
+                    <h2 className={cx('title')}>{groupSize.title}</h2>
+                    {
+                        groupSize.elements.map((item, index) => (
+                            <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
+                                <span>{item}</span>
+                            </div>
+                        ))
+                    }
+                </div>) : null
+            }
+
+            {/* ================ SeaSon ==============  */}
+            {
+                season ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 6 ? 'active' : null)}>
+                    <h2 className={cx('title')}>{season.title}</h2>
+                    {
+                        season.elements.map((item, index) => (
+                            <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
+                                <span>{item}</span>
+                            </div>
+                        ))
+                    }
+                </div>) : null
+            }
+
 
             {
                 recentPost ? (<div className={cx('boxFillterItem', 'boxRecent')}>

@@ -55,8 +55,6 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-
-
                     <div className={cx('user')}>
                         <AiOutlineUser className={cx('icon', { active: showUser })} />
                         <div className={cx('login')}>
@@ -65,7 +63,6 @@ const Header = () => {
                     </div>
                     <div className={cx('search-icon')}>
                         <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
-
                     </div>
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />

@@ -386,11 +386,11 @@
 
             .btnFilter {
                 position: relative;
-                width: 45%;
+                width: 30%;
                 display: flex;
                 align-items: center;
-                padding: 1rem 0;
-                font-size: 1.6rem;
+                padding: 1.5rem 0;
+                font-size: 1.1rem;
                 color: var(--menu-text);
                 text-transform: uppercase;
 
@@ -431,10 +431,5 @@
         .inputSearch {
             margin-top: 2rem;
         }
-    }
-
-    .wrapper.active {
-        clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-        transition: var(--transition-delay);
     }
 }

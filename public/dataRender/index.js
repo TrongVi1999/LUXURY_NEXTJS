@@ -32,15 +32,15 @@ const categoryFillerAddress = {
     title: 'category',
     elements: [
         {
-            name: 'Hanoi',
+            name: 'Ha noi',
             amount: '24',
         },
         {
-            name: 'Halong',
+            name: 'Ha long',
             amount: '122',
         },
         {
-            name: 'Danang',
+            name: 'Da nang',
             amount: '09',
         },
         {
@@ -83,6 +83,16 @@ const tourTagsFilter = {
     elements: ['Daily Tour', 'Ha Long', 'Ninh Binh', 'Luxury', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
 };
 
+const seasonFillter = {
+    title: 'Fillter by Season',
+    elements: ['Newyear', 'Summer', 'holiday', 'Winter']
+}
+
+const groupSizeFillter = {
+    title: 'GroupSize',
+    elements: ['solo', 'couple', 'family', 'company']
+}
+
 const recentPostFake = {
     title: 'recent post',
     elements: [
@@ -104,4 +114,4 @@ const recentPostFake = {
     ]
 }
 
-export { categoryFillerAddress, tourTagsFilter, infoHomeFake, recentPostFake };
+export { categoryFillerAddress, tourTagsFilter, infoHomeFake, recentPostFake, seasonFillter, groupSizeFillter };
