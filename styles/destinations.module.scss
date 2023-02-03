@@ -89,7 +89,22 @@
         .list {
             width: 95%;
             margin: auto;
-            margin-top: 3rem;
+
+            .sort span {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding: unset;
+        margin-top: 7rem;
+        .list {
+            width: 95%;
+            margin: auto;
+            margin-top: 4rem;
 
             .sort span {
                 display: none;
