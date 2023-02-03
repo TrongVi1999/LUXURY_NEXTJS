@@ -14,6 +14,7 @@ import { MdGTranslate } from 'react-icons/md';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const cx = classNames.bind(style);
 
@@ -24,10 +25,18 @@ const Header = () => {
     const [bgheader, setbgheader] = useState('');
     const [signup, setsignup] = useState(false);
     const [translate, settranslate] = useState('none');
+    const [login, setlogin] = useState(false)
+    const [showlogin, setshowlogin] = useState(false)
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
     };
+    const showLogin = () => {
+        if (showlogin === 'show') {
+            setshowlogin('hidden');
+        } else setshowlogin('show');
+    }
+
 
     useEffect(() => {
         const handelScroll = () => {
@@ -62,10 +71,14 @@ const Header = () => {
                         <div id="google_translate_element" style={{ display: translate }}></div>
                     </div>
                     <div className={cx('user')}>
-                        <AiOutlineUser className={cx('icon', { active: showUser })} />
-                        <div className={cx('login')}>
-                            <Login Click={setsignup} />
-                        </div>
+                        <OutsideClickHandler onOutsideClick={() => {
+                            setlogin(false);
+                        }}>
+                            <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
+                            <div className={cx('login')}>
+                                {login && < Login Click={setsignup} />}
+                            </div>
+                        </OutsideClickHandler>
                     </div>
                     <div className={cx('search-icon')}>
                         <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />

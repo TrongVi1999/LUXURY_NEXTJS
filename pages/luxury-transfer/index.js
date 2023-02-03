@@ -7,6 +7,7 @@ import { BannerSlide, BoxCarTrans } from '@/views';
 import { banners, carTrans } from '@/public/images';
 import { useState } from 'react';
 import Contact from '@/views/LuxuryTrans/Contact';
+import { Pagination } from 'antd';
 
 const cx = classNames.bind(style);
 
@@ -55,6 +56,9 @@ function Destimation() {
         setBook(false);
     }
 
+    const onChangePag = (page) => {
+        setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
+    };
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
@@ -77,8 +81,8 @@ function Destimation() {
                     ))
                 }
             </Section>
-            <Contact 
-                
+            <Contact
+
             />
         </div>
     );
