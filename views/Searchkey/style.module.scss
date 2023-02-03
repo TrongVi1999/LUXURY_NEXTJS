@@ -5,6 +5,22 @@
     padding: 10px;
     background-color: white;
     border: 2px solid var(--button);
+
+    &::after {
+        position: absolute;
+        content: '';
+        top: -1.2rem;
+        left: 5rem;
+        width: 2rem;
+        height: 2rem;
+        border-top-left-radius: 56%;
+        border-bottom-right-radius: 100%;
+        border-top: 0.2rem solid var(--button);
+        border-left: 0.2rem solid var(--button);
+        background-color: var(--white);
+        transform: rotate(45deg);
+    }
+
     input {
         padding: 5px 10px;
         width: 100%;
