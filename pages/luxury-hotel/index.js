@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
-import style from '@/styles/wayToTravel.module.scss';
+// import style from '@/styles/wayToTravel.module.scss';
 import IMG from '@/public/images/tour1.jpg';
-
-import Tourcard2 from '@/views/Tourcard/Tourcard2';
-import Tourcard1 from '@/views/Tourcard/Tourcard1';
-
 import { Section, Title, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 import { useRouter } from "next/router";
-import { Tourtype } from '../api/CallAPI';
 import Hotelcard from '@/views/HotelCard/Hotelcard';
+import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
+import style from '@/styles/luxuryhotel.module.scss';
 
 
 const cx = classNames.bind(style);
@@ -173,9 +170,9 @@ const index = () => {
 
     return (
         <div className={cx('wrapper')}>
-            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} />
+            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} />
 
-            <Title text={'luxury tour'} align={'center'} className={cx('titleTravel')} />
+
             <Section maxWidth={1170}>
                 <div className={cx('sort')}>
                     <button>Sort by</button>
@@ -187,14 +184,25 @@ const index = () => {
             </Section>
 
             {/* {data.length > 0 && */}
-            <Section maxWidth={1170} isWrap gapBox={3.2}>
-                {
-                    fakeData.slice(firstIndex, lastIndex).map((data, index) => (
-                        <Hotelcard data={data} key={index} />
-                    ))
-                }
+            <div className={cx('main')}>
+                <div className={cx('hotel-list')}>
+                    {
+                        fakeData.slice(firstIndex, lastIndex).map((data, index) => (
+                            <Hotelcard data={data} key={index} />
+                        ))
+                    }
+                </div>
+                <CategoryFilter
 
-            </Section>
+                    category={categoryFillerAddress}
+
+                    className={cx('boxFilter')}
+
+
+
+                />
+
+            </div>
 
             {/* } */}
 
