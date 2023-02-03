@@ -22,9 +22,9 @@ function Profile() {
                 </div>
                 <h2 className={cx('name')}>Nora tsunoda</h2>
                 <div className={cx('boxItemPage')}>
-                    <Button className={cx('itemPage', activeProfile === 1 ? 'active' : null)}>profile</Button>
-                    <Button className={cx('itemPage', activeProfile === 2 ? 'active' : null)}>notifications</Button>
-                    <Button className={cx('itemPage', activeProfile === 3 ? 'active' : null)}>booking list</Button>
+                    <Button className={cx('itemPage', activeProfile === 1 ? 'active' : null)} onClick={() => setActiveProfile(1)}>profile</Button>
+                    <Button className={cx('itemPage', activeProfile === 2 ? 'active' : null)} onClick={() => setActiveProfile(2)}>notifications</Button>
+                    <Button className={cx('itemPage', activeProfile === 3 ? 'active' : null)} onClick={() => setActiveProfile(3)}>booking list</Button>
                 </div>
             </div>
 
