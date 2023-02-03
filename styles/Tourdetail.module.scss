@@ -152,6 +152,9 @@
 .iti-main {
     padding: 2vw 2.5vw;
     border: 1px solid gray;
+    p {
+        margin-left: 0 !important;
+    }
 }
 .tour-detail {
     margin: 2vw 0;

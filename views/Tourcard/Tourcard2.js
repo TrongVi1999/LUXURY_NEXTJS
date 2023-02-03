@@ -51,7 +51,7 @@ const Tourcard2 = ({ data }) => {
                         </p>
                     ))}
                 </div>
-                <Link href={'/tour-detail/FAMILY02'} className={cx('book')}>BOOK THIS TOUR</Link>
+                <Link href={`/tour-detail/${data.TourCode}`} className={cx('book')}>BOOK THIS TOUR</Link>
             </div>
             {data.Discount && data.Discount != 0 &&
                 <div className={cx('salesticky')}>

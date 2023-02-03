@@ -11,8 +11,8 @@ const cx = classNames.bind(style);
 
 function Input({
     type = 'text',
-    checked = false,
-    isDateInput = false,
+    checked,
+    isDateInput = "",
     leftIcon,
     rightIcon,
     isSelect,

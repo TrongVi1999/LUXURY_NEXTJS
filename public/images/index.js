@@ -23,6 +23,7 @@ const banners = {
     banner8: require('./banner/banner8.jpg'),
     bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
     luxuryTransfer: require('./xeBanner.jpg'),
+    hoteldetail: require('./banner/hoteldetail.png'),
 };
 
 const iconInfos = {

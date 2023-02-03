@@ -10,6 +10,7 @@ import Menu from './Menu';
 import { Button } from '@/components';
 
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
+import { MdGTranslate } from 'react-icons/md';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
@@ -25,6 +26,7 @@ const Header = () => {
     const [signup, setsignup] = useState(false);
     const [login, setlogin] = useState(false)
     const [showlogin, setshowlogin] = useState(false)
+    const [translate, settranslate] = useState('none');
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -64,16 +66,18 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-
-
+                    <div className={cx('gg-trans')}>
+                        <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                        <div id="google_translate_element" style={{ display: translate }}></div>
+                    </div>
                     <div className={cx('user')}>
                         <OutsideClickHandler onOutsideClick={() => {
                             setlogin(false);
                         }}>
                             <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
-                            <div className={cx('login')}>
-                                {login && < Login Click={setsignup} />}
-                            </div>
+
+                            {login && <div className={cx('login')}>< Login Click={setsignup} /> </div>}
+
                         </OutsideClickHandler>
                     </div>
                     <div className={cx('search-icon')}>
@@ -88,6 +92,8 @@ const Header = () => {
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}
+
+
         </div>
     );
 };
