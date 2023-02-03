@@ -38,6 +38,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
+        margin: 20px 0;
     }
     table {
         width: 100%;
@@ -50,13 +51,17 @@
     justify-content: space-between;
 }
 .tag-list {
+    width: 30%;
     padding-right: 20px;
-    span {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    div {
         font-size: 14px;
         margin-right: 20px;
         font-weight: bold;
         letter-spacing: 2px;
-        text-decoration: line-through yellow 3px;
+        white-space: nowrap;
     }
 }
 .share-list {

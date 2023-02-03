@@ -2,6 +2,8 @@
     margin: 5px 0;
     width: fit-content;
     text-align: start;
+    display: flex;
+    flex-wrap: nowrap;
     svg {
         font-size: 15px;
         margin-right: 10px;
