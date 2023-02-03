@@ -11,6 +11,7 @@ import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 import { useRouter } from "next/router";
 import { Tourtype } from '../api/CallAPI';
+import Hotelcard from '@/views/HotelCard/Hotelcard';
 
 
 const cx = classNames.bind(style);
@@ -158,15 +159,15 @@ const index = () => {
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
-    const CallAPI = async () => {
-        const response = await Tourtype(router.query.id);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
-    }
-    useEffect(() => {
-        CallAPI();
-    }, [router.query.id]);
+    // const CallAPI = async () => {
+    //     const response = await Tourtype(router.query.id);
+    //     if (response.status == 200) {
+    //         setdata(response.data.Object);
+    //     }
+    // }
+    // useEffect(() => {
+    //     CallAPI();
+    // }, [router.query.id]);
 
 
 
@@ -180,22 +181,24 @@ const index = () => {
                     <button>Sort by</button>
                     <button>Filter by</button>
                 </div>
-                {data.length > 0 && <Tourcard2 data={data[0]} />}
+                {/* {data.length > 0 && 
+                <Tourcard2 data={data[0]} 
+                />} */}
             </Section>
 
-            {data.length > 0 &&
-                <Section maxWidth={1170} isWrap gapBox={3.2}>
-                    {
-                        data.filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((data, index) => (
-                            <Tourcard1 data={data} key={index} />
-                        ))
-                    }
+            {/* {data.length > 0 && */}
+            <Section maxWidth={1170} isWrap gapBox={3.2}>
+                {
+                    fakeData.slice(firstIndex, lastIndex).map((data, index) => (
+                        <Hotelcard data={data} key={index} />
+                    ))
+                }
 
-                </Section>
+            </Section>
 
-            }
+            {/* } */}
 
-            <Pagination totalPosts={data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     )
 }

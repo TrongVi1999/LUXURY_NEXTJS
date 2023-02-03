@@ -83,7 +83,7 @@ const Index = () => {
                     <h2>Chính sách của khu nghỉ dưỡng Amanoi Ninh Thuận</h2>
                     <table>
                         <tr>
-                            <th>Thời gian khách nhận phòng</th>
+                            <th><p>Thời gian khách nhận phòng</p></th>
                             <td>15:00</td>
                         </tr>
 
@@ -92,7 +92,7 @@ const Index = () => {
                             <td>12:00</td>
                         </tr>
                         <tr>
-                            <th>Di chuyển </th>
+                            <th className={cx('th')}><p>Di chuyển</p> </th>
                             <td>Quý khách có thể di chuyển bằng máy bay đến sân bay Cam Ranh hoặc di chuyển bằng tàu hỏa đến Ga Tháp Chàm
                                 <br />
                                 <br />
