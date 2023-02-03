@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/Hoteldetail.module.scss';
 import Image from 'next/image';
@@ -13,14 +13,16 @@ import a4 from '@/public/a4.png'
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import { banners } from '@/public/images';
 import Imglist from '@/views/Tourdetail/Imglist';
+import Booking from '@/views/LuxuryTrans/Contact';
 
 const cx = classNames.bind(style);
 
 const Index = () => {
+    const [book, setbook] = useState(false);
     return (
         <div>
             <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
-            <div className={cx('container')}>
+            {book ? <Booking click={setbook} /> : <div className={cx('container')}>
                 <Imglist data={[a1, a2, a3, a4]} issv={false} />
 
 
@@ -35,7 +37,7 @@ const Index = () => {
                             Cầu hôn tại Amanoi cũng là một ý tưởng tuyệt vời - với một mức giá không thể tốt hơn tại iVIVU - thượng khách hoàn toàn có thể mang đến cho người bạn đời một kỉ niệm không thể nào quên.
                             Hãy đến Amanoi Ninh Thuận một lần trong đời để tận hưởng trải nghiệm kỳ nghỉ vượt xa hơn cả mong đợi !</p>
 
-                        <button>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
+                        <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                     </div>
                 </div>
                 <div className={cx('util')}>
@@ -159,6 +161,7 @@ const Index = () => {
                     </table>
                 </div>
             </div>
+            }
         </div>
     )
 }
