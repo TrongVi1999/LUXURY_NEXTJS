@@ -75,7 +75,7 @@ const index = () => {
 
                         <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
                         <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={handleBooking} />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={handleBooking} />
 
                     </div> : <Booking
                         onClick={() => handleBooking()}
