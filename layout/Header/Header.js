@@ -24,9 +24,9 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [bgheader, setbgheader] = useState('');
     const [signup, setsignup] = useState(false);
-    const [translate, settranslate] = useState('none');
     const [login, setlogin] = useState(false)
     const [showlogin, setshowlogin] = useState(false)
+    const [translate, settranslate] = useState('none');
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -76,9 +76,9 @@ const Header = () => {
                             setlogin(false);
                         }}>
                             <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
-                            <div className={cx('login')}>
-                                {login && < Login Click={setsignup} />}
-                            </div>
+
+                            {login && <div className={cx('login')}>< Login Click={setsignup} /> </div>}
+
                         </OutsideClickHandler>
                     </div>
                     <div className={cx('search-icon')}>
