@@ -102,8 +102,6 @@ const menuAbouUs = [
 
 function Menu({ className, showmenu, menuBgr }) {
 
-    console.log(!!menuBgr.length)
-
     const clases = cx('menu', {
         [className]: className,
         active: showmenu,

@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { useRouter } from "next/router";
+
 import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
+
 import IMGbn from '@/public/images/blogbn.png';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
-import Author from '@/views/Blogdetail/Author';
-import Share from '@/views/Share/Share';
-import WriteComment from '@/views/Blogdetail/WriteComment';
-import Blogrecomment from '@/views/Blogdetail/Blogrecomment';
-import Comments from '@/views/Blogdetail/Comments';
-import TitleLine from '@/components/TitleLine';
+
+import Share from "@/views/Share/Share";
+import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
+// import TitleLine from '@/components/TitleLine';
+import { Getblog } from '../api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -55,52 +57,76 @@ const data = {
     ]
 }
 
+const BlogDetail = () => {
+    const router = useRouter();
+    const [Data, setData] = useState([])
+
+    const CallAPI = async () => {
+        const response = await Getblog(router.query.id);
+        if (response.status === 200) {
+            setData(response.data.Object);
+        }
+    }
+    const contentRef = useRef()
+
+    useEffect(() => {
+        CallAPI();
+    }, [router.query.id]);
+
+    var re = /[]\s|","\s/;
+
+    if (Data[0]) {
+        let hast = Data[0].hash_tag.split(re)
+        console.log(hast)
+    }
 
 
-const index = () => {
     return (
         <div className={cx('container')}>
             <BannerIMG img={data.banner} title={data.title.toUpperCase()} descrip={data.description} bg='bg' type={data.type} color='black' date={data.date} by={data.author} number={data.comments.length} />
-            <div className={cx('main')}>
-                <div className={cx('main-top')}>
-                    <div className={cx('author')}>
-                        <Author />
-                    </div>
-                    <div className={cx('content')} dangerouslySetInnerHTML={{
-                        __html: data.content1,
-                    }}>
-                    </div>
-                </div>
-                <Image src={data.galerry} alt='blog-travel' className={cx('img-banner')} />
-                <div className={cx('main-bot')}>
-                    <div className={cx('content')} dangerouslySetInnerHTML={{
-                        __html: data.content2,
-                    }}>
+            {
+                Data[0] &&
+                (<div className={cx('main')} ref={contentRef}>
 
-                    </div>
-                    <div className={cx('main-end')}>
-                        <div className={cx('tag-list')}>
-                            {data.hash_tag.map((d, i) =>
-                                <span key={i}>{d.toUpperCase()}</span>
-                            )}
+                    <div dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
+
+                    <div className={cx('main-top')}>
+                        <div className={cx('author')}>
+                            <Author />
                         </div>
-                        <div className={cx('share-list')}>
-                            <span>Share</span>
-                            <Share />
+                        <div className={cx('content')} dangerouslySetInnerHTML={{
+                            __html: data.content1,
+                        }}>
                         </div>
                     </div>
-                </div>
-                <div className={cx('comment-container')}>
-                    <Comments />
-                    <WriteComment />
-                </div>
+                    <Image src={data.banner} alt='blog-travel' className={cx('img-banner')} />
+                    <div className={cx('main-bot')}>
+                        <div className={cx('content')} dangerouslySetInnerHTML={{
+                            __html: data.content2,
+                        }}>
 
-
-            </div>
+                        </div>
+                        <div className={cx('main-end')}>
+                            <div className={cx('tag-list')}>
+                                {data.hash_tag.map((d, i) =>
+                                    <span key={i}>{d.toUpperCase()}</span>
+                                )}
+                            </div>
+                            <div className={cx('share-list')}>
+                                <span>Share</span>
+                                <Share />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cx('comment-container')}>
+                        <Comments />
+                        <WriteComment />
+                    </div>
+                </div>)
+            }
             <Blogrecomment />
-
-        </div>
+        </div >
     )
 }
 
-export default index
+export default BlogDetail

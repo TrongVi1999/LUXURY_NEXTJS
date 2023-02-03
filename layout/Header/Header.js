@@ -12,6 +12,7 @@ import { Button } from '@/components';
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
+import Searchkey from '@/views/Searchkey/Searchkey';
 import OutsideClickHandler from 'react-outside-click-handler';
 
 const cx = classNames.bind(style);
@@ -28,6 +29,11 @@ const Header = () => {
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
     };
+    const showLogin = () => {
+        if (showlogin === 'show') {
+            setshowlogin('hidden');
+        } else setshowlogin('show');
+    }
 
 
     useEffect(() => {
@@ -61,19 +67,24 @@ const Header = () => {
 
 
                     <div className={cx('user')}>
-                        <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
-                        <OutsideClickHandler onOutsideClick={() => showlogin ? setshowlogin(false) : setshowlogin(true)}>
+                        <OutsideClickHandler onOutsideClick={() => {
+                            setlogin(false);
+                        }}>
+                            <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />
                             <div className={cx('login')}>
                                 {login && < Login Click={setsignup} />}
                             </div>
                         </OutsideClickHandler>
                     </div>
-                    <AiOutlineSearch className={cx('icon', { active: showSearch })} />
+                    <div className={cx('search-icon')}>
+                        <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
+
+                    </div>
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
-
+                    {showSearch && <Searchkey />}
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}

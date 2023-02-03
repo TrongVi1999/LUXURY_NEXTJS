@@ -69,26 +69,27 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .wrapper {
-        .boxFilter {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100% !important;
-            height: 100vh;
-            z-index: 1000;
-            background-color: var(--white);
-            // display: none;
-        }
-    }
+    // .wrapper {
+    //     .boxFilter {
+    //         position: fixed;
+    //         top: 0;
+    //         left: 0;
+    //         right: 0;
+    //         width: 100% !important;
+    //         height: 100vh;
+    //         z-index: 1000;
+    //         background-color: var(--white);
+    //         // display: none;
+    //     }
+    // }
 
     .container {
         padding: unset;
-
+        margin-top: 7rem;
         .list {
             width: 95%;
             margin: auto;
+            margin-top: 3rem;
 
             .sort span {
                 display: none;

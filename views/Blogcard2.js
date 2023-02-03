@@ -11,7 +11,7 @@ import icon4 from '../public/icon/4.png'
 import { Button } from '@/components';
 const cx = classNames.bind(style);
 
-const Blogcard2 = ({ className }) => {
+const Blogcard2 = ({ className, data }) => {
 
     const clases = cx('container', {
         [className]: className,
@@ -21,13 +21,13 @@ const Blogcard2 = ({ className }) => {
         <div className={clases}>
             <div className={cx('blog')}>
                 <div className={cx('img')}>
-                    <Image src={blogcard2} alt="blogerroimg" className={cx('blogImg')} />
+                    <img src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="blogerroimg" className={cx('blogImg')} />
                 </div>
                 <div className={cx('icon')}>
                     <Image src={icon} alt="blogerroimg" />
                 </div>
                 <div className={cx('title')}>
-                    <h2>The Unique Charm in Phong Nha</h2>
+                    <h2>{data.title}</h2>
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('icon2')}>
@@ -42,7 +42,7 @@ const Blogcard2 = ({ className }) => {
                         Morbi volutpat leo iaculis elit vehicula, eu convallis magna finibus. Suspendisse tristique ullamcorper erat a elementum. Cras eget elit non nunc aliquam ullamcorper quis sed metus. Lorem ipsum dolor sit amet</p>
                 </div>
                 <div className={cx('btn')}>
-                    <Button to={'/blog-detail'} className={cx('readmore')}>READ MORE</Button>
+                    <Button to={`/blog-detail/${data.id}`} className={cx('readmore')}>READ MORE</Button>
                 </div>
 
             </div>
