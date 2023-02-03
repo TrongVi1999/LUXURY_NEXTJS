@@ -41,6 +41,14 @@
         max-width: 100%;
         margin: 0 auto;
     }
+    .policy {
+        p {
+            margin-left: 0 !important;
+        }
+        span {
+            font-weight: normal !important;
+        }
+    }
 }
 .act {
     border-bottom: 2px solid var(--border-color2);

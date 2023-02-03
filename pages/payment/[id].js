@@ -6,6 +6,7 @@ import ImgBn from '@/public/images/paymentbn.png';
 import Imgpay from '@/public/images/iconpay.png';
 import Image from 'next/image';
 import { useRouter } from "next/router";
+import { Getblog } from '../api/CallAPI';
 
 
 
@@ -17,15 +18,30 @@ const index = () => {
     const router = useRouter();
     const [Content, setcontent] = useState(router.query.id);
     const [Active, setactive] = useState(['act', '', '']);
+    const [Data, setdata] = useState();
     const handlePick = (i) => {
         setcontent(ListMenu[i]);
         let list = Active;
         setactive(list.map((d, index) => index == i ? 'act' : ''));
+
     }
+    const CallAPI = async () => {
+
+        const response = await Getblog(5044);
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+
+    }
+
+
     useEffect(() => {
         setcontent(router.query.id);
         { router.query.id == 'policy' && handlePick(1) }
-    }, [router.query.id])
+        CallAPI();
+    }, [router.query.id]);
+    console.log(Data);
+
     return (
         <div className={cx('container')}>
             {Content && <BannerIMG img={ImgBn} title={Content.toUpperCase()} bg='bg' />}
@@ -59,6 +75,7 @@ const index = () => {
                 {Active[1] == 'act' &&
                     <div className={cx('content')}>
                         <h1>Policy</h1>
+                        {Data && <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>}
                     </div>
                 }
 

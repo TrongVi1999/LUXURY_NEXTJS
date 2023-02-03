@@ -10,6 +10,7 @@ import Menu from './Menu';
 import { Button } from '@/components';
 
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
+import { MdGTranslate } from 'react-icons/md';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
@@ -22,6 +23,7 @@ const Header = () => {
     const [showSearch, setShowSearch] = useState(false);
     const [bgheader, setbgheader] = useState('');
     const [signup, setsignup] = useState(false);
+    const [translate, settranslate] = useState('none');
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -55,6 +57,11 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
+                    <div className={cx('gg-trans')}>
+                        <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                        <div id="google_translate_element" style={{ display: translate }}></div>
+                    </div>
+
                     <div className={cx('user')}>
                         <AiOutlineUser className={cx('icon', { active: showUser })} />
                         <div className={cx('login')}>
@@ -72,6 +79,8 @@ const Header = () => {
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}
+
+
         </div>
     );
 };

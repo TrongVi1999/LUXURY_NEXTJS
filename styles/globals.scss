@@ -57,6 +57,7 @@ html {
 
 body {
     font-size: 1.4rem;
+    top: 0px !important;
 }
 
 html *::-webkit-scrollbar-thumb {
@@ -80,16 +81,19 @@ html *::-webkit-scrollbar-track {
 }
 
 #google_translate_element {
-    width: fit-content;
-    background: none;
-    top: 140px;
-    position: fixed;
-    right: 5px;
+    width: 100%;
+    // background: white;
+    top: 60px;
+    position: absolute;
+    right: 0px;
+    // padding: 10px;
+    // border: 1px solid var(--button);
 }
 
 .goog-te-gadget {
     height: 38px;
     overflow: hidden;
+    // width: 100%;
 }
 .goog-te-gadget span {
     display: none;
@@ -99,8 +103,11 @@ html *::-webkit-scrollbar-track {
     color: #514631;
     background-color: rgb(246, 248, 246);
     outline: none;
+    // width: 100%;
 }
-
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+}
 /* =================== RESPONSIVE GLOBAL ========================= */
 
 // @media only screen and (max-width: 1200px) {
