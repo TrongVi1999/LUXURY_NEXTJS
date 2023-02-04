@@ -9,6 +9,7 @@ import axios from 'axios';
 import qs from 'qs';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastError, toastSuccess } from '../Toast';
 
 const cx = classNames.bind(style);
 
@@ -34,30 +35,6 @@ const Signup = ({ Click }) => {
         return response;
 
 
-    };
-    const toastSuccess = (text) => {
-        return toast.success(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
-    const toastError = (text) => {
-        return toast.error(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
     };
     const {
         register,
@@ -261,7 +238,7 @@ const Signup = ({ Click }) => {
                         </Link >
                     </div >
                 </form >
-                <ToastContainer />
+                {/* <ToastContainer /> */}
             </div >
 
         </div >

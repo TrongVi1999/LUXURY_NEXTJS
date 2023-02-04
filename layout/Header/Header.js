@@ -18,6 +18,7 @@ import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
 import OutsideClickHandler from 'react-outside-click-handler';
 import MenuHover from './MenuHover';
+import { ToastContainer } from 'react-toastify';
 
 const cx = classNames.bind(style);
 const menuUser = [
@@ -135,6 +136,7 @@ const Header = () => {
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}
+            <ToastContainer />
 
 
         </div>

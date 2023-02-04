@@ -1,4 +1,4 @@
-.container{
+.container {
     width: 45rem;
     height: 100%;
     background-color: white;
@@ -21,25 +21,26 @@
     
 }
 
-.container label{
+.container label {
     font-size: 16px;
-    font-weight: bolder ;
+    font-weight: bolder;
     // margin-top: 12rem;
 }
-.container input{
+.container input {
     width: 100%;
     height: 50px;
     border: solid 2px black;
     margin: 2rem 0 !important;
+    padding: 0 10px;
 }
-.container input:hover{
+.container input:hover {
     border: 2px solid rgb(221, 221, 13);
 }
-.container a{
+.container a {
     color: rgb(56, 21, 250);
     margin-left: 2rem;
 }
-.container button{
+.container button {
     width: 45%;
     height: 5rem;
     margin-top: 2rem;
@@ -50,11 +51,11 @@
     border-radius: 30px;
     text-align: center;
 }
-.container hr{
+.container hr {
     margin-top: 1.5rem;
     border: 0.2px solid grey;
 }
-.container span{
+.container span {
     padding: 2rem 0;
 }
 // .container .fb{
@@ -65,18 +66,32 @@
 //     margin-left: 2rem;
 // }
 
-.group .fb{
-    margin-left: 25px;
-}
-.group .fb svg{
-    font-size: 24px;
-    float: left;
-    margin-left: 3rem;
+.group {
+    display: flex;
+    p {
+        width: 45%;
+        cursor: pointer;
+        margin-top: 2rem;
+        background-color: rgb(14, 55, 90);
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        border-radius: 30px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .fb {
+        margin-left: 25px;
+    }
+    svg {
+        font-size: 24px;
+        float: left;
+        margin-left: 3rem;
+    }
 }
 .fb {
     text-align: center;
 }
-.error-message{
+.error-message {
     color: red;
 }
-
