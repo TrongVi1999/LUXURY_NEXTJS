@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import style from './signup.module.scss';
-
+import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const cx = classNames.bind(style);
 
@@ -30,7 +31,6 @@ const Signup = ({ Click }) => {
 
         });
         console.log(response);
-        (response.data.Error === false) ? alert('Đăng Kí Thành Công!') : alert('Đăng Kí Không Thành Công!');
         return response;
 
 
@@ -59,39 +59,26 @@ const Signup = ({ Click }) => {
             theme: "light",
         });
     };
-    const toastWarning = (text) => {
-        return toast.warning(`${text}`, {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
     const {
         register,
         handleSubmit,
         watch,
         formState: { errors },
     } = useForm();
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         try {
-            const datas = callApi(data);
+            const datas = await callApi(data);
 
             if (datas.data.Error === true) {
                 toastError(`${datas.data.Title}`);
             }
             if (datas?.data?.Error === false) {
                 toastSuccess(`${datas.data?.Title}`);
-                setTimeout(() => <Link href={'/'} />, 2000);
+                setTimeout(() => navigate('/logIn'), 2000);
             }
         } catch (error) {
             toastError(`${error.message}`);
         }
-        console.log(data);
     };
 
     return (
@@ -274,6 +261,7 @@ const Signup = ({ Click }) => {
                         </Link >
                     </div >
                 </form >
+                <ToastContainer />
             </div >
 
         </div >

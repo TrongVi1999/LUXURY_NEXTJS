@@ -1,13 +1,14 @@
+import React from 'react';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import Link from 'next/link';
-// import { useNavigate } from "react-router-dom";
 import qs from "qs";
 import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa';
-import { toast } from "react-toastify";
 import style from './login.module.scss';
 const cx = classNames.bind(style);
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = ({ Click, setuser, close }) => {
     // const navigate = useNavigate();
@@ -18,37 +19,6 @@ const Login = ({ Click, setuser, close }) => {
         reset,
         formState: { errors },
     } = useForm();
-    const callApi = async (data) => {
-        const response = await axios({
-            method: "post",
-            url: "https://vnxpedia.3i.com.vn/TravelAPI/LoginXpedia",
-            data: qs.stringify({
-                UserName: data.Username,
-                Password: data.Pass,
-            }),
-            headers: {
-                "content-type":
-                    "application/x-www-form-urlencoded;charset=utf-8",
-            },
-        });
-        (response.data.Error === false) ? alert('Đăng Nhập Thành Công!') : alert('Đăng Nhập Không Thành Công!');
-
-
-        if (response.data.Error === true) {
-            toastError("Error!");
-        } else {
-            toastSuccess("Login success.");
-            localStorage.setItem("VNXUser", JSON.stringify(response.data));
-            setuser(response.data);
-            close(false);
-        }
-    };
-
-    const handleLogin = (data) => {
-        callApi(data);
-    };
-
-
     const toastSuccess = (text) => {
         return toast.success(`${text}`, {
             position: "top-right",
@@ -73,18 +43,36 @@ const Login = ({ Click, setuser, close }) => {
             theme: "light",
         });
     };
-    const toastWarning = (text) => {
-        return toast.warning(`${text}`, {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
+    const callApi = async (data) => {
+        const response = await axios({
+            method: "post",
+            url: "https://vnxpedia.3i.com.vn/TravelAPI/LoginXpedia",
+            data: qs.stringify({
+                UserName: data.Username,
+                Password: data.Pass,
+            }),
+            headers: {
+                "content-type":
+                    "application/x-www-form-urlencoded;charset=utf-8",
+            },
         });
-    }
+
+        if (response.data.Error === true) {
+            toastError("Error!");
+        } else {
+            toastSuccess("Login success!");
+            localStorage.setItem("VNXUser", JSON.stringify(response.data));
+            setuser(response.data);
+            close(false);
+
+        }
+    };
+
+    const handleLogin = (data) => {
+        callApi(data);
+
+    };
+
 
     return (
         <div className={cx('container')}>
@@ -123,6 +111,7 @@ const Login = ({ Click, setuser, close }) => {
                     <p className={cx('fb')}><FaFacebook />LOGIN</p>
                 </div>
             </form>
+            <ToastContainer />
         </div >
 
 
