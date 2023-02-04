@@ -165,7 +165,9 @@ const Index = () => {
 
 
                     </table>
+                    <h2>Siminal Hotels</h2>
                     <div className={cx('Siminal-Hotel')}>
+
                         <Link href={``} className={cx('card')}>
                             <div className={cx('card-img')}>
                                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
@@ -183,10 +185,6 @@ const Index = () => {
                                 <p className={cx('price')}>
                                     <span className={cx('price1')}>$ {data.price}</span>
                                     {/* <span className={cx('price2')}>1500</span> */}
-                                </p>
-                                <p className={cx('place')}>
-                                    <SlLocationPin />
-                                    {(data.destination)}
                                 </p>
                             </div>
                         </Link>
@@ -208,10 +206,6 @@ const Index = () => {
                                     <span className={cx('price1')}>	&#36; {data.price}</span>
                                     {/* <span className={cx('price2')}>1500</span> */}
                                 </p>
-                                <p className={cx('place')}>
-                                    <SlLocationPin />
-                                    {(data.destination)}
-                                </p>
                             </div>
                         </Link>
                         <Link href={``} className={cx('card')}>
@@ -231,10 +225,6 @@ const Index = () => {
                                 <p className={cx('price')}>
                                     <span className={cx('price1')}>$ {data.price}</span>
                                     {/* <span className={cx('price2')}>1500</span> */}
-                                </p>
-                                <p className={cx('place')}>
-                                    <SlLocationPin />
-                                    {(data.destination)}
                                 </p>
                             </div>
                         </Link>

@@ -25,17 +25,17 @@ const Header = () => {
     const [bgheader, setbgheader] = useState('');
     const [signup, setsignup] = useState(false);
     const [login, setlogin] = useState(false)
-    const [showlogin, setshowlogin] = useState(false)
+    // const [showlogin, setshowlogin] = useState(false)
     const [translate, settranslate] = useState('none');
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
     };
-    const showLogin = () => {
-        if (showlogin === 'show') {
-            setshowlogin('hidden');
-        } else setshowlogin('show');
-    }
+    // const showLogin = () => {
+    //     if (showlogin === 'show') {
+    //         setshowlogin('hidden');
+    //     } else setshowlogin('show');
+    // }
 
 
     useEffect(() => {
@@ -81,10 +81,11 @@ const Header = () => {
 
                         </OutsideClickHandler>
                     </div>
-                    <div className={cx('search-icon')}>
-                        <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
-                    </div>
-
+                    <OutsideClickHandler onOutsideClick={() => { setShowSearch(false) }}>
+                        <div className={cx('search-icon')}>
+                            <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
+                        </div>
+                    </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
