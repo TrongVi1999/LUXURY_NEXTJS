@@ -9,7 +9,9 @@ import style from './login.module.scss';
 const cx = classNames.bind(style);
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const Login = ({ Click }) => {
+
+const Login = ({ Click, setuser, close }) => {
+    // const navigate = useNavigate();
     const {
         register,
         handleSubmit,

@@ -4,9 +4,10 @@ import style from '@/styles/Tourdetail.module.scss';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { Getblog } from '@/pages/api/CallAPI';
 
+
 const cx = classNames.bind(style);
 
-const Itinerary = ({ description, detail }) => {
+const Itinerary = ({ description, detail, click }) => {
     const [content, setcontent] = useState(['active', '', '']);
     const [Data, setData] = useState();
 
@@ -53,7 +54,7 @@ const Itinerary = ({ description, detail }) => {
                         </div>
                     </div>
                     <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                    <button className={cx('btn-design')}>DESIGN YOUR TOUR</button>
+                    <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
                 </div>
             }
             {content[1] == 'active' && Data &&

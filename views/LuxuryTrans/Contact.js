@@ -13,7 +13,7 @@ import { toastSuccess } from '@/hook/toastr';
 
 const cx = classNames.bind(style);
 
-function Booking() {
+function Booking({ click }) {
 
     const {
         register,
@@ -48,7 +48,9 @@ function Booking() {
 
     return (
         <div className={cx("booking-infor")}>
-            <div className={cx("book-crumb")}>Home | BOOK NOW</div>
+            <div className={cx("book-crumb")}>Home | BOOK NOW
+                <p onClick={() => click(false)}>Back</p></div>
+
             <form className={cx("book-content")} onSubmit={handleSubmit()}>
                 <div className={cx("content-header")}>
                     <p className={cx("service-name")}>

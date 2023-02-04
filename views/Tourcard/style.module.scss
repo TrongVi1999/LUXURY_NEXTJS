@@ -90,6 +90,12 @@
 }
 .highlight {
     margin: 12px 0;
+    display: -webkit-box;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
     button {
         width: 7px;
         height: 7px;

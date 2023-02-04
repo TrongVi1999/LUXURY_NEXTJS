@@ -15,20 +15,22 @@ import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { SlLocationPin } from 'react-icons/sl';
+import Booking from '@/views/LuxuryTrans/Contact';
+import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
 const Index = () => {
+    const [book, setbook] = useState(false);
     const data = {
         img: a1,
         title: 'HA LONG BAY DAY CRUISE - PARADISE EXPLORER',
         price: 200000000,
-        destination: 'Sung Sot Cave -Luon Cave- Soi Sim Beach'
     }
     return (
         <div>
             <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
-            <div className={cx('container')}>
+            {book ? <Booking click={setbook} /> : <div className={cx('container')}>
                 <Imglist data={[a1, a2, a3, a4]} issv={false} />
 
 
@@ -43,7 +45,7 @@ const Index = () => {
                             Cầu hôn tại Amanoi cũng là một ý tưởng tuyệt vời - với một mức giá không thể tốt hơn tại iVIVU - thượng khách hoàn toàn có thể mang đến cho người bạn đời một kỉ niệm không thể nào quên.
                             Hãy đến Amanoi Ninh Thuận một lần trong đời để tận hưởng trải nghiệm kỳ nghỉ vượt xa hơn cả mong đợi !</p>
 
-                        <button>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
+                        <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                     </div>
                 </div>
                 <div className={cx('util')}>
@@ -91,7 +93,7 @@ const Index = () => {
                     <h2>Chính sách của khu nghỉ dưỡng Amanoi Ninh Thuận</h2>
                     <table>
                         <tr>
-                            <th>Thời gian khách nhận phòng</th>
+                            <th><p>Thời gian khách nhận phòng</p></th>
                             <td>15:00</td>
                         </tr>
 
@@ -100,7 +102,7 @@ const Index = () => {
                             <td>12:00</td>
                         </tr>
                         <tr>
-                            <th>Di chuyển </th>
+                            <th className={cx('th')}><p>Di chuyển</p> </th>
                             <td>Quý khách có thể di chuyển bằng máy bay đến sân bay Cam Ranh hoặc di chuyển bằng tàu hỏa đến Ga Tháp Chàm
                                 <br />
                                 <br />
@@ -230,8 +232,9 @@ const Index = () => {
                         </Link>
                     </div>
                 </div>
-            </div >
-        </div >
+            </div>
+            }
+        </div>
     )
 }
 

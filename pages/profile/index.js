@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames/bind";
 import style from '@/styles/profile.module.scss'
 
@@ -11,32 +11,45 @@ import { IoIosAdd } from "react-icons/io";
 const cx = classNames.bind(style);
 
 function Profile() {
-    const [activeProfile, setActiveProfile] = useState(1)
+    const [activeProfile, setActiveProfile] = useState(1);
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+        if (VNXuser) {
+            setCurrentUser(VNXuser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, []);
 
     return (<Section notPadding className={cx('wrapper')} >
         <div className={cx('body')}>
-            <div className={cx('boxOption')}>
-                <div className={cx('boxAvatar')}>
-                    <Image src={avatars.avatar1} alt="avatarErro" className={cx('avatar')} />
-                    <IoIosAdd className={cx('iconAdd')} />
+            {currentUser &&
+                <div className={cx('boxOption')}>
+                    <div className={cx('boxAvatar')}>
+                        {currentUser.Picture ? <img src={`https://vnxpedia.3i.com.vn${currentUser.Picture}`} alt='avatar' className={cx('avatar')} /> :
+                            <Image src={avatars.avatar1} alt="avatarErro" className={cx('avatar')} />}
+                        <IoIosAdd className={cx('iconAdd')} />
+                    </div>
+                    <h2 className={cx('name')}>{currentUser.FullName}</h2>
+                    <div className={cx('boxItemPage')}>
+                        <Button className={cx('itemPage', activeProfile === 1 ? 'active' : null)} onClick={() => setActiveProfile(1)}>profile</Button>
+                        <Button className={cx('itemPage', activeProfile === 2 ? 'active' : null)} onClick={() => setActiveProfile(2)}>notifications</Button>
+                        <Button className={cx('itemPage', activeProfile === 3 ? 'active' : null)} onClick={() => setActiveProfile(3)}>booking list</Button>
+                    </div>
                 </div>
-                <h2 className={cx('name')}>Nora tsunoda</h2>
-                <div className={cx('boxItemPage')}>
-                    <Button className={cx('itemPage', activeProfile === 1 ? 'active' : null)} onClick={() => setActiveProfile(1)}>profile</Button>
-                    <Button className={cx('itemPage', activeProfile === 2 ? 'active' : null)} onClick={() => setActiveProfile(2)}>notifications</Button>
-                    <Button className={cx('itemPage', activeProfile === 3 ? 'active' : null)} onClick={() => setActiveProfile(3)}>booking list</Button>
+            }
+            {currentUser &&
+                <div className={cx('content')}>
+                    {
+                        activeProfile === 1 ?
+                            <ProfileUser data={currentUser} /> :
+                            activeProfile === 3 ?
+                                <BookingUser /> : null
+                    }
                 </div>
-            </div>
-
-            <div className={cx('content')}>
-                {
-                    activeProfile === 1 ?
-                        <ProfileUser /> :
-                        activeProfile === 3 ?
-                            <BookingUser /> : null
-                }
-            </div>
-
+            }
         </div>
     </Section>);
 }

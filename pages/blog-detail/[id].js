@@ -73,7 +73,6 @@ const BlogDetail = () => {
     useEffect(() => {
         CallAPI();
     }, [router.query.id]);
-    console.log(JSON.parse(Data[0].hash_tag))
 
     // var re = /[]\s|","\s/;
 

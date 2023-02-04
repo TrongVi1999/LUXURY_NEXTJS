@@ -15,7 +15,8 @@
         margin-right: 17rem;
         .boxAvatar {
             position: relative;
-            width: 100%;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             overflow: hidden;
             border: 0.4rem solid var(--white);
@@ -30,7 +31,7 @@
             .iconAdd {
                 position: absolute;
                 z-index: 10;
-                right: 7rem;
+                right: 5rem;
                 bottom: 2rem;
                 font-size: 3rem;
                 width: 4rem;

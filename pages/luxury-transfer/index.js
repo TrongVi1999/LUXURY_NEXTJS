@@ -7,7 +7,7 @@ import { BannerSlide, BoxCarTrans } from '@/views';
 import { banners, carTrans } from '@/public/images';
 import { useState } from 'react';
 import Contact from '@/views/LuxuryTrans/Contact';
-import { Pagination } from 'antd';
+// import { Pagination } from 'antd';
 
 const cx = classNames.bind(style);
 
