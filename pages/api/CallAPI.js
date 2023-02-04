@@ -136,3 +136,10 @@ export const Searchblog = (key) =>
         type: 'json',
     });
 
+//đăng kí nhận email 
+export const Subcrise = (email) =>
+    axios({
+        method: 'post',
+        url: `http://vnxpedia.3i.com.vn/TravelAPI/InsertSubcrible?Email=${email}`,
+        type: 'json',
+    });

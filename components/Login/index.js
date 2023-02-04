@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import style from './login.module.scss';
 const cx = classNames.bind(style);
 
-const Login = ({ Click }) => {
+const Login = ({ Click, setuser, close }) => {
     // const navigate = useNavigate();
     const {
         register,
@@ -39,17 +39,16 @@ const Login = ({ Click }) => {
         } else {
             toastSuccess("Login success.");
             localStorage.setItem("VNXUser", JSON.stringify(response.data));
+            setuser(response.data);
+            close(false);
         }
-        console.log(response);
     };
 
     const handleLogin = (data) => {
         callApi(data);
-        console.log(data);
-        // { (e) => e.preventDefault() }
-        setTimeout(() => <Link href={'/bloglist'} />, 2000);
-        // alert('1')
     };
+
+
     const toastSuccess = (text) => {
         return toast.success(`${text}`, {
             position: "top-right",

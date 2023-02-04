@@ -32,6 +32,7 @@ const Hotelcard = ({ data }) => {
                     <span className={cx('price2')}>1500</span>
                 </p>
 
+
             </div>
         </Link>
     )

@@ -16,11 +16,22 @@ import Img4 from '../../public/4.png';
 import Img5 from '../../public/5.webp';
 import Img6 from '../../public/6.webp';
 import Link from 'next/link';
+import { Subcrise } from '@/pages/api/CallAPI';
+import { useState, useEffect } from 'react';
+
 
 const cx = classNames.bind(style);
 const Listimg = [Img1, Img2, Img3, Img4, Img5, Img6];
 
 function Footer() {
+    const [email, setemail] = useState();
+    const CallAPI = async () => {
+        const response = await Subcrise(email);
+        if (response.status == 200) {
+            alert('Subcrise success !');
+        }
+    }
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('footer')}>
@@ -90,8 +101,8 @@ function Footer() {
                             </p>
                             <div className={cx('Newsletter')}>Newsletter Sign up</div>
                             <div className={cx('sub')}>
-                                <input type="text" placeholder="Your Email Address" />
-                                <button type="button">SUBSCRIBE</button>
+                                <input type="text" placeholder="Your Email Address" onChange={(e) => setemail(e.target.value)} />
+                                <button type="button" onClick={() => CallAPI()}>SUBSCRIBE</button>
                             </div>
                         </div>
                     </div>

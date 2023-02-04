@@ -97,7 +97,18 @@
         }
     }
 }
-
+.item-user {
+    position: relative;
+    .menuHover {
+        left: 0;
+        display: none;
+    }
+}
+.item-user:hover {
+    .menuHover {
+        display: block;
+    }
+}
 .menuHover {
     position: absolute;
     width: 17rem;
@@ -182,31 +193,29 @@
     }
 }
 
-.user{
-    .login{
+.user {
+    .login {
         display: flex;
         position: fixed;
         border: 3px solid rgb(224, 224, 18);
         right: 10px;
         max-width: 95%;
         top: 75px;
-    }}
+    }
+}
 
-
-    @media only screen and (max-width: 2400px){
-        .user{
-            .login{
-              position: absolute;
-              max-width: none;
-              right: 0;
-            }
-            
+@media only screen and (max-width: 2400px) {
+    .user {
+        .login {
+            position: absolute;
+            max-width: none;
+            right: 0;
         }
     }
+}
 @media only screen and (max-width: 868px) {
     .itemRight .icon.active {
         color: var(--primary);
-
     }
 
     .icon.menuIcon {
