@@ -92,3 +92,9 @@
         border-bottom: 0.1rem solid var(--light);
     }
 }
+
+@media only screen and (max-width: 900px) {
+    .wrapperItem {
+        gap: 1rem;
+    }
+}

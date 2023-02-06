@@ -9,11 +9,12 @@ import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
 
-import Share from "@/views/Share/Share";
+
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
 // import TitleLine from '@/components/TitleLine';
 import { Getblog } from '../api/CallAPI';
 import TitleLine from '@/components/TitleLine';
+import Listtag from '@/views/Blogdetail/Listtag';
 
 const cx = classNames.bind(style);
 
@@ -110,22 +111,21 @@ const BlogDetail = () => {
                         }}>
 
                         </div> */}
-                        <div className={cx('main-end')}>
+                        <Listtag data={Data[0].hash_tag} />
+                        {/* <div className={cx('main-end')}>
                             <div className={cx('tag-list')}>
                                 {JSON.parse(Data[0].hash_tag).filter(a => a != '#Blog').map((d, i) =>
                                     <div>
                                         <TitleLine key={i} text={d.replace('#', '').toUpperCase()} />
                                     </div>
                                 )}
-                                {/* {data.hash_tag.map((d, i) =>
-                                    <span key={i}>{d.toUpperCase()}</span>)
-                                )} */}
+                            
                             </div>
                             <div className={cx('share-list')}>
                                 <span>Share</span>
                                 <Share />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={cx('comment-container')}>
                         <Comments />

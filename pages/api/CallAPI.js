@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import qs from 'qs';
 
 //lấy tất cả tour
 export const Alltour = () =>
@@ -141,5 +142,42 @@ export const Subcrise = (email) =>
     axios({
         method: 'post',
         url: `http://vnxpedia.3i.com.vn/TravelAPI/InsertSubcrible?Email=${email}`,
+        type: 'json',
+    });
+
+//super filter
+// https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance?TagTour=vietnam&tourtype=TYPE_BEACH  &fromcost=100&endcost=1200&country=laos&destination=Mekong Delta
+export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour) =>
+    axios({
+        method: 'post',
+        url: 'https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance',
+        data: qs.stringify({
+            country: (Country ? Country : ''),
+            destination: (Destination ? Destination : ''),
+            tourtype: (Tourtype ? Tourtype : ''),
+            // season: (Season ? Season : ''),
+            // group: (Group ? Group : ''),
+            fromcost: (Fromcost ? Fromcost : 0),
+            endcost: (Endcost ? Endcost : 15000),
+            TagTour: (Tagtour ? Tagtour : ''),
+        }),
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        },
+    });
+
+//lấy list hotel https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel
+export const ListHotel = () =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel`,
+        type: 'json',
+    });
+
+//Lấy 1 hotel
+export const GetHotel = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/PostLuxury?Id=${id}`,
         type: 'json',
     });

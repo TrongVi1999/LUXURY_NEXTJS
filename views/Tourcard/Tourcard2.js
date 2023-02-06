@@ -14,7 +14,6 @@ const cx = classNames.bind(style);
 
 const Tourcard2 = ({ data }) => {
 
-    console.log(data.Hightlight);
     return (
         <div className={cx('card2')}>
             <div className={cx('img-card2')}>
@@ -53,7 +52,7 @@ const Tourcard2 = ({ data }) => {
                 </div>
                 <Link href={`/tour-detail/${data.TourCode}`} className={cx('book')}>BOOK THIS TOUR</Link>
             </div>
-            {data.Discount && data.Discount != 0 &&
+            {data.Discount && data.Discount != 0 && data.Discount != 'null' &&
                 <div className={cx('salesticky')}>
                     <p className={cx('salenumber')}>
                         {data.Discount}

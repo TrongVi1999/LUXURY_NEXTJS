@@ -13,7 +13,7 @@ const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className }) {
+function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
     const [activeArchive, setActiveArchive] = useState(-1);
@@ -79,12 +79,15 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
     const handelActiveItemCate = (index) => {
         setActiveCategory(index)
         setShowFillter(0)
+        setvldestination(category.elements[index].name);
     }
 
     const handelActiveItemTourTags = (index) => {
-        setActiveTour(index)
-        setShowFillter(0)
+        setActiveTour(index);
+        setShowFillter(0);
+        setvltag(tourTags.elements[index]);
     }
+
 
     const clases = cx('wrapper', {
         [className]: className,
@@ -96,6 +99,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
         }
     }, [activeCategory, activeTour])
 
+    console.log(valuePrice);
 
     return (
         <div className={clases}>
