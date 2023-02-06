@@ -24,6 +24,7 @@ const banners = {
     bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
     luxuryTransfer: require('./xeBanner.jpg'),
     hoteldetail: require('./banner/hoteldetail.png'),
+    transferDetail: require('./banner/transfer-detail.png')
 };
 
 const iconInfos = {
@@ -39,8 +40,8 @@ const iconInfos = {
 
 const carTrans = {
     xe1: require('./xe1.jpg'),
-    xe2: require('./xe1.jpg'),
-    xe3: require('./xe1.jpg'),
+    xe2: require('./xe2.jpg'),
+    xe3: require('./xe3.jpg'),
 
 }
 

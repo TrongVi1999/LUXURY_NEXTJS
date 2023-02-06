@@ -1,4 +1,3 @@
-import ChangeTextHTML from '@/hook/ChangetextHTML';
 import a1 from '@/public/a1.png';
 import a2 from '@/public/a2.png';
 import a3 from '@/public/a3.png';
@@ -6,17 +5,16 @@ import a4 from '@/public/a4.png';
 import { banners } from '@/public/images';
 import style from '@/styles/Hoteldetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Hotelbook from '@/views/BookHotel';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GoPrimitiveDot } from 'react-icons/go';
-import { SlLocationPin } from 'react-icons/sl';
-import Booking from '@/views/LuxuryTrans/Contact';
-import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
@@ -30,7 +28,7 @@ const Index = () => {
     return (
         <div>
             <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
-            {book ? <Booking click={setbook} /> : <div className={cx('container')}>
+            {book ? <Hotelbook click={setbook} /> : <div className={cx('container')}>
                 <Imglist data={[a1, a2, a3, a4]} issv={false} />
 
 
