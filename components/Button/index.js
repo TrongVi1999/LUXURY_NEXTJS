@@ -38,7 +38,7 @@ function Buttom({
     if (to) {
         props.href = to;
         Comp = Link;
-        console.log('comp', Comp)
+        // console.log('comp', Comp)
     } else if (href) {
         props.href = href;
         Comp = 'a';

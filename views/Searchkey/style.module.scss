@@ -1,7 +1,8 @@
 .searchkey-container {
-    position: absolute;
+    position: fixed;
     width: 350px;
-    top: 50px;
+    top: 80px;
+    right: 18.4%;
     padding: 10px;
     background-color: white;
     border: 2px solid var(--button);

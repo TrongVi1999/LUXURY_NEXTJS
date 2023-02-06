@@ -11,7 +11,7 @@ const cx = classNames.bind(style);
 
 const Hotelcard = ({ data }) => {
     return (
-        <Link href={`/hotel-detail/1`} className={cx('card')}>
+        <Link href={`/hotel-detail/5258`} className={cx('card')}>
             <div className={cx('card-img')}>
                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
             </div>

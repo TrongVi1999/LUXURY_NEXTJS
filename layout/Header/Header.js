@@ -48,7 +48,6 @@ const Header = () => {
             : '';
 
     const URL = `${origin}${asPath}`;
-    console.log(asPath);
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -127,11 +126,12 @@ const Header = () => {
                         <div className={cx('search-icon')}>
                             <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
                         </div>
+                        {showSearch && <Searchkey />}
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
-                    {showSearch && <Searchkey />}
+
                 </div>
             </div>
             {signup && <Signup Click={setsignup} />}

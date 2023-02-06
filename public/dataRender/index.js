@@ -72,7 +72,7 @@ const categoryFillerAddress = {
             amount: '11',
         },
         {
-            name: 'Moc Chau',
+            name: 'Mai Chau',
             amount: '08',
         },
     ],
@@ -80,7 +80,7 @@ const categoryFillerAddress = {
 
 const tourTagsFilter = {
     title: 'tour tags',
-    elements: ['Daily Tour', 'Ha Long', 'Ninh Binh', 'Luxury', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
+    elements: ['Daily Tour', 'Halong', 'Vietnam', 'Mai chau', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
 };
 
 const seasonFillter = {

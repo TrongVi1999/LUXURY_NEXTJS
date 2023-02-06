@@ -362,9 +362,6 @@
     }
 }
 
-.tour-same {
-}
-
 .tour-same-title {
     font-size: 25px;
     font-family: 'Montserrat';
@@ -374,4 +371,27 @@
     position: absolute;
     left: 372.036px;
     top: 2036.859px;
+}
+
+//Mice
+.p-header {
+    padding: 20px 0;
+    text-align: center;
+}
+.h6-header {
+    font-size: 18px !important;
+    margin: 3vw 0;
+    span {
+        color: #ffc600;
+        font-size: 14px !important;
+        margin-left: 20px;
+    }
+}
+.list-location {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .location-item {
+        width: 25%;
+    }
 }

@@ -44,99 +44,25 @@
             }
         }
     }
-    .util {
-        padding: 5rem 0;
-        h2 {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        ul {
-            padding-top: 5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start;
-            // -webkit-column-count: 3;
-            // -moz-column-count: 3;
-            // column-count: 3;
-            list-style: none;
-            margin-left: 5rem;
-        }
-        li {
-            font-size: 14px;
-            margin: 1.5rem 0;
-            width: 30%;
-            svg {
-                color: #f5a623;
-                font-size: 18px;
-                margin-right: 1rem;
-            }
-        }
-    }
 
-    .info {
-        h2 {
-            font-size: 18px;
-        }
-        p {
-            padding-top: 3rem;
-            font-size: 14px;
-            line-height: 4rem;
-            // font-weight: 400;
-            color: #565656;
-        }
-        span {
-            font-weight: bold;
-        }
-    }
-    .policy {
-        padding-top: 5rem;
-        h2 {
-            font-size: 18px;
-        }
-        table {
-            padding-top: 2rem;
-            font-size: 14px;
-            tr {
-                height: 100%;
-            }
-            th {
-                width: 25%;
-                // text-align: left;
-                padding-left: 2rem;
-                border-bottom: 1px solid #000;
-                text-align: start;
-            }
-            td {
-                padding: 2rem 0;
-                border-bottom: 1px solid #000;
-                padding-left: 5%;
-                color: #565656;
-            }
-        }
-    }
-    h2{
-        padding: 5rem 0 0 3rem;
-    }
-    .Siminal-Hotel{
+    .Siminal-Hotel {
         display: flex;
-        padding-top: 3rem;
-        justify-content: center;
-        justify-items: center;
+        padding-top: 5rem;
         flex-wrap: wrap;
-        // justify-content: space-between;
-        
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
     }
     .card {
-        margin:0 1rem;
-        width: 30%;
-        min-width: 300px;
+        width: 31.4%;
+        min-width: 220px;
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        margin-bottom: 1.8vw;
+        // margin-bottom: 1.8vw;
         display: flex;
         flex-direction: column;
-   // justify-content: space-between;
+        margin: 5px;
     }
     .card-img {
         width: 100%;
@@ -176,7 +102,7 @@
             color: black;
             font-weight: bold;
         }
-    
+
         svg {
             margin-right: 5px;
             // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
@@ -197,13 +123,82 @@
     .container{
         padding: 2rem 15%;
     }
+        .Siminal-Hotel{
+        justify-content: center !important;
+
+    }
+    .card{
+        width: 40% !important;
+    }
 }
 @media only screen and (max-width:800px){
     .container{
         padding: 2rem 10%;
     }
+    .Siminal-Hotel{
+        justify-content: center !important;
+
+    }
     .card{
-        width: 60% !important;
+        width: 70% !important;
     }
 
+}
+.main-hotel {
+    padding: 2% 0;
+    h2 {
+        padding: 0 !important;
+        margin-top: 40px;
+    }
+    ul {
+        padding-top: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-left: 5rem;
+        list-style: disc inside #f5a623;
+    }
+    li {
+        font-size: 14px;
+        margin: 1.5rem 0;
+        width: 30%;
+        svg {
+            color: #f5a623;
+            font-size: 18px;
+            margin-right: 1rem;
+        }
+    }
+
+    p {
+        padding-top: 3rem;
+        font-size: 14px;
+        line-height: 4rem;
+        // font-weight: 400;
+        color: #565656;
+    }
+    span {
+        font-weight: bold;
+    }
+
+    table {
+        padding-top: 2rem;
+        font-size: 14px;
+        tr {
+            height: 100%;
+        }
+        th {
+            width: 25%;
+            // text-align: left;
+            padding-left: 2rem;
+            border-bottom: 1px solid #000;
+            text-align: start;
+        }
+        td {
+            padding: 2rem 0;
+            border-bottom: 1px solid #000;
+            padding-left: 5%;
+            color: #565656;
+        }
+    }
 }

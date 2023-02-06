@@ -7,13 +7,22 @@ import { Section, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
-import { Gettourcountry, Gettourdestination } from '../api/CallAPI';
+import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(style);
 
 function Destimation() {
-    const [valueFillter, setValueFillter] = useState({ category: -1, tourTag: -1 })
+    const [valueFillter, setValueFillter] = useState({ category: -1, tourTag: -1 });
+    const [vlcountry, setvlcountry] = useState('');
+    const [vldestination, setvldestination] = useState('');
+    const [vltype, setvltype] = useState('');
+    const [vltag, setvltag] = useState('');
+    const [vlseason, setvlseason] = useState('');
+    const [vlgroup, setvlgroup] = useState('');
+    const [vlfromcost, setvlfromcost] = useState(0);
+    const [vlendcost, setvlendcost] = useState(15000);
+    const [Listdata, setlistdata] = useState();
 
     const [Data, setdata] = useState();
     const router = useRouter();
@@ -30,12 +39,23 @@ function Destimation() {
             setdata(response.data.Object);
         }
     }
-
-    useEffect(() => {
-        if (valueFillter.category !== -1) {
-            CallAPICategory();
+    const CallAPISuperfilter = async () => {
+        const response = await Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag,);
+        if (response.status == 200) {
+            setdata(response.data.Object);
         }
-    }, [valueFillter.category])
+        console.log(response.data.Object)
+    }
+
+    // useEffect(() => {
+    //     if (valueFillter.category !== -1) {
+    //         CallAPICategory();
+    //     }
+    // }, [valueFillter.category]);
+    useEffect(() => {
+        CallAPISuperfilter();
+        console.log('vl', vldestination);
+    }, [vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag])
 
     useEffect(() => {
         CallAPI();
@@ -57,6 +77,8 @@ function Destimation() {
             <Section maxWidth={1170} className={cx('container')}>
                 {Data &&
                     <div className={cx('list')}>
+                        {vldestination != '' && <p>{vldestination}</p>}
+                        {vltag != '' && <p>{vltag}</p>}
                         <div className={cx('sort')}>
                             <div className={cx('sortContent')}>
                                 <button>Sort by</button>
@@ -82,6 +104,14 @@ function Destimation() {
                     season={seasonFillter}
                     groupSize={groupSizeFillter}
                     setValueFillter={dataFillter}
+                    setvlcountry={setvlcountry}
+                    setvldestination={setvldestination}
+                    // setvltype={setvltype}
+                    setvltag={setvltag}
+                    // setvlseason={setvlseason}
+                    // setvlgroup={setvlgroup}
+                    setvlfromcost={setvlfromcost}
+                    setvlendcost={setvlendcost}
                 />
             </Section>
         </div>
