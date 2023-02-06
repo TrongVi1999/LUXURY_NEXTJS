@@ -15,7 +15,7 @@ import { toastSuccess } from '@/hook/toastr';
 const cx = classNames.bind(style);
 
 function Booking({ onClick, datas, title, long }) {
-
+    const [currentUser, setCurrentUser] = useState(null);
     const [ipAddress, setIpAddress] = useState('');
     const [Bookinfor, setBookinfor] = useState({
         Ip: ipAddress,
@@ -56,6 +56,14 @@ function Booking({ onClick, datas, title, long }) {
     useEffect(() => {
         setBookinfor({ ...Bookinfor });
     }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
+    useEffect(() => {
+        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+        if (VNXuser) {
+            setCurrentUser(VNXuser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, [])
 
 
     const callApi = async (data) => {
@@ -64,6 +72,8 @@ function Booking({ onClick, datas, title, long }) {
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
             data: qs.stringify({
                 Ip: ipAddress,
+                TourCode: datas.TourCode,
+                UserName: currentUser.UserName ? currentUser.UserName : null,
                 TourName: datas.TourName,
                 Country: datas.Country,
                 Lenght: datas.DETAIL.length,
@@ -78,6 +88,7 @@ function Booking({ onClick, datas, title, long }) {
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: Bookinfor.Note,
+
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
@@ -90,8 +101,9 @@ function Booking({ onClick, datas, title, long }) {
             toastSuccess(' Inquire complete!');
             setTimeout(() => onClick(), 2000);
             setTimeout(() => onClick(), 2000);
+            console.log(Bookinfor);
         } else alert('Invaild infor')
-        console.log('Invaild infor');
+
     };
 
     const callApiSendmail = async (data) => {
