@@ -1,7 +1,6 @@
 
 import styles from '@/styles/aboutUs.module.scss';
 import classNames from 'classnames/bind';
-
 import { Section } from '@/components';
 import icon2 from '@/public/icon/email.png';
 import icon3 from '@/public/icon/phone.png';
@@ -11,6 +10,7 @@ import { OutTeamAboutUs } from '@/views';
 import History from '@/views/Aboutus/History';
 import AboutVideo from '@/views/Aboutus/Video';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+
 
 import Image from 'next/image';
 
@@ -24,7 +24,7 @@ const index = () => {
                 <BannerIMG className={cx('bodyBanner')} bg='bg' title={"about vnxpedia"} descrip={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} img={banners.banner4} crumb={{ title: 'About' }} crumbStyle2 />
                 <div className={cx('boxInfo')}>
                     <div className={cx('box')}>
-                        <div className={cx('icon')}>
+                        <div className={cx('icon')} >
                             < Image src={icon1} />
                         </div>
                         <h2>Address</h2>
@@ -53,6 +53,7 @@ const index = () => {
             </div>
             <History />
             <AboutVideo />
+            <div id='this' ></div>
             <Section notPadding>
                 <OutTeamAboutUs />
             </Section>

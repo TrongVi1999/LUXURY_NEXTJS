@@ -77,7 +77,7 @@ const menuWayTravel = [
     },
     {
         title: 'luxury transfer',
-        to: '/',
+        to: '/luxury-transfer',
     },
     {
         title: 'luxury hotel',
@@ -101,8 +101,6 @@ const menuAbouUs = [
 ]
 
 function Menu({ className, showmenu, menuBgr }) {
-
-    console.log(!!menuBgr.length)
 
     const clases = cx('menu', {
         [className]: className,

@@ -18,7 +18,6 @@ const cx = classNames.bind(styles);
 
 export default function Home() {
 
-
     return (
         <>
             <Head>

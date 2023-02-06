@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
 //lấy tất cả tour
 export const Alltour = () =>
     axios({
@@ -18,7 +17,7 @@ export const Gettour = (tourcode) =>
         type: 'json',
     });
 
-//lấy tour hot   
+//lấy tour hot
 export const Tourhot = () =>
     axios({
         method: 'post',
@@ -34,7 +33,18 @@ export const Tourtype = (tourtype) =>
         type: 'json',
     });
 
-//lấy danh sách country   
+//lấy danh sách country
+export const CallAllcountry = async (setdata) => {
+    const response = await axios({
+        method: 'post',
+        url: 'https://vnxpedia.3i.com.vn/TravelAPI/GetAllCountry?language=en_US',
+        type: 'json',
+    });
+    if (response.status == 200) {
+        setdata(response.data.Object);
+    }
+}
+
 export const AllCountry = () =>
     axios({
         method: 'post',
@@ -43,11 +53,86 @@ export const AllCountry = () =>
     });
 
 //lấy tất cả blog : 
-export const Allblog = () =>
+export const Allblog = (page) =>
     axios({
         method: 'post',
-        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPost?language=en_US&hastag=Blog`,
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=Blog&CurrentPage=${page}`,
         type: 'json',
     });
 
+//Lấy 1 blog"
+export const Getblog = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostWithId?Id=${id}`,
+        type: 'json',
+    });
+
+
+//Lấy tour theo location"
+export const Gettourdestination = (location) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/AllTourDestination?destination=${location}`,
+        type: 'json',
+    });
+
+//Lấy tour theo country
+export const Gettourcountry = (country) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/AllTourRegion?region=${country}`,
+        type: 'json',
+    });
+
+//rate tour
+export const Ratetour = (tourcode, rate, ip) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/InsertRatingTour?TourCode=${tourcode}&Rate=${rate}&Ip=${ip}`,
+        type: 'json',
+    });
+
+//comment blog
+export const Commentblog = (id, reply, username, comment) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost?PostId=${id}&ParentId=${reply}&UserName=${username}&Comment=${comment}`,
+        type: 'json',
+    });
+
+
+//blog nổi bật
+export const Bloghot = () =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostPriority?hastag=Blog`,
+        type: 'json',
+    });
+
+//search tour
+// export const Searchtour = async(key,setdata) =>{
+//    const response =await axios({
+//         method: 'post',
+//         url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
+//         type: 'json',
+//     });
+//      if(response.data.status==200){
+//         setdata(response.data.Object);
+//      }
+// }
+export const Searchtour = (key) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`,
+        type: 'json',
+    });
+
+//search blog
+export const Searchblog = (key) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`,
+        type: 'json',
+    });
 

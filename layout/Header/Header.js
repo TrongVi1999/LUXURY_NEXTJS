@@ -10,6 +10,9 @@ import Menu from './Menu';
 import { Button } from '@/components';
 
 import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
+import Login from '@/components/Login';
+import Signup from '@/components/SignUp';
+import Searchkey from '@/views/Searchkey/Searchkey';
 
 const cx = classNames.bind(style);
 
@@ -18,6 +21,7 @@ const Header = () => {
     const [showUser, setShowUser] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
     const [bgheader, setbgheader] = useState('');
+    const [signup, setsignup] = useState(false);
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -51,14 +55,26 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-                    <AiOutlineUser className={cx('icon', { active: showUser })} />
-                    <AiOutlineSearch className={cx('icon', { active: showSearch })} />
+
+
+                    <div className={cx('user')}>
+                        <AiOutlineUser className={cx('icon', { active: showUser })} />
+                        <div className={cx('login')}>
+                            <Login Click={setsignup} />
+                        </div>
+                    </div>
+                    <div className={cx('search-icon')}>
+                        <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
+
+                    </div>
 
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
                     <Button className={cx('button')}>hotline: 0338204170</Button>
+                    {showSearch && <Searchkey />}
                 </div>
             </div>
+            {signup && <Signup Click={setsignup} />}
         </div>
     );
 };
