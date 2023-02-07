@@ -5,6 +5,7 @@ import a4 from '@/public/a4.png';
 import { banners } from '@/public/images';
 import style from '@/styles/Hoteldetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Hotelbook from '@/views/BookHotel';
 import Booking from '@/views/LuxuryTrans/Contact';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
@@ -16,6 +17,7 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GetHotel } from '../api/CallAPI';
+
 
 
 
@@ -45,7 +47,7 @@ const Index = () => {
         <div>
             {Data && Data.length > 0 && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
-                {book ? <Booking click={setbook} /> : <div className={cx('container')}>
+                {book ? <Hotelbook click={setbook} hotel={Data[0].title} /> : <div className={cx('container')}>
                     <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
 
 

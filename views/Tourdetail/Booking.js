@@ -1,16 +1,12 @@
-import React from 'react'
-import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
-import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import IMG from '@/public/images/banner/banner9.png'
-import { Input } from '@/components';
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import classNames from 'classnames/bind';
+import { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
 
-import $, { data } from 'jquery';
-import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
+import $ from 'jquery';
+import qs from 'qs';
 
 const cx = classNames.bind(style);
 
