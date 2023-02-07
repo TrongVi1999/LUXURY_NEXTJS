@@ -19,9 +19,14 @@
     --border-color: #ff9d1f;
     --border-color2: #fa9834;
     --border-light: #edd5d5;
+    //
+    --status-book: #1fe485;
+    --status-cancel: #e41f3b;
+    --status-plan: #ffc105;
 
     --background-black: #050505;
     --background-gray: #1b1b1b;
+    --background-light: #f5f5f5;
     --background-white-opacity: rgba(255, 255, 255, 0.7);
     --menu-text: #464646;
     --linear-gradient-btn: linear-gradient(to right, #fdd727, #fa9b31);
@@ -56,6 +61,7 @@ html {
 
 body {
     font-size: 1.4rem;
+    top: 0px !important;
 }
 
 html *::-webkit-scrollbar-thumb {
@@ -79,16 +85,19 @@ html *::-webkit-scrollbar-track {
 }
 
 #google_translate_element {
-    width: fit-content;
-    background: none;
-    top: 140px;
-    position: fixed;
-    right: 5px;
+    width: 100%;
+    // background: white;
+    top: 60px;
+    position: absolute;
+    right: 0px;
+    // padding: 10px;
+    // border: 1px solid var(--button);
 }
 
 .goog-te-gadget {
     height: 38px;
     overflow: hidden;
+    // width: 100%;
 }
 .goog-te-gadget span {
     display: none;
@@ -98,8 +107,11 @@ html *::-webkit-scrollbar-track {
     color: #514631;
     background-color: rgb(246, 248, 246);
     outline: none;
+    // width: 100%;
 }
-
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none;
+}
 /* =================== RESPONSIVE GLOBAL ========================= */
 
 // @media only screen and (max-width: 1200px) {

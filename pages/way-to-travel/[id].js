@@ -194,7 +194,7 @@ const index = () => {
                 </Section>
 
             }
-            {/* {Data.length > 0 && <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+
             <Pagination totalPosts={data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     )

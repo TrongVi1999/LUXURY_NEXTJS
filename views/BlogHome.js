@@ -7,6 +7,7 @@ import IMG from '@/public/8.jpg';
 import { Bloghot } from '@/pages/api/CallAPI';
 
 
+
 const cx = classNames.bind(style);
 // const Data = {
 //     img: IMG,

@@ -1,0 +1,327 @@
+.conatiner {
+    width: 100%;
+    padding: 5% 20%;
+    background-color: rgb(245 245 245);
+}
+
+.book-title {
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 2.778;
+    text-align: center;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.21);
+}
+
+.booking-infor {
+    background-color: #f4f4f4;
+    width: 100%;
+    padding-bottom: 60px;
+}
+
+.book-crumb {
+    font-size: 22px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 2.556;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.book-content {
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-left: 35px;
+    padding-top: 20px;
+}
+
+.service-name,
+.tour-country {
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.service-name-content,
+.tour-country-content {
+    font-size: 16.667px;
+    font-weight: 400;
+}
+
+.line {
+    width: 91%;
+    background-color: rgb(61, 50, 41);
+    left: 414px;
+    top: 859px;
+    height: 1px;
+    margin: 32px 70px 25px 35px;
+}
+
+.content-mid {
+    width: 91%;
+    margin: 0 70px 35px 35px;
+}
+
+.item-form {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.header-form {
+    margin-bottom: 42px;
+}
+
+.title-form {
+    color: #f5a722;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.intro-form {
+    font-size: 18px;
+    color: #2d3a4b;
+    margin-top: 8px;
+}
+
+.label-booking {
+    font-size: 16px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+    width: 38%;
+}
+
+.item-form div {
+    width: 62%;
+    // height: 35px;
+}
+
+.cus-infor {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-enquire--name {
+    width: 100% !important;
+}
+
+.cus-name {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    padding: 10px 14px !important;
+    width: 100%;
+}
+
+.sex {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 60% !important;
+}
+
+.form-control {
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.sex-m {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 16px 0 4px;
+}
+
+.book-national {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    padding: 10px 14px !important;
+}
+
+.our-services {
+    color: #6f6f6f;
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    padding: 10px 14px !important;
+    width: 100%;
+}
+
+.cus-mail {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    padding: 10px 14px !important;
+}
+
+.cus-phone {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    padding: 10px 14px !important;
+}
+
+.book-note {
+    border: 1px solid #b1b1b1;
+    border-radius: 4px;
+    height: 170px;
+    width: 100%;
+    padding: 10px 14px !important;
+}
+
+.re-capcha {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 38px;
+}
+
+.content-bot {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.btn {
+    background-color: #ffc600;
+    font-size: 16.667px;
+    color: rgb(45, 58, 75);
+    font-weight: bold;
+    line-height: 1.2;
+    padding: 8px 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.input-enquire {
+    display: flex;
+    flex-direction: column;
+}
+
+.error-message {
+    font-size: 12px !important;
+    color: red;
+}
+
+@media only screen and (min-width: 1185px) and (max-width: 1350px) {
+    .book-crumb,
+    .book-content,
+    .content-mid {
+        width: 91%;
+    }
+
+    .item-form div {
+        width: 62%;
+    }
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1184px) {
+    .book-crumb,
+    .book-content,
+    .content-mid {
+        width: 91%;
+    }
+
+    .label-booking {
+        width: 45%;
+    }
+
+    .item-form div {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1001px) {
+    .book-crumb,
+    .book-content,
+    .content-mid {
+        width: 91%;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 44%;
+    }
+
+    .item-form div {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 851px) {
+    .content-header {
+        margin-right: 2%;
+    }
+
+    .book-crumb,
+    .book-content {
+        width: 91%;
+    }
+
+    .content-mid {
+        width: 86%;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 44%;
+        margin-right: 3%;
+    }
+
+    .item-form div {
+        width: 54%;
+    }
+
+    .age-option div {
+        width: 141px;
+    }
+
+    .book-age {
+        width: 40%;
+    }
+
+    .line {
+        width: 86%;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 425px) {
+    .content-header {
+        margin-left: 18px;
+    }
+
+    .line {
+        width: 85%;
+    }
+
+    .book-crumb,
+    .book-content {
+        width: 91%;
+    }
+
+    .content-mid {
+        width: 88%;
+        margin: 0 70px 35px 18px;
+    }
+
+    .label-booking {
+        font-size: 14px;
+        width: 46%;
+        margin-right: 4%;
+    }
+
+    .sex-m {
+        margin-left: 4px;
+        font-size: 10px;
+    }
+
+    .item-form div {
+        width: 50%;
+    }
+}

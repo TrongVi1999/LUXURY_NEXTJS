@@ -1,0 +1,173 @@
+.container {
+    padding: 2rem 20%;
+
+    .des {
+        border: solid black 1px;
+        padding: 5rem 0;
+        h2 {
+            font-size: 24px;
+            margin-left: 5rem;
+        }
+        .star {
+            margin-left: 5rem;
+            padding: 2rem 5rem 0 0;
+            .icon-star {
+                color: #9c9c9c;
+            }
+            span {
+                color: #f5a623;
+            }
+            p {
+                padding: 1rem 0;
+                font-size: 14px;
+                color: #565656;
+            }
+            .address {
+                font-weight: bolder;
+            }
+            button {
+                margin-top: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #ffd307;
+                width: 25%;
+                height: 5vh;
+                text-align: center;
+                font-size: 2.4rem;
+                font-weight: bold;
+                .hr-left {
+                    border-left: 1px solid #000;
+                    height: 90%;
+                    margin: 20px;
+                }
+            }
+        }
+    }
+
+    .Siminal-Hotel {
+        display: flex;
+        padding-top: 5rem;
+    }
+    .card {
+        margin: 0 3rem;
+        width: 31.4%;
+        min-width: 220px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-bottom: 1.8vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-img {
+        width: 100%;
+        height: 15vw;
+        min-height: 180px;
+    }
+    .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .infor {
+        padding: 10px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        p {
+            padding: 5px 0;
+            color: gray;
+        }
+    }
+    .title {
+        font-weight: bolder;
+        font-size: 15px;
+        margin-bottom: 5px;
+        letter-spacing: 2px;
+        flex: 1;
+        color: black;
+    }
+    .rating {
+        color: rgb(209, 148, 27);
+        margin-right: 5px;
+        font-weight: bold;
+    }
+    .price {
+        .price1 {
+            color: black;
+            font-weight: bold;
+        }
+
+        svg {
+            margin-right: 5px;
+            // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
+            color: rgb(203, 144, 26);
+        }
+        .price2 {
+            text-decoration: line-through;
+        }
+    }
+    .place {
+        svg {
+            margin-right: 5px;
+        }
+    }
+}
+.main-hotel {
+    padding: 2% 0;
+    h2 {
+        padding: 0 !important;
+        margin-top: 40px;
+    }
+    ul {
+        padding-top: 5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-left: 5rem;
+        list-style: disc inside #f5a623;
+    }
+    li {
+        font-size: 14px;
+        margin: 1.5rem 0;
+        width: 30%;
+        svg {
+            color: #f5a623;
+            font-size: 18px;
+            margin-right: 1rem;
+        }
+    }
+
+    p {
+        padding-top: 3rem;
+        font-size: 14px;
+        line-height: 4rem;
+        // font-weight: 400;
+        color: #565656;
+    }
+    span {
+        font-weight: bold;
+    }
+
+    table {
+        padding-top: 2rem;
+        font-size: 14px;
+        tr {
+            height: 100%;
+        }
+        th {
+            width: 25%;
+            // text-align: left;
+            padding-left: 2rem;
+            border-bottom: 1px solid #000;
+            text-align: start;
+        }
+        td {
+            padding: 2rem 0;
+            border-bottom: 1px solid #000;
+            padding-left: 5%;
+            color: #565656;
+        }
+    }
+}

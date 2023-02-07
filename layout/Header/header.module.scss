@@ -97,7 +97,18 @@
         }
     }
 }
-
+.item-user {
+    position: relative;
+    .menuHover {
+        left: 0;
+        display: none;
+    }
+}
+.item-user:hover {
+    .menuHover {
+        display: block;
+    }
+}
 .menuHover {
     position: absolute;
     width: 17rem;
@@ -184,14 +195,21 @@
 
 .user {
     .login {
-        display: none;
-        position: absolute;
-        border: 3px solid rgb(224, 224, 18);
-    }
-}
-.user:hover {
-    .login {
-        display: block;
+        display: flex;
+        position: fixed;
+        // border: 2px solid rgb(224, 224, 18);
+        right: 10px;
+        max-width: 95%;
+        top: 50px;
+    }}
+
+@media only screen and (max-width: 2400px) {
+    .user {
+        .login {
+            position: absolute;
+            max-width: none;
+            right: 0;
+        }
     }
 }
 @media only screen and (max-width: 868px) {

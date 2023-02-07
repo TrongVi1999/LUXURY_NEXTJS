@@ -81,7 +81,7 @@ const menuWayTravel = [
     },
     {
         title: 'luxury hotel',
-        to: '/',
+        to: '/luxury-hotel',
     },
 ]
 
@@ -92,13 +92,14 @@ const menuAbouUs = [
     },
     {
         title: 'Payment',
-        to: '/payment'
+        to: '/payment/DEPOSIT & PAYMENT'
     },
     {
         title: 'Responsible',
         to: '/responsible'
     }
 ]
+
 
 function Menu({ className, showmenu, menuBgr }) {
 

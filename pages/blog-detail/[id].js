@@ -9,10 +9,12 @@ import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
 
-import Share from "@/views/Share/Share";
+
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
 // import TitleLine from '@/components/TitleLine';
 import { Getblog } from '../api/CallAPI';
+import TitleLine from '@/components/TitleLine';
+import Listtag from '@/views/Blogdetail/Listtag';
 
 const cx = classNames.bind(style);
 
@@ -73,50 +75,57 @@ const BlogDetail = () => {
         CallAPI();
     }, [router.query.id]);
 
-    var re = /[]\s|","\s/;
+    // var re = /[]\s|","\s/;
 
-    if (Data[0]) {
-        let hast = Data[0].hash_tag.split(re)
-        console.log(hast)
-    }
+    // if (Data[0]) {
+    //     let hast = Data[0].hash_tag.split(re)
+    //     console.log(hast)
+    // }
 
 
     return (
         <div className={cx('container')}>
-            <BannerIMG img={data.banner} title={data.title.toUpperCase()} descrip={data.description} bg='bg' type={data.type} color='black' date={data.date} by={data.author} number={data.comments.length} />
+            {Data[0] &&
+                <BannerIMG img={data.banner} title={Data[0].title.toUpperCase()} bg='bg' type={data.type} color='black' date={data.date} by={data.author} number={data.comments.length} />
+            }
             {
                 Data[0] &&
                 (<div className={cx('main')} ref={contentRef}>
 
-                    <div dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
+
 
                     <div className={cx('main-top')}>
                         <div className={cx('author')}>
                             <Author />
                         </div>
-                        <div className={cx('content')} dangerouslySetInnerHTML={{
+                        {/* <div className={cx('content')} dangerouslySetInnerHTML={{
                             __html: data.content1,
                         }}>
-                        </div>
+                        </div> */}
+                        <div className={cx('content')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
                     </div>
-                    <Image src={data.banner} alt='blog-travel' className={cx('img-banner')} />
+                    {/* <Image src={data.banner} alt='blog-travel' className={cx('img-banner')} /> */}
                     <div className={cx('main-bot')}>
-                        <div className={cx('content')} dangerouslySetInnerHTML={{
+                        {/* <div className={cx('content')} dangerouslySetInnerHTML={{
                             __html: data.content2,
                         }}>
 
-                        </div>
-                        <div className={cx('main-end')}>
+                        </div> */}
+                        <Listtag data={Data[0].hash_tag} />
+                        {/* <div className={cx('main-end')}>
                             <div className={cx('tag-list')}>
-                                {data.hash_tag.map((d, i) =>
-                                    <span key={i}>{d.toUpperCase()}</span>
+                                {JSON.parse(Data[0].hash_tag).filter(a => a != '#Blog').map((d, i) =>
+                                    <div>
+                                        <TitleLine key={i} text={d.replace('#', '').toUpperCase()} />
+                                    </div>
                                 )}
+                            
                             </div>
                             <div className={cx('share-list')}>
                                 <span>Share</span>
                                 <Share />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className={cx('comment-container')}>
                         <Comments />

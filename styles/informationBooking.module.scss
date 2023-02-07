@@ -16,8 +16,8 @@
 
 .booking-infor {
     background-color: #f4f4f4;
-    // padding: 0 20%;
     width: 100%;
+    padding-bottom: 60px;
 }
 
 .book-crumb {
@@ -25,13 +25,13 @@
     color: rgb(45, 58, 75);
     font-weight: bold;
     line-height: 2.556;
-    width: 1170px;
+    width: 70%;
     margin: 0 auto;
 }
 
 .book-content {
     background-color: white;
-    width: 1170px;
+    width: 70%;
     margin: 0 auto;
 }
 
@@ -70,7 +70,7 @@
 }
 
 .content-mid {
-    width: 1170px;
+    width: 91%;
     margin: 0 70px 35px 35px;
 }
 
@@ -84,11 +84,11 @@
     color: rgb(45, 58, 75);
     font-weight: bold;
     line-height: 1.2;
-    width: 367px;
+    width: 38%;
 }
 
 .item-form div {
-    width: 700px;
+    width: 62%;
     // height: 35px;
 }
 
@@ -98,29 +98,25 @@
     border: 1px solid #b1b1b1;
 }
 
-// .people {
-//     height: 78px;
-// }
-
 .age-option {
     display: flex;
     flex-wrap: wrap;
     // width: 44%;
 }
 
-.age-option div {
+.book-age {
     width: 306px;
 }
 
-.age-option div:nth-child(1) {
+.book-age:nth-child(1) {
     margin: 0 22px 6px 0;
 }
 
-.age-option div:nth-child(2) {
+.book-age:nth-child(2) {
     margin: 0px 0px 6px 0;
 }
 
-.age-option div:nth-child(4) {
+.book-age:nth-child(4) {
     margin: 0 0 0 22px;
 }
 
@@ -131,6 +127,7 @@
     padding: 10px 14px !important;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
+    width: 45%;
 }
 
 .book-hotel {
@@ -144,17 +141,22 @@
     flex-direction: column;
 }
 
+.input-enquire--name {
+    width: 100% !important;
+}
+
 .cus-name {
     border: 1px solid #b1b1b1;
     border-radius: 4px;
     padding: 10px 14px !important;
+    width: 100%;
 }
 
 .sex {
     display: flex;
     margin-top: 15px;
     margin-left: 20px;
-    width: 200px !important;
+    width: 60% !important;
 }
 
 .form-control {
@@ -166,7 +168,8 @@
 
 .sex-m {
     font-weight: 600;
-    margin-right: 12px;
+    font-size: 16px;
+    margin: 0 16px 0 4px;
 }
 
 .book-national {
@@ -191,14 +194,16 @@
     border: 1px solid #b1b1b1;
     border-radius: 4px;
     height: 170px;
-    width: 670px;
+    width: 100%;
     padding: 10px 14px !important;
 }
 
 .our-services {
+    color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
     padding: 10px 14px !important;
+    width: 100%;
 }
 
 .content-bot {
@@ -218,150 +223,99 @@
     cursor: pointer;
 }
 
+.input-enquire {
+    display: flex;
+    flex-direction: column;
+}
+
+.error-message {
+    font-size: 12px !important;
+    color: red;
+}
+
 @media only screen and (min-width: 1185px) and (max-width: 1350px) {
-    .book-crumb {
-        font-size: 22px;
-        width: 1050px;
-        margin: 0 auto;
-    }
-
-    .book-content {
-        width: 1050px;
-        margin: 0 auto;
-    }
-
+    .book-crumb,
+    .book-content,
     .content-mid {
-        width: 1050px;
+        width: 91%;
     }
 
     .item-form div {
-        width: 590px;
-    }
-
-    .book-note {
-        width: 560px;
-    }
-
-    .age-option div {
-        width: 235px;
+        width: 62%;
     }
 }
 
 @media only screen and (min-width: 1001px) and (max-width: 1184px) {
-    .book-crumb {
-        font-size: 22px;
-        width: 900px;
-        margin: 0 auto;
-    }
-
-    .book-content {
-        width: 900px;
-        margin: 0 auto;
-    }
-
+    .book-crumb,
+    .book-content,
     .content-mid {
-        width: 795px;
+        width: 91%;
     }
 
     .label-booking {
-        width: 340px;
+        width: 45%;
     }
 
     .item-form div {
-        width: 455px;
-    }
-
-    .book-note {
-        width: 425px;
-    }
-
-    .age-option div {
-        width: 185px;
+        width: 60%;
     }
 }
 
 @media only screen and (min-width: 851px) and (max-width: 1001px) {
-    .book-crumb {
-        font-size: 22px;
-        width: 650px;
-        margin: 0 auto;
-    }
-
-    .book-content {
-        width: 650px;
-        margin: 0 auto;
-    }
-
+    .book-crumb,
+    .book-content,
     .content-mid {
-        width: 600px;
+        width: 91%;
     }
 
     .label-booking {
         font-size: 14px;
-        width: 210px;
+        width: 44%;
     }
 
     .item-form div {
-        width: 360px;
-    }
-
-    .book-note {
-        width: 330px;
-    }
-
-    .age-option div {
-        width: 150px;
+        width: 60%;
     }
 }
 
 @media only screen and (min-width: 426px) and (max-width: 851px) {
-    .book-crumb {
-        font-size: 22px;
-        width: 482px;
-        margin: 0 auto;
-        background-color: #f4f4f4;
+    .content-header {
+        margin-right: 2%;
     }
 
+    .book-crumb,
     .book-content {
-        width: 600px;
-        margin: 0 auto;
+        width: 91%;
     }
 
     .content-mid {
-        width: 580px;
+        width: 86%;
     }
 
     .label-booking {
         font-size: 14px;
-        width: 225px;
+        width: 44%;
+        margin-right: 3%;
     }
 
     .item-form div {
-        width: 305px;
-    }
-
-    .book-note {
-        width: 275px;
+        width: 54%;
     }
 
     .age-option div {
         width: 141px;
     }
+
+    .book-age {
+        width: 40%;
+    }
+
+    .line {
+        width: 86%;
+    }
 }
 
 @media only screen and (min-width: 350px) and (max-width: 425px) {
-    .book-crumb {
-        font-size: 22px;
-        width: 100%;
-        margin: 0 auto;
-        background-color: #f4f4f4;
-    }
-
-    .book-content {
-        width: 100%;
-        margin: 0 auto;
-    }
-
     .content-header {
         margin-left: 18px;
     }
@@ -370,38 +324,41 @@
         width: 85%;
     }
 
+    .book-crumb,
+    .book-content {
+        width: 91%;
+    }
+
     .content-mid {
-        width: 350px;
+        width: 88%;
         margin: 0 70px 35px 18px;
     }
 
     .label-booking {
         font-size: 14px;
-        width: 225px;
+        width: 46%;
+        margin-right: 4%;
     }
 
-    .cus-infor div {
-        width: 184px !important;
+    .book-age {
+        width: 46%;
     }
 
-    .sex {
-        margin-left: 0;
+    .book-age:nth-child(1) {
+        margin: 0 10px 6px 0;
+    }
+
+    .book-age:nth-child(4) {
+        margin: 0 0 0 10px;
+    }
+
+    .sex-m {
+        margin-left: 4px;
+        font-size: 10px;
     }
 
     .item-form div {
-        width: 255px;
-    }
-
-    .book-note {
-        width: 212px;
-    }
-
-    .age-option div {
-        width: 108px;
-    }
-
-    .age-option div:nth-child(4) {
-        margin: 6px 0 0 0px;
+        width: 50%;
     }
 }
 

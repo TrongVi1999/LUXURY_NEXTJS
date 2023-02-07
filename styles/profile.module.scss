@@ -1,0 +1,97 @@
+.wrapper {
+    padding: 20rem 0;
+    background-color: var(--background-light);
+
+    .body {
+        max-width: 1170px;
+        width: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+        align-items: flex-start;
+    }
+
+    .boxOption {
+        flex: 1;
+        margin-right: 17rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .boxAvatar {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            .boxAvatar-div {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 50%;
+                border: 0.4rem solid var(--white);
+                box-shadow: 0 0rem 9.1rem -4rem var(--light2);
+                .avatar {
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: cover !important;
+                }
+            }
+            .iconAdd {
+                position: absolute;
+                z-index: 10;
+                right: 5rem;
+                bottom: 2rem;
+                font-size: 3rem;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50%;
+                border: 0.1rem solid var(--white);
+                color: var(--white);
+                background-image: var(--linear-gradient-btn2);
+            }
+        }
+        .name {
+            margin: 4.5rem 0 6rem;
+            width: 100%;
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        .boxItemPage {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            // margin-left: 8rem;
+
+            .itemPage {
+                font-size: 2.2rem;
+                font-weight: 400;
+                color: var(--light2);
+                text-transform: capitalize;
+                margin-bottom: 3rem;
+            }
+
+            .itemPage.active {
+                color: var(--black);
+            }
+        }
+    }
+
+    .content {
+        max-width: 70rem;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1248px) {
+    .body {
+        justify-content: center;
+        .boxOption {
+            margin-right: 0;
+        }
+    }
+    .content {
+        width: 80% !important;
+    }
+}

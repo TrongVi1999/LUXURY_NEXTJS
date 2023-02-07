@@ -5,13 +5,16 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'vnxpedia.3i.com.vn',
-                port: '',
-                pathname: '/uploads/images/**',
-            },
+        // remotePatterns: [
+        //     {
+        //         protocol: 'https',
+        //         hostname: 'vnxpedia.3i.com.vn',
+        //         port: '',
+        //         pathname: '/uploads/images/**',
+        //     },
+        // ],
+        domains: [
+            'vnxpedia.3i.com.vn',
         ],
     },
 }
