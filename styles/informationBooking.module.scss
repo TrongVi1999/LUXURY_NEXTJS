@@ -193,7 +193,6 @@
 .book-note {
     border: 1px solid #b1b1b1;
     border-radius: 4px;
-    height: 170px;
     width: 100%;
     padding: 10px 14px !important;
 }
@@ -362,9 +361,6 @@
     }
 }
 
-.tour-same {
-}
-
 .tour-same-title {
     font-size: 25px;
     font-family: 'Montserrat';
@@ -374,4 +370,52 @@
     position: absolute;
     left: 372.036px;
     top: 2036.859px;
+}
+
+//Mice
+.p-header {
+    padding: 20px 0;
+    text-align: center;
+}
+.h6-header {
+    font-size: 18px !important;
+    margin: 3vw 0;
+    span {
+        color: #ffc600;
+        font-size: 14px !important;
+        margin-left: 20px;
+    }
+}
+.list-location {
+    width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    .location-item {
+        width: 25%;
+        margin: 10px 0;
+        min-width: 120px;
+        label {
+            font-weight: normal !important;
+        }
+    }
+}
+.item-column {
+    flex-direction: column;
+}
+.group-item {
+    display: flex;
+    justify-content: space-between;
+    .item-form {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        label {
+            width: 100%;
+        }
+        div {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
 }

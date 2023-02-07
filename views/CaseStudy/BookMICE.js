@@ -10,6 +10,9 @@ import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 
 const cx = classNames.bind(style);
+const ListLocation =
+    ['Hanoi', 'HoChiMinh City', 'Myanmar', 'Laos', 'Nha Trang', 'Phu Quoc', 'Thailand', 'Multi-Country', 'Danang', 'Multi Province', 'Cambodia', 'Other']
+
 
 const BookMICe = ({ datas }) => {
     const [ipAddress, setIpAddress] = useState('');
@@ -43,31 +46,17 @@ const BookMICe = ({ datas }) => {
 
     return (
         <div className={cx("booking-infor")}>
-            <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
+            <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <form className={cx("book-content")} onSubmit={handleSubmit()}>
                 <div className={cx("content-header")}>
-                    <p className={cx("tour-name")}>
-                        Tour Name:&nbsp;
-                        <span className={cx("tour-name-content")}>
-                            {/* {datas.TourName} */}
-                        </span>
-                    </p>
-                    <p className={cx("tour-duration")}>
-                        Tour duration:&nbsp;
-                        <span className={cx("tour-duration-content")}>
-                            {/* {datas.DETAIL.length} days */}
-                        </span>
-                    </p>
-                    <p className={cx("tour-country")}>
-                        Country:&nbsp;
-                        <span className={cx("tour-country-content")}>
-                            {/* {datas.Country} */}
-                        </span>
-                    </p>
+                    <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
+                        If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
                 </div>
-                <hr className={cx("line")}></hr>
+
+
                 <div className={cx("content-mid")}>
-                    <div className={cx("item-form")}>
+                    <h6 className={cx("h6-header")}>PERSONAL DETAILS    <span>*Mandatory Field</span></h6>
+                    {/* <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             Your proposed arrival date:
                         </label>
@@ -147,10 +136,7 @@ const BookMICe = ({ datas }) => {
                         <label className={cx("label-booking")}>
                             Hotel categories you desire to stay?
                         </label>
-                        {/* <input
-                            type="select"
-                            className={cx("book-hotel")}
-                        /> */}
+                      
                         <div>
                             <select name='ourServices' className={cx("our-services")}>
                                 <option value="">-- Select --</option>
@@ -159,7 +145,7 @@ const BookMICe = ({ datas }) => {
                                 <option value="Hotel">Hotel</option>
                             </select>
                         </div>
-                    </div>
+                    </div> */}
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             How should we call you? (*)
@@ -477,6 +463,22 @@ const BookMICe = ({ datas }) => {
                     </div>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
+                            Your Company (*):
+                        </label>
+                        <div className={cx("input-enquire-company")}>
+                            <input
+                                type="text"
+                                placeholder="Enter Your Company"
+                                className={cx("cus-name")}
+                                {...register('FullName', { required: true })}
+                            />
+                            {errors.FullName && errors.FullName.type === 'required' && (
+                                <span className={cx("error-message")}>Your Name cannot be empty !</span>
+                            )}
+                        </div>
+                    </div>
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
                             Email address (*):
                         </label>
                         <div className={cx("input-enquire")}>
@@ -553,13 +555,34 @@ const BookMICe = ({ datas }) => {
                             )}
                         </div>
                     </div>
+                    <hr className={cx("line")}></hr>
+                    <h6 className={cx("h6-header")}>EVENT DETAILS    </h6>
+
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
-                            We welcome your special requests here
+                            Event Name:
+
+                        </label>
+                        <div className={cx("input-enquire")}>
+                            <input
+                                type="text"
+                                placeholder="Enter Your Company"
+                                className={cx("cus-name")}
+                                {...register('FullName', { required: true })}
+                            />
+                            {errors.FullName && errors.FullName.type === 'required' && (
+                                <span className={cx("error-message")}>Your Name cannot be empty !</span>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Purpose of Trip:
                         </label>
                         <div>
                             <textarea
-                                placeholder="Type here for special activities, alergy, wheel chair, vegetari"
+                                placeholder="Take Note"
                                 className={cx("book-note")}
                                 onChange={(e) =>
                                     setBookinfor({
@@ -567,6 +590,118 @@ const BookMICe = ({ datas }) => {
                                         Note: e.target.value,
                                     })
                                 }
+                                rows="4"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div className={cx("item-form item-column")}>
+                        <label className={cx("label-booking")}>
+                            Destination Ideas:
+                        </label>
+                        <div className={cx("cus-infor")}>
+
+                            <div className={cx("list-location")}>
+                                {ListLocation.map(d =>
+                                    <div className={cx("location-item")}>
+                                        <input
+                                            name="location"
+                                            type="checkbox"
+                                            value={d}
+                                            className={cx("form-control")}
+                                        />
+                                        <label className={cx("sex-m")} for="">
+                                            {d}
+                                        </label>
+                                    </div>
+                                )}
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={cx("group-item")}>
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Persons Attending:
+                            </label>
+                            <div className={cx("input-enquire")}>
+
+                                <select name='level' className={cx("our-services")}>
+                                    <option value="1 - 5">1 - 5</option>
+                                    <option value="6 - 15">6 - 15</option>
+                                    <option value="> 16 ">{` > 16 `}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Estimated Travel Date:
+                            </label>
+                            <div className={cx("input-enquire")}>
+                                <input
+                                    type="date"
+                                    name="date"
+                                    className={cx("book-date")}
+                                    {...register('StartDate', { required: true })}
+                                />
+                                {errors.StartDate && errors.StartDate.type === 'required' && (
+                                    <span className={cx("error-message")}>Date cannot be empty !</span>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Preliminary Duration:
+                            </label>
+                            <div className={cx("input-enquire")}>
+
+                                <select name='level' className={cx("our-services")}>
+                                    <option value="1 days">1 days</option>
+                                    <option value="2 - 3 days">6 - 15</option>
+                                    <option value="> 3 days">{` > 3 days `}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Level of Responsiveness required:
+                        </label>
+                        <div className={cx("input-enquire")}>
+
+                            <select name='level' className={cx("our-services")}>
+                                <option value="">Urgent</option>
+                                <option value="Food">Normal</option>
+                                {/* <option value="Transfer">Transfer</option>
+                                    <option value="Hotel">Hotel</option> */}
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Additional Information:
+                        </label>
+                        <div>
+                            <textarea
+                                placeholder="Message"
+                                className={cx("book-note")}
+                                onChange={(e) =>
+                                    setBookinfor({
+                                        ...Bookinfor,
+                                        Note: e.target.value,
+                                    })
+                                }
+                                rows="6"
                             ></textarea>
                         </div>
                     </div>

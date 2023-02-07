@@ -61,19 +61,16 @@ const index = () => {
 
                         <div className={cx('book-div')}>
                             <h6 className={cx('h6')}>Let me us know your dream trip for your company! </h6>
-                            <button className={cx('btn')}>Book Now</button>
+                            <button className={cx('btn')} onClick={() => setBook(false)}>Book Now</button>
                         </div>
                         <Listtag data={Data.hash_tag} />
 
-                    </div> : <Booking
-                        onClick={() => handleBooking()}
-                        datas={Tourdata}
-                    />
+                    </div> : <BookMICe datas={Tourdata} close={setBook} />
 
                 }
 
                 <Blogrecomment />
-                <BookMICe datas={Tourdata} />
+
 
             </div>}
 
