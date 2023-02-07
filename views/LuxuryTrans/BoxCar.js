@@ -11,7 +11,7 @@ const cx = classNames.bind(style)
 function BoxCar({ img, name, className, key, click }) {
     return (
         // <Link href={`/`} className={cx('card')}>
-        <div key={key} className={cx('card', { [className]: className })}>
+        <Link href='/transfer-detail/1' key={key} className={cx('card', { [className]: className })}>
 
             <div className={cx('boxImg')}>
                 <Image className={cx('img')} src={img} alt="carImgErr" />
@@ -29,7 +29,7 @@ function BoxCar({ img, name, className, key, click }) {
                     </p>
                 </p>
             </div>
-        </div>
+        </Link>
         // </Link>
     );
 }

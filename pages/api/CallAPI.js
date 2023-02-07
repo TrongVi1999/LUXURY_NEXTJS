@@ -146,8 +146,8 @@ export const Subcrise = (email) =>
     });
 
 //super filter
-// https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance?TagTour=vietnam&tourtype=TYPE_BEACH  &fromcost=100&endcost=1200&country=laos&destination=Mekong Delta
-export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour) =>
+
+export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour, Season, Group) =>
     axios({
         method: 'post',
         url: 'https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance',
@@ -155,8 +155,8 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
             country: (Country ? Country : ''),
             destination: (Destination ? Destination : ''),
             tourtype: (Tourtype ? Tourtype : ''),
-            // season: (Season ? Season : ''),
-            // group: (Group ? Group : ''),
+            TagTour1: (Season ? Season : ''),
+            TagTour2: (Group ? Group : ''),
             fromcost: (Fromcost ? Fromcost : 0),
             endcost: (Endcost ? Endcost : 15000),
             TagTour: (Tagtour ? Tagtour : ''),

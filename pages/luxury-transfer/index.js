@@ -82,7 +82,7 @@ function Destimation() {
             <div className={cx('container')}>
                 <div className={cx('text')}>
                     <h2>VEHICLES</h2>
-                    <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.
+                    <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.<br /><br />
 
                         Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
                     <div className={cx('icon')}>

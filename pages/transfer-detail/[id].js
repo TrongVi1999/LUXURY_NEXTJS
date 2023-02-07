@@ -19,7 +19,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
-const fakeDataTrans = [[
+const fakeDataTrans = [
     {
         img: xe1,
         name: "Setra S 416 HDH"
@@ -31,29 +31,30 @@ const fakeDataTrans = [[
     {
         img: xe3,
         name: "Setra S 416 HDH"
-    }], [{
-        img: xe1,
-        name: "Setra S 416 HDH2"
-    },
-    {
-        img: xe2,
-        name: "Setra S 416 HDH2"
-    },
-    {
-        img: xe3,
-        name: "Setra S 416 HDH2"
-    }], [{
-        img: xe1,
-        name: "Setra S 416 HDH3"
-    },
-    {
-        img: xe2,
-        name: "Setra S 416 HDH3"
-    },
-    {
-        img: xe3,
-        name: "Setra S 416 HDH3"
-    }],
+    }
+    // , [{
+    //     img: xe1,
+    //     name: "Setra S 416 HDH2"
+    // },
+    // {
+    //     img: xe2,
+    //     name: "Setra S 416 HDH2"
+    // },
+    // {
+    //     img: xe3,
+    //     name: "Setra S 416 HDH2"
+    // }], [{
+    //     img: xe1,
+    //     name: "Setra S 416 HDH3"
+    // },
+    // {
+    //     img: xe2,
+    //     name: "Setra S 416 HDH3"
+    // },
+    // {
+    //     img: xe3,
+    //     name: "Setra S 416 HDH3"
+    // }],
 
 ]
 const index = () => {

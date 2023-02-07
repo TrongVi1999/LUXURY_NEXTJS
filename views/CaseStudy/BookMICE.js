@@ -46,7 +46,7 @@ const BookMICe = ({ datas }) => {
 
     return (
         <div className={cx("booking-infor")}>
-            <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
+            <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <form className={cx("book-content")} onSubmit={handleSubmit()}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
@@ -590,11 +590,12 @@ const BookMICe = ({ datas }) => {
                                         Note: e.target.value,
                                     })
                                 }
+                                rows="4"
                             ></textarea>
                         </div>
                     </div>
 
-                    <div className={cx("item-form")}>
+                    <div className={cx("item-form item-column")}>
                         <label className={cx("label-booking")}>
                             Destination Ideas:
                         </label>
@@ -620,6 +621,71 @@ const BookMICe = ({ datas }) => {
                         </div>
                     </div>
 
+                    <div className={cx("group-item")}>
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Persons Attending:
+                            </label>
+                            <div className={cx("input-enquire")}>
+
+                                <select name='level' className={cx("our-services")}>
+                                    <option value="1 - 5">1 - 5</option>
+                                    <option value="6 - 15">6 - 15</option>
+                                    <option value="> 16 ">{` > 16 `}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Estimated Travel Date:
+                            </label>
+                            <div className={cx("input-enquire")}>
+                                <input
+                                    type="date"
+                                    name="date"
+                                    className={cx("book-date")}
+                                    {...register('StartDate', { required: true })}
+                                />
+                                {errors.StartDate && errors.StartDate.type === 'required' && (
+                                    <span className={cx("error-message")}>Date cannot be empty !</span>
+                                )}
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form")}>
+                            <label className={cx("label-booking")}>
+                                Preliminary Duration:
+                            </label>
+                            <div className={cx("input-enquire")}>
+
+                                <select name='level' className={cx("our-services")}>
+                                    <option value="1 days">1 days</option>
+                                    <option value="2 - 3 days">6 - 15</option>
+                                    <option value="> 3 days">{` > 3 days `}</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Level of Responsiveness required:
+                        </label>
+                        <div className={cx("input-enquire")}>
+
+                            <select name='level' className={cx("our-services")}>
+                                <option value="">Urgent</option>
+                                <option value="Food">Normal</option>
+                                {/* <option value="Transfer">Transfer</option>
+                                    <option value="Hotel">Hotel</option> */}
+                            </select>
+
+                        </div>
+                    </div>
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
@@ -635,6 +701,7 @@ const BookMICe = ({ datas }) => {
                                         Note: e.target.value,
                                     })
                                 }
+                                rows="6"
                             ></textarea>
                         </div>
                     </div>

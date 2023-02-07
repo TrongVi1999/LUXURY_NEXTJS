@@ -155,21 +155,23 @@
     padding: 10px 14px !important;
     width: 100%;
 }
-.cus-adult{
+.cus-adult {
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
-    height: 30px;
     margin-top: 20px;
     width: 80%;
+    border-radius: 4px;
+    padding: 10px 14px !important;
 }
-.cus-children{
+.cus-children {
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
-    height: 30px;
     margin-top: 20px;
-    width: 60%;
+    width: 80%;
+    border-radius: 4px;
+    padding: 10px 14px !important;
 }
-.check-in{
+.check-in {
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
@@ -177,27 +179,26 @@
     width: 60%;
     margin-top: 20px;
 }
-.groupcheck{
+.groupcheck {
     display: flex;
-    div{
+    div {
         flex: 1 1;
         width: 100%;
-        .input-enquire{
+        .input-enquire {
             width: 90% !important;
         }
     }
 }
 
-.check-out{
+.check-out {
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
     padding: 10px 0px !important;
     width: 100% !important;
     margin-top: 20px;
-    
 }
-.persons-attendtion{
+.persons-attendtion {
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
