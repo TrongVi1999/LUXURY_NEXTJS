@@ -80,7 +80,13 @@ const categoryFillerAddress = {
 
 const tourTagsFilter = {
     title: 'tour tags',
-    elements: ['Daily Tour', 'Halong', 'Vietnam', 'Mai chau', 'Da Nang', 'Phan Thiet', 'Best Seller', 'Top Selling'],
+    elements: ['Daily Tour', 'Halong', 'Vietnam', 'Mai chau', 'Da Nang', 'Phan Thiet', 'BestSeller', 'Top Selling'],
+};
+
+const priceFilter = {
+    title: 'price',
+    elements: ['0 - 600', '601 - 900', '901 - 1500', '> 1500 '],
+    value: [[0, 600], [601, 900], [901, 1500], [1501, 15000]]
 };
 
 const seasonFillter = {
@@ -114,4 +120,4 @@ const recentPostFake = {
     ]
 }
 
-export { categoryFillerAddress, tourTagsFilter, infoHomeFake, recentPostFake, seasonFillter, groupSizeFillter };
+export { categoryFillerAddress, tourTagsFilter, infoHomeFake, recentPostFake, seasonFillter, groupSizeFillter, priceFilter };

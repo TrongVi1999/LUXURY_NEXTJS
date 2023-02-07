@@ -1,9 +1,6 @@
 import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
-import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import IMG from '@/public/images/banner/banner9.png'
-import { Input } from '@/components';
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -439,7 +436,7 @@ function Booking({ onClick, datas, title, long }) {
                                     <option value="OM" label="Oman">Oman</option>
                                     <option value="PK" label="Pakistan">Pakistan</option>
                                     <option value="PS" label="Palestinian Territories">Palestinian Territories</option>
-                                    <option value="YD" label="People's Democratic Republic of Yemen">Peoples Democratic Republic of Yemen</option>
+                                    <option value="YD" label="People's Democratic Republic of Yemen">People's Democratic Republic of Yemen</option>
                                     <option value="PH" label="Philippines">Philippines</option>
                                     <option value="QA" label="Qatar">Qatar</option>
                                     <option value="SA" label="Saudi Arabia">Saudi Arabia</option>
