@@ -84,8 +84,9 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     }
     const handelActivePrice = (index) => {
         setActivePrice(index)
-        setvlfromcost(price.value[index[0]]);
-        setvlendcost(price.value[index[1]]);
+        setvlfromcost(priceft.value[index][0]);
+        setvlendcost(priceft.value[index][1]);
+
     }
 
 
@@ -115,7 +116,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
         }
     }, [activeCategory, activeTour])
 
-    console.log('pft', priceft);
+
 
     return (
         <div className={clases}>
@@ -148,7 +149,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
                 </div>
             ) : null}
             {price ? (
-                <div className={cx('boxFillterItem', showFillter === 2 ? 'active' : null)}>
+                <div className={cx('boxFillterItem', 'boxArchives', showFillter === 2 ? 'active' : null)}>
                     <h2 className={cx('title')}>filter by price</h2>
 
                     {/* {price.elements?.map((element, index) => (
