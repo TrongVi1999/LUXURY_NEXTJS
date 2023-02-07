@@ -44,9 +44,13 @@ function Destimation() {
         if (response.status == 200) {
             setdata(response.data.Object);
         }
-        console.log('season', vlseason)
-        console.log('group', vlgroup)
+        console.log('fc', vlfromcost);
+        console.log('ec', vlendcost);
         console.log(response.data.Object);
+        console.log(response.data.Object.slice(firstIndex, lastIndex));
+        console.log(firstIndex);
+        console.log(lastIndex);
+        console.log(page);
     }
 
     // useEffect(() => {
@@ -56,7 +60,6 @@ function Destimation() {
     // }, [valueFillter.category]);
     useEffect(() => {
         CallAPISuperfilter();
-        console.log('vl', vldestination);
     }, [vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
 
     useEffect(() => {
@@ -105,7 +108,7 @@ function Destimation() {
                 <CategoryFilter
                     price
                     priceft={priceFilter}
-                    day
+                    // day
                     category={categoryFillerAddress}
                     tourTags={tourTagsFilter}
                     className={cx('boxFilter')}
