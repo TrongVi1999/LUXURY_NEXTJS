@@ -5,10 +5,12 @@ import { Section, Button } from '@/components';
 import { BannerSlide } from '@/views';
 import { banners } from '@/public/images';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Link from 'next/link';
 
 // import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
 import { images } from '@/public/images';
 import { TitleMice, DiffItem, BoxImageMice } from '@/views/Mice';
+import Contact from '@/pages/ContactUs/Contact'
 
 const cx = classNames.bind(style);
 
@@ -45,12 +47,11 @@ function Mice() {
 
             <div className={cx('btnBoxContact')}>
                 <p className={cx('text')}>Let us accompany you to make the experice end trips of your dreams and your loved ones and colleagues!</p>
-                <Button to={'/'} className={cx('btn')}>
+                <Link href="/ContactUs" className={cx('btn')}>
                     Contact us now
-                </Button>
+                </Link>
             </div>
-
-        </div>
+        </div >
     );
 }
 

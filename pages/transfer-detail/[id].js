@@ -12,7 +12,6 @@ import { BoxCarTrans } from '@/views';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Transferbook from '@/views/BookTransfer';
 import Crumb from '@/views/Crumb/Crumb';
-import Booking from '@/views/LuxuryTrans/Contact';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
 import { useState } from 'react';

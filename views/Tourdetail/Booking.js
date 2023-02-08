@@ -279,10 +279,6 @@ function Booking({ onClick, datas, title, long }) {
                         <label className={cx("label-booking")}>
                             Your nationality:
                         </label>
-                        {/* <input
-                            type="select"
-                            className={cx("book-national")}
-                        /> */}
 
                         <div>
                             <select name='national' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
@@ -339,9 +335,6 @@ function Booking({ onClick, datas, title, long }) {
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
-                            {/* {errors.Email && errors.Email.type === ''(
-                                <span className={cx("error-message")}>Email must match</span>
-                            )} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>

@@ -338,11 +338,6 @@ const BookMICe = ({ datas }) => {
                         <label className={cx("label-booking")}>
                             How did you hear about our services?
                         </label>
-                        {/* <input
-                            type="select"
-                            className={cx("our-services")}
-                        /> */}
-
                         <div>
                             <select name='ourServices' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                 <option value="">-- Select --</option>
