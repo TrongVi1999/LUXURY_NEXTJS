@@ -8,6 +8,9 @@ import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
+import AboutVN from '@/views/Destination/AboutVN';
+import Location from '@/views/Destination/Location';
+import Faq from '@/views/Destination/FAQ';
 
 const cx = classNames.bind(style);
 
@@ -73,51 +76,56 @@ function Destimation() {
                 )}
 
             </div>
-            <Section maxWidth={1170} className={cx('container')}>
-                {Data &&
-                    <div className={cx('list')}>
-                        {vldestination != '' && vltag != '' && vlseason != '' && vlgroup != '' && <div className={cx('list-active')}>
-                            {vldestination != '' && <p>Category : {vldestination} /</p>}
-                            {vltag != '' && <p>Tag : {vltag} /</p>}
-                            {vlseason != '' && <p>Season : {vlseason} /</p>}
-                            {vlgroup != '' && <p>GroupSize : {vlgroup} /</p>}
-                        </div>}
-                        <div className={cx('sort')}>
-                            <div className={cx('sortContent')}>
-                                <button>Sort by</button>
+            {act[0] == 'act' &&
+                <Section maxWidth={1170} className={cx('container')}>
+                    {Data &&
+                        <div className={cx('list')}>
+                            {vldestination != '' && vltag != '' && vlseason != '' && vlgroup != '' && <div className={cx('list-active')}>
+                                {vldestination != '' && <p>Category : {vldestination} /</p>}
+                                {vltag != '' && <p>Tag : {vltag} /</p>}
+                                {vlseason != '' && <p>Season : {vlseason} /</p>}
+                                {vlgroup != '' && <p>GroupSize : {vlgroup} /</p>}
+                            </div>}
+                            <div className={cx('sort')}>
+                                <div className={cx('sortContent')}>
+                                    <button>Sort by</button>
+                                </div>
+                                <span>Showing 1 - 9 of {Data.length} products</span>
                             </div>
-                            <span>Showing 1 - 9 of {Data.length} products</span>
-                        </div>
-                        <div className={cx('tour-list')}>
-                            {Data.slice(firstIndex, lastIndex).map((d, i) =>
-                                <Tourcard2 data={d} />
-                            )}
-                        </div>
+                            <div className={cx('tour-list')}>
+                                {Data.slice(firstIndex, lastIndex).map((d, i) =>
+                                    <Tourcard2 data={d} />
+                                )}
+                            </div>
 
-                        <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+                            <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
 
-                    </div>
-                }
-                <CategoryFilter
-                    price
-                    priceft={priceFilter}
-                    // day
-                    category={categoryFillerAddress}
-                    tourTags={tourTagsFilter}
-                    className={cx('boxFilter')}
-                    season={seasonFillter}
-                    groupSize={groupSizeFillter}
-                    setValueFillter={dataFillter}
-                    setvlcountry={setvlcountry}
-                    setvldestination={setvldestination}
-                    setvltype={setvltype}
-                    setvltag={setvltag}
-                    setvlseason={setvlseason}
-                    setvlgroup={setvlgroup}
-                    setvlfromcost={setvlfromcost}
-                    setvlendcost={setvlendcost}
-                />
-            </Section>
+                        </div>
+                    }
+                    <CategoryFilter
+                        price
+                        priceft={priceFilter}
+                        // day
+                        category={categoryFillerAddress}
+                        tourTags={tourTagsFilter}
+                        className={cx('boxFilter')}
+                        season={seasonFillter}
+                        groupSize={groupSizeFillter}
+                        setValueFillter={dataFillter}
+                        setvlcountry={setvlcountry}
+                        setvldestination={setvldestination}
+                        setvltype={setvltype}
+                        setvltag={setvltag}
+                        setvlseason={setvlseason}
+                        setvlgroup={setvlgroup}
+                        setvlfromcost={setvlfromcost}
+                        setvlendcost={setvlendcost}
+                    />
+                </Section>}
+            {act[1] == 'act' && <AboutVN />}
+            {act[2] == 'act' && <Location />}
+            {act[3] == 'act' && <Faq />}
+
         </div>
     );
 }
