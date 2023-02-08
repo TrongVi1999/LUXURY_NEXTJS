@@ -6,8 +6,8 @@
     .formHighlight {
 
         img.image {
-            height: 50%;
-            width: 20vw;
+            height: 65%;
+            width: 25vw;
             float: left;
             margin-right: 20px;
             margin-bottom: 20px;
@@ -44,7 +44,7 @@
             margin-top: 6%;
             width: 100%;
             height: 30vw;
-            object-fit: cover;         
+            object-fit: cover;
         }
     }
 }
@@ -53,17 +53,30 @@
 @media only screen and (max-width: 1500px) {
     .container {
         padding: 0 15%;
+
+        h3 {
+            font-size: 2rem;
+        }
+
     }
 }
 
 @media only screen and (max-width: 1200px) {
     .container {
         padding: 0 10%;
+
+        h3 {
+            font-size: 1.5rem;
+        }
     }
 }
 
 @media only screen and (max-width: 900px) {
     .container {
         padding: 0 5%;
+
+        h3 {
+            font-size: 1.5rem;
+        }
     }
 }
