@@ -64,3 +64,26 @@
         }
     }
 }
+@media only screen and (max-width: 1500px) {
+    .main {
+        padding: 3% 15%;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .main {
+        padding: 3% 10%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .main {
+        padding: 3% 5%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .main {
+        flex-direction: column-reverse;
+        .hotel-list {
+            width: 100%;
+        }
+    }
+}

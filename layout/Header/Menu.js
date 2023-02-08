@@ -101,7 +101,7 @@ const menuAbouUs = [
 ]
 
 
-function Menu({ className, showmenu, menuBgr }) {
+function Menu({ className, showmenu, menuBgr, close }) {
 
     const clases = cx('menu', {
         [className]: className,
@@ -112,19 +112,17 @@ function Menu({ className, showmenu, menuBgr }) {
         <nav className={clases}>
             <div className={cx('item')}>
                 destination
-                <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} />
+                <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} />
             </div>
             <div className={cx('item')}>
                 way to travel
-                <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} />
+                <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} />
             </div>
 
-            <Link href={'/blog-list'} className={cx('item')}>
-                Inspiration
-            </Link>
+            <Link href={'/blog-list'} className={cx('item')} onClick={() => close()}>Inspirations</Link>
             <div className={cx('item')}>
                 about us
-                <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} />
+                <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} />
 
             </div>
         </nav>

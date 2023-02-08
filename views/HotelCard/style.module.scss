@@ -6,6 +6,7 @@
     margin-bottom: 1.8vw;
     display: flex;
     flex-direction: column;
+    margin-right: 5px;
 }
 .card-img {
     width: 100%;
@@ -58,5 +59,10 @@
 .place {
     svg {
         margin-right: 5px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .card {
+        width: 100%;
     }
 }

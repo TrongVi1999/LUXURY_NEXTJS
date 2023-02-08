@@ -230,13 +230,16 @@ const Signup = ({ Click, openlogin }) => {
                         Sign Up
                     </button>
                     <div className={cx('link-nav')}>
-                        <Link href="/Login" className={
-                            cx('go-home')}>
+                        <p className={
+                            cx('go-home')} onClick={() => {
+                                Click(false);
+                                openlogin(true);
+                            }}>
                             Had a Account? Login now
-                        </Link >
-                        <Link href="/" className={cx('go-home')} onClick={() => Click(false)}>
+                        </p >
+                        {/* <Link href="/" className={cx('go-home')} onClick={() => Click(false)}>
                             Go to home page
-                        </Link >
+                        </Link > */}
                     </div >
                 </form >
                 {/* <ToastContainer /> */}
