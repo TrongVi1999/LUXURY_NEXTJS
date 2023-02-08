@@ -9,10 +9,11 @@ import axios from 'axios';
 import qs from 'qs';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastError, toastSuccess } from '../Toast';
 
 const cx = classNames.bind(style);
 
-const Signup = ({ Click }) => {
+const Signup = ({ Click, openlogin }) => {
     const callApi = async (data) => {
         const response = await axios({
             method: 'post',
@@ -35,30 +36,6 @@ const Signup = ({ Click }) => {
 
 
     };
-    const toastSuccess = (text) => {
-        return toast.success(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
-    const toastError = (text) => {
-        return toast.error(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    };
     const {
         register,
         handleSubmit,
@@ -74,7 +51,8 @@ const Signup = ({ Click }) => {
             }
             if (datas?.data?.Error === false) {
                 toastSuccess(`${datas.data?.Title}`);
-                setTimeout(() => navigate('/logIn'), 2000);
+                Click(false);
+                openlogin(true);
             }
         } catch (error) {
             toastError(`${error.message}`);
@@ -261,7 +239,7 @@ const Signup = ({ Click }) => {
                         </Link >
                     </div >
                 </form >
-                <ToastContainer />
+                {/* <ToastContainer /> */}
             </div >
 
         </div >

@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import classNames from 'classnames/bind';
-import style from './header.module.scss';
 import Image from 'next/image';
+import style from './header.module.scss';
 
+import { Button } from '@/components';
+import { images } from '@/public/images';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { images } from '@/public/images';
 import Menu from './Menu';
-import { Button } from '@/components';
 
-import { AiOutlineUser, AiOutlineSearch, AiOutlineMenu } from 'react-icons/ai';
-import { FiUserCheck } from 'react-icons/fi';
-import { MdGTranslate } from 'react-icons/md';
 import Login from '@/components/Login';
 import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
+import { AiOutlineMenu, AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
+import { FiUserCheck } from 'react-icons/fi';
+import { MdGTranslate } from 'react-icons/md';
 import OutsideClickHandler from 'react-outside-click-handler';
-import MenuHover from './MenuHover';
+import { ToastContainer } from 'react-toastify';
 
 const cx = classNames.bind(style);
 const menuUser = [
@@ -40,7 +40,6 @@ const Header = () => {
     const [login, setlogin] = useState(false)
     const [translate, settranslate] = useState('none');
     const [currentUser, setCurrentUser] = useState(null);
-
     const { asPath } = useRouter();
     const router = useRouter();
     const origin =
@@ -97,11 +96,12 @@ const Header = () => {
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
                 <div className={cx('itemRight')}>
-                    <div className={cx('gg-trans')}>
-                        <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
-                        <div id="google_translate_element" style={{ display: translate }}></div>
-                    </div>
-
+                    <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
+                        <div className={cx('gg-trans')}>
+                            <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                            <div id="google_translate_element" style={{ display: translate }}></div>
+                        </div>
+                    </OutsideClickHandler>
                     <div className={cx('user')}>
                         <OutsideClickHandler onOutsideClick={() => {
                             setlogin(false);
@@ -134,7 +134,8 @@ const Header = () => {
 
                 </div>
             </div>
-            {signup && <Signup Click={setsignup} />}
+            {signup && <Signup Click={setsignup} openlogin={setlogin} />}
+            <ToastContainer />
 
 
         </div>

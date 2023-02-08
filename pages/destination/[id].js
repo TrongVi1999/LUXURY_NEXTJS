@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { Section, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
-import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
+import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter, priceFilter } from '@/public/dataRender';
 import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
@@ -40,11 +40,12 @@ function Destimation() {
         }
     }
     const CallAPISuperfilter = async () => {
-        const response = await Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag,);
+        const response = await Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
         if (response.status == 200) {
             setdata(response.data.Object);
         }
-        console.log(response.data.Object)
+        setPage(1)
+
     }
 
     // useEffect(() => {
@@ -54,8 +55,7 @@ function Destimation() {
     // }, [valueFillter.category]);
     useEffect(() => {
         CallAPISuperfilter();
-        console.log('vl', vldestination);
-    }, [vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag])
+    }, [vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
 
     useEffect(() => {
         CallAPI();
@@ -71,14 +71,19 @@ function Destimation() {
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
 
+
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
             <Section maxWidth={1170} className={cx('container')}>
                 {Data &&
                     <div className={cx('list')}>
-                        {vldestination != '' && <p>{vldestination}</p>}
-                        {vltag != '' && <p>{vltag}</p>}
+                        <div className={cx('list-active')}>
+                            {vldestination != '' && <p>Category : {vldestination} /</p>}
+                            {vltag != '' && <p>Tag : {vltag} /</p>}
+                            {vlseason != '' && <p>Season : {vlseason} /</p>}
+                            {vlgroup != '' && <p>GroupSize : {vlgroup} /</p>}
+                        </div>
                         <div className={cx('sort')}>
                             <div className={cx('sortContent')}>
                                 <button>Sort by</button>
@@ -97,7 +102,8 @@ function Destimation() {
                 }
                 <CategoryFilter
                     price
-                    day
+                    priceft={priceFilter}
+                    // day
                     category={categoryFillerAddress}
                     tourTags={tourTagsFilter}
                     className={cx('boxFilter')}
@@ -106,10 +112,10 @@ function Destimation() {
                     setValueFillter={dataFillter}
                     setvlcountry={setvlcountry}
                     setvldestination={setvldestination}
-                    // setvltype={setvltype}
+                    setvltype={setvltype}
                     setvltag={setvltag}
-                    // setvlseason={setvlseason}
-                    // setvlgroup={setvlgroup}
+                    setvlseason={setvlseason}
+                    setvlgroup={setvlgroup}
                     setvlfromcost={setvlfromcost}
                     setvlendcost={setvlendcost}
                 />

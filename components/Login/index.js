@@ -7,11 +7,11 @@ import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa';
 import style from './login.module.scss';
 const cx = classNames.bind(style);
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toastError, toastSuccess } from '../Toast';
 
 const Login = ({ Click, setuser, close }) => {
-    // const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -19,30 +19,7 @@ const Login = ({ Click, setuser, close }) => {
         reset,
         formState: { errors },
     } = useForm();
-    const toastSuccess = (text) => {
-        return toast.success(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
-    const toastError = (text) => {
-        return toast.error(`${text}`, {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    };
+
     const callApi = async (data) => {
         const response = await axios({
             method: "post",
@@ -56,20 +33,28 @@ const Login = ({ Click, setuser, close }) => {
                     "application/x-www-form-urlencoded;charset=utf-8",
             },
         });
-
-        if (response.data.Error === true) {
-            toastError("Error!");
-        } else {
-            toastSuccess("Login success!");
-            localStorage.setItem("VNXUser", JSON.stringify(response.data));
-            setuser(response.data);
-            close(false);
-
-        }
+        console.log(response);
+        return response;
     };
 
-    const handleLogin = (data) => {
-        callApi(data);
+    const handleLogin = async (data) => {
+        try {
+            const datas = await callApi(data);
+
+            if (datas.data.Error === true) {
+                toastError(`${datas.data.Title}`);
+            }
+            if (datas?.data?.Error === false) {
+                toastSuccess('Login success!');
+                localStorage.setItem("VNXUser", JSON.stringify(datas.data));
+                setTimeout(() => {
+                    setuser(`${datas.data?.Title}`)
+                    close(false);
+                }, 2000)
+            }
+        } catch (error) {
+            toastError(`${error.message}`);
+        }
 
     };
 
@@ -111,7 +96,7 @@ const Login = ({ Click, setuser, close }) => {
                     <p className={cx('fb')}><FaFacebook />LOGIN</p>
                 </div>
             </form>
-            <ToastContainer />
+            {/* <ToastContainer /> */}
         </div >
 
 

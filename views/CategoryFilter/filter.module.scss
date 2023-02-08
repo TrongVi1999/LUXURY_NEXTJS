@@ -367,11 +367,11 @@
 }
 @media only screen and (max-width: 500px) {
     .wrapper {
-        position: absolute;
-        top: -41px;
-        left: 0;
-        right: 0;
-        height: 6rem;
+        // position: absolute;
+        // top: -41px;
+        // left: 0;
+        // right: 0;
+        // height: 6rem;
         width: 100% !important;
         background-color: var(--white);
         z-index: 100;
@@ -430,6 +430,7 @@
 
         .inputSearch {
             margin-top: 2rem;
+            margin-bottom: 2rem;
         }
     }
 }

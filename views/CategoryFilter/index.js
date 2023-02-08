@@ -13,12 +13,13 @@ const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag }) {
+function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag, setvlseason, setvlgroup }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
     const [activeArchive, setActiveArchive] = useState(-1);
-
-    const [valuePrice, setValuePrice] = useState(50);
+    const [activeGroup, setActiveGroup] = useState(-1);
+    const [activePrice, setActivePrice] = useState(-1);
+    // const [valuePrice, setValuePrice] = useState(50);
     const [valueDay, setValueDay] = useState(50);
 
     const [listMonthArchives, setListMonthArchives] = useState([]);
@@ -81,11 +82,27 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
         setShowFillter(0)
         setvldestination(category.elements[index].name);
     }
+    const handelActivePrice = (index) => {
+        setActivePrice(index)
+        setvlfromcost(priceft.value[index][0]);
+        setvlendcost(priceft.value[index][1]);
+
+    }
+
+
 
     const handelActiveItemTourTags = (index) => {
         setActiveTour(index);
         setShowFillter(0);
         setvltag(tourTags.elements[index]);
+    }
+    const hanldleActiveSeason = (index) => {
+        setActiveArchive(index);
+        setvlseason(season.elements[index]);
+    }
+    const hanldleActiveGroup = (index) => {
+        setActiveGroup(index);
+        setvlgroup(groupSize.elements[index]);
     }
 
 
@@ -99,22 +116,23 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
         }
     }, [activeCategory, activeTour])
 
-    console.log(valuePrice);
+
 
     return (
         <div className={clases}>
-            <div className={cx('boxFillterMobile')}>
-                <Buttom className={cx('btnFilter', showFillter === 1 ? 'activeBtn' : null)} onClick={() => handelShowfillter(1)}>category <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-                <Buttom className={cx('btnFilter', showFillter === 2 ? 'activeBtn' : null)} onClick={() => handelShowfillter(2)}>fillter by price <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-                <Buttom className={cx('btnFilter', showFillter === 3 ? 'activeBtn' : null)} onClick={() => handelShowfillter(3)}>fillter by day <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-                <Buttom className={cx('btnFilter', showFillter === 4 ? 'activeBtn' : null)} onClick={() => handelShowfillter(4)}>tour tags <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-                <Buttom className={cx('btnFilter', showFillter === 5 ? 'activeBtn' : null)} onClick={() => handelShowfillter(5)}>season <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-                <Buttom className={cx('btnFilter', showFillter === 6 ? 'activeBtn' : null)} onClick={() => handelShowfillter(6)}>groupsize <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
-            </div>
 
             {
                 isSearch ? (<Input type='text' className={cx('inputSearch')} classNameInput={cx('searchFilterInput')} rightIcon={<AiOutlineSearch className={cx('icon')} />} placeholder="search" />) : null
             }
+            <div className={cx('boxFillterMobile')}>
+                <Buttom className={cx('btnFilter', showFillter === 1 ? 'activeBtn' : null)} onClick={() => handelShowfillter(1)}>category <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
+                {price && <Buttom className={cx('btnFilter', showFillter === 2 ? 'activeBtn' : null)} onClick={() => handelShowfillter(2)}>fillter by price <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
+                {day && <Buttom className={cx('btnFilter', showFillter === 3 ? 'activeBtn' : null)} onClick={() => handelShowfillter(3)}>fillter by day <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
+                <Buttom className={cx('btnFilter', showFillter === 4 ? 'activeBtn' : null)} onClick={() => handelShowfillter(4)}>tags <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
+                {groupSize && <Buttom className={cx('btnFilter', showFillter === 5 ? 'activeBtn' : null)} onClick={() => handelShowfillter(5)}>groupsize <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
+                {season && <Buttom className={cx('btnFilter', showFillter === 6 ? 'activeBtn' : null)} onClick={() => handelShowfillter(6)}>season <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
+            </div>
+
 
             {category ? (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
@@ -132,9 +150,28 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
                 </div>
             ) : null}
             {price ? (
-                <div className={cx('boxFillterItem', showFillter === 2 ? 'active' : null)}>
+                <div className={cx('boxFillterItem', 'boxArchives', showFillter === 2 ? 'active' : null)}>
                     <h2 className={cx('title')}>filter by price</h2>
-                    <div className={cx('itemMobileShow')}>
+
+                    {/* {price.elements?.map((element, index) => (
+                        <div
+                            className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
+                            key={index}
+                            onClick={() => handelActiveItemCate(index)}
+                        >
+                            <span className={cx('itemName')}>{element.name}</span>
+                            <span className={cx('itemAmount')}>{element.amount}</span>
+                        </div>
+                    ))} */}
+
+                    {
+                        priceft?.elements.map((item, index) => (
+                            <div className={cx('archivesItem', 'itemMobileShow', activePrice === index ? 'active' : null)} onClick={() => handelActivePrice(index)} key={index}>
+                                <span>{item}</span>
+                            </div>
+                        ))
+                    }
+                    {/* <div className={cx('itemMobileShow')}>
                         <div className={cx('box')}>
                             <span className={cx('text')}>$150</span>
                             <span className={cx('text')}>{`$${Math.floor((valuePrice * 3000) / 100)}`}</span>
@@ -150,7 +187,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
                             ></input>
                             <progress className={cx('rangeFilterColor')} min="0" max="100" value={valuePrice}></progress>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             ) : null}
             {day ? (
@@ -199,7 +236,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
                     <h2 className={cx('title')}>{groupSize.title}</h2>
                     {
                         groupSize.elements.map((item, index) => (
-                            <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
+                            <div className={cx('archivesItem', 'itemMobileShow', activeGroup === index ? 'active' : null)} onClick={() => hanldleActiveGroup(index)} key={index}>
                                 <span>{item}</span>
                             </div>
                         ))
@@ -213,7 +250,7 @@ function CategoryFilter({ isSearch, category, price, day, tourTags, groupSize, s
                     <h2 className={cx('title')}>{season.title}</h2>
                     {
                         season.elements.map((item, index) => (
-                            <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
+                            <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => hanldleActiveSeason(index)} key={index}>
                                 <span>{item}</span>
                             </div>
                         ))

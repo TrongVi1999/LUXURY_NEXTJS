@@ -1,4 +1,3 @@
-import ChangeTextHTML from '@/hook/ChangetextHTML';
 import a1 from '@/public/a1.png';
 import a2 from '@/public/a2.png';
 import a3 from '@/public/a3.png';
@@ -6,19 +5,19 @@ import a4 from '@/public/a4.png';
 import { banners } from '@/public/images';
 import style from '@/styles/Hoteldetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Hotelbook from '@/views/BookHotel';
+import Booking from '@/views/LuxuryTrans/Contact';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
-import { GoPrimitiveDot } from 'react-icons/go';
-import { SlLocationPin } from 'react-icons/sl';
-import Booking from '@/views/LuxuryTrans/Contact';
-import { useState, useEffect } from 'react';
 import { GetHotel } from '../api/CallAPI';
-import { useRouter } from 'next/router';
+
 
 
 
@@ -48,7 +47,7 @@ const Index = () => {
         <div>
             {Data && Data.length > 0 && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
-                {book ? <Booking click={setbook} /> : <div className={cx('container')}>
+                {book ? <Hotelbook click={setbook} hotel={Data[0].title} /> : <div className={cx('container')}>
                     <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
 
 
@@ -192,7 +191,6 @@ const Index = () => {
                         </table> */}
                     <h2>Siminal Hotels</h2>
                     <div className={cx('Siminal-Hotel')}>
-
                         <Link href={``} className={cx('card')}>
                             <div className={cx('card-img')}>
                                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
@@ -204,7 +202,7 @@ const Index = () => {
                                         <AiFillStar /> 4.8
                                     </span>
                                     <span className={cx('ratecount')}>
-                                        (1000 rate) | 1000 book
+                                        &#40; 28.091 Đánh giá &#41; |600 Đã được đặt
                                     </span>
                                 </p>
                                 <p className={cx('price')}>
@@ -244,7 +242,7 @@ const Index = () => {
                                         <AiFillStar /> 4.8
                                     </span>
                                     <span className={cx('ratecount')}>
-                                        (1000 rate) | 1000 book
+                                        &#40; 28.091 Đánh giá &#41; |600 Đã được đặt
                                     </span>
                                 </p>
                                 <p className={cx('price')}>

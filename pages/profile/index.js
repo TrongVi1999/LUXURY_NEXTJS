@@ -20,6 +20,50 @@ function Profile() {
             setCurrentUser(null);
         }
     }, []);
+    console.log(currentUser);
+
+    const editPicture = (data) => {
+        var formdata = new FormData();
+        formdata.append('UserName', currentUser.UserName);
+        formdata.append('GivenName', currentUser.FullName);
+        formdata.append('Gender', currentUser.Gender);
+        formdata.append('Reason', currentUser.BirthDay);
+        formdata.append('Description', currentUser.About);
+        formdata.append('Note', currentUser.Address);
+        formdata.append('PhoneNumber', currentUser.PhoneNumber);
+        formdata.append('Email', currentUser.Email);
+        formdata.append('image', data);
+
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow',
+        };
+
+        fetch('https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo', requestOptions)
+            .then((response) => response.text())
+            .then((result) => {
+                setCurrentUser({
+                    ...currentUser,
+                    Picture: JSON.parse(result).Object,
+                });
+                alert('Successfully changed avatar.');
+                localStorage.setItem(
+                    'VNXUser',
+                    JSON.stringify({
+                        ...currentUser,
+                        Picture: JSON.parse(result).Object,
+                    }),
+                );
+                // setUseredit({
+                //     ...currentUser,
+                //     Picture: JSON.parse(result).Object,
+                // });
+            })
+            .catch(() => alert('Error!'));
+
+        // setnew(!new1);
+    };
 
     return (<Section notPadding className={cx('wrapper')} >
         <div className={cx('body')}>
@@ -39,7 +83,14 @@ function Profile() {
                                 <Image src={avatars.avatar1} alt="avatarErro" className={cx('avatar')} />}
 
                         </div>
-                        <IoIosAdd className={cx('iconAdd')} />
+                        <label htmlFor="file"><IoIosAdd className={cx('iconAdd')} /></label>
+                        <input className={cx('input-Add')}
+                            type="file"
+                            id="file"
+                            name="file"
+                            style={{ display: 'none' }}
+                            onChange={(e) => editPicture(e.target.files[0])}
+                        ></input>
                     </div>
                     <h2 className={cx('name')}>{currentUser.FullName}</h2>
                     <div className={cx('boxItemPage')}>
