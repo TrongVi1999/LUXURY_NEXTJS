@@ -1,27 +1,36 @@
 .wrapper {
     padding: 0 2rem;
 
-    .inputSearch {
-        margin-bottom: 7rem;
-    }
-
-    .searchFilterInput {
-        margin-left: 1.5rem;
-        padding-top: 1.4rem;
-        padding-bottom: 1.4rem;
-        margin-right: 1rem;
-
-        &::placeholder {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--black);
-        }
-
-        &::before {
-            display: none !important;
+    .inputSearch-div {
+        margin-bottom: 5rem;
+        border: 1px solid gray;
+        width: 100%;
+        padding: 10px 15px;
+        position: relative;
+        svg {
+            font-size: 20px;
+            position: absolute;
+            right: 10px;
         }
     }
+
+    // .searchFilterInput {
+    //     margin-left: 1.5rem;
+    //     padding-top: 1.4rem;
+    //     padding-bottom: 1.4rem;
+    //     margin-right: 1rem;
+
+    //     &::placeholder {
+    //         text-transform: uppercase;
+    //         font-size: 1.2rem;
+    //         font-weight: 400;
+    //         color: var(--black);
+    //     }
+
+    //     &::before {
+    //         display: none !important;
+    //     }
+    // }
 
     .boxFillterItem {
         margin-bottom: 6rem;
@@ -428,7 +437,7 @@
             transition: var(--transition-delay);
         }
 
-        .inputSearch {
+        .inputSearch-div {
             margin-top: 2rem;
             margin-bottom: 2rem;
         }

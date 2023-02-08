@@ -78,12 +78,12 @@ function Destimation() {
             <Section maxWidth={1170} className={cx('container')}>
                 {Data &&
                     <div className={cx('list')}>
-                        <div className={cx('list-active')}>
+                        {vldestination != '' && vltag != '' && vlseason != '' && vlgroup != '' && <div className={cx('list-active')}>
                             {vldestination != '' && <p>Category : {vldestination} /</p>}
                             {vltag != '' && <p>Tag : {vltag} /</p>}
                             {vlseason != '' && <p>Season : {vlseason} /</p>}
                             {vlgroup != '' && <p>GroupSize : {vlgroup} /</p>}
-                        </div>
+                        </div>}
                         <div className={cx('sort')}>
                             <div className={cx('sortContent')}>
                                 <button>Sort by</button>

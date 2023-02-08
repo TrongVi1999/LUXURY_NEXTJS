@@ -19,6 +19,7 @@ function Input({
     placeholder,
     className,
     classNameInput,
+    onChange
 }) {
     const [valueInput, setValueInput] = useState(() => {
         let value = '';
