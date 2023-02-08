@@ -674,8 +674,6 @@ function Booking({ onClick, datas, title, long }) {
                 </div>
             </form>
         </div>
-
-
     );
 }
 

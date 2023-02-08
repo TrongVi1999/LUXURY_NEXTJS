@@ -1,4 +1,4 @@
-// import React from 'react';
+
 import classNames from 'classnames/bind';
 import style from '@/styles/casestudy.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
@@ -9,7 +9,14 @@ import Image from 'next/image';
 import { GoPrimitiveDot } from 'react-icons/go'
 import { TiTick } from 'react-icons/ti'
 import { TiDeleteOutline } from 'react-icons/ti'
+import Listtag from '@/views/Blogdetail/Listtag';
 
+
+
+const Data = {
+    
+    hash_tag: "[\"#BBQ Party\",\"#Phan Thiet \",\"#Dailytour\"]"
+}
 
 const cx = classNames.bind(style);
 
@@ -101,18 +108,10 @@ const index = () => {
                     </div>
                     <div className={cx('inline')}>
                     </div>
-                    <div className={cx('navbarItem')}>
-                        <p>PRIVATE wedding</p>
-                        <p>Phu Quoc</p>
-                        <p>Luxury</p>
-                        <div className={cx('icon')}>
-                            <p>share</p>
-                            <p>a</p>
-                            <p>a</p>
-                            <p>a</p>
-                        </div>
-                       
-                    </div>
+
+                    <Listtag data={Data.hash_tag} />
+                    {/* <Listtag data={Data.hash_tag} /> */}
+
                 </div>
             </div>
         </div>
