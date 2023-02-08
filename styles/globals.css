@@ -91,7 +91,13 @@ a {
     position: fixed;
     right: 5px;
 }
-
+/* .sl-trans{
+    width: 100%;
+    top: 60px;
+    position: absolute;
+    right: 0px;
+    border: 1px solid yellow;
+} */
 .goog-te-gadget {
     height: 38px;
     overflow: hidden;

@@ -18,6 +18,24 @@
 .container {
     width: 95% !important;
     display: flex;
+    padding-top: 2vw;
+}
+.list-menu {
+    display: flex;
+    background-color: var(--primary);
+    padding: 0 20%;
+    justify-content: center;
+    p {
+        font-weight: bold;
+        font-size: 18px;
+        flex: 1;
+        text-align: center;
+        padding: 20px 10px;
+        cursor: pointer;
+    }
+    .act {
+        background-color: white;
+    }
 }
 .list {
     width: 85%;
@@ -76,7 +94,18 @@
     }
 }
 
+@media only screen and (max-width: 1200px) {
+    .list-menu {
+        padding: 0 10%;
+    }
+}
 @media only screen and (max-width: 768px) {
+    .list-menu {
+        padding: 0;
+        p {
+            font-size: 14px;
+        }
+    }
     // .wrapper {
     //     .boxFilter {
     //         position: fixed;

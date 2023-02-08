@@ -1,0 +1,22 @@
+.container{
+    padding: 5rem 20%;
+}
+.content{
+    h4{
+        padding: 3rem 0;
+    }
+    p{
+        color: rgb(99, 93, 93);
+    }
+}
+
+@media only screen  and (max-width:1025px){
+    .container{
+        padding: 3rem 15%;
+    }
+}
+@media only screen  and (max-width:525px){
+    .container{
+        padding: 3rem 10%;
+    }
+}

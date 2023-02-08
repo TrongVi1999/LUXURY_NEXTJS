@@ -45,6 +45,7 @@ function Input({
             setValueInput(value);
         }
     };
+    console.log(valueInput);
 
     return (
         <div className={clases}>
