@@ -111,7 +111,7 @@
 }
 .menuHover {
     position: absolute;
-    width: 17rem;
+    width: 15rem;
     top: 4rem;
     display: flex;
     flex-direction: column;
@@ -119,6 +119,7 @@
     justify-content: center;
     z-index: 10000;
     box-shadow: 0 0.2rem 0.3rem rgb(0 0 0 / 40%);
+    border: solid 2px var(--button);
 
     .itemMenuHover {
         position: relative;
@@ -129,9 +130,6 @@
         width: 100%;
         border-bottom: 0.1rem solid var(--border-light);
 
-        &:first-child {
-            border-top: 0.2rem solid var(--black2);
-        }
     }
 
     .itemIsChildren {
@@ -192,6 +190,12 @@
         }
     }
 }
+// .sl-trans{
+//     border: 1px solid yellow;
+//     padding: 5px;
+//     background-color: #fff;
+// }
+
 
 .user {
     .login {

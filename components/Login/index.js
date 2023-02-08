@@ -46,7 +46,7 @@ const Login = ({ Click, setuser, close }) => {
             }
             if (datas?.data?.Error === false) {
                 toastSuccess('Login success!');
-                localStorage.setItem("VNXUser", JSON.stringify(datas));
+                localStorage.setItem("VNXUser", JSON.stringify(datas.data));
                 setTimeout(() => {
                     setuser(`${datas.data?.Title}`)
                     close(false);

@@ -181,3 +181,9 @@ export const GetHotel = (id) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/PostLuxury?Id=${id}`,
         type: 'json',
     });
+export const GetTransfer = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/PostLuxury?Id=${id}`,
+        type: 'json',
+    });

@@ -1,4 +1,5 @@
 import { Pagination, Section } from '@/components';
+import { callApi } from '@/hook/callApi';
 import { banners } from '@/public/images';
 import xe1 from '@/public/images/xe1.jpg';
 import xe2 from '@/public/images/xe2.jpg';
@@ -12,10 +13,11 @@ import { BoxCarTrans } from '@/views';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Transferbook from '@/views/BookTransfer';
 import Crumb from '@/views/Crumb/Crumb';
-import Booking from '@/views/LuxuryTrans/Contact';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { ListHotel } from '../api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -60,13 +62,26 @@ const fakeDataTrans = [
 const index = () => {
     const [book, setbook] = useState(false);
     const [page, setPage] = useState(1);
+    const [data, setdata] = useState()
+    const router = useRouter();
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
+
+    const CallAPI = async () => {
+        const response = await ListHotel(router.query.id);
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+    // useEffect(() => {
+    //     callApi();
+    // }, [router.query.id]);
+    // console.log(data);
     return (
         <>
             <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
-            {book ? <Transferbook /> :
+            {book ? <Transferbook click={setbook} transfer={fakeDataTrans[0].name} /> :
                 <div className={cx('container')}>
                     <Crumb text='Luxury Transfer | Vehicles Mercedes' />
                     <Imglist data={[a1, a2, a3, a4]} issv={false} />

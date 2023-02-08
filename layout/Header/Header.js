@@ -99,7 +99,9 @@ const Header = () => {
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
                             <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
-                            <div id="google_translate_element" style={{ display: translate }}></div>
+                            <div className={cx('sl-trans')}>
+                                <div id="google_translate_element" style={{ display: translate }}></div>
+                            </div>
                         </div>
                     </OutsideClickHandler>
                     <div className={cx('user')}>

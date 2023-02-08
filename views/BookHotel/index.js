@@ -572,10 +572,10 @@ function Hotelbook({ click, hotel }) {
                                             type="number"
                                             name="date"
                                             className={cx("persons-attendtion")}
-                                            {...register('Adult', { required: true })}
+                                            {...register('PersonsAttendtion', { required: true })}
                                         />
-                                        {errors.Adult && errors.Adult.type === 'required' && (
-                                            <span className={cx("error-message")}>Persons Attendtion In cannot be empty !</span>
+                                        {errors.PersonsAttendtion && errors.PersonsAttendtion.type === 'required' && (
+                                            <span className={cx("error-message")}>PersonsAttendtion cannot be empty !</span>
                                         )}
                                     </div>
                                 </label>
@@ -612,6 +612,9 @@ function Hotelbook({ click, hotel }) {
                                 }
                                 {...register('Note', { required: true })}
                             ></textarea>
+                            {errors.Note && errors.Note.type === 'required' && (
+                                <span className={cx("error-message")}>Note cannot be empty !</span>
+                            )}
                         </div>
                     </div>
 
