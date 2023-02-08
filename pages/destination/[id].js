@@ -9,6 +9,7 @@ import { banners } from '@/public/images';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter, priceFilter } from '@/public/dataRender';
 import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
+import AboutVN from '@/views/Destination/AboutVN';
 
 const cx = classNames.bind(style);
 
@@ -120,6 +121,7 @@ function Destimation() {
                     setvlendcost={setvlendcost}
                 />
             </Section>
+            <AboutVN />
         </div>
     );
 }
