@@ -46,6 +46,7 @@
             color: var(--menu-text);
             height: 6.5rem;
             border: 0.2rem solid var(--light2);
+            cursor: pointer;
 
             &:first-child {
                 border-right: none;
