@@ -7,10 +7,14 @@ import { Section, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter, priceFilter } from '@/public/dataRender';
-import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
+import { Superfilter } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
 const cx = classNames.bind(style);
+
+const listmenu = [
+    'Tour', 'About', 'Attraction/Activities', 'FAQ'
+]
 
 function Destimation() {
     const [valueFillter, setValueFillter] = useState({ category: -1, tourTag: -1 });
@@ -27,39 +31,28 @@ function Destimation() {
     const [Data, setdata] = useState();
     const router = useRouter();
 
-    const CallAPI = async () => {
-        const response = await Gettourcountry(router.query.id);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
+    const [act, setact] = useState(['act', '', '', '']);
+    const Pickmenu = (a) => {
+        let arr = act;
+        arr = arr.map((d, i) => i == a ? 'act' : '');
+        setact(arr);
+
     }
-    const CallAPICategory = async () => {
-        const response = await Gettourdestination(categoryFillerAddress.elements[valueFillter.category].name);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
-    }
+
     const CallAPISuperfilter = async () => {
-        const response = await Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
+        const response = await Superfilter(router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
         if (response.status == 200) {
             setdata(response.data.Object);
         }
         setPage(1)
-
     }
 
-    // useEffect(() => {
-    //     if (valueFillter.category !== -1) {
-    //         CallAPICategory();
-    //     }
-    // }, [valueFillter.category]);
-    useEffect(() => {
-        CallAPISuperfilter();
-    }, [vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
 
     useEffect(() => {
-        CallAPI();
-    }, [router.query.id]);
+        { router.query.id && CallAPISuperfilter() }
+    }, [router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
+
+
 
     const dataFillter = (data) => {
         setValueFillter(data)
@@ -75,6 +68,12 @@ function Destimation() {
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
+            <div className={cx('list-menu')}>
+                {listmenu.map((d, i) =>
+                    <p className={cx(act[i])} onClick={() => Pickmenu(i)}>{d}</p>
+                )}
+
+            </div>
             <Section maxWidth={1170} className={cx('container')}>
                 {Data &&
                     <div className={cx('list')}>

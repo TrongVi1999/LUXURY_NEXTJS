@@ -53,20 +53,55 @@
 
     .boxSearch {
         display: flex;
-        .input {
+        .boxSearch-item {
+            height: 100%;
             margin-right: 2rem;
-            background-color: var(--background-white-opacity);
-            font-size: 1.4rem;
+
             border: 0.1rem solid var(--menu-text);
             border-radius: 0.2rem;
-        }
+            background-color: var(--background-white-opacity);
+            display: flex;
+            svg {
+                display: block;
+                margin: auto auto;
+                height: 70%;
+                width: auto;
+                padding: 0 5px;
+                border-right: 1px solid gray;
+            }
+            .boxSearch-ip {
+                position: relative;
+                height: 100%;
+                .input {
+                    background-color: var(--background-white-opacity);
+                    font-size: 1.4rem;
+                    // border: 0.1rem solid var(--menu-text);
+                    // border-radius: 0.2rem;
+                    height: 100%;
+                    padding: 0 10px;
+                }
 
-        .input.input1 {
-            width: 27rem;
-        }
+                .input.input1 {
+                    width: 27rem;
+                }
 
-        .input.input2 {
-            width: 36rem;
+                .input.input2 {
+                    width: 36rem;
+                }
+
+                .list1 {
+                    width: 100%;
+                    position: absolute;
+                    top: 42px;
+                    background-color: white;
+                    p {
+                        padding: 10px;
+                    }
+                    p:hover {
+                        background-color: rgb(224, 226, 228);
+                    }
+                }
+            }
         }
 
         .button {

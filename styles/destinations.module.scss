@@ -19,6 +19,22 @@
     width: 95% !important;
     display: flex;
 }
+.list-menu {
+    display: flex;
+    background-color: var(--primary);
+    padding: 0 20%;
+    justify-content: center;
+    p {
+        font-weight: bold;
+        font-size: 18px;
+        flex: 1;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .act {
+        background-color: white;
+    }
+}
 .list {
     width: 85%;
 }
