@@ -1,35 +1,38 @@
-import style from '@/styles/informationBooking.module.scss';
-import axios from 'axios';
+import React from 'react'
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import style from '@/styles/informationBooking.module.scss';
 import { useForm } from "react-hook-form";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import { toastSuccess } from '@/hook/toastr';
-import $ from 'jquery';
+import $, { data } from 'jquery';
 import qs from 'qs';
+import { toastSuccess } from '@/hook/toastr';
 
 const cx = classNames.bind(style);
 
 function Booking({ onClick, datas, title, long }) {
     const [currentUser, setCurrentUser] = useState(null);
     const [ipAddress, setIpAddress] = useState('');
-    const [Bookinfor, setBookinfor] = useState({
-        Ip: ipAddress,
-        TourName: datas.TourName,
-        Country: datas.Country,
-        Lenght: datas.DETAIL.length,
-        StartDate: '',
-        Adult: '',
-        Children: '',
-        Children1: '',
-        Children2: '',
-        Hotel: '',
-        FullName: '',
-        UsFrom: '',
-        Email: '',
-        Phone: '',
-        Note: '',
-    });
+    const [country, setcountry] = useState();
+    const [texta, settexta] = useState()
+    // const [Bookinfor, setBookinfor] = useState({
+    //     Ip: ipAddress,
+    //     TourName: datas.TourName,
+    //     Country: datas.Country,
+    //     Lenght: datas.DETAIL.length,
+    //     StartDate: '',
+    //     Adult: '',
+    //     Children: '',
+    //     Children1: '',
+    //     Children2: '',
+    //     Hotel: '',
+    //     FullName: '',
+    //     UsFrom: '',
+    //     Email: '',
+    //     Phone: '',
+    //     Note: '',
+    // });
 
     const {
         register,
@@ -49,9 +52,9 @@ function Booking({ onClick, datas, title, long }) {
         setIpAddress(ip_address);
     });
 
-    useEffect(() => {
-        setBookinfor({ ...Bookinfor });
-    }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
+    // useEffect(() => {
+    //     setBookinfor({ ...Bookinfor });
+    // }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
     useEffect(() => {
         let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
         if (VNXuser) {
@@ -68,36 +71,35 @@ function Booking({ onClick, datas, title, long }) {
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
             data: qs.stringify({
                 Ip: ipAddress,
-                TourCode: datas.TourCode,
-                UserName: currentUser.UserName ? currentUser.UserName : null,
+                TourCode: 'VNCLASSIC01',
+                UserName: currentUser ? currentUser.UserName : null,
                 TourName: datas.TourName,
-                Country: datas.Country,
-                Lenght: datas.DETAIL.length,
+                Country: country,
+                // Lenght: datas.DETAIL.length,
                 StartDate: data.StartDate,
-                Adult: Bookinfor.Adult,
-                Children: Bookinfor.Children,
-                Children1: Bookinfor.Children1,
-                Children2: Bookinfor.Children2,
-                Hotel: Bookinfor.Hotel,
+                Adult: data.Adult,
+                Children: data.Children,
+                Children1: data.Children1,
+                Children2: data.Children2,
+                Hotel: data.Hotel,
                 FullName: data.FullName,
-                UsFrom: Bookinfor.UsFrom,
+                // UsFrom: Bookinfor.UsFrom,
                 Email: data.Email,
                 Phone: data.Phone,
-                Note: Bookinfor.Note,
+                Note: texta,
 
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-        console.log(response.data)
+        console.log(response)
 
         if (response.status === 200) {
             console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
-            setTimeout(() => onClick(), 2000);
-            setTimeout(() => onClick(), 2000);
-            console.log(Bookinfor);
+
+
         } else alert('Invaild infor')
 
     };
@@ -165,57 +167,45 @@ function Booking({ onClick, datas, title, long }) {
                         </label>
                         <div className={cx("age-option")}>
                             <input
-                                type="text"
+                                type="number"
                                 placeholder="Adult(s) (>=12 years old)"
                                 className={cx("book-age")}
                                 min="0"
                                 max="100"
-                                value={Bookinfor.Adult}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Adult: e.target.value,
-                                    })
-                                }
+                                {...register('Adult', { required: true })}
+                            // onChange={(e) =>
+                            //     setBookinfor({
+                            //         ...Bookinfor,
+                            //         Adult: e.target.value,
+                            //     })
+                            // }
                             />
+                            {errors.Adult && errors.Adult.type === 'required' && (
+                                <span className={cx("error-message")}>Adult cannot be empty !</span>
+                            )}
                             <input
                                 type="text"
                                 placeholder="Child(ren) (7-11 years old)"
                                 className={cx("book-age")}
                                 min="0"
-                                value={Bookinfor.Children}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Children: e.target.value,
-                                    })
-                                }
+
+                                {...register('Children')}
                             />
                             <input
                                 type="text"
                                 placeholder="Infant(s) (0-2 years old)"
                                 className={cx("book-age")}
                                 min="0"
-                                value={Bookinfor.Children1}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Children1: e.target.value,
-                                    })
-                                }
+
+                                {...register('Children1')}
                             />
                             <input
                                 type="text"
                                 placeholder="Child(ren) (2-6 years old)"
                                 className={cx("book-age")}
                                 min="0"
-                                value={Bookinfor.Children2}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Children2: e.target.value,
-                                    })
-                                }
+
+                                {...register('Children2')}
                             />
                         </div>
                     </div>
@@ -228,11 +218,11 @@ function Booking({ onClick, datas, title, long }) {
                             className={cx("book-hotel")}
                         /> */}
                         <div>
-                            <select name='ourServices' className={cx("our-services")}>
+                            <select name='ourServices' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="">-- Select --</option>
-                                <option value="Food">Food</option>
-                                <option value="Transfer">Transfer</option>
-                                <option value="Hotel">Hotel</option>
+                                <option value="Hotel 3 *">Hotel 3 *</option>
+                                <option value="Hotel 4 *">Hotel 4 *</option>
+                                <option value="Hotel 5 *">Hotel 5 *</option>
                             </select>
                         </div>
                     </div>
@@ -638,10 +628,10 @@ function Booking({ onClick, datas, title, long }) {
                                 placeholder="Type here for special activities, alergy, wheel chair, vegetari"
                                 className={cx("book-note")}
                                 onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Note: e.target.value,
-                                    })
+                                    settexta(
+
+                                        e.target.value,
+                                    )
                                 }
                             ></textarea>
                         </div>
@@ -666,7 +656,7 @@ function Booking({ onClick, datas, title, long }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => setBookinfor({ ...Bookinfor, Ip: ipAddress })}>SUMMIT</button>
+                    <button className={cx("btn")} >SUMMIT</button>
                 </div>
             </form>
         </div>

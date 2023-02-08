@@ -16,6 +16,8 @@ const fakedata = {
 }
 
 function InfoUser({ data }) {
+
+    console.log('data', data)
     const [isEdit, setIsEdit] = useState(-1)
 
     return (<div className={cx('wrapper')}>

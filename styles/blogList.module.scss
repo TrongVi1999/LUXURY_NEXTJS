@@ -57,8 +57,11 @@
     }
 }
 @media only screen and (max-width: 500px) {
+    .bodyContent {
+        flex-direction: column-reverse;
+    }
     .boxFilter {
-        width: 15rem !important;
+        width: 100% !important;
     }
     .boxFilter .title {
         font-size: 8px;

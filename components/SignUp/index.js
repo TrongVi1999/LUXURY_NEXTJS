@@ -13,7 +13,7 @@ import { toastError, toastSuccess } from '../Toast';
 
 const cx = classNames.bind(style);
 
-const Signup = ({ Click }) => {
+const Signup = ({ Click, openlogin }) => {
     const callApi = async (data) => {
         const response = await axios({
             method: 'post',
@@ -51,7 +51,8 @@ const Signup = ({ Click }) => {
             }
             if (datas?.data?.Error === false) {
                 toastSuccess(`${datas.data?.Title}`);
-                setTimeout(() => navigate('/logIn'), 2000);
+                Click(false);
+                openlogin(true);
             }
         } catch (error) {
             toastError(`${error.message}`);

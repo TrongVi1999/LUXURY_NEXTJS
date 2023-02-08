@@ -44,13 +44,8 @@ function Destimation() {
         if (response.status == 200) {
             setdata(response.data.Object);
         }
-        console.log('fc', vlfromcost);
-        console.log('ec', vlendcost);
-        console.log(response.data.Object);
-        console.log(response.data.Object.slice(firstIndex, lastIndex));
-        console.log(firstIndex);
-        console.log(lastIndex);
-        console.log(page);
+        setPage(1)
+
     }
 
     // useEffect(() => {

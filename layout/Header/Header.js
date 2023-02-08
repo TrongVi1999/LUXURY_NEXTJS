@@ -136,7 +136,7 @@ const Header = () => {
 
                 </div>
             </div>
-            {signup && <Signup Click={setsignup} />}
+            {signup && <Signup Click={setsignup} openlogin={setlogin} />}
             <ToastContainer />
 
 
