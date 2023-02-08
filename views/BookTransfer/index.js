@@ -1,57 +1,110 @@
-import React from 'react'
-import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
+import classNames from 'classnames/bind';
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from 'react-google-recaptcha'
 
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-import $, { data } from 'jquery';
-import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
+import $ from 'jquery';
+import qs from 'qs';
 
 const cx = classNames.bind(style);
 
-function Transferbook({ click }) {
+function Transferbook({ click, transfer }) {
 
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const [ipAddress, setIpAddress] = useState('');
+    const [currentUser, setCurrentUser] = useState(null);
+    const [Select, setselect] = useState();
+    const [errsl, seterrsl] = useState(false);
 
-    //Validate Re-capcha
-    // const validateCaptcha = (response_key) => {
-    //     return new Promise((resolve, reject) => {
-    //       const secret_key = process.env.RECAPTCHA_SECRET
+    const handleEnquire = (data) => {
+        callApi(data);
+        callApiSendmail(data);
 
-    //       const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
 
-    //       fetch(url, {
-    //         method: 'post'
-    //       })
-    //         .then((response) => response.json())
-    //         .then((google_response) => {
-    //           if (google_response.success == true) {
-    //             resolve(true)
-    //           } else {
-    //             resolve(false)
-    //           }
-    //         })
-    //         .catch((err) => {
-    //           console.log(err)
-    //           resolve(false)
-    //         })
-    //     })
-    //   }
+    };
+    // lay ip address
+    $.getJSON('https://jsonip.com/?callback=?').done(function (data) {
+        var ip_address = window.JSON.parse(JSON.stringify(data, null, 2));
+        ip_address = ip_address.ip;
+        setIpAddress(ip_address);
+    });
+
+
+    useEffect(() => {
+        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+        if (VNXuser) {
+            setCurrentUser(VNXuser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, [])
+
+    const callApi = async (data) => {
+        console.log(data);
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
+            data: qs.stringify({
+                Ip: ipAddress,
+                UserName: currentUser ? currentUser.UserName : null,
+                TourName: transfer,
+                Country: data.Country,
+                Adult: data.Adult,
+                FullName: data.FullName,
+                Time: data.Time,
+                DropOff: data.DropOff,
+                PickUp: data.PickUp,
+                Email: data.Email,
+                Phone: data.Phone,
+                Note: data.Note,
+                Babycartseat: data.Babycartseat,
+                Children: data.Children,
+                type: 'Hotel',
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+        console.log(response.data)
+
+        if (response.status === 200) {
+            console.log('Inquire complete!')
+            toastSuccess(' Inquire complete!');
+            // console.log(Bookinfor);
+        } else alert('Invaild infor')
+
+    };
+
+
+    const callApiSendmail = async (data) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+            data: qs.stringify({
+                header: `You inquired a hotel from VNXpedia`,
+                content: `Hotel: ${transfer}`,
+                mail: data.Email,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+    };
+
 
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK NOW
                 <p onClick={() => click(false)}>Back</p></div>
 
-            <form className={cx("book-content")} onSubmit={handleSubmit()}>
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Type of car:&nbsp;
@@ -116,7 +169,7 @@ function Transferbook({ click }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='ourServices' className={cx("our-services")}>
+                            <select name='Country' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 <optgroup id="country-optgroup-Africa" label="Africa">
                                     <option value="DZ" label="Algeria">Algeria</option>
@@ -381,6 +434,7 @@ function Transferbook({ click }) {
                                     <option value="WF" label="Wallis and Futuna">Wallis and Futuna</option>
                                 </optgroup>
                             </select>
+                            {errsl && <span className={cx("error-message")}>Country cannot be empty !</span>}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -444,10 +498,10 @@ function Transferbook({ click }) {
                                 type="date"
                                 name="date"
                                 className={cx("cus-time")}
-                                {...register('StartDate', { required: true })}
+                                {...register('Time', { required: true })}
                             />
-                            {errors.StartDate && errors.StartDate.type === 'required' && (
-                                <span className={cx("error-message")}>Date cannot be empty !</span>
+                            {errors.Time && errors.Time.type === 'required' && (
+                                <span className={cx("error-message")}>Time cannot be empty !</span>
                             )}
                         </div>
 
@@ -462,10 +516,10 @@ function Transferbook({ click }) {
                                     type="text"
                                     placeholder="Enter your address to pick up"
                                     className={cx("cus-name")}
-                                    {...register('Pickup', { required: true })}
+                                    {...register('PickUp', { required: true })}
                                 />
-                                {errors.Pickup && errors.Pickup.type === 'required' && (
-                                    <span className={cx("error-message")}>Pickup cannot be empty !</span>
+                                {errors.PickUp && errors.PickUp.type === 'required' && (
+                                    <span className={cx("error-message")}>PickUp cannot be empty !</span>
                                 )}
                             </div>
                         </div>
@@ -493,11 +547,12 @@ function Transferbook({ click }) {
                             Baby car seat:
                         </label>
                         <div>
-                            <select name='ourServices' className={cx("our-services")}>
+                            <select name='Babycartseat' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="Yes" label="Yes">Yes</option>
                                 <option value="No" label="No">No</option>
                             </select>
+                            {errsl && <span className={cx("error-message")}> Baby car seat: cannot be empty !</span>}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -509,10 +564,10 @@ function Transferbook({ click }) {
                                         type="text"
                                         placeholder="Enter your number of adult"
                                         className={cx("cus-adult")}
-                                        {...register('DropOff', { required: true })}
+                                        {...register('Adult', { required: true })}
                                     /><br />
-                                    {errors.DropOff && errors.DropOff.type === 'required' && (
-                                        <span className={cx("error-message")}>Drop Off cannot be empty !</span>
+                                    {errors.Adult && errors.Adult.type === 'required' && (
+                                        <span className={cx("error-message")}>Adult Off cannot be empty !</span>
                                     )}
                                 </div>
                             </div>
@@ -526,10 +581,10 @@ function Transferbook({ click }) {
                                             type="text"
                                             placeholder="Enter your number of children"
                                             className={cx("cus-children")}
-                                            {...register('DropOff', { required: true })}
+                                            {...register('children', { required: true })}
                                         /><br />
-                                        {errors.DropOff && errors.DropOff.type === 'required' && (
-                                            <span className={cx("error-message")}>Drop Off cannot be empty !</span>
+                                        {errors.children && errors.children.type === 'required' && (
+                                            <span className={cx("error-message")}>children Off cannot be empty !</span>
                                         )}
                                     </div>
                                 </div>
@@ -550,14 +605,18 @@ function Transferbook({ click }) {
                                         Note: e.target.value,
                                     })
                                 }
+                                {...register('Note', { required: true })}
                             ></textarea>
+                            {errors.Note && errors.Note.type === 'required' && (
+                                <span className={cx("error-message")}>Note cannot be empty !</span>
+                            )}
                         </div>
                     </div>
 
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")}>Send Message</button>
+                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
                 </div>
             </form>
         </div>

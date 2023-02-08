@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa';
 import style from './login.module.scss';
 const cx = classNames.bind(style);
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastError, toastSuccess } from '../Toast';
 
@@ -20,6 +20,31 @@ const Login = ({ Click, setuser, close }) => {
         formState: { errors },
     } = useForm();
 
+    const [showFPass, setShowFPass] = useState("hidden");
+
+    const handleShowFP = () => {
+        showFPass === "show" ? setShowFPass("hidden") : setShowFPass("show");
+    };
+    const [emailforgot, setemailforgot] = useState("");
+    const callApiForgotPass = async () => {
+        const response = await axios({
+            method: "post",
+            url: "https://vnxpedia.3i.com.vn/TravelAPI/ForgotPassword",
+            data: qs.stringify({
+                Email: emailforgot,
+            }),
+            headers: {
+                "content-type":
+                    "application/x-www-form-urlencoded;charset=utf-8",
+            },
+        });
+        if (response.data.Error) {
+            toast.error("Error!");
+        } else toast.success("Please check your mail!");
+    };
+    const handleSubmitFP = () => {
+        callApiForgotPass();
+    };
     const callApi = async (data) => {
         const response = await axios({
             method: "post",
@@ -83,10 +108,35 @@ const Login = ({ Click, setuser, close }) => {
                     </span>
                 )}
                 <br />
+                <div className={cx('btn')}>
+                    <button type="submit">LOGIN</button>
+                    <div className={cx('form-report')}>
+                        <a
+                            href="#!"
+                            className={cx('forget-pass')}
+                            onClick={() => handleShowFP()}
+                        >
+                            Forget password?
+                        </a>
+                    </div>
 
-                <button type="submit">LOGIN</button>
-                <a href=''>Forgot Password ?</a>
-
+                </div>
+                {showFPass == 'show' &&
+                    <div className={cx('form-change')}>
+                        <input
+                            type="mail"
+                            placeholder="email"
+                            className={cx('form-control')}
+                            onChange={(e) => setemailforgot(e.target.value)}
+                        ></input>
+                        <p
+                            className={cx('btn-active')}
+                            onClick={() => handleSubmitFP()}
+                        >
+                            Send mail
+                        </p>
+                    </div>
+                }
                 <hr />
                 <br />
                 <span>Don&rsquo;t have account yet?</span>

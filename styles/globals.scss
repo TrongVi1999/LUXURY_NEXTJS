@@ -87,7 +87,7 @@ html *::-webkit-scrollbar-track {
 #google_translate_element {
     width: 100%;
     // background: white;
-    top: 60px;
+    top: 45px;
     position: absolute;
     right: 0px;
     // padding: 10px;
@@ -107,6 +107,7 @@ html *::-webkit-scrollbar-track {
     color: #514631;
     background-color: rgb(246, 248, 246);
     outline: none;
+    border: 2px solid var(--button);
     // width: 100%;
 }
 .VIpgJd-ZVi9od-ORHb-OEVmcd {
