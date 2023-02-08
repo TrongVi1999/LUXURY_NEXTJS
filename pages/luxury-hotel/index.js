@@ -173,19 +173,20 @@ const index = () => {
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} />
 
 
-            <Section maxWidth={1170}>
-                <div className={cx('sort')}>
-                    <button>Sort by</button>
-                    <button>Filter by</button>
-                </div>
-                {/* {data.length > 0 && 
+
+
+            {/* {data.length > 0 && 
                 <Tourcard2 data={data[0]} 
                 />} */}
-            </Section>
+
 
             {/* {data.length > 0 && */}
             <div className={cx('main')}>
                 <div className={cx('hotel-list')}>
+                    <div className={cx('sort')}>
+                        <button>Sort by</button>
+
+                    </div>
                     {
                         fakeData.slice(firstIndex, lastIndex).map((data, index) => (
                             <Hotelcard data={data} key={index} />

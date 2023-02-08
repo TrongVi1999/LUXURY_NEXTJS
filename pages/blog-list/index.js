@@ -6,7 +6,7 @@ import { Section, Pagination, Button } from '@/components';
 import { banners } from '@/public/images';
 import { BlogCard2, CategoryFilter } from '@/views';
 import { categoryFillerAddress, tourTagsFilter, recentPostFake } from '@/public/dataRender';
-import { Allblog } from '../api/CallAPI';
+import { Allblog, Searchblog } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
 
@@ -17,14 +17,29 @@ const cx = classNames.bind(style)
 const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 function BlogList() {
-    const [showFilterMobile, setShowFilterMobile] = useState(false)
+    const [showFilterMobile, setShowFilterMobile] = useState(false);
+    const [Tag, settag] = useState('Blog');
+    const [keyword, setkeyword] = useState('');
+
 
     const [Data, setdata] = useState();
     const CallAPI = async () => {
-        const response = await (Allblog());
+        const response = await (Allblog(Tag, page));
         if (response.status == 200) {
             setdata(response.data.Object);
         }
+
+    }
+    const CallSearch = async () => {
+        const response = await (Searchblog(keyword));
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+        console.log('k', keyword)
+    }
+    const handleSearch = () => {
+        { keyword == '' ? CallAPI() : CallSearch() }
+
     }
 
     const [page, setPage] = useState(1)
@@ -32,8 +47,8 @@ function BlogList() {
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
     useEffect(() => {
-        CallAPI(page);
-    }, [page]);
+        CallAPI();
+    }, [page, Tag]);
 
     useEffect(() => {
         const showFilterMobilef = () => {
@@ -71,6 +86,10 @@ function BlogList() {
                 tourTags={tourTagsFilter}
                 className={cx('boxFilter')}
                 showFilterMobile={showFilterMobile}
+                setvldestination={settag}
+                setvltag={settag}
+                setinput={setkeyword}
+                searchinput={handleSearch}
             />
         </Section>
     </div>);

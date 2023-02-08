@@ -51,7 +51,11 @@ const Header = () => {
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
+
     };
+    const closeMenuMobile = () => {
+        setShowMenu(false);
+    }
     const handleLogout = () => {
         localStorage.removeItem('VNXUser');
         setCurrentUser(null);
@@ -94,7 +98,7 @@ const Header = () => {
                 <Link href={'/'}>
                     <Image src={images.LOGO} alt={'errorLogo'} priority className={cx('logo')} />
                 </Link>
-                <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} />
+                <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} close={closeMenuMobile} />
                 <div className={cx('itemRight')}>
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
