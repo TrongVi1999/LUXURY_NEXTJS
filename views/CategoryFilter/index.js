@@ -128,7 +128,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
                 <Buttom className={cx('btnFilter', showFillter === 1 ? 'activeBtn' : null)} onClick={() => handelShowfillter(1)}>category <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
                 {price && <Buttom className={cx('btnFilter', showFillter === 2 ? 'activeBtn' : null)} onClick={() => handelShowfillter(2)}>fillter by price <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
                 {day && <Buttom className={cx('btnFilter', showFillter === 3 ? 'activeBtn' : null)} onClick={() => handelShowfillter(3)}>fillter by day <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
-                <Buttom className={cx('btnFilter', showFillter === 4 ? 'activeBtn' : null)} onClick={() => handelShowfillter(4)}>tags <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>
+                {tourTags && <Buttom className={cx('btnFilter', showFillter === 4 ? 'activeBtn' : null)} onClick={() => handelShowfillter(4)}>tags <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
                 {groupSize && <Buttom className={cx('btnFilter', showFillter === 5 ? 'activeBtn' : null)} onClick={() => handelShowfillter(5)}>groupsize <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
                 {season && <Buttom className={cx('btnFilter', showFillter === 6 ? 'activeBtn' : null)} onClick={() => handelShowfillter(6)}>season <MdOutlineKeyboardArrowDown className={cx('icon')} /></Buttom>}
             </div>
