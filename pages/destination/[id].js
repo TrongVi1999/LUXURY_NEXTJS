@@ -1,15 +1,13 @@
-import classNames from 'classnames/bind';
-import style from '@/styles/destinations.module.scss';
-import Tourcard2 from '@/views/Tourcard/Tourcard2';
-import IMG from '@/public/images/tour1.jpg';
-import { useRouter } from 'next/router';
-import { Section, Pagination } from '@/components';
-import { BannerSlide, CategoryFilter } from '@/views';
+import { Pagination, Section } from '@/components';
+import { categoryFillerAddress, groupSizeFillter, priceFilter, seasonFillter, tourTagsFilter } from '@/public/dataRender';
 import { banners } from '@/public/images';
-import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter, priceFilter } from '@/public/dataRender';
+import style from '@/styles/destinations.module.scss';
+import { BannerSlide, CategoryFilter } from '@/views';
+import Tourcard2 from '@/views/Tourcard/Tourcard2';
+import classNames from 'classnames/bind';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
-import { useState, useEffect } from 'react';
-import Location from '@/views/Location';
 
 const cx = classNames.bind(style);
 
@@ -121,7 +119,6 @@ function Destimation() {
                     setvlendcost={setvlendcost}
                 />
             </Section>
-            <Location />
         </div>
     );
 }

@@ -106,7 +106,9 @@ function Profile() {
                         activeProfile === 1 ?
                             <ProfileUser data={currentUser} /> :
                             activeProfile === 3 ?
-                                <BookingUser /> : null
+                                <div>
+                                    {currentUser && <BookingUser user={currentUser.UserName} />}
+                                </div> : null
                     }
                 </div>
             }
