@@ -83,7 +83,9 @@
         width: 60%;
     }
 }
-
+.input-Add {
+    display: none;
+}
 @media only screen and (max-width: 1248px) {
     .body {
         justify-content: center;

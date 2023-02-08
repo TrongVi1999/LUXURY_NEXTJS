@@ -46,7 +46,7 @@ const Login = ({ Click, setuser, close }) => {
             }
             if (datas?.data?.Error === false) {
                 toastSuccess('Login success!');
-                localStorage.setItem("VNXUser", JSON.stringify(datas));
+                localStorage.setItem("VNXUser", JSON.stringify(datas.data));
                 setTimeout(() => {
                     setuser(`${datas.data?.Title}`)
                     close(false);
@@ -92,8 +92,8 @@ const Login = ({ Click, setuser, close }) => {
                 <span>Don&rsquo;t have account yet?</span>
                 <br />
                 <div className={cx('group')}>
-                    <button onClick={() => Click(true)}>SIGN UP</button>
-                    <button className={cx('fb')}><FaFacebook />LOGIN</button>
+                    <p onClick={() => Click(true)}>SIGN UP</p>
+                    <p className={cx('fb')}><FaFacebook />LOGIN</p>
                 </div>
             </form>
             {/* <ToastContainer /> */}

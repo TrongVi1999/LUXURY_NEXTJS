@@ -7,7 +7,7 @@ import { TfiPencilAlt } from "react-icons/tfi";
 const cx = classNames.bind(style)
 
 function ItemInput({ id, value, title, placeholder, disabled = false, setEdit, onChange, ...props }) {
-    console.log(id, disabled)
+
     const [valueInput, setValueInput] = useState(value)
 
     return (<div className={cx('wrapperItem')}>
