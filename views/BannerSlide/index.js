@@ -15,10 +15,14 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useState, useEffect } from 'react';
 import { categoryFillerAddress } from '@/public/dataRender';
+import { useApppContext } from '@/pages/_app';
 
 const cx = classNames.bind(style);
 
 function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, className, classNameTitle }) {
+
+    const CT = useApppContext();
+
 
     const [ip1, setip1] = useState('');
     const [ip2, setip2] = useState();
@@ -33,8 +37,6 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
 
 
     }, [ip1])
-
-    console.log(list1)
 
     return (
         <>
@@ -72,7 +74,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                                     {show1 &&
                                         <div className={cx('list1')}>
                                             {list1.map(d =>
-                                                <p onClick={() => { setip1(''); setlist1([]); setshow1(d.name) }}>{d.name}</p>)}
+                                                <p onClick={() => { setip1(d.name); setlist1([]) }}>{d.name}</p>)}
                                         </div>
                                     }
                                 </div>
@@ -96,7 +98,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                                 leftIcon={<CiStar />}
                                 placeholder="Travel Style"
                             /> */}
-                            <Button className={cx('button')}>Search Tour</Button>
+                            <button className={cx('button')} onClick={() => CT.setloca(ip1)}>Search Tour {CT.loca}</button>
                         </div>
                     }
                 </div>
