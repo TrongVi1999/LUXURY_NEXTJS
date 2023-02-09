@@ -49,11 +49,11 @@ function Booking({ click }) {
 
     return (
         <div className={cx("booking-infor")}>
-            <div className={cx("book-crumb")}>Home | BOOK NOW
+            <div className={cx("book-crumb")}>Home | CONTACT US
                 <p onClick={() => click(false)}>Back</p></div>
 
             <form className={cx("book-content")} onSubmit={handleSubmit()}>
-                <div className={cx("content-header")}>
+                {/* <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Service Name:&nbsp;
                         <span className={cx("service-name-content")}>
@@ -66,7 +66,7 @@ function Booking({ click }) {
                             VIET NAM
                         </span>
                     </p>
-                </div>
+                </div> */}
                 <hr className={cx("line")}></hr>
                 <div className={cx("content-mid")}>
                     <div className={cx("header-form")}>
