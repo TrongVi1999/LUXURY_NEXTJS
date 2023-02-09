@@ -15,10 +15,12 @@ import Img7 from '@/public/images/Layer75.png'
 import Img8 from '@/public/images/Layer76.png'
 import Img9 from '@/public/images/Layer77.png'
 import Img10 from '@/public/images/Layer78.png'
+import Link from 'next/link';
 
 // import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
 import { images } from '@/public/images';
 import { TitleMice, DiffItem, BoxImageMice } from '@/views/Mice';
+import Contact from '@/pages/ContactUs/Contact'
 
 const cx = classNames.bind(style);
 
@@ -55,12 +57,11 @@ function Mice() {
 
             <div className={cx('btnBoxContact')}>
                 <p className={cx('text')}>Let us accompany you to make the experice end trips of your dreams and your loved ones and colleagues!</p>
-                <Button to={'/'} className={cx('btn')}>
+                <Link href="/ContactUs" className={cx('btn')}>
                     Contact us now
-                </Button>
+                </Link>
             </div>
-
-        </div>
+        </div >
     );
 }
 

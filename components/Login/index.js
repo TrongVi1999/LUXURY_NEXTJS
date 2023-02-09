@@ -10,6 +10,7 @@ const cx = classNames.bind(style);
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastError, toastSuccess } from '../Toast';
+// import { signIn } from "next-auth/react"
 
 const Login = ({ Click, setuser, close }) => {
     const {

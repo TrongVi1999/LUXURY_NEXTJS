@@ -6,7 +6,6 @@ import { banners } from '@/public/images';
 import style from '@/styles/Hoteldetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Hotelbook from '@/views/BookHotel';
-import Booking from '@/views/LuxuryTrans/Contact';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
