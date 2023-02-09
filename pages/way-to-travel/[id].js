@@ -174,7 +174,7 @@ const index = () => {
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} />
 
-            <Title text={'luxury tour'} align={'center'} className={cx('titleTravel')} />
+            {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}
             <Section maxWidth={1170}>
                 <div className={cx('sort')}>
                     <button>Sort by</button>
