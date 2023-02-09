@@ -1,9 +1,16 @@
 import '@/styles/globals.scss';
 import Layout from '../layout/Layout';
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useEffect, useState, useContext } from 'react'
+import { useRouter } from 'next/router';
+import { createContext } from "react";
+
+const AppContext = createContext();
+
+
 
 export default function App({ Component, pageProps }) {
+
+    const [loca, setloca] = useState('')
 
     const { isFallback, events } = useRouter()
 
@@ -43,9 +50,18 @@ export default function App({ Component, pageProps }) {
         }
     }, [])
 
+
+
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <AppContext.Provider value={{ loca, setloca }} setloca={setloca}>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </AppContext.Provider>
+
     );
+}
+
+export function useApppContext() {
+    return useContext(AppContext);
 }

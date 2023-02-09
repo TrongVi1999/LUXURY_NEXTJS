@@ -5,6 +5,8 @@
 .bannerMain {
     width: 100%;
     height: 100%;
+    // height: 35vw;
+    // min-height: 35rem;
 }
 
 .sheaderBox {
@@ -62,7 +64,6 @@
             background-color: var(--background-white-opacity);
             display: flex;
             svg {
-                display: block;
                 margin: auto auto;
                 height: 70%;
                 width: auto;
@@ -71,6 +72,7 @@
             }
             .boxSearch-ip {
                 position: relative;
+                flex: 1;
                 height: 100%;
                 .input {
                     background-color: var(--background-white-opacity);
@@ -131,12 +133,18 @@
         flex-direction: column;
         align-items: center;
         width: 80%;
-        .input {
-            width: 100% !important;
-            margin: 1rem 0;
-            font-size: 1.4rem !important;
-        }
+        .boxSearch-item {
+            height: 40px !important;
+            width: 80% !important;
+            margin-bottom: 20px;
 
+            .input {
+                width: 100% !important;
+
+                font-size: 1.4rem !important;
+                flex: 1;
+            }
+        }
         .button {
             margin-top: 1rem;
             padding: 1.2rem 3rem !important;
