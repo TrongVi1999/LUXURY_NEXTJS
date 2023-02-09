@@ -4,7 +4,7 @@ import style from './bannerSlide.module.scss';
 import { SwiperSlide, Swiper } from 'swiper/react';
 
 import { EffectFade, Autoplay } from 'swiper';
-
+import Link from 'next/link';
 import Banner from './Banner';
 import { Input, Button } from '@/components';
 import { CiStar } from 'react-icons/ci';
@@ -27,16 +27,17 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
     const [ip1, setip1] = useState('');
     const [ip2, setip2] = useState();
     const [list1, setlist1] = useState([]);
-    const [show1, setshow1] = useState('Place');
+    const [show1, setshow1] = useState(true)
     const handleChange1 = (e) => {
         setip1(e.targer.value);
     }
 
     useEffect(() => {
-        { ip1 != '' ? setlist1(categoryFillerAddress.elements.filter(d => d.name.toLowerCase().replace(' ', '').includes(ip1.toLowerCase().replace(' ', '')))) : setlist1([]) }
-
+        { show1 && ip1 != '' ? setlist1(categoryFillerAddress.elements.filter(d => d.name.toLowerCase().replace(' ', '').includes(ip1.toLowerCase().replace(' ', '')))) : setlist1([]) }
+        console.log('loca', CT.loca)
 
     }, [ip1])
+    console.log(list1);
 
     return (
         <>
@@ -70,11 +71,14 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                             <div className={cx('boxSearch-item')}>
                                 <MdOutlinePlace />
                                 <div className={cx('boxSearch-ip')}>
-                                    <input type='text' className={cx('input1', 'input')} placeholder={show1} onChange={(e) => setip1(e.target.value)} value={ip1}></input>
+                                    <input type='text' className={cx('input')} placeholder='Place' onChange={(e) => {
+                                        setshow1(true)
+                                        setip1(e.target.value)
+                                    }} value={ip1}></input>
                                     {show1 &&
                                         <div className={cx('list1')}>
                                             {list1.map(d =>
-                                                <p onClick={() => { setip1(d.name); setlist1([]) }}>{d.name}</p>)}
+                                                <p onClick={() => { setshow1(false); setip1(d.name); setlist1([]) }}>{d.name}</p>)}
                                         </div>
                                     }
                                 </div>
@@ -83,22 +87,12 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                             </div>
                             <div className={cx('boxSearch-item')}>
                                 <CiStar />
-                                <input type='text' className={cx('input2', 'input')} placeholder="Travel Style" onChange={(e) => setip1(e.target.value)}></input>
-
+                                <div className={cx('boxSearch-ip')}>
+                                    <input type='text' className={cx('input')} placeholder="Travel Style" onChange={(e) => setip1(e.target.value)}></input>
+                                </div>
                             </div>
-                            {/* <Input
-                                type="text"
-                                className={cx('input1', 'input')}
-                                leftIcon={<MdOutlinePlace />}
-                                placeholder="Place"
-                            />
-                            <Input
-                                type="text"
-                                className={cx('input2', 'input')}
-                                leftIcon={<CiStar />}
-                                placeholder="Travel Style"
-                            /> */}
-                            <button className={cx('button')} onClick={() => CT.setloca(ip1)}>Search Tour {CT.loca}</button>
+
+                            <Link href={`/destination/VietNamdestination=${ip1}`} className={cx('button')} onClick={() => CT.setloca(ip1)}>Search Tour </Link>
                         </div>
                     }
                 </div>
