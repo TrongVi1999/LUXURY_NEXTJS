@@ -12,6 +12,7 @@ import AboutVN from '@/views/Destination/AboutVN';
 import Location from '@/views/Destination/Location';
 import Faq from '@/views/Destination/FAQ';
 import { useApppContext } from '@/pages/_app';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
 
 const cx = classNames.bind(style);
 
@@ -57,7 +58,7 @@ function Destimation() {
 
 
     useEffect(() => {
-        { router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
+        // { router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
         { router.query.id && CallAPISuperfilter() }
     }, [router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
 
@@ -75,9 +76,11 @@ function Destimation() {
     console.log(vldestination)
 
 
+
     return (
         <div className={cx('wrapper')}>
-            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} />
+            {/* <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} /> */}
+            {router.query.id && <BannerIMG img={banners.resolt} title={(router.query.id).split('dest')[0]} bg='bg' descrip='Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content' />}
             <div className={cx('list-menu')}>
                 {listmenu.map((d, i) =>
                     <p className={cx(act[i])} onClick={() => Pickmenu(i)}>{d}</p>

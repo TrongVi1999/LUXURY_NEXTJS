@@ -18,7 +18,9 @@ function Hotelbook({ click, hotel }) {
     const [ipAddress, setIpAddress] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
     const [Select, setselect] = useState();
+    const [Typeroom, settyperoom] = useState();
     const [errsl, seterrsl] = useState(false);
+    const [gender, setgender] = useState()
 
     // const [Bookinfor, setBookinfor] = useState({
     //     Ip: ipAddress,
@@ -36,10 +38,18 @@ function Hotelbook({ click, hotel }) {
 
 
     const {
+        watch,
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+
+    const email = watch('Email');
+    const email2 = watch('Email2');
+
+    const validateEmailMatch = () => {
+        return email === email2 || 'Email not match';
+    };
 
 
     const handleEnquire = (data) => {
@@ -76,16 +86,16 @@ function Hotelbook({ click, hotel }) {
                 Ip: ipAddress,
                 UserName: currentUser ? currentUser.UserName : null,
                 TourName: hotel,
-                Country: data.Country,
-                Adult: data.Adult,
+                Country: Select,
+                Adult: data.PersonsAttendtion,
                 FullName: data.FullName,
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: data.Note,
                 CheckIn: data.CheckIn,
                 Checkout: data.CheckOut,
-                TypeRoom: data.TypeRoom,
-                type: 'Hotel',
+                TypeRoom: Typeroom,
+                Type: 'Hotel',
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
@@ -160,7 +170,7 @@ function Hotelbook({ click, hotel }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            <div className={cx("sex")}>
+                            {/* <div className={cx("sex")}>
                                 <input
                                     name="gender"
                                     type="checkbox"
@@ -179,7 +189,7 @@ function Hotelbook({ click, hotel }) {
                                 <label className={cx("sex-m")} for="">
                                     FEMALE
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -487,22 +497,23 @@ function Hotelbook({ click, hotel }) {
                                 type="text"
                                 placeholder="Confirm Email"
                                 className={cx("cus-mail")}
-                                {...register('Email', {
+                                {...register('Email2', {
                                     required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
+                                    validate: validateEmailMatch,
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
+                            {errors.Email2 && errors.Email2.type === 'required' && (
                                 <span className={cx("error-message")}>Email cannot be empty !</span>
                             )}
-                            {errors.Email && errors.Email.type === 'pattern' && (
+                            {errors.Email2 && errors.Email2.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
-                            {/* {errors.Email && errors.Email.type === ''(
-                                <span className={cx("error-message")}>Email must match</span>
-                            )} */}
+                            {errors.Email2 && errors.Email2.message === 'Email not match' && (
+                                <span className={cx("error-message")}>Email not match</span>
+                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -587,7 +598,7 @@ function Hotelbook({ click, hotel }) {
                             Type of Room:
                         </label>
                         <div>
-                            <select name='TypeRoom' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='TypeRoom' className={cx("our-services")} onChange={(e) => settyperoom(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="vip" label="Vip Room">Vip Room</option>
                                 <option value="normal" label="Normal Room">Normal Room</option>
@@ -604,12 +615,12 @@ function Hotelbook({ click, hotel }) {
                             <textarea
                                 placeholder="Message"
                                 className={cx("book-note")}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Note: e.target.value,
-                                    })
-                                }
+                                // onChange={(e) =>
+                                //     setBookinfor({
+                                //         ...Bookinfor,
+                                //         Note: e.target.value,
+                                //     })
+                                // }
                                 {...register('Note', { required: true })}
                             ></textarea>
                             {errors.Note && errors.Note.type === 'required' && (

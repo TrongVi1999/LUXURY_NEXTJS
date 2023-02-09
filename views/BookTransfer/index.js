@@ -14,14 +14,23 @@ const cx = classNames.bind(style);
 function Transferbook({ click, transfer }) {
 
     const {
+        watch,
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
     const [ipAddress, setIpAddress] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
-    const [Select, setselect] = useState();
+    const [Country, setcountry] = useState();
+    const [Baby, setBaby] = useState()
     const [errsl, seterrsl] = useState(false);
+    const email = watch('Email');
+    const email2 = watch('Email2');
+    const selectedValue = watch('Babycartseat');
+
+    const validateEmailMatch = () => {
+        return email === email2 || 'Email not match';
+    };
 
     const handleEnquire = (data) => {
         callApi(data);
@@ -55,7 +64,7 @@ function Transferbook({ click, transfer }) {
                 Ip: ipAddress,
                 UserName: currentUser ? currentUser.UserName : null,
                 TourName: transfer,
-                Country: data.Country,
+                Country: Country,
                 Adult: data.Adult,
                 FullName: data.FullName,
                 Time: data.Time,
@@ -64,7 +73,7 @@ function Transferbook({ click, transfer }) {
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: data.Note,
-                Babycartseat: data.Babycartseat,
+                Babycartseat: Baby,
                 Children: data.Children,
                 type: 'Hotel',
             }),
@@ -142,7 +151,7 @@ function Transferbook({ click, transfer }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            <div className={cx("sex")}>
+                            {/* <div className={cx("sex")}>
                                 <input
                                     name="gender"
                                     type="checkbox"
@@ -161,7 +170,7 @@ function Transferbook({ click, transfer }) {
                                 <label className={cx("sex-m")} for="">
                                     FEMALE
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -169,7 +178,7 @@ function Transferbook({ click, transfer }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='Country' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='Country' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 <optgroup id="country-optgroup-Africa" label="Africa">
                                     <option value="DZ" label="Algeria">Algeria</option>
@@ -547,12 +556,17 @@ function Transferbook({ click, transfer }) {
                             Baby car seat:
                         </label>
                         <div>
-                            <select name='Babycartseat' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='Babycartseat' className={cx("our-services")}
+                                //  ref={register({ required: true })}
+                                onChange={(e) => setBaby(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="Yes" label="Yes">Yes</option>
                                 <option value="No" label="No">No</option>
                             </select>
-                            {errsl && <span className={cx("error-message")}> Baby car seat: cannot be empty !</span>}
+                            {/* {errsl && <span className={cx("error-message")}> Baby car seat: cannot be empty !</span>} */}
+                            {/* {errors.Babycartseat && errors.Babycartseat.type === 'required' && (
+                                <span className={cx("error-message")}>Babycart seat cannot be empty !</span>
+                            )} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -616,7 +630,7 @@ function Transferbook({ click, transfer }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
+                    <button className={cx("btn")} >Send Message</button>
                 </div>
             </form>
         </div>
