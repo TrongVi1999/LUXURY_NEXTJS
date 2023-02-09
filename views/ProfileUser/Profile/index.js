@@ -53,7 +53,7 @@ function InfoUser({ data, setuser }) {
             Reason: userEdit.BirthDay == '' ? data.BirthDay : userEdit.BirthDay,
             Description: userEdit.About == '' ? data.About : userEdit.About,
             Note: userEdit.Address == '' ? data.Address : userEdit.Address,
-            PhoneNumber: userEdit.Phone == '' ? data.PhoneNumber : userEdit.Phone,
+            PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
             Email: userEdit.Email == '' ? data.Email : userEdit.Email
         }
         const response = await axios({
@@ -94,7 +94,7 @@ function InfoUser({ data, setuser }) {
                 <hr />
                 <div> <h3>Address: </h3> {edit ? <input type='text' placeholder={data.Address} onChange={(e) => setUserEdit({ ...userEdit, Address: e.target.value })}></input> : <p>{data.Address}</p>}</div>
                 <hr />
-                <div><h3>Phone : </h3>  {edit ? <input type='phone' placeholder={data.PhoneNumber} onChange={(e) => setUserEdit({ ...userEdit, Phone: e.target.value })}></input> : <p>{data.PhoneNumber}</p>}</div>
+                <div><h3>Phone : </h3>  {edit ? <input type='phone' placeholder={data.PhoneNumber} onChange={(e) => setUserEdit({ ...userEdit, PhoneNumber: e.target.value })}></input> : <p>{data.PhoneNumber}</p>}</div>
                 <hr />
                 <div> <h3>Email: </h3>  {edit ? <input type='email' placeholder={data.Email} onChange={(e) => setUserEdit({ ...userEdit, Email: e.target.value })}></input> : <p>{data.Email}</p>}</div>
                 <hr />
