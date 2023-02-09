@@ -50,7 +50,7 @@ function Footer() {
                                 <div className={cx('infor-bot')}>
                                     <div className={cx('phone')}>
                                         <GiPhone />
-                                        <div>+84901591111</div>
+                                        <div>+84 901591111</div>
                                     </div>
                                     <div className={cx('email')}>
                                         <MdEmail />

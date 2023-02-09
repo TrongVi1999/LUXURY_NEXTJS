@@ -81,7 +81,7 @@ function BlogList() {
                 isSearch
                 category={categoryFillerAddress}
                 recentPost={recentPostFake}
-                archives
+                // archives
                 banner
                 tourTags={tourTagsFilter}
                 className={cx('boxFilter')}

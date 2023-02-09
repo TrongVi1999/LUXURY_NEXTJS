@@ -374,6 +374,10 @@
 .boxFillterMobile {
     display: none;
 }
+.icon-reset {
+    float: right;
+    cursor: pointer;
+}
 @media only screen and (max-width: 500px) {
     .wrapper {
         // position: absolute;

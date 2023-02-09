@@ -45,6 +45,10 @@ const menuWayTravel = [
                     to: '/way-to-travel/TYPE_CLASSIC',
                 },
                 {
+                    title: 'Family Tour',
+                    to: '/way-to-travel/TYPE_FAMILY',
+                },
+                {
                     title: 'Culinary',
                     to: '/way-to-travel/TYPE_CULINARY',
                 },

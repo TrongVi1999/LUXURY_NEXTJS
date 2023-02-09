@@ -29,7 +29,7 @@ const infoHomeFake = [
 ];
 
 const categoryFillerAddress = {
-    title: 'category',
+    title: 'Destination',
     elements: [
         {
             name: 'Ha noi',
@@ -79,23 +79,23 @@ const categoryFillerAddress = {
 };
 
 const tourTagsFilter = {
-    title: 'tour tags',
+    title: 'tags',
     elements: ['Daily Tour', 'Halong', 'Vietnam', 'Mai chau', 'Da Nang', 'Phan Thiet', 'BestSeller', 'Top Selling'],
 };
 
 const priceFilter = {
-    title: 'price',
+    title: 'Price',
     elements: ['0 - 600', '601 - 900', '901 - 1500', '> 1500 '],
     value: [[0, 600], [601, 900], [901, 1500], [1501, 15000]]
 };
 
 const seasonFillter = {
-    title: 'Fillter by Season',
+    title: 'Season',
     elements: ['Newyear', 'Summer', 'holiday', 'Winter']
 }
 
 const groupSizeFillter = {
-    title: 'GroupSize',
+    title: 'Group Size',
     elements: ['solo', 'couple', 'family', 'company']
 }
 
