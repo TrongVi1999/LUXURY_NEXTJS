@@ -42,7 +42,10 @@ function InfoUser({ data, setuser }) {
     const [userEdit, setUserEdit] = useState(data);
     const HandleEdit = (e) => {
         e.preventDefault()
-        callApiEdit(data)
+        callApiEdit(data);
+        setedit(false);
+
+
     }
 
     const callApiEdit = async (data) => {
@@ -68,8 +71,8 @@ function InfoUser({ data, setuser }) {
             toastError('Error!');
         } else {
             toastSuccess('Successfully changed information.');
-            localStorage.setItem('VNXUser', JSON.stringify({ ...data, ...Newinfor }));
-            setuser({ ...data, ...Newinfor });
+            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note }));
+            setuser({ ...data, FullName: Newinfor.GivenName, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note });
             // setCurrentUser({
             //     ...Useredit,
             //     ...data,

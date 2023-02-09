@@ -21,6 +21,7 @@ const banners = {
     banner6: require('./banner/banner6.jpg'),
     banner7: require('./banner/banner7.jpg'),
     banner8: require('./banner/banner8.jpg'),
+    banner9: require('./Layer79.png'),
     bannerBlogListFilter: require('./banner/bannerFilterBlogList.jpg'),
     luxuryTransfer: require('./xeBanner.jpg'),
     hoteldetail: require('./banner/hoteldetail.png'),
