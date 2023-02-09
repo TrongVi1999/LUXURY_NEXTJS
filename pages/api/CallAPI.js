@@ -174,7 +174,7 @@ export const ListHotel = () =>
         type: 'json',
     });
 
-//Lấy 1 hotel
+//Lấy 1 hotel/transfer
 export const GetHotel = (id) =>
     axios({
         method: 'post',
@@ -187,3 +187,17 @@ export const GetTransfer = (id) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/PostLuxury?Id=${id}`,
         type: 'json',
     });
+
+//Sendmail xác nhận cho client
+export const Sendmail = (bookname, email) => axios({
+    method: 'post',
+    url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+    data: qs.stringify({
+        header: `You have new travel from VNXpedia`,
+        content: `Tour name: ${bookname}`,
+        mail: email,
+    }),
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    },
+});

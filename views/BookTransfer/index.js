@@ -9,6 +9,7 @@ import { toastSuccess } from '@/hook/toastr';
 import $ from 'jquery';
 import qs from 'qs';
 import national from '@/pages/api/national.json';
+import { Sendmail } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -35,7 +36,7 @@ function Transferbook({ click, transfer }) {
 
     const handleEnquire = (data) => {
         callApi(data);
-        callApiSendmail(data);
+
 
 
     };
@@ -87,6 +88,7 @@ function Transferbook({ click, transfer }) {
         if (response.status === 200) {
             console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
+            callApiSendmail(data);
             // console.log(Bookinfor);
         } else alert('Invaild infor')
 
@@ -94,18 +96,20 @@ function Transferbook({ click, transfer }) {
 
 
     const callApiSendmail = async (data) => {
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
-            data: qs.stringify({
-                header: `You inquired a hotel from VNXpedia`,
-                content: `Hotel: ${transfer}`,
-                mail: data.Email,
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
+        const response = await Sendmail(transfer, data.email)
+        //     {
+        //     method: 'post',
+        //     url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+        //     data: qs.stringify({
+        //         header: `You inquired a hotel from VNXpedia`,
+        //         content: `Hotel: ${transfer}`,
+        //         mail: data.Email,
+        //     }),
+        //     headers: {
+        //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        //     },
+        // }
+
     };
 
 
