@@ -9,7 +9,7 @@ import Highlight from '@/views/CaseStudy/Highlight';
 import InEx from '@/views/CaseStudy/InEx';
 import Listtag from '@/views/Blogdetail/Listtag';
 import { Blogrecomment } from '@/views/Blogdetail';
-import BookMICe from '@/views/CaseStudy/BookMICe';
+import BookMICE from '@/views/CaseStudy/BookMICE';
 
 
 const cx = classNames.bind(style);
@@ -26,9 +26,7 @@ const index = () => {
     const router = useRouter();
     const [Tourdata, setTourdata] = useState();
     const [Book, setBook] = useState(true);
-    const handleBooking = () => {
-        setBook(false);
-    }
+
 
     const callApi = async () => {
         const response = await Gettour(router.query.id)
@@ -65,7 +63,7 @@ const index = () => {
                         </div>
                         <Listtag data={Data.hash_tag} />
 
-                    </div> : <BookMICe datas={Tourdata} close={setBook} />
+                    </div> : <BookMICE close={setBook} />
 
                 }
 

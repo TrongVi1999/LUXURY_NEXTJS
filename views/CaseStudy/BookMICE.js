@@ -15,7 +15,7 @@ const ListLocation =
     ['Hanoi', 'HoChiMinh City', 'Myanmar', 'Laos', 'Nha Trang', 'Phu Quoc', 'Thailand', 'Multi-Country', 'Danang', 'Multi Province', 'Cambodia', 'Other']
 
 
-const BookMICe = ({ datas }) => {
+const BookMICE = ({ close }) => {
     const [ipAddress, setIpAddress] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
     const [Select, setselect] = useState();
@@ -35,6 +35,7 @@ const BookMICe = ({ datas }) => {
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
+            <p onClick={() => close(true)}></p>
             <form className={cx("book-content")} onSubmit={handleSubmit()}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
@@ -357,4 +358,4 @@ const BookMICe = ({ datas }) => {
     )
 }
 
-export default BookMICe
+export default BookMICE
