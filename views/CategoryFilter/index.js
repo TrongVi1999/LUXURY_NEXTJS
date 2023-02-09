@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { banners } from '@/public/images';
 import { Input } from '@/components';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { GrPowerReset } from 'react-icons/gr';
 import Buttom from '@/components/Button';
 const cx = classNames.bind(style);
 
@@ -139,7 +140,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {category ? (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{category.title}</h2>
+                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); setvldestination('') }} /></h2>
                     {category.elements?.map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
@@ -154,7 +155,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {price ? (
                 <div className={cx('boxFillterItem', 'boxArchives', showFillter === 2 ? 'active' : null)}>
-                    <h2 className={cx('title')}>filter by price</h2>
+                    <h2 className={cx('title')} >filter by price <GrPowerReset className={cx('icon-reset')} onClick={() => { setActivePrice(-1); setvlfromcost(0); setvlendcost(15000) }} /></h2>
 
                     {/* {price.elements?.map((element, index) => (
                         <div
@@ -195,7 +196,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {day ? (
                 <div className={cx('boxFillterItem', showFillter === 3 ? 'active' : null)}>
-                    <h2 className={cx('title')}>filter by Day</h2>
+                    <h2 className={cx('title')}>filter by Day </h2>
                     <div className={cx('itemMobileShow')}>
                         <div className={cx('box')}>
                             <span className={cx('text')}>1 Day</span>
@@ -218,7 +219,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {tourTags ? (
                 <div className={cx('boxFillterItem', showFillter === 4 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{tourTags.title}</h2>
+                    <h2 className={cx('title')}>{tourTags.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveTour(-1); setvltag('') }} /></h2>
                     <div className={cx('boxTourFil', 'itemMobileShow')}>
                         {tourTags.elements?.map((element, index) => (
                             <span
@@ -236,7 +237,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {/* ================ groupSize ==============  */}
             {
                 groupSize ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 5 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{groupSize.title}</h2>
+                    <h2 className={cx('title')}>{groupSize.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveGroup(-1); setvlgroup('') }} /></h2>
                     {
                         groupSize.elements.map((item, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeGroup === index ? 'active' : null)} onClick={() => hanldleActiveGroup(index)} key={index}>
@@ -250,7 +251,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {/* ================ SeaSon ==============  */}
             {
                 season ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 6 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{season.title}</h2>
+                    <h2 className={cx('title')}><GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveArchive(-1); setvlseason('') }} /> {season.title} </h2>
                     {
                         season.elements.map((item, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => hanldleActiveSeason(index)} key={index}>
@@ -264,7 +265,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {
                 recentPost ? (<div className={cx('boxFillterItem', 'boxRecent')}>
-                    <h2 className={cx('title')}>{recentPost.title}</h2>
+                    <h2 className={cx('title')}>{recentPost.title} </h2>
                     {
                         recentPost.elements.map((item, index) => (
                             <Link key={index} href='/' className={cx('recentItem', 'itemMobileShow')}>
@@ -283,7 +284,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {
                 archives ? (<div className={cx('boxFillterItem', 'boxArchives')}>
-                    <h2 className={cx('title')}>archives</h2>
+                    <h2 className={cx('title')}>archives <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); setvldestination('') }} /></h2>
                     {
                         listMonthArchives.map((time, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>

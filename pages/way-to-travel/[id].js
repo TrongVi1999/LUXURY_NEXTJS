@@ -178,7 +178,7 @@ const index = () => {
             <Section maxWidth={1170}>
                 <div className={cx('sort')}>
                     <button>Sort by</button>
-                    <button>Filter by</button>
+                    {/* <button>Filter by</button> */}
                 </div>
                 {data.length > 0 && <Tourcard2 data={data[0]} />}
             </Section>

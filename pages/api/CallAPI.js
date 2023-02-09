@@ -69,6 +69,14 @@ export const Getblog = (id) =>
         type: 'json',
     });
 
+//Lấy 1 bài content https://vnxpedia.3i.com.vn/TravelAPI/ListPostSocial?id=5262
+export const GetSocial = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListPostSocial?id=${id}`,
+        type: 'json',
+    });
+
 
 //Lấy tour theo location"
 export const Gettourdestination = (location) =>

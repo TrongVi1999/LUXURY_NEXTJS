@@ -217,6 +217,23 @@
     margin-top: 20px;
     cursor: pointer;
 }
+.iti-main-social {
+    padding: 2vw 2.5vw;
+    border: 1px solid gray;
+    h2 {
+        font-size: 20px;
+        span {
+            font-size: 20px !important;
+        }
+    }
+    p {
+        margin: 10px 0;
+
+        span {
+            font-size: 14px !important;
+        }
+    }
+}
 //Tourrecomment
 .tour-rcm {
     padding: 3% 18%;
