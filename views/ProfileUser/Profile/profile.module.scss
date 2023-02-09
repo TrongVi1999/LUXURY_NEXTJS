@@ -1,28 +1,49 @@
 .wrapper {
     width: 100%;
-
+    padding-top: 5rem;  
+    // display: flex;
+    .btn{
+        background-color: var(--button);
+        width: 150px;
+        height: 50px;
+        display: block;
+        margin: 0% auto;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
     .title {
         font-weight: 700;
         font-size: 3rem;
         text-transform: capitalize;
         margin-bottom: 3rem;
+
+        svg{
+            margin-left: 30px;
+        }
+        svg:hover{
+            color: var(--button);
+        }
     }
 
-    .boxAboutInput {
+    div{
         display: flex;
-        padding-left: 2rem;
-        margin-top: 2rem;
-        .titleItem {
-            font-size: 1.4rem;
-            color: var(--black);
-            font-weight: 400;
-            width: 10rem;
-            text-transform: capitalize;
-        }
+        align-items: center;
+        font-size: 14px;
+        padding: 2rem 0;
 
-        .input {
+        h3{
+            width: 20%;
+
+        }
+        p{
+            width:50%;
+            font-weight: bold;
+
+        }
+        input{
             width: 100%;
-            height: 20rem;
+            height: 4rem;
             background-color: transparent;
             border: 0.1rem solid var(--light);
             border-radius: 0.5rem;
@@ -32,45 +53,16 @@
             font-weight: 400;
             text-transform: capitalize;
             resize: none;
+            justify-content: left !important;
         }
-    }
-}
-
-.wrapperItem {
-    max-width: 60rem;
-    width: 80%;
-
-    display: flex;
-    border-bottom: 0.1rem solid var(--light);
-    padding: 2rem 0 2rem 2rem;
-
-    .titleItem {
-        font-size: 1.4rem;
-        color: var(--black);
-        font-weight: 400;
-        width: 10rem;
-        text-transform: capitalize;
-    }
-
-    .boxInput {
-        flex: 1;
-        display: flex;
-
-        .icon {
-            font-size: 2rem;
-            margin-right: 1rem;
-            cursor: pointer;
-        }
-
-        .input {
+        textarea{
             width: 100%;
-            background-color: transparent;
-            border-left: 0.1rem solid var(--light);
-            padding-left: 1rem;
-            font-size: 1.4rem;
-            color: var(--black);
-            font-weight: 400;
-            text-transform: capitalize;
         }
+    }
+   
+    hr{
+        border: solid 1px rgb(221, 216, 216);
+        width: 70%;
+        // margin-bottom: 10px;
     }
 }

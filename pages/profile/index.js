@@ -104,7 +104,7 @@ function Profile() {
                 <div className={cx('content')}>
                     {
                         activeProfile === 1 ?
-                            <ProfileUser data={currentUser} /> :
+                            <ProfileUser data={currentUser} setuser={setCurrentUser} /> :
                             activeProfile === 3 ?
                                 <div>
                                     {currentUser && <BookingUser user={currentUser.UserName} />}
