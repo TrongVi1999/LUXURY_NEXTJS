@@ -1,124 +1,58 @@
 import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
-import { useController, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import ReCAPTCHA from 'react-google-recaptcha'
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import national from '@/pages/api/national.json';
 
 import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
-import national from '@/pages/api/national.json';
 
 const cx = classNames.bind(style);
 
-function Hotelbook({ click, hotel }) {
-    console.log(hotel);
-    const [ipAddress, setIpAddress] = useState('');
-    const [currentUser, setCurrentUser] = useState(null);
-    const [Select, setselect] = useState();
-    const [Typeroom, settyperoom] = useState();
-    const [errsl, seterrsl] = useState(false);
-    const [gender, setgender] = useState()
+function Booking({ click }) {
 
     const {
-        watch,
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const email = watch('Email');
-    const email2 = watch('Email2');
+    //Validate Re-capcha
+    // const validateCaptcha = (response_key) => {
+    //     return new Promise((resolve, reject) => {
+    //       const secret_key = process.env.RECAPTCHA_SECRET
 
-    const validateEmailMatch = () => {
-        return email === email2 || 'Email not match';
-    };
+    //       const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${response_key}`
 
-
-    const handleEnquire = (data) => {
-        callApi(data);
-        callApiSendmail(data);
-
-
-    };
-    // console.log('select', Select)
-
-    // lay ip address
-    $.getJSON('https://jsonip.com/?callback=?').done(function (data) {
-        var ip_address = window.JSON.parse(JSON.stringify(data, null, 2));
-        ip_address = ip_address.ip;
-        setIpAddress(ip_address);
-    });
-
-
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [])
-
-    const callApi = async (data) => {
-        console.log(data);
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
-            data: qs.stringify({
-                Ip: ipAddress,
-                UserName: currentUser ? currentUser.UserName : null,
-                TourName: hotel,
-                Country: Select,
-                Adult: data.PersonsAttendtion,
-                FullName: data.FullName,
-                Email: data.Email,
-                Phone: data.Phone,
-                Note: data.Note,
-                CheckIn: data.CheckIn,
-                Checkout: data.CheckOut,
-                TypeRoom: Typeroom,
-                Type: 'Hotel',
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
-        console.log(response.data)
-
-        if (response.status === 200) {
-            console.log('Inquire complete!')
-            toastSuccess(' Inquire complete!');
-            // console.log(Bookinfor);
-        } else alert('Invaild infor')
-
-    };
-
-
-    const callApiSendmail = async (data) => {
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
-            data: qs.stringify({
-                header: `You inquired a hotel from VNXpedia`,
-                content: `Hotel: ${hotel}`,
-                mail: data.Email,
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
-    };
+    //       fetch(url, {
+    //         method: 'post'
+    //       })
+    //         .then((response) => response.json())
+    //         .then((google_response) => {
+    //           if (google_response.success == true) {
+    //             resolve(true)
+    //           } else {
+    //             resolve(false)
+    //           }
+    //         })
+    //         .catch((err) => {
+    //           console.log(err)
+    //           resolve(false)
+    //         })
+    //     })
+    //   }
 
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK NOW
                 <p onClick={() => click(false)}>Back</p></div>
 
-            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
+            <form className={cx("book-content")} onSubmit={handleSubmit()}>
                 <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Service Name:&nbsp;
@@ -156,7 +90,7 @@ function Hotelbook({ click, hotel }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            {/* <div className={cx("sex")}>
+                            <div className={cx("sex")}>
                                 <input
                                     name="gender"
                                     type="checkbox"
@@ -175,7 +109,7 @@ function Hotelbook({ click, hotel }) {
                                 <label className={cx("sex-m")} for="">
                                     FEMALE
                                 </label>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -189,7 +123,6 @@ function Hotelbook({ click, hotel }) {
                                     <option key={d.code} value={d.code}>{d.name}</option>
                                 ))}
                             </select>
-                            {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -225,23 +158,22 @@ function Hotelbook({ click, hotel }) {
                                 type="text"
                                 placeholder="Confirm Email"
                                 className={cx("cus-mail")}
-                                {...register('Email2', {
+                                {...register('Email', {
                                     required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
-                                    validate: validateEmailMatch,
                                 })}
                             />
-                            {errors.Email2 && errors.Email2.type === 'required' && (
+                            {errors.Email && errors.Email.type === 'required' && (
                                 <span className={cx("error-message")}>Email cannot be empty !</span>
                             )}
-                            {errors.Email2 && errors.Email2.type === 'pattern' && (
+                            {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
-                            {errors.Email2 && errors.Email2.message === 'Email not match' && (
-                                <span className={cx("error-message")}>Email not match</span>
-                            )}
+                            {/* {errors.Email && errors.Email.type === ''(
+                                <span className={cx("error-message")}>Email must match</span>
+                            )} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -271,96 +203,27 @@ function Hotelbook({ click, hotel }) {
                             )}
                         </div>
                     </div>
-
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
-                            Check In: <br />
-                            <div className={cx("input-enquire")}>
-                                <input
-                                    type="date"
-                                    name="date"
-                                    className={cx("check-in")}
-                                    {...register('CheckIn', { required: true })}
-                                />
-                                {errors.CheckIn && errors.CheckIn.type === 'required' && (
-                                    <span className={cx("error-message")}>Check In cannot be empty !</span>
-                                )}
-                            </div>
-                        </label>
-                        <div className={cx('groupcheck')}>
-                            <div>
-                                <label className={cx("label-booking")}>
-                                    Check out:   <br />
-                                    <div className={cx("input-enquire")}>
-                                        <input
-                                            type="date"
-                                            name="date"
-                                            className={cx("check-out")}
-                                            {...register('CheckOut', { required: true })}
-                                        />
-                                        {errors.CheckOut && errors.CheckOut.type === 'required' && (
-                                            <span className={cx("error-message")}>CheckOut cannot be empty !</span>
-                                        )}
-                                    </div>
-                                </label></div>
-                            <div>
-                                <label className={cx("label-booking")}>
-                                    Persons Attendtion <br />
-                                    <div>
-                                        <input
-                                            type="number"
-                                            name="date"
-                                            className={cx("persons-attendtion")}
-                                            {...register('PersonsAttendtion', { required: true })}
-                                        />
-                                        {errors.PersonsAttendtion && errors.PersonsAttendtion.type === 'required' && (
-                                            <span className={cx("error-message")}>PersonsAttendtion cannot be empty !</span>
-                                        )}
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={cx("item-form")}>
-                        <label className={cx("label-booking")}>
-                            Type of Room:
-                        </label>
-                        <div>
-                            <select name='TypeRoom' className={cx("our-services")} onChange={(e) => settyperoom(e.target.value)}>
-                                <option value="0" label="-- Select --" selected="selected">Select</option>
-                                <option value="vip" label="Vip Room">Vip Room</option>
-                                <option value="normal" label="Normal Room">Normal Room</option>
-                            </select>
-                            {errsl && <span className={cx("error-message")}>TypeRoom cannot be empty !</span>}
-
-                        </div>
-                    </div>
-                    <div className={cx("item-form")}>
-                        <label className={cx("label-booking")}>
-                            We welcome your special requests here:
+                            We welcome your special requests here
                         </label>
                         <div>
                             <textarea
                                 placeholder="Message"
                                 className={cx("book-note")}
-                                // onChange={(e) =>
-                                //     setBookinfor({
-                                //         ...Bookinfor,
-                                //         Note: e.target.value,
-                                //     })
-                                // }
-                                {...register('Note', { required: true })}
+                                onChange={(e) =>
+                                    setBookinfor({
+                                        ...Bookinfor,
+                                        Note: e.target.value,
+                                    })
+                                }
                             ></textarea>
-                            {errors.Note && errors.Note.type === 'required' && (
-                                <span className={cx("error-message")}>Note cannot be empty !</span>
-                            )}
                         </div>
                     </div>
-
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
+                    <button className={cx("btn")}>Send Message</button>
                 </div>
             </form>
         </div>
@@ -369,4 +232,4 @@ function Hotelbook({ click, hotel }) {
     );
 }
 
-export default Hotelbook;
+export default Booking;

@@ -194,7 +194,7 @@
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
-    padding: 10px 0px !important;
+    padding: 10px 12px !important;
     width: 100% !important;
     margin-top: 20px;
 }
@@ -202,7 +202,7 @@
     color: #6f6f6f;
     border: 1px solid #b1b1b1;
     border-radius: 4px;
-    padding: 10px 0px !important;
+    padding: 10px 12px !important;
     width: 100% !important;
     margin-top: 20px;
 }
@@ -263,6 +263,7 @@
 .error-message {
     font-size: 12px !important;
     color: red;
+    font-weight: 400;
 }
 
 @media only screen and (min-width: 1185px) and (max-width: 1350px) {
