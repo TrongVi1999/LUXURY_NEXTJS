@@ -81,6 +81,7 @@ const BookMICE = ({ close }) => {
                 Company: data.Company,
                 StartDate: data.StartDate,
                 Adult: data.Adult,
+                Status: 'BOOKED',
 
 
                 FullName: data.FullName,

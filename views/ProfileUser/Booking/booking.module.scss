@@ -78,8 +78,13 @@
             text-transform: capitalize;
         }
     }
-
+    .status span {
+        background-color: var(--status-book);
+    }
     .status.Prepare span {
+        background-color: var(--status-book);
+    }
+    .status.BOOKED span {
         background-color: var(--status-book);
     }
     .status.planning span {

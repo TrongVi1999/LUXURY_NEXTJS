@@ -90,6 +90,7 @@ function Booking({ onClick, datas, title, long }) {
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: texta,
+                Status: 'BOOKED'
 
             }),
             headers: {

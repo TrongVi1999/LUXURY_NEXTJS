@@ -81,6 +81,7 @@ function Hotelbook({ click, hotel }) {
                 CheckIn: data.CheckIn,
                 Checkout: data.CheckOut,
                 TypeRoom: Typeroom,
+                Status: 'BOOKED',
                 Type: 'HOTEL',
             }),
             headers: {
