@@ -33,7 +33,7 @@ function Mice() {
         <div className={cx('wrapper')}>
             <BannerIMG className={cx('bannerBody')} bg='bg' title={"mice"} img={Img11} />
 
-            {book ? <Booking /> :
+            {book ? <Booking click={setbook} /> :
                 <div>
                     <div className={cx('sectionDiff')}>
                         <TitleMice title={'we have difference from the rest'} des={"MICE hes been a tight spot in Vietnams tous business during the last ten your sending several encouraging signals In an informal serien Vopedia has had activities and produced monique product in trdochina since to years ago when Vietnam was quite navel on the international tounem man"} />
