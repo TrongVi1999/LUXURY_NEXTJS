@@ -16,6 +16,8 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GetHotel } from '../api/CallAPI';
+import { Section } from '@/components';
+import Hotelcard from '@/views/HotelCard/Hotelcard';
 
 
 
@@ -130,6 +132,13 @@ const Index = () => {
                                 </p>
                             </div>
                         </Link>
+                        {/* <Section maxWidth={1170} isWrap gapBox={3.2}>
+                            {
+                                Data && Data.map((d) => (
+                                    <Hotelcard data={d} key={d} to={`/transfer-detail/${d.id}`} />
+                                ))
+                            }
+                        </Section> */}
                     </div>
                 </div>
                 }
