@@ -129,7 +129,7 @@ const BlogDetail = () => {
                     </div>
                     <div className={cx('comment-container')}>
                         <Comments />
-                        <WriteComment />
+                        <WriteComment id={Data[0].id} prid={''} />
                     </div>
                 </div>)
             }
