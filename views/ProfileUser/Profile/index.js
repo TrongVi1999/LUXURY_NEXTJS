@@ -71,8 +71,8 @@ function InfoUser({ data, setuser }) {
             toastError('Error!');
         } else {
             toastSuccess('Successfully changed information.');
-            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note }));
-            setuser({ ...data, FullName: Newinfor.GivenName, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note });
+            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+            setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
             // setCurrentUser({
             //     ...Useredit,
             //     ...data,
