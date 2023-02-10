@@ -24,6 +24,7 @@ function BlogList() {
 
     const [Data, setdata] = useState();
     const CallAPI = async () => {
+
         const response = await (Allblog(Tag, page));
         if (response.status == 200) {
             setdata(response.data);
@@ -91,6 +92,7 @@ function BlogList() {
                 setvltag={settag}
                 setinput={setkeyword}
                 searchinput={handleSearch}
+                blog
             />
         </Section>
     </div>);
