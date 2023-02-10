@@ -6,7 +6,7 @@ import { Section, Pagination, Button } from '@/components';
 import { banners } from '@/public/images';
 import { BlogCard2, CategoryFilter } from '@/views';
 import { categoryFillerAddress, tourTagsFilter, recentPostFake } from '@/public/dataRender';
-import { Allblog, Searchblog } from '../api/CallAPI';
+import { Allblog, Bloghot, Searchblog } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 
 
@@ -23,6 +23,7 @@ function BlogList() {
 
 
     const [Data, setdata] = useState();
+    const [Datahot, setdatahot] = useState();
     const CallAPI = async () => {
 
         const response = await (Allblog(Tag, page));
@@ -66,6 +67,20 @@ function BlogList() {
         })
     }, [showFilterMobile])
 
+    //Blog hot
+
+    const CallAPIBlog = async () => {
+        const response = await Bloghot();
+        console.log(response);
+        if (response.status == 200) {
+            setdatahot(response.data.Object);
+        }
+    }
+
+    useEffect(() => {
+        CallAPIBlog();
+    }, [])
+
     return (<div className={cx('wrapper')}>
         <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='vnxpedia blog list' bg='bg' crumb={{ title: 'BLOG' }} />
         {/* btn Show filterMenu Mobile */}
@@ -79,21 +94,24 @@ function BlogList() {
                 }
                 {Data && <Pagination totalPosts={Data.Title} postPerPage={9} setPage={setPage} pageIndex={page} />}
             </div>
-            <CategoryFilter
-                isSearch
-                category={categoryFillerAddress}
-                recentPost={recentPostFake}
-                // archives
-                banner
-                tourTags={tourTagsFilter}
-                className={cx('boxFilter')}
-                showFilterMobile={showFilterMobile}
-                setvldestination={settag}
-                setvltag={settag}
-                setinput={setkeyword}
-                searchinput={handleSearch}
-                blog
-            />
+            {Datahot &&
+                <CategoryFilter
+                    isSearch
+                    category={categoryFillerAddress}
+                    recentPost={recentPostFake}
+                    // archives
+                    banner
+                    tourTags={tourTagsFilter}
+                    className={cx('boxFilter')}
+                    showFilterMobile={showFilterMobile}
+                    setvldestination={settag}
+                    setvltag={settag}
+                    setinput={setkeyword}
+                    searchinput={handleSearch}
+                    blog
+                    hotblog={Datahot}
+                />
+            }
         </Section>
     </div>);
 }
