@@ -103,7 +103,19 @@ function Destimation() {
                             </div>}
                             <div className={cx('sort')}>
                                 <div className={cx('sortContent')}>
-                                    <button>Sort by</button>
+                                    <label>Sort by</label>
+                                    <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label>
+                                    <select name='sort-price' id='sort-price' className={cx("sort-sl")} onChange={(e) => setsort(e.target.value)}>
+                                        <option value='Price'>Ascending</option>
+                                        <option value='Long'>Descending</option>
+                                    </select>
+
+                                    <label htmlFor="sort-long">Long</label>
+                                    <select name='sort-long' id='sort-long' className={cx("sort-sl")} onChange={(e) => setsort(e.target.value)}>
+                                        <option value='Price'>Ascending</option>
+                                        <option value='Long'>Descending</option>
+                                    </select>
+
                                 </div>
                                 <span>Showing {(page - 1) * 9 + 1} - {(page - 1) * 9 + Data.slice(firstIndex, lastIndex).length} of {Data.length} products</span>
                             </div>

@@ -144,7 +144,7 @@ function BookingUser({ user }) {
 
         <>
             <h1 className={cx('title')}>booking list</h1>
-            {
+            {Bookdata &&
                 Bookdata.slice(firstIndex, lastIndex).map((item, index) => (
                     <ItemBookingUser key={index}
                         img={banners.banner2}
