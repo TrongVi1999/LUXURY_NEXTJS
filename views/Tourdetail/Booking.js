@@ -123,6 +123,7 @@ function Booking({ onClick, datas, title, long }) {
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
+            <p onClick={() => onClick(0)}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>

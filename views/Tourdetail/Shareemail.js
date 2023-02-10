@@ -13,7 +13,7 @@ import national from '@/pages/api/national.json';
 const cx = classNames.bind(style);
 
 
-function Shareemail({ onClick, datas, title, long }) {
+function Shareemail({ onClick, datas, title, long, close }) {
     const {
         register,
         handleSubmit,
@@ -21,7 +21,7 @@ function Shareemail({ onClick, datas, title, long }) {
     } = useForm();
     return (
         <div className={cx("booking-infor")}>
-
+            <p onClick={() => close(0)}>Back</p>
             <form className={cx("book-content")} >
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
