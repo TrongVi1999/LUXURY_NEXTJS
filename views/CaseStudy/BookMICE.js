@@ -9,6 +9,7 @@ import national from '@/pages/api/national.json'
 import $, { data } from 'jquery';
 import qs from 'qs';
 import toastSuccess from '@/hook/toastr';
+import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
 const ListLocation =
@@ -41,7 +42,7 @@ const BookMICE = ({ close }) => {
     const See = watch('location')
 
     const handleEnquire = (data) => {
-        callApi();
+        callApi(data);
     }
     const AddDes = (e) => {
 
@@ -129,6 +130,7 @@ const BookMICE = ({ close }) => {
 
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <p onClick={() => close(true)}></p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire())}>

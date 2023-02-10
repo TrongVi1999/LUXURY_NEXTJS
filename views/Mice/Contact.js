@@ -11,6 +11,7 @@ import national from '@/pages/api/national.json';
 import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
+import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
 
@@ -111,6 +112,7 @@ function Booking({ click }) {
 
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <div className={cx("book-crumb")}>Home | CONTACT US
                 <p onClick={() => click(false)}>Back</p></div>
 
