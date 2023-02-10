@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
-import { Getblog } from '@/pages/api/CallAPI';
+import { GetSocial } from '@/pages/api/CallAPI';
 
 
 const cx = classNames.bind(style);
@@ -12,7 +12,7 @@ const Itinerary = ({ description, detail, click }) => {
     const [Data, setData] = useState();
 
     const CallAPI = async () => {
-        const response = await Getblog(5044);
+        const response = await GetSocial(5262);
         if (response.status == 200) {
             setData(response.data.Object)
         }
@@ -58,7 +58,7 @@ const Itinerary = ({ description, detail, click }) => {
                 </div>
             }
             {content[1] == 'active' && Data &&
-                <div className={cx('iti-main')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}>
+                <div className={cx('iti-main-social')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}>
 
                 </div>
             }
