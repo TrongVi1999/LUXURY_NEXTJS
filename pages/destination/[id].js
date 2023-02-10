@@ -52,9 +52,7 @@ function Destimation() {
     }
 
     const sortp = (Data) => {
-        if (sort == 'All') {
-            return Data;
-        }
+
         if (sort == 'Ascending') {
             return Data.sort((a, b) =>
                 a.PRICE[0].price * (100 - a.Discount) / 100 - b.PRICE[0].price * (100 - b.Discount) / 100
@@ -76,8 +74,14 @@ function Destimation() {
             return Data.sort((a, b) => Number(b.DETAIL[b.DETAIL.length - 1].Day) - Number(a.DETAIL[a.DETAIL.length - 1].Day))
 
         }
+        if (sort == "None") {
+            sortByName(Data)
+            return Data
 
-        else return Data
+        }
+
+        return sortByName(Data);
+
     }
 
 
@@ -117,9 +121,19 @@ function Destimation() {
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
-    console.log(vldestination)
+    console.log(sort)
 
-
+    function sortByName(arr) {
+        return arr.sort(function (a, b) {
+            if (a.TourNname < b.TourName) {
+                return -1;
+            }
+            if (a.TourName > b.TourName) {
+                return 1;
+            }
+            return 0;
+        });
+    }
 
 
 
@@ -148,7 +162,7 @@ function Destimation() {
                                     <label>Sort by :</label>
                                     {/* <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label> */}
                                     <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
-                                        <option value='All'>--Price/Day--</option>
+                                        <option value='None'>--Price/Day--</option>
                                         <option value='Ascending'>Price Ascending</option>
                                         <option value='Descending'>Price Descending</option>
                                         <hr />

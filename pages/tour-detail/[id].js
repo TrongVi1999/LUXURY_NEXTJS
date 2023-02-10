@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
@@ -11,6 +11,7 @@ import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
 import { useRouter } from "next/router";
 import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
+import Shareemail from '@/views/Tourdetail/Shareemail';
 
 const cx = classNames.bind(style);
 
@@ -30,10 +31,9 @@ const data = {
 const index = () => {
     const router = useRouter();
     const [Tourdata, setTourdata] = useState();
-    const [Book, setBook] = useState(true);
-    const handleBooking = () => {
-        setBook(false);
-    }
+    const [Book, setBook] = useState(0);
+
+
 
     const callApi = async () => {
         const response = await axios({
@@ -61,7 +61,7 @@ const index = () => {
                 }
 
 
-                {Book ?
+                {Book == 0 &&
                     <div className={cx('main-infor')}>
 
                         <div className={cx('crumb-cost')}>
@@ -74,15 +74,17 @@ const index = () => {
                         </div>
 
                         <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={handleBooking} />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={handleBooking} />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} />
 
-                    </div> : <Booking
-                        onClick={() => handleBooking()}
-                        datas={Tourdata}
-                    />
+                    </div>}
+                {Book == 1 && <Booking
+                    onClick={setBook}
+                    datas={Tourdata}
+                />
 
                 }
+                {Book == 2 && <Shareemail close={setBook} />}
                 <Tourrecomment type={Tourdata.TourType} />
 
 

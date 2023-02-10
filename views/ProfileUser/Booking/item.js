@@ -18,7 +18,7 @@ function ItemBookingUser({
             <Image src={img} alt='imgError' className={cx('img')} />
         </div>
         <div className={cx('boxContent')}>
-            <h2 className={cx('titleTour')}>{titleTour}</h2>
+            {titleTour && <h2 className={cx('titleTour')}>{titleTour}</h2>}
             <div className={cx('boxInfoTour')}>
                 <span>Booking number: {id}</span>
                 <span>Time: {time}</span>
@@ -27,7 +27,7 @@ function ItemBookingUser({
             </div>
         </div>
         <div className={cx('status', { [status]: status })}><span>
-            {status}
+            {status ? status : 'BOOKED'}
         </span>
         </div>
     </Link>);

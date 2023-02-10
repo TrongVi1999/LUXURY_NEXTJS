@@ -16,6 +16,7 @@ function Booking({ onClick, datas, title, long }) {
     const [currentUser, setCurrentUser] = useState(null);
     const [ipAddress, setIpAddress] = useState('');
     const [country, setcountry] = useState();
+    const [hotel, sethotel] = useState();
     const [texta, settexta] = useState()
     // const [Bookinfor, setBookinfor] = useState({
     //     Ip: ipAddress,
@@ -72,7 +73,8 @@ function Booking({ onClick, datas, title, long }) {
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
             data: qs.stringify({
                 Ip: ipAddress,
-                TourCode: 'VNCLASSIC01',
+                Type: 'TOUR',
+                TourCode: datas.TourCode,
                 UserName: currentUser ? currentUser.UserName : null,
                 TourName: datas.TourName,
                 Country: country,
@@ -82,12 +84,13 @@ function Booking({ onClick, datas, title, long }) {
                 Children: data.Children,
                 Children1: data.Children1,
                 Children2: data.Children2,
-                Hotel: data.Hotel,
+                Hotel: hotel,
                 FullName: data.FullName,
                 // UsFrom: Bookinfor.UsFrom,
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: texta,
+                Status: 'BOOKED'
 
             }),
             headers: {
@@ -104,6 +107,7 @@ function Booking({ onClick, datas, title, long }) {
         } else alert('Invaild infor')
 
     };
+    console.log(datas.TourName)
 
     const callApiSendmail = async (data) => {
         const response = await axios({
@@ -123,6 +127,7 @@ function Booking({ onClick, datas, title, long }) {
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
+            <p onClick={() => onClick(0)}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
@@ -219,7 +224,7 @@ function Booking({ onClick, datas, title, long }) {
                             className={cx("book-hotel")}
                         /> */}
                         <div>
-                            <select name='ourServices' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
+                            <select name='ourServices' className={cx("our-services")} onChange={(e) => sethotel(e.target.value)}>
                                 <option value="">-- Select --</option>
                                 <option value="Hotel 3 *">Hotel 3 *</option>
                                 <option value="Hotel 4 *">Hotel 4 *</option>
