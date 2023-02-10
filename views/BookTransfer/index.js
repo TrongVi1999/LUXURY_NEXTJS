@@ -77,6 +77,7 @@ function Transferbook({ click, transfer }) {
                 Note: data.Note,
                 Babycartseat: Baby,
                 Children: data.Children,
+                Status: 'BOOKED',
                 type: 'TRANSFER',
             }),
             headers: {

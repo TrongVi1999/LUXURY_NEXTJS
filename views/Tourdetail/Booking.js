@@ -87,6 +87,8 @@ function Booking({ onClick, datas, title, long }) {
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: texta,
+                Status: 'BOOKED'
+
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',

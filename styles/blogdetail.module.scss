@@ -1,38 +1,47 @@
 .container {
     width: 100%;
 }
+
 .main {
     width: 100%;
 }
+
 .main-top {
     padding: 5% 28% 5% 18%;
     width: 100%;
     display: flex;
+
     .content {
         width: 50%;
         flex: 1;
     }
 }
+
 .main-bot {
     padding: 5% 28% 5% 28%;
     width: 100%;
+
     .content {
         width: 100%;
         padding-bottom: 10%;
         border-bottom: 1px solid var(--light);
     }
 }
+
 .img-banner {
     width: 100%;
     height: 40vw;
     object-fit: cover;
 }
+
 .author {
     width: 20%;
     min-width: 120px;
 }
+
 .content {
     color: gray;
+
     img {
         display: block;
         width: 100%;
@@ -40,22 +49,26 @@
         margin: 0 auto;
         margin: 20px 0;
     }
+
     table {
         width: 100%;
         margin: 2% 0;
     }
 }
+
 .main-end {
     display: flex;
     margin-top: 5%;
     justify-content: space-between;
 }
+
 .tag-list {
     width: 30%;
     padding-right: 20px;
     flex: 1;
     display: flex;
     flex-wrap: wrap;
+
     div {
         font-size: 14px;
         margin-right: 20px;
@@ -64,11 +77,13 @@
         white-space: nowrap;
     }
 }
+
 .share-list {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
+
     span {
         margin-right: 10px;
     }
@@ -80,14 +95,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 10%;
+    padding: 0 20%;
+
+
     .author-avt {
         width: 100px;
         height: 100px;
         background-color: var(--light);
         border-radius: 50%;
         margin-bottom: 10px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
     }
+
     p {
         text-align: center;
     }
@@ -98,20 +124,24 @@
     padding: 5% 30%;
     background-color: var(--super-light);
 }
+
 //wrie a post
 .write-cm {
     width: 100%;
     margin-top: 5rem;
 }
+
 .textarea {
     display: block;
     width: 100%;
     border: 1px solid black;
 }
+
 .login-list {
     text-align: right;
     padding: 0.5vw 0;
 }
+
 .btn {
     display: block;
     padding: 15px 30px;
@@ -132,29 +162,36 @@
 .comments {
     width: 100%;
 }
+
 .comment-reply {
     margin-left: 8rem;
 }
+
 .comment {
     display: flex;
     padding-bottom: 4rem;
     border-bottom: 1px solid gray;
     margin-top: 4rem;
+
     .main {
         width: 50%;
         flex: 1;
+
         .au-cm {
             font-weight: bold;
             color: black;
+
             span {
                 font-weight: normal;
                 color: gray;
             }
+
             svg {
                 margin-left: 20px;
                 margin-right: 10px;
             }
         }
+
         p {
             margin-bottom: 1rem;
             font-weight: normal;
@@ -162,6 +199,7 @@
         }
     }
 }
+
 .avt {
     width: 6rem;
     margin-right: 2rem;
@@ -169,6 +207,7 @@
     border-radius: 100%;
     background-color: var(--light);
     overflow: hidden;
+
     img {
         width: 100%;
         height: 100%;
@@ -179,35 +218,44 @@
     .main-top {
         padding: 5% 23% 5% 13%;
     }
+
     .main-bot {
         padding: 5% 23% 5% 23%;
     }
+
     .comment-container {
         padding: 5% 20%;
     }
 }
+
 @media only screen and (max-width: 1200px) {
     .main-top {
         padding: 5% 18% 5% 8%;
     }
+
     .main-bot {
         padding: 5% 18% 5% 18%;
     }
+
     .comment-container {
         padding: 5% 12%;
     }
 }
+
 @media only screen and (max-width: 900px) {
     .main-top {
         padding: 5%;
     }
+
     .main-bot {
         padding: 5% 5% 5% 5%;
     }
+
     .comment-container {
         padding: 5% 10%;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .tag-list {
         span {

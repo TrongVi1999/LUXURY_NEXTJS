@@ -27,7 +27,7 @@ function ItemBookingUser({
             </div>
         </div>
         <div className={cx('status', { [status]: status })}><span>
-            {status}
+            {status ? status : 'BOOKED'}
         </span>
         </div>
     </Link>);

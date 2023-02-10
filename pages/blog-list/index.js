@@ -73,12 +73,16 @@ function BlogList() {
         <div id='list'></div>
 
         <Section className={cx('bodyContent')} gapBox={1}>
+
             <div className={cx('listBlogBody')}>
+                {Data && <span className={cx('bodyPage')}>Showing {(page - 1) * 10 + 1} - {(page - 1) * 10 + Data.Object.length} of {Data.Title} products</span>}
                 {Data && Data.Object.map((d) =>
                     <BlogCard2 className={cx('bodyBlogItem')} data={d} />)
                 }
-                {Data && <Pagination totalPosts={Data.Title} postPerPage={9} setPage={setPage} pageIndex={page} />}
+                {Data && <Pagination totalPosts={Data.Title} postPerPage={10} setPage={setPage} pageIndex={page} />}
+
             </div>
+
             <CategoryFilter
                 isSearch
                 category={categoryFillerAddress}
