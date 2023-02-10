@@ -14,7 +14,7 @@ const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag, setvlseason, setvlgroup, setinput, searchinput, blog }) {
+function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag, setvlseason, setvlgroup, setinput, searchinput, blog, hotblog }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
     const [activeArchive, setActiveArchive] = useState(-1);
@@ -85,6 +85,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     }
     const handelActivePrice = (index) => {
         setActivePrice(index)
+        setShowFillter(0);
         setvlfromcost(priceft.value[index][0]);
         setvlendcost(priceft.value[index][1]);
 
@@ -99,10 +100,14 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     }
     const hanldleActiveSeason = (index) => {
         setActiveArchive(index);
+        setShowFillter(0);
+
         setvlseason(season.elements[index]);
     }
     const hanldleActiveGroup = (index) => {
         setActiveGroup(index);
+        setShowFillter(0);
+
         setvlgroup(groupSize.elements[index]);
     }
 
@@ -140,7 +145,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {category ? (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination('') }} /></h2>
+                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination(''); setShowFillter(0) }} /></h2>
                     {category.elements?.map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
@@ -155,7 +160,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {price ? (
                 <div className={cx('boxFillterItem', 'boxArchives', showFillter === 2 ? 'active' : null)}>
-                    <h2 className={cx('title')} >filter by price <GrPowerReset className={cx('icon-reset')} onClick={() => { setActivePrice(-1); setvlfromcost(0); setvlendcost(15000) }} /></h2>
+                    <h2 className={cx('title')} >filter by price <GrPowerReset className={cx('icon-reset')} onClick={() => { setActivePrice(-1); setvlfromcost(0); setvlendcost(15000); setShowFillter(0) }} /></h2>
 
                     {/* {price.elements?.map((element, index) => (
                         <div
@@ -170,7 +175,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
                     {
                         priceft?.elements.map((item, index) => (
-                            <div className={cx('archivesItem', 'itemMobileShow', activePrice === index ? 'active' : null)} onClick={() => handelActivePrice(index)} key={index}>
+                            <div className={cx('archivesItem', 'itemMobileShow', activePrice === index ? 'active' : null)} onClick={() => handelActivePrice(index)} key={index} >
                                 <span>{item}</span>
                             </div>
                         ))
@@ -219,7 +224,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {tourTags ? (
                 <div className={cx('boxFillterItem', showFillter === 4 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{tourTags.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveTour(-1); blog ? setvltag('Blog') : setvltag('') }} /></h2>
+                    <h2 className={cx('title')}>{tourTags.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveTour(-1); blog ? setvltag('Blog') : setvltag(''); setShowFillter(0) }} /></h2>
                     <div className={cx('boxTourFil', 'itemMobileShow')}>
                         {tourTags.elements?.map((element, index) => (
                             <span
@@ -237,7 +242,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {/* ================ groupSize ==============  */}
             {
                 groupSize ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 5 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{groupSize.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveGroup(-1); setvlgroup('') }} /></h2>
+                    <h2 className={cx('title')}>{groupSize.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveGroup(-1); setvlgroup(''); setShowFillter(0) }} /></h2>
                     {
                         groupSize.elements.map((item, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeGroup === index ? 'active' : null)} onClick={() => hanldleActiveGroup(index)} key={index}>
@@ -251,7 +256,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {/* ================ SeaSon ==============  */}
             {
                 season ? (<div className={cx('boxFillterItem', 'boxArchives', showFillter === 6 ? 'active' : null)}>
-                    <h2 className={cx('title')}><GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveArchive(-1); setvlseason('') }} /> {season.title} </h2>
+                    <h2 className={cx('title')}><GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveArchive(-1); setvlseason(''); setShowFillter(0) }} /> {season.title} </h2>
                     {
                         season.elements.map((item, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => hanldleActiveSeason(index)} key={index}>
@@ -267,14 +272,14 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
                 recentPost ? (<div className={cx('boxFillterItem', 'boxRecent')}>
                     <h2 className={cx('title')}>{recentPost.title} </h2>
                     {
-                        recentPost.elements.map((item, index) => (
-                            <Link key={index} href='/' className={cx('recentItem', 'itemMobileShow')}>
+                        hotblog.map((item, index) => (
+                            <Link key={index} href={`/blog-detail/${item.id}`} className={cx('recentItem', 'itemMobileShow')}>
                                 <div className={cx('imgBox')}>
-                                    <Image src={item.image} alt="errorImgPostRecent" className={cx('img')} />
+                                    <Image src={`https://vnxpedia.3i.com.vn${item.gallery}`} alt="errorImgPostRecent" className={cx('img')} width={200} height={200} />
                                 </div>
                                 <div className={cx('recentInfo')}>
-                                    <p className={cx('titleRecentPost')}>{item.titlePost}</p>
-                                    <p className={cx('timeRecent')}>{item.time}</p>
+                                    <p className={cx('titleRecentPost')}>{item.title}</p>
+                                    <p className={cx('timeRecent')}>Post on May 25</p>
                                 </div>
                             </Link>
                         ))
@@ -284,7 +289,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {
                 archives ? (<div className={cx('boxFillterItem', 'boxArchives')}>
-                    <h2 className={cx('title')}>archives <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); setvldestination('') }} /></h2>
+                    <h2 className={cx('title')}>archives <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); setvldestination(''); setShowFillter(0) }} /></h2>
                     {
                         listMonthArchives.map((time, index) => (
                             <div className={cx('archivesItem', 'itemMobileShow', activeArchive === index ? 'active' : null)} onClick={() => setActiveArchive(index)} key={index}>
