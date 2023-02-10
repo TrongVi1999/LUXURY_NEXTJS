@@ -60,6 +60,9 @@
     .sortContent {
         display: flex;
         justify-content: space-between;
+        label{
+            font-weight: bold;
+        }
 
         button {
             position: relative;
@@ -94,7 +97,7 @@
     }
 }
 .sort-sl {
-    display: none;
+    display: block;
 }
 
 @media only screen and (max-width: 1200px) {
