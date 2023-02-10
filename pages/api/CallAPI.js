@@ -210,3 +210,18 @@ export const Sendmail = (bookname, email) => axios({
         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
     },
 });
+//comment
+export const Comment = (id, prid, cm, user) => axios({
+    method: 'post',
+    url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost',
+    data: qs.stringify({
+        PostId: id,
+        ParentId: prid ? prid : '',
+        comment: cm,
+        UserName: user ? user : 'NoName'
+    }),
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    },
+});
+
