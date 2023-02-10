@@ -39,7 +39,7 @@ const index = () => {
     useEffect(() => {
         callApi();
     }, [router.query.id])
-    { Tourdata && console.log(ChangeTextHTML(Tourdata.Hightlight)) }
+
 
     return (
         <div className={cx('container')}>

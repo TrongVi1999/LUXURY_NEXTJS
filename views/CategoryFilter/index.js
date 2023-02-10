@@ -14,7 +14,7 @@ const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag, setvlseason, setvlgroup, setinput, searchinput }) {
+function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, groupSize, season, recentPost, archives, banner, setValueFillter, className, setvlcountry, setvldestination, setvltype, setvlfromcost, setvlendcost, setvltag, setvlseason, setvlgroup, setinput, searchinput, blog }) {
     const [activeCategory, setActiveCategory] = useState(-1);
     const [activeTour, setActiveTour] = useState(-1);
     const [activeArchive, setActiveArchive] = useState(-1);
@@ -140,7 +140,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {category ? (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); setvldestination('') }} /></h2>
+                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination('') }} /></h2>
                     {category.elements?.map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
@@ -219,7 +219,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             ) : null}
             {tourTags ? (
                 <div className={cx('boxFillterItem', showFillter === 4 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{tourTags.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveTour(-1); setvltag('') }} /></h2>
+                    <h2 className={cx('title')}>{tourTags.title} <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveTour(-1); blog ? setvltag('Blog') : setvltag('') }} /></h2>
                     <div className={cx('boxTourFil', 'itemMobileShow')}>
                         {tourTags.elements?.map((element, index) => (
                             <span

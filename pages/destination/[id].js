@@ -33,6 +33,9 @@ function Destimation() {
     const [vlfromcost, setvlfromcost] = useState(0);
     const [vlendcost, setvlendcost] = useState(15000);
     const [Listdata, setlistdata] = useState();
+    const [sort, setsort] = useState()
+
+
     const CT = useApppContext();
 
 
@@ -48,12 +51,51 @@ function Destimation() {
 
     }
 
+    const sortp = (Data) => {
+        if (sort == 'All') {
+            return Data;
+        }
+        if (sort == 'Ascending') {
+            return Data.sort((a, b) =>
+                a.PRICE[0].price * (100 - a.Discount) / 100 - b.PRICE[0].price * (100 - b.Discount) / 100
+
+            )
+        }
+        if (sort == "Descending") {
+            return Data.sort((a, b) =>
+                b.PRICE[0].price * (100 - b.Discount) / 100 - a.PRICE[0].price * (100 - a.Discount) / 100
+            )
+        }
+
+
+
+        if (sort == 'Asc') {
+            return Data.sort((a, b) => Number(a.DETAIL[a.DETAIL.length - 1].Day) - Number(b.DETAIL[b.DETAIL.length - 1].Day))
+        }
+        if (sort == "Des") {
+            return Data.sort((a, b) => Number(b.DETAIL[b.DETAIL.length - 1].Day) - Number(a.DETAIL[a.DETAIL.length - 1].Day))
+
+        }
+
+
+    }
+
+
+    { Data && Data.map(d => d.DETAIL.length == 0 && console.log(d.TourName)) }
+
+    const sortd = (Data) => {
+
+
+    }
+
+
+
     const CallAPISuperfilter = async () => {
-        console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
-        console.log('des1', vldestination)
+        // console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
+        // console.log('des1', vldestination)
         const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
         if (response.status == 200) {
-            setdata(response.data.Object);
+            setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
         }
         setPage(1);
     }
@@ -103,24 +145,28 @@ function Destimation() {
                             </div>}
                             <div className={cx('sort')}>
                                 <div className={cx('sortContent')}>
-                                    <label>Sort by</label>
-                                    <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label>
-                                    <select name='sort-price' id='sort-price' className={cx("sort-sl")} onChange={(e) => setsort(e.target.value)}>
-                                        <option value='Price'>Ascending</option>
-                                        <option value='Long'>Descending</option>
+                                    <label>Sort by :</label>
+                                    {/* <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label> */}
+                                    <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
+                                        <option value='All'>--Price/Day--</option>
+                                        <option value='Ascending'>Price Ascending</option>
+                                        <option value='Descending'>Price Descending</option>
+                                        <hr />
+                                        <option value='Asc'>Day   Ascending</option>
+                                        <option value='Des'>Day   Descending</option>
                                     </select>
-
+                                    {/* 
                                     <label htmlFor="sort-long">Long</label>
                                     <select name='sort-long' id='sort-long' className={cx("sort-sl")} onChange={(e) => setsort(e.target.value)}>
-                                        <option value='Price'>Ascending</option>
-                                        <option value='Long'>Descending</option>
-                                    </select>
+                                        <option value='select'>--All--</option>
+
+                                    </select> */}
 
                                 </div>
                                 <span>Showing {(page - 1) * 9 + 1} - {(page - 1) * 9 + Data.slice(firstIndex, lastIndex).length} of {Data.length} products</span>
                             </div>
                             <div className={cx('tour-list')}>
-                                {Data.slice(firstIndex, lastIndex).map((d, i) =>
+                                {sortp(Data).slice(firstIndex, lastIndex).map((d, i) =>
                                     <Tourcard2 data={d} />
                                 )}
                             </div>

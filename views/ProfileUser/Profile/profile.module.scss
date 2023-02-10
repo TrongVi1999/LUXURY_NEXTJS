@@ -25,6 +25,19 @@
             color: var(--button);
         }
     }
+    .radio{
+        padding:5px 0;
+        p{
+            padding: 1.5rem 0;
+        }
+        div{
+            padding: 0;
+            input{
+                margin-right: 50px;
+                margin-left: 20px;
+            }
+        }
+    }
 
     div{
         display: flex;

@@ -9,7 +9,6 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 const cx = classNames.bind(style);
 
 const InEx = ({ data, type }) => {
-    console.log('data', data)
     return (
         <div className={cx('in-ex')}>
             {type == 'inc' ? <Title text='Tour Inclusion' /> : <Title text='Tour Exclusion' />}

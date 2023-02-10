@@ -7,6 +7,7 @@ import { ImFire } from 'react-icons/im';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
+import { RandomBook } from '@/hook/random';
 
 import Link from 'next/link';
 
@@ -24,10 +25,10 @@ const Tourcard2 = ({ data }) => {
                 <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
-                        <AiFillStar /> 4.8
+                        <AiFillStar /> {(Math.random() * (5 - 4) + 4).toFixed(1)}
                     </span>
                     <span className={cx('ratecount')}>
-                        (5.0 rate) | 999 book
+                        ({RandomBook(50, 200)} rate) | {RandomBook(50, 200)} book
                     </span>
                 </p>
 
@@ -35,8 +36,8 @@ const Tourcard2 = ({ data }) => {
                     <BsCalendarWeek /> {data.DETAIL.length} Day
                 </p>
                 <p className={cx('price')}>
-                    <span className={cx('price1')}>$ {1500 - ((1500 * data.Discount) / 100)}</span> <ImFire />${' '}
-                    <span className={cx('price2')}>1500</span>
+                    <span className={cx('price1')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
+                    <span className={cx('price2')}>{data.PRICE[0].price}</span>
                 </p>
                 <p className={cx('place')}>
                     <SlLocationPin />
@@ -50,7 +51,7 @@ const Tourcard2 = ({ data }) => {
                         </p>
                     ))}
                 </div>
-                <Link href={`/tour-detail/${data.TourCode}`} className={cx('book')}>BOOK THIS TOUR</Link>
+                <Link href={`/tour-detail/${data.TourCode}`} className={cx('book')}>MORE ...</Link>
             </div>
             {data.Discount && data.Discount != 0 && data.Discount != 'null' &&
                 <div className={cx('salesticky')}>

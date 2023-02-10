@@ -31,7 +31,6 @@ function InfoUser({ data, setuser }) {
     const [valueInput, setValueInput] = useState()
     console.log('data', data)
     const [isEdit, setIsEdit] = useState(-1)
-
     const [name, setName] = useState('')
     const [gender, setgender] = useState(data.Gender)
     const [birthday, setbirthday] = useState('')
@@ -82,13 +81,13 @@ function InfoUser({ data, setuser }) {
     return (
 
         <div className={cx('wrapper')}>
-            <h1 className={cx('title')}>profile infomation   <TfiPencilAlt onClick={() => edit ? setedit(false) : setedit(true)}>Edit</TfiPencilAlt></h1>
+            <h1 className={cx('title')}>profile infomation   <TfiPencilAlt onClick={() => { edit ? setedit(false) : setedit(true) }}>Edit</TfiPencilAlt></h1>
             <form onSubmit={(e) => HandleEdit(e)}>
                 <div> <h3>Name: </h3>   {edit ? <input type='text' placeholder={data.FullName} onChange={(e) => setUserEdit({ ...userEdit, FullName: e.target.value })} /> : <p>{data.FullName}</p>}</div>
                 <hr />
-                <div>
+                <div className={cx('radio')}>
                     <h3>Gender: </h3> {edit ? <div>Male<input type='radio' name="gender" value='Male' onChange={(e) => setUserEdit({ ...userEdit, Gender: true })} />
-                        Female<input type='radio' name="gender" value='Female' onChange={(e) => setUserEdit({ ...userEdit, Gender: false })} /></div> : <p>{data.Gender ? 'Male' : 'Female'} </p>}
+                        Female   <input type='radio' name="gender" value='Female' onChange={(e) => setUserEdit({ ...userEdit, Gender: false })} /></div> : <p>{data.Gender ? 'Male' : 'Female'} </p>}
                 </div>
 
                 {/* <div> <h3>Gender: </h3>  {edit ? <input type='radio' placeholder={data.Gender ? value = 'Male' : value = 'Female'} ></input> : <p>{data.Gender ? 'Male' : 'Female'}</p>}</div> */}
@@ -105,7 +104,8 @@ function InfoUser({ data, setuser }) {
                     <h3>About: </h3>
                     {edit ? <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder={data.About} onChange={(e) => setUserEdit({ ...userEdit, About: e.target.value })} /> : <p>{data.About}</p>}
                 </div>
-                <div><button className={cx('btn')}>Save</button></div>
+                {edit && <div><button className={cx('btn')}>Save</button></div>}
+
             </form>
         </div>
     );
