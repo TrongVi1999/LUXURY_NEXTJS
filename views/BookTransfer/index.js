@@ -77,7 +77,7 @@ function Transferbook({ click, transfer }) {
                 Note: data.Note,
                 Babycartseat: Baby,
                 Children: data.Children,
-                type: 'Hotel',
+                type: 'TRANSFER',
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',

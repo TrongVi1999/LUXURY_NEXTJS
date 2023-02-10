@@ -81,7 +81,7 @@ function Hotelbook({ click, hotel }) {
                 CheckIn: data.CheckIn,
                 Checkout: data.CheckOut,
                 TypeRoom: Typeroom,
-                Type: 'Hotel',
+                Type: 'HOTEL',
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
