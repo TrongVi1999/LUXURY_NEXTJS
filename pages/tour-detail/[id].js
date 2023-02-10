@@ -11,6 +11,7 @@ import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
 import { useRouter } from "next/router";
 import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
+import Shareemail from '@/views/Tourdetail/Shareemail';
 
 const cx = classNames.bind(style);
 
@@ -85,7 +86,7 @@ const index = () => {
                 }
                 <Tourrecomment type={Tourdata.TourType} />
 
-
+                <Shareemail />
 
             </div>}
         </div>
