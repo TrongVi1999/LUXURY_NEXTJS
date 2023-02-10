@@ -52,7 +52,6 @@ function Booking({ onClick, datas, title, long }) {
         ip_address = ip_address.ip;
         setIpAddress(ip_address);
     });
-
     // useEffect(() => {
     //     setBookinfor({ ...Bookinfor });
     // }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
@@ -64,8 +63,6 @@ function Booking({ onClick, datas, title, long }) {
             setCurrentUser(null);
         }
     }, [])
-
-
     const callApi = async (data) => {
         const response = await axios({
             method: 'post',
@@ -88,7 +85,6 @@ function Booking({ onClick, datas, title, long }) {
                 Email: data.Email,
                 Phone: data.Phone,
                 Note: texta,
-
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
@@ -104,7 +100,6 @@ function Booking({ onClick, datas, title, long }) {
         } else alert('Invaild infor')
 
     };
-
     const callApiSendmail = async (data) => {
         const response = await axios({
             method: 'post',
@@ -119,7 +114,6 @@ function Booking({ onClick, datas, title, long }) {
             },
         });
     };
-
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
@@ -269,7 +263,6 @@ function Booking({ onClick, datas, title, long }) {
                         <label className={cx("label-booking")}>
                             Your nationality:
                         </label>
-
                         <div>
                             <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
@@ -364,7 +357,6 @@ function Booking({ onClick, datas, title, long }) {
                                 className={cx("book-note")}
                                 onChange={(e) =>
                                     settexta(
-
                                         e.target.value,
                                     )
                                 }
