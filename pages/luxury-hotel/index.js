@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
-// import style from '@/styles/wayToTravel.module.scss';
 import IMG from '@/public/images/tour1.jpg';
 import { Section, Title, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
@@ -9,205 +8,59 @@ import { useRouter } from "next/router";
 import Hotelcard from '@/views/HotelCard/Hotelcard';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
 import style from '@/styles/luxuryhotel.module.scss';
+import { ListHotel } from '../api/CallAPI';
 
 
 const cx = classNames.bind(style);
 
-const fakeData = [
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-    {
-        img: IMG,
-        title: 'Ha long bay day cruise - paradise explore',
-        rate: 4.7,
-        ratecount: 100,
-        book: 999,
-        long: 15,
-        price: 3000,
-        sale: 50,
-        destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-        highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-    },
-
-]
+const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 const index = () => {
     const router = useRouter();
-    const [data, setdata] = useState([]);
-    const [page, setPage] = useState(1)
+    const [Data, setdata] = useState([]);
+    const [page, setPage] = useState(1);
+
+    const CallAPI = async () => {
+        const response = await (ListHotel(page, router.query.id));
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+    }
+
+    useEffect(() => {
+        CallAPI();
+    }, [page, router.query.id]);
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
-    // const CallAPI = async () => {
-    //     const response = await Tourtype(router.query.id);
-    //     if (response.status == 200) {
-    //         setdata(response.data.Object);
-    //     }
-    // }
-    // useEffect(() => {
-    //     CallAPI();
-    // }, [router.query.id]);
-
-
 
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} />
-
-
-
-
             {/* {data.length > 0 && 
                 <Tourcard2 data={data[0]} 
                 />} */}
-
-
             {/* {data.length > 0 && */}
             <div className={cx('main')}>
                 <div className={cx('hotel-list')}>
                     <div className={cx('sort')}>
                         <button>Sort by</button>
-
                     </div>
                     {
-                        fakeData.slice(firstIndex, lastIndex).map((data, index) => (
-                            <Hotelcard data={data} key={index} />
+                        Data && Data.slice(firstIndex, lastIndex).map((d) => (
+                            <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
                         ))
                     }
                 </div>
                 <CategoryFilter
-
                     category={categoryFillerAddress}
-
                     className={cx('boxFilter')}
-
-
-
                 />
-
             </div>
 
             {/* } */}
 
-            <Pagination totalPosts={fakeData.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     )
 }

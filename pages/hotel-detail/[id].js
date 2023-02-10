@@ -68,8 +68,6 @@ const Index = () => {
 
                     <div className={cx('main-hotel')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
 
-
-
                     <h2>Siminal Hotels</h2>
                     <div className={cx('Siminal-Hotel')}>
                         <Link href={``} className={cx('card')}>
@@ -134,7 +132,6 @@ const Index = () => {
                         </Link>
                     </div>
                 </div>
-                    // </div>
                 }
             </div>}
         </div>
