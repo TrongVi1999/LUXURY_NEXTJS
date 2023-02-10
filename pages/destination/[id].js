@@ -7,12 +7,14 @@ import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Gettourcountry, Gettourdestination, Superfilter } from '../api/CallAPI';
+import { Superfilter } from '../api/CallAPI';
 import AboutVN from '@/views/Destination/AboutVN';
 import Location from '@/views/Destination/Location';
 import Faq from '@/views/Destination/FAQ';
 import { useApppContext } from '@/pages/_app';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import { animateScroll as scroll } from 'react-scroll';
+
 
 const cx = classNames.bind(style);
 
@@ -77,18 +79,20 @@ function Destimation() {
 
 
 
+
+
     return (
         <div className={cx('wrapper')}>
             {/* <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} /> */}
             {router.query.id && <BannerIMG img={banners.resolt} title={(router.query.id).split('dest')[0]} bg='bg' descrip='Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content' />}
-            <div className={cx('list-menu')}>
+            <div className={cx('list-menu')} id='list'>
                 {listmenu.map((d, i) =>
                     <p className={cx(act[i])} onClick={() => Pickmenu(i)}>{d}</p>
                 )}
 
             </div>
             {act[0] == 'act' &&
-                <Section maxWidth={1170} className={cx('container')}>
+                <Section maxWidth={1170} className={cx('container')} >
                     {Data &&
                         <div className={cx('list')}>
                             {vldestination != '' && vltag != '' && vlseason != '' && vlgroup != '' && <div className={cx('list-active')}>
@@ -101,7 +105,7 @@ function Destimation() {
                                 <div className={cx('sortContent')}>
                                     <button>Sort by</button>
                                 </div>
-                                <span>Showing 1 - 9 of {Data.length} products</span>
+                                <span>Showing {(page - 1) * 9 + 1} - {(page - 1) * 9 + Data.slice(firstIndex, lastIndex).length} of {Data.length} products</span>
                             </div>
                             <div className={cx('tour-list')}>
                                 {Data.slice(firstIndex, lastIndex).map((d, i) =>
