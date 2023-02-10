@@ -148,12 +148,12 @@ function Destimation() {
                                     <label>Sort by :</label>
                                     {/* <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label> */}
                                     <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
-                                        <option value='All'>----All----</option>
-                                        <option value='Ascending'>Price a&rarr;z</option>
-                                        <option value='Descending'>Price z&rarr;a</option>
+                                        <option value='All'>--Price/Day--</option>
+                                        <option value='Ascending'>Price Ascending</option>
+                                        <option value='Descending'>Price Descending</option>
                                         <hr />
-                                        <option value='Asc'>Day   a&rarr;z</option>
-                                        <option value='Des'>Day   z&rarr;a</option>
+                                        <option value='Asc'>Day   Ascending</option>
+                                        <option value='Des'>Day   Descending</option>
                                     </select>
                                     {/* 
                                     <label htmlFor="sort-long">Long</label>
