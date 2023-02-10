@@ -9,6 +9,7 @@ import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
+import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
 
@@ -122,6 +123,7 @@ function Booking({ onClick, datas, title, long }) {
 
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
             <p onClick={() => onClick(0)}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
@@ -365,7 +367,6 @@ function Booking({ onClick, datas, title, long }) {
                                 className={cx("book-note")}
                                 onChange={(e) =>
                                     settexta(
-
                                         e.target.value,
                                     )
                                 }

@@ -13,6 +13,7 @@
         "antd": "^5.1.7",
         "axios": "^1.2.5",
         "classnames": "^2.3.2",
+        "error-js": "^0.0.5",
         "eslint": "8.32.0",
         "eslint-config-next": "13.1.2",
         "is-server": "^0.0.2",
