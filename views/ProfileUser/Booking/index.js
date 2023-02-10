@@ -140,8 +140,6 @@ function BookingUser({ user }) {
 
 
     return (<div className={cx('wrapper')}>
-
-
         <>
             <h1 className={cx('title')}>booking list</h1>
             {Bookdata &&
@@ -157,7 +155,6 @@ function BookingUser({ user }) {
                 ))
             }
         </>
-
         <Pagination totalPosts={Bookdata.length} postPerPage={6} setPage={setPage} pageIndex={page} />
 
     </div>);
