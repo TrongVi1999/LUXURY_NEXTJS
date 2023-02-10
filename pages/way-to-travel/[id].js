@@ -155,6 +155,7 @@ const index = () => {
     const router = useRouter();
     const [data, setdata] = useState([]);
     const [page, setPage] = useState(1)
+    const [sort, setsort] = useState()
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
@@ -168,6 +169,35 @@ const index = () => {
         CallAPI();
     }, [router.query.id]);
 
+    const sortp = (data) => {
+        if (sort == 'All') {
+            return data;
+        }
+        if (sort == 'Ascending') {
+            return data.sort((a, b) =>
+                a.PRICE[0].price * (100 - a.Discount) / 100 - b.PRICE[0].price * (100 - b.Discount) / 100
+
+            )
+        }
+        if (sort == "Descending") {
+            return data.sort((a, b) =>
+                b.PRICE[0].price * (100 - b.Discount) / 100 - a.PRICE[0].price * (100 - a.Discount) / 100
+            )
+        }
+
+
+
+        if (sort == 'Asc') {
+            return data.sort((a, b) => Number(a.DETAIL[a.DETAIL.length - 1].Day) - Number(b.DETAIL[b.DETAIL.length - 1].Day))
+        }
+        if (sort == "Des") {
+            return data.sort((a, b) => Number(b.DETAIL[b.DETAIL.length - 1].Day) - Number(a.DETAIL[a.DETAIL.length - 1].Day))
+
+        }
+
+        else return data
+    }
+
 
 
     return (
@@ -178,7 +208,15 @@ const index = () => {
 
             <Section maxWidth={1170}>
                 <div className={cx('sort')}>
-                    <button >Sort by</button>
+                    <span >Sort by :</span>
+                    <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
+                        <option value='All'>--Price/Day--</option>
+                        <option value='Ascending'>Price Ascending</option>
+                        <option value='Descending'>Price Descending</option>
+                        <hr />
+                        <option value='Asc'>Day   Ascending</option>
+                        <option value='Des'>Day   Descending</option>
+                    </select>
                     {/* <button>Filter by</button> */}
                 </div>
                 {data.length > 0 && <Tourcard2 data={data[0]} />}
@@ -187,9 +225,11 @@ const index = () => {
             {data.length > 0 &&
                 <Section maxWidth={1170} isWrap gapBox={3.2}>
                     {
-                        data.filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((data, index) => (
-                            <Tourcard1 data={data} key={index} />
+
+                        sortp(data).filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((d, i) => (
+                            <Tourcard1 data={d} key={i} />
                         ))
+
                     }
 
                 </Section>

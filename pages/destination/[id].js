@@ -81,12 +81,12 @@ function Destimation() {
     }
 
 
-    { Data && Data.map(d => d.DETAIL.length == 0 && console.log(d.TourName)) }
+    // { Data && Data.map(d => d.DETAIL.length == 0 && console.log(d.TourName)) }
 
-    const sortd = (Data) => {
+    // const sortd = (Data) => {
 
 
-    }
+    // }
 
 
 
