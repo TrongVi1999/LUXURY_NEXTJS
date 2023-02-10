@@ -8,6 +8,7 @@ import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import Link from 'next/link';
+import { RandomBook } from '@/hook/random';
 
 const cx = classNames.bind(style);
 
@@ -21,10 +22,10 @@ const Tourcard1 = ({ data }) => {
                 <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
-                        <AiFillStar /> 4.8
+                        <AiFillStar />  {(Math.random() * (5 - 4) + 4).toFixed(1)}
                     </span>
                     <span className={cx('ratecount')}>
-                        (1000 rate) | 1000 book
+                        ({RandomBook(50, 200)} rate) | {RandomBook(50, 200)} book
                     </span>
                 </p>
 
