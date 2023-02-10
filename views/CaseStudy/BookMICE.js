@@ -8,7 +8,7 @@ import national from '@/pages/api/national.json'
 
 import $, { data } from 'jquery';
 import qs from 'qs';
-import { toastSuccess } from '@/hook/toastr';
+import toastSuccess from '@/hook/toastr';
 
 const cx = classNames.bind(style);
 const ListLocation =
@@ -19,8 +19,12 @@ const BookMICE = ({ close }) => {
     const [ipAddress, setIpAddress] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
     const [Select, setselect] = useState();
+    const [Select1, setselect1] = useState();
+    const [Select3, setselect3] = useState();
+    const [Select4, setselect4] = useState();
     const [errsl, seterrsl] = useState(false);
-    const [Bookinfor, setBookinfor] = useState()
+    const [Bookinfor, setBookinfor] = useState();
+    const [listdes, setlist] = useState([]);
 
     const {
         watch,
@@ -37,14 +41,96 @@ const BookMICE = ({ close }) => {
     const See = watch('location')
 
     const handleEnquire = (data) => {
-        console.log(email)
+        callApi();
     }
+    const AddDes = (e) => {
+
+        if (listdes.includes(e.target.value)) {
+            setlist(listdes.filter(d => d != e.target.value));
+
+        }
+
+        else
+            setlist([...listdes, e.target.value]);
+        // console.log(e.target.value)
+    }
+
+    useEffect(() => {
+        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+        if (VNXuser) {
+            setCurrentUser(VNXuser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, [])
+
+
+    const callApi = async (data) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
+            data: qs.stringify({
+                Ip: ipAddress,
+                Type: 'MICE',
+                TourCode: 'Noname',
+                UserName: currentUser ? currentUser.UserName : null,
+                TourName: data.EventName,
+                Country: Select,
+                EventName: data.EventName,
+                Lenght: Select3,
+                Company: data.Company,
+                StartDate: data.StartDate,
+                Adult: data.Adult,
+
+
+                FullName: data.FullName,
+                // UsFrom: Bookinfor.UsFrom,
+                Perpose: data.Perpose,
+                Destination: JSON.stringify(listdes),
+                Require: Select4,
+                Email: data.Email,
+                Phone: data.Phone,
+                Note: data.Note,
+                Subcrible: Select1
+
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+        console.log(response)
+
+        if (response.status === 200) {
+            console.log('Inquire complete!')
+            toastSuccess(' Inquire complete!');
+            callApiSendmail(data)
+
+
+        } else alert('Invaild infor')
+
+    };
+
+    const callApiSendmail = async (data) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+            data: qs.stringify({
+                header: `You have new travel from VNXpedia`,
+                content: `Tour name: ${data.EventName}`,
+                mail: data.Email,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+    };
+
 
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <p onClick={() => close(true)}></p>
-            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire())}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
                         If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
@@ -98,7 +184,7 @@ const BookMICE = ({ close }) => {
                             <select name='national' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
-                                    <option key={d.code} value={d.code}>{d.name}</option>
+                                    <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
                             {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>}
@@ -250,8 +336,10 @@ const BookMICE = ({ close }) => {
                                             type="checkbox"
                                             value={d}
                                             className={cx("form-control")}
-                                            ref={register("locaion", { required: true })}
-                                        /> {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>}
+                                            ref={register("location", { required: true })}
+                                            onClick={(e) => AddDes(e)}
+                                        />
+                                        {/* {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>} */}
                                         <label className={cx("sex-m")} for="">
                                             {d}
                                         </label>
@@ -268,12 +356,28 @@ const BookMICE = ({ close }) => {
                                 Persons Attending:
                             </label>
                             <div className={cx("input-enquire")}>
-
-                                <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                                <input
+                                    type="number"
+                                    placeholder="Adult(s) (>=12 years old)"
+                                    className={cx("book-age")}
+                                    min="0"
+                                    max="100"
+                                    {...register('Adult', { required: true })}
+                                // onChange={(e) =>
+                                //     setBookinfor({
+                                //         ...Bookinfor,
+                                //         Adult: e.target.value,
+                                //     })
+                                // }
+                                />
+                                {errors.Adult && errors.Adult.type === 'required' && (
+                                    <span className={cx("error-message")}>Adult cannot be empty !</span>
+                                )}
+                                {/* <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                     <option value="1 - 5">1 - 5</option>
                                     <option value="6 - 15">6 - 15</option>
                                     <option value="> 16 ">{` > 16 `}</option>
-                                </select>
+                                </select> */}
                                 {errsl && <span className={cx("error-message")}>Persons Attending cannot be empty !</span>}
                             </div>
                         </div>
@@ -301,7 +405,7 @@ const BookMICE = ({ close }) => {
                             </label>
                             <div className={cx("input-enquire")}>
 
-                                <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                                <select name='level' className={cx("our-services")} onChange={(e) => setselect3(e.target.value)}>
                                     <option value="1 days">1 days</option>
                                     <option value="2 - 3 days">6 - 15</option>
                                     <option value="> 3 days">{` > 3 days `}</option>
@@ -317,7 +421,7 @@ const BookMICE = ({ close }) => {
                             Level of Responsiveness required:
                         </label>
                         <div className={cx("input-enquire")}>
-                            <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='level' className={cx("our-services")} onChange={(e) => setselect4(e.target.value)}>
                                 <option value="">Urgent</option>
                                 <option value="Food">Normal</option>
                             </select>
@@ -342,7 +446,7 @@ const BookMICE = ({ close }) => {
                             How did you hear about our services?
                         </label>
                         <div>
-                            <select name='ourServices' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='ourServices' className={cx("our-services")} onChange={(e) => setselect1(e.target.value)}>
                                 <option value="">-- Select --</option>
                                 <option value="Your Friend">Recommended by friend or colleague</option>
                                 <option value="Social Network">Social Network</option>
@@ -353,7 +457,7 @@ const BookMICE = ({ close }) => {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUMMIT</button>
+                    <button className={cx("btn")} type='submit'>SUBMIT</button>
                 </div>
             </form>
         </div>

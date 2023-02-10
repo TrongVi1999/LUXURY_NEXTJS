@@ -7,6 +7,7 @@ import { ImFire } from 'react-icons/im';
 import { BsCalendarWeek } from 'react-icons/bs';
 import { SlLocationPin } from 'react-icons/sl';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
+import { RandomBook } from '@/hook/random';
 
 import Link from 'next/link';
 
@@ -24,10 +25,10 @@ const Tourcard2 = ({ data }) => {
                 <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
-                        <AiFillStar /> 4.8
+                        <AiFillStar /> {(Math.random() * (5 - 4) + 4).toFixed(1)}
                     </span>
                     <span className={cx('ratecount')}>
-                        (5.0 rate) | 999 book
+                        ({RandomBook(50, 200)} rate) | {RandomBook(50, 200)} book
                     </span>
                 </p>
 
