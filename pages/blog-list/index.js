@@ -24,16 +24,17 @@ function BlogList() {
 
     const [Data, setdata] = useState();
     const CallAPI = async () => {
+
         const response = await (Allblog(Tag, page));
         if (response.status == 200) {
-            setdata(response.data.Object);
+            setdata(response.data);
         }
 
     }
     const CallSearch = async () => {
         const response = await (Searchblog(keyword));
         if (response.status == 200) {
-            setdata(response.data.Object);
+            setdata(response.data);
         }
         console.log('k', keyword)
     }
@@ -69,13 +70,14 @@ function BlogList() {
         <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='vnxpedia blog list' bg='bg' crumb={{ title: 'BLOG' }} />
         {/* btn Show filterMenu Mobile */}
         {/* <Button className={cx('btnFill')} onClick={() => setShowFilterMobile(!showFilterMobile)}>Filter By</Button> */}
+        <div id='list'></div>
 
         <Section className={cx('bodyContent')} gapBox={1}>
             <div className={cx('listBlogBody')}>
-                {Data && Data.map((d) =>
+                {Data && Data.Object.map((d) =>
                     <BlogCard2 className={cx('bodyBlogItem')} data={d} />)
                 }
-                <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+                {Data && <Pagination totalPosts={Data.Title} postPerPage={9} setPage={setPage} pageIndex={page} />}
             </div>
             <CategoryFilter
                 isSearch
@@ -90,6 +92,7 @@ function BlogList() {
                 setvltag={settag}
                 setinput={setkeyword}
                 searchinput={handleSearch}
+                blog
             />
         </Section>
     </div>);

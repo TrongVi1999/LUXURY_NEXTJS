@@ -140,11 +140,9 @@ function BookingUser({ user }) {
 
 
     return (<div className={cx('wrapper')}>
-
-
         <>
             <h1 className={cx('title')}>booking list</h1>
-            {
+            {Bookdata &&
                 Bookdata.slice(firstIndex, lastIndex).map((item, index) => (
                     <ItemBookingUser key={index}
                         img={banners.banner2}
@@ -157,7 +155,6 @@ function BookingUser({ user }) {
                 ))
             }
         </>
-
         <Pagination totalPosts={Bookdata.length} postPerPage={6} setPage={setPage} pageIndex={page} />
 
     </div>);

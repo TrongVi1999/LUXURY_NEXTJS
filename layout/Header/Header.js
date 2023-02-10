@@ -18,6 +18,8 @@ import { FiUserCheck } from 'react-icons/fi';
 import { MdGTranslate } from 'react-icons/md';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { ToastContainer } from 'react-toastify';
+import Img1 from '@/public/icon/Layer15.png'
+
 
 const cx = classNames.bind(style);
 const menuUser = [
@@ -102,7 +104,8 @@ const Header = () => {
                 <div className={cx('itemRight')}>
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
-                            <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                            <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                            {/* <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} /> */}
                             <div className={cx('sl-trans')} style={{ display: translate }}>
                                 <div id="google_translate_element" ></div>
                             </div>

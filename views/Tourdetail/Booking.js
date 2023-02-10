@@ -123,6 +123,7 @@ function Booking({ onClick, datas, title, long }) {
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
+            <p onClick={() => onClick(0)}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
@@ -243,7 +244,7 @@ function Booking({ onClick, datas, title, long }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            <div className={cx("sex")}>
+                            {/* <div className={cx("sex")}>
                                 <input
                                     name="gender"
                                     type="checkbox"
@@ -262,7 +263,7 @@ function Booking({ onClick, datas, title, long }) {
                                 <label className={cx("sex-m")} for="">
                                     FEMALE
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -271,7 +272,7 @@ function Booking({ onClick, datas, title, long }) {
                         </label>
 
                         <div>
-                            <select name='national' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.code}>{d.name}</option>

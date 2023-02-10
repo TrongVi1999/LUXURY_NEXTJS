@@ -15,12 +15,74 @@ import { toastSuccess } from '@/hook/toastr';
 const cx = classNames.bind(style);
 
 function Booking({ click }) {
-
+    const [select, setselect] = useState()
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+
+    const [Bookinfor, setBookinfor] = useState({
+        UserName: null,
+        FullName: "",
+        Email: "",
+        Phone: "",
+        Note: "",
+        national: "",
+
+    });
+
+    const handleEnquire = (data) => {
+        callApiSendAdmin(data);
+        // console.log(data);
+    }
+
+    const callApi = async (data) => {
+        const response = await axios({
+            method: "post",
+            url: "https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking",
+            data: qs.stringify({
+                UserName: data.UserName,
+                FullName: data.FullName,
+                Email: data.Email,
+                Phone: data.Phone,
+                Note: data.Note,
+            }),
+            headers: {
+                "content-type":
+                    "application/x-www-form-urlencoded;charset=utf-8",
+            },
+        });
+
+        if (response.status === 200) {
+            toastSuccess(" Send request complete!");
+            console.log(response);
+            setTimeout(() => onClick(), 2000);
+            console.log(response);
+        } else alert("Invaild infor!");
+    };
+    const callApiSendAdmin = async (d) => {
+        const response = await axios({
+            method: "post",
+            url: "https://vnxpedia.3i.com.vn/TravelAPI/SendMailFeedback",
+            data: qs.stringify({
+                header: `You have new a consultation request from ${d.FullName}`,
+                content: `
+                Full name : ${d.FullName},
+                Email: ${d.Email},
+                Phone number : ${d.Phone},
+                Note: ${d.Note},
+                `,
+            }),
+            headers: {
+                "content-type":
+                    "application/x-www-form-urlencoded;charset=utf-8",
+            },
+        });
+        console.log(response);
+    };
+
+
 
     //Validate Re-capcha
     // const validateCaptcha = (response_key) => {
@@ -52,7 +114,7 @@ function Booking({ click }) {
             <div className={cx("book-crumb")}>Home | CONTACT US
                 <p onClick={() => click(false)}>Back</p></div>
 
-            <form className={cx("book-content")} onSubmit={handleSubmit()}>
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 {/* <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Service Name:&nbsp;
@@ -217,6 +279,7 @@ function Booking({ click }) {
                                         Note: e.target.value,
                                     })
                                 }
+                                {...register('Note')}
                             ></textarea>
                         </div>
                     </div>

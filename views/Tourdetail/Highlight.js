@@ -17,7 +17,7 @@ const Highlight = ({ title, destination, long, highlight, click }) => {
                     <p className={cx('long')}><SlClock />{long} days</p>
                     <p><SlLocationPin />{ChangeTextHTML(destination)}</p>
                 </div>
-                <div className={cx('btn-book')} onClick={() => click()}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
+                <div className={cx('btn-book')} onClick={() => click(1)}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>
             </div>
             <div className={cx('highlight')}>
                 {ChangeTextHTML(highlight).map((d, i) => (
@@ -26,6 +26,7 @@ const Highlight = ({ title, destination, long, highlight, click }) => {
                         <div className={cx('dot')}></div><p>{d}</p>
                     </div>
                 ))}
+                <div className={cx('btn-book')} onClick={() => click(2)}><p>SHARE WITH FRIEND</p> <GiCheckMark /> </div>
                 <Share />
             </div>
         </div>
