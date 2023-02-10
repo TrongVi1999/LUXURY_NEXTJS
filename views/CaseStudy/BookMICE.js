@@ -20,23 +20,31 @@ const BookMICE = ({ close }) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [Select, setselect] = useState();
     const [errsl, seterrsl] = useState(false);
+    const [Bookinfor, setBookinfor] = useState()
 
     const {
+        watch,
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    $.getJSON('https://jsonip.com/?callback=?').done(function (data) {
-        var ip_address = window.JSON.parse(JSON.stringify(data, null, 2));
-        ip_address = ip_address.ip;
-        setIpAddress(ip_address);
-    });
+
+    const email = watch('Email');
+    const email2 = watch('Email2');
+    const validateEmailMatch = () => {
+        return email === email2 || 'Email not match';
+    };
+    const See = watch('location')
+
+    const handleEnquire = (data) => {
+        console.log(email)
+    }
 
     return (
         <div className={cx("booking-infor")}>
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <p onClick={() => close(true)}></p>
-            <form className={cx("book-content")} onSubmit={handleSubmit()}>
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
                         If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
@@ -60,10 +68,10 @@ const BookMICE = ({ close }) => {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            <div className={cx("sex")}>
+                            {/* <div className={cx("sex")}>
                                 <input
                                     name="gender"
-                                    type="checkbox"
+                                    type="radio"
                                     value="male"
                                     className={cx("form-control")}
                                 />
@@ -72,14 +80,14 @@ const BookMICE = ({ close }) => {
                                 </label>
                                 <input
                                     name="gender"
-                                    type="checkbox"
+                                    type="radio"
                                     value="female"
                                     className={cx("form-control")}
                                 />
                                 <label className={cx("sex-m")} for="">
                                     FEMALE
                                 </label>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -105,10 +113,10 @@ const BookMICE = ({ close }) => {
                                 type="text"
                                 placeholder="Enter Your Company"
                                 className={cx("cus-name")}
-                                {...register('FullName', { required: true })}
+                                {...register('Company', { required: true })}
                             />
-                            {errors.FullName && errors.FullName.type === 'required' && (
-                                <span className={cx("error-message")}>Your Name cannot be empty !</span>
+                            {errors.Company && errors.Company.type === 'required' && (
+                                <span className={cx("error-message")}>Your Company cannot be empty !</span>
                             )}
                         </div>
                     </div>
@@ -120,6 +128,7 @@ const BookMICE = ({ close }) => {
                             <input
                                 type="text"
                                 placeholder="Enter Your Email"
+                                name='Email'
                                 className={cx("cus-mail")}
                                 {...register('Email', {
                                     required: true,
@@ -143,24 +152,26 @@ const BookMICE = ({ close }) => {
                         <div className={cx("input-enquire")}>
                             <input
                                 type="text"
+                                name='Email2'
                                 placeholder="Confirm Email"
                                 className={cx("cus-mail")}
-                                {...register('Email', {
+                                {...register('Email2', {
                                     required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
+                                    validate: validateEmailMatch,
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
+                            {errors.Email2 && errors.Email2.type === 'required' && (
                                 <span className={cx("error-message")}>Email cannot be empty !</span>
                             )}
-                            {errors.Email && errors.Email.type === 'pattern' && (
+                            {errors.Email2 && errors.Email2.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
-                            {/* {errors.Email && errors.Email.type === ''(
-                                <span className={cx("error-message")}>Email must match</span>
-                            )} */}
+                            {errors.Email2 && errors.Email2.message === 'Email not match' && (
+                                <span className={cx("error-message")}>Email not match</span>
+                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -203,10 +214,10 @@ const BookMICE = ({ close }) => {
                                 type="text"
                                 placeholder="Enter Your Company"
                                 className={cx("cus-name")}
-                                {...register('FullName', { required: true })}
+                                {...register('EventName', { required: true })}
                             />
-                            {errors.FullName && errors.FullName.type === 'required' && (
-                                <span className={cx("error-message")}>Your Name cannot be empty !</span>
+                            {errors.EventName && errors.EventName.type === 'required' && (
+                                <span className={cx("error-message")}>Event Name cannot be empty !</span>
                             )}
                         </div>
                     </div>
@@ -219,12 +230,7 @@ const BookMICE = ({ close }) => {
                             <textarea
                                 placeholder="Take Note"
                                 className={cx("book-note")}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Note: e.target.value,
-                                    })
-                                }
+                                {...register("Purpose")}
                                 rows="4"
                             ></textarea>
                         </div>
@@ -244,7 +250,8 @@ const BookMICE = ({ close }) => {
                                             type="checkbox"
                                             value={d}
                                             className={cx("form-control")}
-                                        />
+                                            ref={register("locaion", { required: true })}
+                                        /> {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>}
                                         <label className={cx("sex-m")} for="">
                                             {d}
                                         </label>
@@ -310,7 +317,7 @@ const BookMICE = ({ close }) => {
                             Level of Responsiveness required:
                         </label>
                         <div className={cx("input-enquire")}>
-                            <select name='level' className={cx("our-services")}>
+                            <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
                                 <option value="">Urgent</option>
                                 <option value="Food">Normal</option>
                             </select>
@@ -325,12 +332,7 @@ const BookMICE = ({ close }) => {
                             <textarea
                                 placeholder="Message"
                                 className={cx("book-note")}
-                                onChange={(e) =>
-                                    setBookinfor({
-                                        ...Bookinfor,
-                                        Note: e.target.value,
-                                    })
-                                }
+                                {...register('Note')}
                                 rows="6"
                             ></textarea>
                         </div>
@@ -346,12 +348,12 @@ const BookMICE = ({ close }) => {
                                 <option value="Social Network">Social Network</option>
                                 <option value="Blog">Blog or publication</option>
                             </select>
-                            {errsl && <span className={cx("error-message")}>Services cannot be empty !</span>}
+
                         </div>
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>SUMMIT</button>
+                    <button className={cx("btn")} >SUMMIT</button>
                 </div>
             </form>
         </div>
