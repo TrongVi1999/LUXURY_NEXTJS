@@ -68,11 +68,11 @@ function Shareemail({ onClick, datas, title, long }) {
                     </div>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
-                            More informal about this tour (*):
+                            More information about this tour (*):
                         </label>
                         <div>
                             <textarea
-                                placeholder="More informal about this tour"
+                                placeholder="More information about this tour"
                                 className={cx("book-note")}
                                 onChange={(e) =>
                                     settexta(
