@@ -20,6 +20,7 @@ function BlogList() {
     const [showFilterMobile, setShowFilterMobile] = useState(false);
     const [Tag, settag] = useState('Blog');
     const [keyword, setkeyword] = useState('');
+    const [count, setcount] = useState(0);
 
 
     const [Data, setdata] = useState();
@@ -29,6 +30,7 @@ function BlogList() {
         const response = await (Allblog(Tag, page));
         if (response.status == 200) {
             setdata(response.data);
+            setcount(response.data.Title)
         }
 
     }
@@ -36,6 +38,7 @@ function BlogList() {
         const response = await (Searchblog(keyword));
         if (response.status == 200) {
             setdata(response.data);
+            setcount(response.data.Object.length)
         }
         console.log('k', keyword)
     }
@@ -88,11 +91,14 @@ function BlogList() {
         <div id='list'></div>
 
         <Section className={cx('bodyContent')} gapBox={1}>
+
             <div className={cx('listBlogBody')}>
+                {Data && <span className={cx('bodyPage')}>Showing {(page - 1) * 10 + 1} - {(page - 1) * 10 + Data.Object.length} of {count} products</span>}
                 {Data && Data.Object.map((d) =>
                     <BlogCard2 className={cx('bodyBlogItem')} data={d} />)
                 }
-                {Data && <Pagination totalPosts={Data.Title} postPerPage={9} setPage={setPage} pageIndex={page} />}
+                {Data && <Pagination totalPosts={Data.Title} postPerPage={10} setPage={setPage} pageIndex={page} />}
+
             </div>
             {Datahot &&
                 <CategoryFilter

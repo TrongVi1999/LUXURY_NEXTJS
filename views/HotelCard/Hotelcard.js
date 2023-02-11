@@ -11,9 +11,9 @@ const cx = classNames.bind(style);
 
 const Hotelcard = ({ data }) => {
     return (
-        <Link href={`/hotel-detail/5258`} className={cx('card')}>
+        <Link href={`/hotel-detail/${data.id}`} className={cx('card')}>
             <div className={cx('card-img')}>
-                <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
+                <img src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} />
             </div>
             <div className={cx('infor')}>
                 <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
@@ -22,17 +22,14 @@ const Hotelcard = ({ data }) => {
                         <AiFillStar /> 4.8
                     </span>
                     <span className={cx('ratecount')}>
-                        (1000 rate) | 1000 book
+                        (1000 rate) | {data.featured_ordering} book
                     </span>
                 </p>
-
-
                 <p className={cx('price')}>
-                    <span className={cx('price1')}>$ {1500 - ((1500 * data.sale) / 100)}</span> <ImFire />${' '}
+                    {/* <span className={cx('price1')}>$ {1500 - ((1500 * data.sale) / 100)}</span> <ImFire />${' '} */}
+                    <span className={cx('price1')}>$ {1500 - ((1500 * 0.1) / 100)}</span> <ImFire />${' '}
                     <span className={cx('price2')}>1500</span>
                 </p>
-
-
             </div>
         </Link>
     )

@@ -38,8 +38,6 @@ function Destimation() {
 
     const CT = useApppContext();
 
-
-
     const [Data, setdata] = useState();
     const router = useRouter();
 
@@ -48,7 +46,6 @@ function Destimation() {
         let arr = act;
         arr = arr.map((d, i) => i == a ? 'act' : '');
         setact(arr);
-
     }
 
     const sortp = (Data) => {
@@ -56,7 +53,6 @@ function Destimation() {
         if (sort == 'Ascending') {
             return Data.sort((a, b) =>
                 a.PRICE[0].price * (100 - a.Discount) / 100 - b.PRICE[0].price * (100 - b.Discount) / 100
-
             )
         }
         if (sort == "Descending") {
@@ -65,14 +61,11 @@ function Destimation() {
             )
         }
 
-
-
         if (sort == 'Asc') {
             return Data.sort((a, b) => Number(a.DETAIL[a.DETAIL.length - 1].Day) - Number(b.DETAIL[b.DETAIL.length - 1].Day))
         }
         if (sort == "Des") {
             return Data.sort((a, b) => Number(b.DETAIL[b.DETAIL.length - 1].Day) - Number(a.DETAIL[a.DETAIL.length - 1].Day))
-
         }
         if (sort == "None") {
             sortByName(Data)
@@ -92,8 +85,6 @@ function Destimation() {
 
     // }
 
-
-
     const CallAPISuperfilter = async () => {
         // console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
         // console.log('des1', vldestination)
@@ -104,13 +95,10 @@ function Destimation() {
         setPage(1);
     }
 
-
     useEffect(() => {
         // { router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
         { router.query.id && CallAPISuperfilter() }
     }, [router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
-
-
 
     const dataFillter = (data) => {
         setValueFillter(data)

@@ -53,7 +53,6 @@
         justify-content: space-between;
         width: 100%;
         align-items: center;
-
     }
     .card {
         width: 31.4%;
@@ -120,30 +119,27 @@
     }
 }
 
-@media only screen and (max-width:1150px){
-    .container{
+@media only screen and (max-width: 1150px) {
+    .container {
         padding: 2rem 15%;
     }
-        .Siminal-Hotel{
+    .Siminal-Hotel {
         justify-content: center !important;
-
     }
-    .card{
+    .card {
         width: 40% !important;
     }
 }
-@media only screen and (max-width:800px){
-    .container{
+@media only screen and (max-width: 800px) {
+    .container {
         padding: 2rem 10%;
     }
-    .Siminal-Hotel{
+    .Siminal-Hotel {
         justify-content: center !important;
-
     }
-    .card{
+    .card {
         width: 70% !important;
     }
-
 }
 .main-hotel {
     padding: 2% 0;
@@ -176,7 +172,7 @@
         font-size: 14px;
         line-height: 4rem;
         // font-weight: 400;
-        color: #565656;
+        color: #000000;
     }
     span {
         font-weight: bold;

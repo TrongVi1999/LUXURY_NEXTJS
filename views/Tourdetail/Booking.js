@@ -9,6 +9,7 @@ import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
+import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
 
@@ -53,7 +54,6 @@ function Booking({ onClick, datas, title, long }) {
         ip_address = ip_address.ip;
         setIpAddress(ip_address);
     });
-
     // useEffect(() => {
     //     setBookinfor({ ...Bookinfor });
     // }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
@@ -65,8 +65,6 @@ function Booking({ onClick, datas, title, long }) {
             setCurrentUser(null);
         }
     }, [])
-
-
     const callApi = async (data) => {
         const response = await axios({
             method: 'post',
@@ -123,9 +121,9 @@ function Booking({ onClick, datas, title, long }) {
             },
         });
     };
-
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
             <p onClick={() => onClick(0)}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
@@ -274,7 +272,6 @@ function Booking({ onClick, datas, title, long }) {
                         <label className={cx("label-booking")}>
                             Your nationality:
                         </label>
-
                         <div>
                             <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
@@ -369,7 +366,6 @@ function Booking({ onClick, datas, title, long }) {
                                 className={cx("book-note")}
                                 onChange={(e) =>
                                     settexta(
-
                                         e.target.value,
                                     )
                                 }

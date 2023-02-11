@@ -10,6 +10,7 @@ import $ from 'jquery';
 import qs from 'qs';
 import national from '@/pages/api/national.json';
 import { Sendmail } from '@/pages/api/CallAPI';
+import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
 
@@ -116,6 +117,7 @@ function Transferbook({ click, transfer }) {
 
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <div className={cx("book-crumb")}>Home | BOOK NOW
                 <p onClick={() => click(false)}>Back</p></div>
 

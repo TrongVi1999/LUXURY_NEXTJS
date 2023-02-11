@@ -7,22 +7,66 @@ import axios from 'axios';
 
 import $, { data } from 'jquery';
 import qs from 'qs';
-import { toastSuccess } from '@/hook/toastr';
+import { toastError, toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
+import ScrollToTop from '@/hook/scrollToTop';
+// import Filedoc from '../../../data/Word.docx';
 
 const cx = classNames.bind(style);
 
 
 function Shareemail({ onClick, datas, title, long, close }) {
+
+    const [textArea, settexta] = useState();
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+
+    const handleShare = (data) => {
+        callApiSendmail(data);
+    };
+
+    const [moreShare, setMoreShare] = useState([
+        {
+            fullname: '',
+            email: '',
+        },
+    ]);
+
+    const callApiSendmail = async (d) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
+            data: qs.stringify({
+                header: `${d.FullName} want share his travel with you`,
+                content: `
+                          Note: ${d.Note}
+                        
+                `,
+                mail: d.Emailg,
+            }),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+        if (response.data.Error === true) {
+            toastError('Error!');
+            console.log(response.data)
+        } else {
+            toastSuccess('Share Trip success.');
+            localStorage.setItem('VNXUser', JSON.stringify(response.data));
+        }
+    };
+    //Download :  http://vnxpedia.com/Download${Filedoc.replace('/static/media/', ':')}
+
     return (
         <div className={cx("booking-infor")}>
+            <ScrollToTop />
             <p onClick={() => close(0)}>Back</p>
-            <form className={cx("book-content")} >
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleShare)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
                         SHARE WITH YOUR FRIEND
@@ -46,6 +90,12 @@ function Shareemail({ onClick, datas, title, long, close }) {
                                     },
                                 })}
                             />
+                            {errors.Email && errors.Email.type === 'required' && (
+                                <span className={cx("error-message")}>Email cannot be empty !</span>
+                            )}
+                            {errors.Email && errors.Email.type === 'pattern' && (
+                                <span className={cx("error-message")}>Invalid email</span>
+                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -64,6 +114,12 @@ function Shareemail({ onClick, datas, title, long, close }) {
                                     },
                                 })}
                             />
+                            {errors.Email && errors.Email.type === 'required' && (
+                                <span className={cx("error-message")}>Email cannot be empty !</span>
+                            )}
+                            {errors.Email && errors.Email.type === 'pattern' && (
+                                <span className={cx("error-message")}>Invalid email</span>
+                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -80,6 +136,9 @@ function Shareemail({ onClick, datas, title, long, close }) {
                                     )
                                 }
                             ></textarea>
+                            {errors.Email && errors.Email.type === 'required' && (
+                                <span className={cx("error-message")}>More information cannot be empty !</span>
+                            )}
                         </div>
                     </div>
                 </div>

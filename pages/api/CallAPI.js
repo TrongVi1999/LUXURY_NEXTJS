@@ -183,6 +183,14 @@ export const ListHotel = () =>
         type: 'json',
     });
 
+//lấy list transfer https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel
+export const ListTransfer = () =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/LuxuryTransfer`,
+        type: 'json',
+    });
+
 //Lấy 1 hotel/transfer
 export const GetHotel = (id) =>
     axios({

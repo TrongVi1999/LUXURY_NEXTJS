@@ -12,48 +12,16 @@ import xe1 from '@/public/images/xe1.jpg';
 import xe2 from '@/public/images/xe2.jpg';
 import xe3 from '@/public/images/xe3.jpg';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { ListTransfer } from '../api/CallAPI';
 
 const cx = classNames.bind(style);
-const fakeDataTrans = [[
-    {
-        img: xe1,
-        name: "Setra S 416 HDH"
-    },
-    {
-        img: xe2,
-        name: "Setra S 416 HDH"
-    },
-    {
-        img: xe3,
-        name: "Setra S 416 HDH"
-    }], [{
-        img: xe1,
-        name: "Setra S 416 HDH2"
-    },
-    {
-        img: xe2,
-        name: "Setra S 416 HDH2"
-    },
-    {
-        img: xe3,
-        name: "Setra S 416 HDH2"
-    }], [{
-        img: xe1,
-        name: "Setra S 416 HDH3"
-    },
-    {
-        img: xe2,
-        name: "Setra S 416 HDH3"
-    },
-    {
-        img: xe3,
-        name: "Setra S 416 HDH3"
-    }],
 
-]
+const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 function Destimation() {
+    const router = useRouter();
     const [page, setPage] = useState(1)
     const [transActive, setTransActive] = useState(0)
     const [Book, setBook] = useState(true);
@@ -61,9 +29,23 @@ function Destimation() {
         setBook(false);
     }
 
+    const [Data, setdata] = useState();
+    const CallAPI = async () => {
+        const response = await (ListTransfer(page, router.query.id));
+        if (response.status == 200) {
+            setdata(response.data.Object);
+        }
+
+    }
+
+    useEffect(() => {
+        CallAPI();
+    }, [page, router.query.id]);
+
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
+
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
@@ -105,12 +87,12 @@ function Destimation() {
             </div>
             <Section maxWidth={1170} isWrap gapBox={3.2}>
                 {
-                    fakeDataTrans[transActive].map((item, index) => (
-                        <BoxCarTrans img={item.img} name={item.name} key={index} click={handleBooking} />
+                    Data && Data.map((d) => (
+                        <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} click={handleBooking} />
                     ))
                 }
             </Section>
-            <Pagination totalPosts={fakeDataTrans.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     );
 }
