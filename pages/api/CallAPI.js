@@ -219,7 +219,7 @@ export const Sendmail = (bookname, email) => axios({
     },
 });
 //comment
-export const Comment1 = (id, prid, cm, user) => axios({
+export const Comment = (id, prid, cm, user) => axios({
     method: 'post',
     url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost',
     data: qs.stringify({

@@ -78,4 +78,27 @@
         width: 70%;
         // margin-bottom: 10px;
     }
+
+    .about{
+        width: 50% !important;
+        word-wrap: break-word;
+    }
 }
+
+@media only screen and (max-width:480px){
+
+
+
+    .wrapper{
+
+    div{
+        display: flex;  
+        align-items: center;
+        font-size: 14px;
+        padding: 2rem 0;
+
+        h3{
+            width: 35% !important;
+
+        }
+}}}
