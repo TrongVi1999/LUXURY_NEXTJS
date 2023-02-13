@@ -7,7 +7,7 @@ import { GetSocial } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
-const Itinerary = ({ description, detail, click }) => {
+const Itinerary = ({ description, detail, click, btn }) => {
     const [content, setcontent] = useState(['active', '', '']);
     const [Data, setData] = useState();
 
@@ -54,7 +54,7 @@ const Itinerary = ({ description, detail, click }) => {
                         </div>
                     </div>
                     <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                    <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
+                    {btn && <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>}
                 </div>
             }
             {content[1] == 'active' && Data &&
