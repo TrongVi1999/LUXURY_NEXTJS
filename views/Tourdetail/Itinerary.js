@@ -3,7 +3,8 @@ import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { GetSocial } from '@/pages/api/CallAPI';
-
+import { GiCheckMark } from 'react-icons/gi';
+import { BsFillPrinterFill } from 'react-icons/bs'
 
 const cx = classNames.bind(style);
 
@@ -53,8 +54,15 @@ const Itinerary = ({ description, detail, click }) => {
                             )}
                         </div>
                     </div>
-                    <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                    <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
+                    {/* <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p> */}
+                    <div className={cx('flex')}>
+                        <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
+                        <button className={cx('btn-design')} onClick={() => click(2)}>SHARE WITH FRIEND <GiCheckMark className={cx('icon')} /></button>
+                        <button className={cx('btn-design')}>In <BsFillPrinterFill /> </button>
+                        {/* <div className={cx('btn-book')} onClick={() => click(2)}><p>SHARE WITH FRIEND</p> <GiCheckMark /> </div> */}
+                        {/* <AiOutlinePrinter className={cx('icon1')} /> */}
+                    </div>
+
                 </div>
             }
             {content[1] == 'active' && Data &&
