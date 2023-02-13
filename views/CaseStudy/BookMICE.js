@@ -133,7 +133,7 @@ const BookMICE = ({ close }) => {
             <ScrollToTop />
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <p onClick={() => close(true)}></p>
-            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire())}>
+            <form className={cx("book-content")} onSubmit={ handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
                         If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
