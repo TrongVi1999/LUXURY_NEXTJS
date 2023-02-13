@@ -85,19 +85,21 @@ function Destimation() {
 
     // }
 
-    const CallAPISuperfilter = async () => {
+    const CallAPISuperfilter = async (des) => {
         // console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
         // console.log('des1', vldestination)
-        const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
+        const response = await Superfilter(router.query.id.split('dest')[0], des, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
         if (response.status == 200) {
             setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
         }
         setPage(1);
     }
-
+    // useEffect(() => {
+    //     router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length))
+    //     CallAPISuperfilter(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
+    // }, [router.query.id])
     useEffect(() => {
-        // { router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
-        { router.query.id && CallAPISuperfilter() }
+        { router.query.id && CallAPISuperfilter(vldestination) }
     }, [router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
 
     const dataFillter = (data) => {
