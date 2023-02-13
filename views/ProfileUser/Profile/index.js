@@ -102,7 +102,7 @@ function InfoUser({ data, setuser }) {
                 <hr />
                 <div>
                     <h3>About: </h3>
-                    {edit ? <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder={data.About} onChange={(e) => setUserEdit({ ...userEdit, About: e.target.value })} /> : <p>{data.About}</p>}
+                    {edit ? <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder={data.About} onChange={(e) => setUserEdit({ ...userEdit, About: e.target.value })} /> : <p className={cx('about')}>{data.About}</p>}
                 </div>
                 {edit && <div><button className={cx('btn')}>Save</button></div>}
 
