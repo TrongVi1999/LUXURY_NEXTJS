@@ -54,7 +54,7 @@ const Itinerary = ({ description, detail, click, btn }) => {
                         </div>
                     </div>
                     <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                    {btn && <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>}
+                    {btn && <button className={cx('btn-design')} onClick={() => click(true)}>DESIGN YOUR TOUR</button>}
                 </div>
             }
             {content[1] == 'active' && Data &&

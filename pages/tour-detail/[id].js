@@ -12,7 +12,6 @@ import { useRouter } from "next/router";
 import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
 import Shareemail from '@/views/Tourdetail/Shareemail';
-import CreatPDF from '@/components/PDF/CreatPDF.js';
 import ReactToPrint from 'react-to-print';
 
 const cx = classNames.bind(style);

@@ -70,7 +70,7 @@ function Transferbook({ click, transfer }) {
                 Country: Country,
                 Adult: data.Adult,
                 FullName: data.FullName,
-                Time: data.Time,
+                StartData: data.Time,
                 DropOff: data.DropOff,
                 PickUp: data.PickUp,
                 Email: data.Email,

@@ -22,11 +22,14 @@
 
 .book-crumb {
     font-size: 22px;
-    color: rgb(45, 58, 75);
+    color: rgb(45, 58, 75) !important;
     font-weight: bold;
     line-height: 2.556;
     width: 70%;
     margin: 0 auto;
+    span {
+        cursor: pointer;
+    }
 }
 
 .book-content {
