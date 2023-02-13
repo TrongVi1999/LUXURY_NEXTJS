@@ -65,7 +65,7 @@ function Shareemail({ onClick, datas, title, long, close }) {
     return (
         <div className={cx("booking-infor")}>
             <ScrollToTop />
-            <p onClick={() => close(0)}>Back</p>
+            <p onClick={() => close(0)} className={cx("back")}>Back</p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleShare)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>

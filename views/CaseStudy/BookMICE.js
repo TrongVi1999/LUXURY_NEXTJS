@@ -6,9 +6,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import national from '@/pages/api/national.json'
 
-import $, { data } from 'jquery';
+
 import qs from 'qs';
-import toastSuccess from '@/hook/toastr';
+import { toastSuccess } from '@/hook/toastr';
+
 import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
@@ -24,8 +25,8 @@ const BookMICE = ({ close }) => {
     const [Select3, setselect3] = useState();
     const [Select4, setselect4] = useState();
     const [errsl, seterrsl] = useState(false);
-    const [Bookinfor, setBookinfor] = useState();
     const [listdes, setlist] = useState([]);
+    const [textarea, settextarea] = useState()
 
     const {
         watch,
@@ -39,10 +40,12 @@ const BookMICE = ({ close }) => {
     const validateEmailMatch = () => {
         return email === email2 || 'Email not match';
     };
-    const See = watch('location')
+
 
     const handleEnquire = (data) => {
+
         callApi(data);
+        callApiSendmail(data);
     }
     const AddDes = (e) => {
 
@@ -71,13 +74,13 @@ const BookMICE = ({ close }) => {
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
             data: qs.stringify({
-                Ip: ipAddress,
+                // Ip: ipAddress,
                 Type: 'MICE',
                 TourCode: 'Noname',
                 UserName: currentUser ? currentUser.UserName : null,
-                TourName: data.EventName,
+                TourName: 'A 12 day luxury wellness & spa experience in Vietnam',
                 Country: Select,
-                EventName: data.EventName,
+                EventName: data.event,
                 Lenght: Select3,
                 Company: data.Company,
                 StartDate: data.StartDate,
@@ -86,13 +89,13 @@ const BookMICE = ({ close }) => {
 
 
                 FullName: data.FullName,
-                // UsFrom: Bookinfor.UsFrom,
+
                 Perpose: data.Perpose,
                 Destination: JSON.stringify(listdes),
                 Require: Select4,
                 Email: data.Email,
                 Phone: data.Phone,
-                Note: data.Note,
+                Note: textarea,
                 Subcrible: Select1
 
             }),
@@ -105,7 +108,7 @@ const BookMICE = ({ close }) => {
         if (response.status === 200) {
             console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
-            callApiSendmail(data)
+
 
 
         } else alert('Invaild infor')
@@ -133,7 +136,7 @@ const BookMICE = ({ close }) => {
             <ScrollToTop />
             <div className={cx("book-crumb")}>HOME | MICE | BOOKNOW</div>
             <p onClick={() => close(true)}></p>
-            <form className={cx("book-content")} onSubmit={ handleSubmit(handleEnquire)}>
+            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
                         If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
@@ -190,7 +193,7 @@ const BookMICE = ({ close }) => {
                                     <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
-                            {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>}
+                            {/* {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -303,9 +306,9 @@ const BookMICE = ({ close }) => {
                                 type="text"
                                 placeholder="Enter Your Company"
                                 className={cx("cus-name")}
-                                {...register('EventName', { required: true })}
+                                {...register('event', { required: true })}
                             />
-                            {errors.EventName && errors.EventName.type === 'required' && (
+                            {errors.event && errors.event.type === 'required' && (
                                 <span className={cx("error-message")}>Event Name cannot be empty !</span>
                             )}
                         </div>
@@ -339,7 +342,7 @@ const BookMICE = ({ close }) => {
                                             type="checkbox"
                                             value={d}
                                             className={cx("form-control")}
-                                            ref={register("location", { required: true })}
+                                            // ref={register("location", { required: true })}
                                             onClick={(e) => AddDes(e)}
                                         />
                                         {/* {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>} */}
@@ -381,7 +384,7 @@ const BookMICE = ({ close }) => {
                                     <option value="6 - 15">6 - 15</option>
                                     <option value="> 16 ">{` > 16 `}</option>
                                 </select> */}
-                                {errsl && <span className={cx("error-message")}>Persons Attending cannot be empty !</span>}
+                                {/* {errsl && <span className={cx("error-message")}>Persons Attending cannot be empty !</span>} */}
                             </div>
                         </div>
 
@@ -413,7 +416,7 @@ const BookMICE = ({ close }) => {
                                     <option value="2 - 3 days">6 - 15</option>
                                     <option value="> 3 days">{` > 3 days `}</option>
                                 </select>
-                                {errsl && <span className={cx("error-message")}>Preliminary Duration cannot be empty !</span>}
+                                {/* {errsl && <span className={cx("error-message")}>Preliminary Duration cannot be empty !</span>} */}
                             </div>
                         </div>
 
@@ -440,6 +443,7 @@ const BookMICE = ({ close }) => {
                                 placeholder="Message"
                                 className={cx("book-note")}
                                 {...register('Note')}
+                                onChange={(e) => settextarea(e.target.value)}
                                 rows="6"
                             ></textarea>
                         </div>
@@ -460,7 +464,7 @@ const BookMICE = ({ close }) => {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} type='submit'>SUBMIT</button>
+                    <button className={cx("btn")} >SUBMIT</button>
                 </div>
             </form>
         </div>
