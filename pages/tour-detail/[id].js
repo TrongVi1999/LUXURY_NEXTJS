@@ -77,8 +77,8 @@ const index = () => {
                         </div>
 
                         <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} btn />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} btn />
 
                     </div>}
                 {Book == 1 && <Booking
