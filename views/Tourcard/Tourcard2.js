@@ -38,7 +38,7 @@ const Tourcard2 = ({ data }) => {
                 <p className={cx('price')}>
                     <span className={cx('price1')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
                     <span className={cx('price2')}>{data.PRICE[0].price}</span>
-                </p>
+                </p>{data.PRICE[0].price}
                 <p className={cx('place')}>
                     <SlLocationPin />
                     {ChangeTextHTML(data.Destination)}

@@ -144,24 +144,16 @@ function BookingUser({ user }) {
             <h1 className={cx('title')}>booking list</h1>
             {Bookdata &&
                 Bookdata.slice(firstIndex, lastIndex).map((item, index) => (
-                    item.TourName.length > 0 ?
-                        <ItemBookingUser key={index}
-                            img={banners.banner2}
-                            titleTour={item.TourName[0].TourName}
-                            id={item.Id}
-                            place={'Da Nang, Viet Nam'}
-                            time={item.StartDate}
-                            type={'Luxury Tour'}
-                            status={item.Status} />
-                        :
-                        <ItemBookingUser key={index}
-                            img={banners.banner2}
 
-                            id={item.Id}
-                            place={'Da Nang, Viet Nam'}
-                            time={item.StartDate}
-                            type={'Luxury Tour'}
-                            status={item.Status} />
+                    <ItemBookingUser key={index}
+                        img={banners.banner2}
+                        titleTour={item.TourName}
+                        id={item.Id}
+                        place={'Da Nang, Viet Nam'}
+                        time={item.StartDate}
+                        type={'Luxury Tour'}
+                        status={item.Status} />
+
                 ))
             }
         </>

@@ -78,7 +78,7 @@ const BookMICE = ({ close }) => {
                 Type: 'MICE',
                 TourCode: data.event,
                 UserName: currentUser ? currentUser.UserName : null,
-                TourName: 'A 12 day luxury wellness & spa experience in Vietnam',
+                TourName: data.event,
                 Country: Select,
                 EventName: data.event,
                 Lenght: Select3,
@@ -104,7 +104,7 @@ const BookMICE = ({ close }) => {
             },
         });
         console.log(response)
-
+        console.log(data.event);
         if (response.status === 200) {
             console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
