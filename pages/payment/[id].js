@@ -6,7 +6,7 @@ import ImgBn from '@/public/images/paymentbn.png';
 import Imgpay from '@/public/images/iconpay.png';
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import { Getblog } from '../api/CallAPI';
+import { GetSocial } from '../api/CallAPI';
 
 
 
@@ -27,7 +27,7 @@ const index = () => {
     }
     const CallAPI = async () => {
 
-        const response = await Getblog(5044);
+        const response = await GetSocial(5262);
         if (response.status == 200) {
             setdata(response.data.Object);
         }
