@@ -47,11 +47,9 @@ const Index = () => {
     return (
         <div>
             {Data && Data.length > 0 && <div>
-                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
+                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={Data[0].title} bg='bg' />
                 {book ? <Hotelbook click={setbook} hotel={Data[0].title} /> : <div className={cx('container')}>
                     <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
-
-
 
                     <div className={cx('des')}>
                         <h2>Khu nghỉ dưỡng AMANOI Ninh Thuận</h2>

@@ -76,7 +76,7 @@ const BookMICE = ({ close }) => {
             data: qs.stringify({
                 // Ip: ipAddress,
                 Type: 'MICE',
-                TourCode: 'Noname',
+                TourCode: data.event,
                 UserName: currentUser ? currentUser.UserName : null,
                 TourName: 'A 12 day luxury wellness & spa experience in Vietnam',
                 Country: Select,
