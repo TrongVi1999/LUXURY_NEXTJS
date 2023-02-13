@@ -6,7 +6,7 @@ import ImgBn from '@/public/images/paymentbn.png';
 import Imgpay from '@/public/images/iconpay.png';
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import { Getblog } from '../api/CallAPI';
+import { Getblog, GetSocial } from '../api/CallAPI';
 
 
 
@@ -19,12 +19,25 @@ const index = () => {
     const [Content, setcontent] = useState(router.query.id);
     const [Active, setactive] = useState(['act', '', '']);
     const [Data, setdata] = useState();
+    const [Data2, setData2] = useState();
     const handlePick = (i) => {
         setcontent(ListMenu[i]);
         let list = Active;
         setactive(list.map((d, index) => index == i ? 'act' : ''));
 
     }
+
+    const CallAPI2 = async () => {
+        const response = await GetSocial(5262);
+        if (response.status == 200) {
+            setData2(response.data.Object)
+        }
+        console.log(response);
+    }
+    useEffect(() => {
+        CallAPI()
+    }, []);
+
     const CallAPI = async () => {
 
         const response = await Getblog(5044);
@@ -74,8 +87,8 @@ const index = () => {
                 }
                 {Active[1] == 'act' &&
                     <div className={cx('content')}>
-                        <h1>Policy</h1>
-                        {Data && <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>}
+                        {/* <h1>Policy</h1> */}
+                        {Data2 && <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>}
                     </div>
                 }
 
