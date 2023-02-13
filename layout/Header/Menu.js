@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import style from './header.module.scss';
 
 import MenuHover from './MenuHover';
+import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
@@ -112,21 +113,28 @@ function Menu({ className, showmenu, menuBgr, close }) {
         active: showmenu,
     });
 
+    const [cclosed1, setclose1] = useState();
+    const [cclosed2, setclose2] = useState();
+    const [cclosed3, setclose3] = useState();
+
     return (
         <nav className={clases}>
-            <div className={cx('item')}>
+            <div className={cx('item')} onMouseEnter={() => setclose1(true)}
+                onMouseLeave={() => setclose1(false)}>
                 destination
-                <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} />
+                {cclosed1 && <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose1} />}
             </div>
-            <div className={cx('item')}>
+            <div className={cx('item')} onMouseEnter={() => setclose2(true)}
+                onMouseLeave={() => setclose2(false)}>
                 way to travel
-                <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} />
+                {cclosed2 && <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} close1={setclose2} />}
             </div>
 
             <Link href={'/blog-list'} className={cx('item')} onClick={() => close()}>Inspirations</Link>
-            <div className={cx('item')}>
+            <div className={cx('item')} onMouseEnter={() => setclose3(true)}
+                onMouseLeave={() => setclose3(false)}>
                 about us
-                <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} />
+                {cclosed3 && <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} close1={setclose3} />}
 
             </div>
         </nav>
