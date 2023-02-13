@@ -8,10 +8,10 @@ import Share from '../Share/Share';
 import Link from 'next/link';
 const cx = classNames.bind(style);
 
-const Highlight = ({ title, destination, long, highlight, click, btn }) => {
+const Highlight = ({ title, destination, long, highlight, click, btn, cla, cla2 }) => {
     return (
         <div className={cx('introduce')}>
-            <div className={cx('name')}>
+            <div className={cx(cla)}>
                 <h1>{title}</h1>
                 <div>
                     <p className={cx('long')}><SlClock />{long} days</p>
@@ -19,7 +19,7 @@ const Highlight = ({ title, destination, long, highlight, click, btn }) => {
                 </div>
                 {btn && <div className={cx('btn-book')} onClick={() => click(1)}><p>MAKE AN ENQUIRY</p> <GiCheckMark /> </div>}
             </div>
-            <div className={cx('highlight')}>
+            <div className={cx(cla2)}>
                 {ChangeTextHTML(highlight).map((d, i) => (
                     <div className={cx('hl-item')} key={i}>
 
@@ -27,7 +27,7 @@ const Highlight = ({ title, destination, long, highlight, click, btn }) => {
                     </div>
                 ))}
                 {btn && <div className={cx('btn-book')} onClick={() => click(2)}><p>SHARE WITH FRIEND</p> <GiCheckMark /> </div>}
-                <Share />
+                {btn && <Share />}
             </div>
         </div>
     )

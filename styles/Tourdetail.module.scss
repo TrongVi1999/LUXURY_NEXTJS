@@ -8,6 +8,10 @@
     width: 100%;
     padding: 3% 18%;
 }
+.main-infor1 {
+    width: 100%;
+    padding: 3% 5%;
+}
 .crumb-cost {
     display: flex;
     justify-content: space-between;
@@ -86,6 +90,25 @@
         margin-right: 10px;
     }
 }
+.name1 {
+    width: 45% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid gray;
+    padding: 1vw 2vw;
+    font-weight: bold;
+    color: rgb(57, 53, 53);
+    h1 {
+        margin-bottom: 1.5vw;
+    }
+    .long {
+        margin: 5px 0;
+    }
+    svg {
+        margin-right: 10px;
+    }
+}
 .btn-book {
     background-color: #fdd223;
     display: flex;
@@ -107,6 +130,32 @@
 }
 .highlight {
     width: 70%;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .hl-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    p {
+        width: 100%;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #fdd223;
+        margin-right: 10px;
+    }
+}
+.highlight2 {
+    width: 55%;
     padding: 2vw;
     display: flex;
     flex-direction: column;
@@ -234,6 +283,11 @@
         }
     }
 }
+
+.print{
+    display: flex;
+    justify-content: space-between;
+}
 //Tourrecomment
 .tour-rcm {
     padding: 3% 18%;
@@ -242,6 +296,9 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+.pdf{
+    display: none;
 }
 
 @media only screen and (max-width: 1500px) {
