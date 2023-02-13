@@ -57,7 +57,7 @@ const Index = () => {
 
                             <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>
                             <p className={cx('address')}><CiLocationOn />
-                                {Data[0].intro_text.split('|')[0]}
+                                {Data[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
                                 {/* Làng Vĩnh Hy, Xã Vĩnh Hải, Huyện Ninh Hải, Ninh Thuận, Việt Nam */}
                             </p>
                             <p>{Data[0].intro_text}
