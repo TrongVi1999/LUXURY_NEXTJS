@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
 import Shareemail from '@/views/Tourdetail/Shareemail';
+import CreatPDF from '@/components/PDF/CreatPDF.js';
+import ReactToPrint from 'react-to-print';
 
 const cx = classNames.bind(style);
 
@@ -32,6 +34,7 @@ const index = () => {
     const router = useRouter();
     const [Tourdata, setTourdata] = useState();
     const [Book, setBook] = useState(0);
+    const componentRef = useRef(null);
 
 
 
@@ -62,7 +65,7 @@ const index = () => {
 
 
                 {Book == 0 &&
-                    <div className={cx('main-infor')}>
+                    <div className={cx('main-infor')} ref={el => (componentRef.current = el)}>
 
                         <div className={cx('crumb-cost')}>
                             <Crumb text={Tourdata.TourName} />
@@ -74,8 +77,8 @@ const index = () => {
                         </div>
 
                         <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} btn />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} btn />
 
                     </div>}
                 {Book == 1 && <Booking
@@ -87,11 +90,19 @@ const index = () => {
                 {Book == 2 && <Shareemail close={setBook} />}
                 <Tourrecomment type={Tourdata.TourType} />
 
+                <p>PDF</p>
 
 
-            </div>}
+                <ReactToPrint
+                    trigger={() => <button>In</button>}
+                    content={() => componentRef.current}
+                />
+
+            </div>
+            }
         </div>
     )
 }
 
 export default index
+

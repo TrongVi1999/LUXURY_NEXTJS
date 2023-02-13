@@ -8,7 +8,7 @@ import { BsFillPrinterFill } from 'react-icons/bs'
 
 const cx = classNames.bind(style);
 
-const Itinerary = ({ description, detail, click }) => {
+const Itinerary = ({ description, detail, click, btn }) => {
     const [content, setcontent] = useState(['active', '', '']);
     const [Data, setData] = useState();
 
@@ -62,7 +62,6 @@ const Itinerary = ({ description, detail, click }) => {
                         {/* <div className={cx('btn-book')} onClick={() => click(2)}><p>SHARE WITH FRIEND</p> <GiCheckMark /> </div> */}
                         {/* <AiOutlinePrinter className={cx('icon1')} /> */}
                     </div>
-
                 </div>
             }
             {content[1] == 'active' && Data &&

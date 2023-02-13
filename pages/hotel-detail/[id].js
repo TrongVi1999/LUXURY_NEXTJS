@@ -60,12 +60,7 @@ const Index = () => {
                                 {Data[0].intro_text.split('|')[0]}
                                 {/* Làng Vĩnh Hy, Xã Vĩnh Hải, Huyện Ninh Hải, Ninh Thuận, Việt Nam */}
                             </p>
-                            <p>{Data[0].intro_text.split('|')[1]}
-                                {/* Amanoi là tên gọi khởi nguồn từ sự kết hợp khéo léo của 	&quot;aman	&quot; - nghĩa là 	&quot;bình yên	&quot; theo tiếng Sanskrit và 	&quot;nơi	&quot; - ý chỉ 	&quot;chỗ lưu trú	&quot; trong tiếng Việt. Đến với Amanoi Ninh Thuận, điều các thượng khách nhận được không phải là dịch vụ nghỉ dưỡng thông thường mà là sự phục vụ đẳng cấp từ cơ sở vật chất đến tất cả tâm huyết của đội ngũ nhân viên - những người được đào tạo chuyên nghiệp để mang đến cho thượng khách cảm giác được trân trọng trên từng bước chân. Nằm trong lòng vườn quốc gia Núi Chúa, với vị thế đắc địa vừa có hồ vừa có biển, khu nghỉ dưỡng cung cấp rất nhiều hoạt động thể thao kết hợp với thiên nhiên như yoga trong lành giữa lòng sông, chèo thuyền kayak, lặn biển,... đặc biệt chỉ có tại Amanoi, cung đường trekking tự nhiên theo cấp độ sẽ làm thỏa mãn các thượng khách muốn chinh phục giới hạn.
-
-                                Cầu hôn tại Amanoi cũng là một ý tưởng tuyệt vời - với một mức giá không thể tốt hơn tại iVIVU - thượng khách hoàn toàn có thể mang đến cho người bạn đời một kỉ niệm không thể nào quên.
-                                Hãy đến Amanoi Ninh Thuận một lần trong đời để tận hưởng trải nghiệm kỳ nghỉ vượt xa hơn cả mong đợi ! */}
-                            </p>
+                           
 
                             <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                         </div>
