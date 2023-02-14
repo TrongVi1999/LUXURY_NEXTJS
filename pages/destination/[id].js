@@ -102,9 +102,9 @@ function Destimation() {
     }, [router.query.id])
     useEffect(() => {
         { router.query.id && CallAPISuperfilter() }
-        console.log('DES', vldestination)
 
-    }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
+
+    }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup, router])
 
     const dataFillter = (data) => {
         setValueFillter(data)

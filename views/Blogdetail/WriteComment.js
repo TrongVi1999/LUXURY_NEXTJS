@@ -43,7 +43,7 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
             {prid && <p> Reply comment of {repname}</p>}
             <textarea className={cx('textarea')} rows='10' onChange={(e) => setinput(e.target.value)} value={input}></textarea>
             <div className={cx('login-list')}>
-                <span>Login by</span>
+                {/* <span>Login by</span> */}
             </div>
             <button className={cx('btn')} onClick={() => handleComment()}>ADD COMMENT</button>
         </div>
