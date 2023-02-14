@@ -54,14 +54,8 @@ const Itinerary = ({ description, detail, click, btn }) => {
                             )}
                         </div>
                     </div>
-                    {/* <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p> */}
-                    <div className={cx('flex')}>
-                        <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
-                        <button className={cx('btn-design')} onClick={() => click(2)}>SHARE WITH FRIEND <GiCheckMark className={cx('icon')} /></button>
-                        <button className={cx('btn-design')}>In <BsFillPrinterFill /> </button>
-                        {/* <div className={cx('btn-book')} onClick={() => click(2)}><p>SHARE WITH FRIEND</p> <GiCheckMark /> </div> */}
-                        {/* <AiOutlinePrinter className={cx('icon1')} /> */}
-                    </div>
+                    <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
+                    {btn && <button className={cx('btn-design')} onClick={() => click(true)}>DESIGN YOUR TOUR</button>}
                 </div>
             }
             {content[1] == 'active' && Data &&

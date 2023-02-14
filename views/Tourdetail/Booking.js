@@ -10,7 +10,8 @@ import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
 import ScrollToTop from '@/hook/scrollToTop';
-import { IoArrowBackOutline } from 'react-icons/io'
+import Link from 'next/link';
+
 const cx = classNames.bind(style);
 
 function Booking({ onClick, datas, title, long }) {
@@ -124,9 +125,8 @@ function Booking({ onClick, datas, title, long }) {
     return (
         <div className={cx("booking-infor")}>
             <ScrollToTop />
-            <div className={cx("book-crumb")}>Home | BOOK TOUR</div>
-            {/* <IoArrowBackOutline onClick={() => onClick(0)} className={cx("back") }/> */}
-            <p onClick={() => onClick(0)} className={cx("back")}>Back</p>
+            <div className={cx("book-crumb")}><Link href='/'>Home</Link> | <span onClick={() => onClick(0)}>{datas.TourName}</span> | BOOK TOUR</div>
+
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
