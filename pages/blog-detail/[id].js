@@ -148,11 +148,11 @@ const BlogDetail = () => {
                             </div>
                         </div> */}
                     </div>
-                    {Commentss.length > 0 &&
-                        <div className={cx('comment-container')}>
-                            <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />
-                            <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
-                        </div>}
+
+                    <div className={cx('comment-container')}>
+                        {Commentss.length > 0 && <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />}
+                        <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
+                    </div>
                 </div>)
             }
             <Blogrecomment />

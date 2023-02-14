@@ -3,6 +3,15 @@ import Layout from '../layout/Layout';
 import { useEffect, useState, useContext } from 'react'
 import { useRouter } from 'next/router';
 import { createContext } from "react";
+import {
+    useQuery,
+    useMutation,
+    useQueryClient,
+    QueryClient,
+    QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient();
 
 const AppContext = createContext();
 
@@ -53,11 +62,13 @@ export default function App({ Component, pageProps }) {
 
 
     return (
-        <AppContext.Provider value={{ loca, setloca }} setloca={setloca}>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
-        </AppContext.Provider>
+        <QueryClientProvider client={queryClient}>
+            <AppContext.Provider value={{ loca, setloca }} setloca={setloca}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </AppContext.Provider>
+        </QueryClientProvider>
 
     );
 }
