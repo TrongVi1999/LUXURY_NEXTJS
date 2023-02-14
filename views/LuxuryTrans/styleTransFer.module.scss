@@ -7,16 +7,19 @@
     display: flex;
     flex-direction: column;
 }
+
 .boxImg {
     width: 100%;
     height: 15vw;
     min-height: 180px;
 }
+
 .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .infor {
     padding: 10px;
     display: flex;
@@ -27,30 +30,36 @@
         padding: 5px 0;
         color: gray;
     }
+
     .rate {
         span {
             margin-left: 5px;
         }
+
         .icon-star {
             color: #9c9c9c;
+
             span {
                 margin-left: 0 !important;
                 font-weight: bold;
                 color: #f5a623;
             }
+
             p {
                 padding: 1rem 0;
                 font-size: 14px;
                 color: #565656;
             }
         }
+
         .describe {
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            text-overflow: ellipsis;    
+            text-overflow: ellipsis;
             max-height: 5.9rem;
+
             span {
                 margin-left: 0 !important;
                 font-weight: bold;
@@ -59,6 +68,7 @@
         }
     }
 }
+
 .nameCar {
     font-weight: bolder;
     font-size: 15px;
@@ -67,8 +77,21 @@
     flex: 1;
     color: black;
 }
+
 .rating {
     color: rgb(209, 148, 27);
     margin-right: 5px;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 850px) {
+    .card {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 485px) {
+    .card {
+        width: 100%;
+    }
 }

@@ -88,7 +88,7 @@ function Destimation() {
                     </div>
                 </div>
             </div>
-            <Section maxWidth={1170} isWrap gapBox={3.2}>
+            <Section maxWidth={1270} isWrap gapBox={3.2}>
                 {
                     Data && Data.map((d) => (
                         <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} click={handleBooking} />
