@@ -70,7 +70,7 @@ const index = () => {
                             <Crumb text={Tourdata.TourName} />
                             <div className={cx('cost')}>
                                 <sup>From</sup>
-                                <p>$1000</p>
+                                <p>$ {Tourdata.PRICE[0].price}</p>
                                 <span>/PAX</span>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ const index = () => {
                             <h3> {Tourdata.TourName} </h3>
                             <div className={cx('cost')}>
                                 <sup>From</sup>
-                                <p>$1000</p>
+                                <p>${Tourdata.PRICE[0].price}</p>
                                 <span>/PAX</span>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ const index = () => {
                     </div>
                 </div>
 
-                {/* <p>PDF</p> */}
+
 
 
                 {/* <ReactToPrint

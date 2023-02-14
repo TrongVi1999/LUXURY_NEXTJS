@@ -72,6 +72,7 @@ function Hotelbook({ click, hotel }) {
             data: qs.stringify({
                 Ip: ipAddress,
                 UserName: currentUser ? currentUser.UserName : null,
+
                 TourName: hotel,
                 Country: Select,
                 Adult: data.PersonsAttendtion,
