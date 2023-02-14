@@ -221,7 +221,7 @@ export const Sendmail = (bookname, email) => axios({
     },
 });
 //comment
-export const Comment = (id, prid, cm, user) => axios({
+export const Comment = (id, cm, user, prid) => axios({
     method: 'post',
     url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost',
     data: qs.stringify({
@@ -241,5 +241,12 @@ export const GetAllDes = (id) =>
     axios({
         method: 'post',
         url: `https://vnxpedia.3i.com.vn/TravelAPI/GetAllDestination`,
+        type: 'json',
+    });
+//list comment
+export const GetComment = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListComment?postid=${id}`,
         type: 'json',
     });

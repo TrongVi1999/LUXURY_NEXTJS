@@ -4,6 +4,7 @@ import style from '@/styles/blogdetail.module.scss';
 import Comment from './Comment';
 import { Title } from '@/components';
 import { Comment1 } from '@/pages/api/CallAPI';
+import { GetComment } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -37,39 +38,42 @@ const cx = classNames.bind(style);
 
 
 
-const Comments = () => {
-    const [data, setData] = useState()
-    const CallAPI = async () => {
-        const response = await (Comment1(id, prid, cm, user));
-        if (response.status === 200) {
-            setData(response.data);
-        }
-        console.log(response)
-    }
-    useEffect(() => {
-        CallAPI();
-    }, [id, prid, cm, user]);
-    // console.log(Localist);
+const Comments = ({ Commentss, setrepid, setrepname }) => {
+
+
+    // const CallComment = async (id) => {
+    //     const response = await GetComment(id);
+    //     if (response.status === 200) {
+    //         setcomment(response.data.Object);
+    //     }
+    // }
+    // useEffect(() => {
+    //     CallComment(id)
+    // }, []);
+
 
     return (
         <div className={cx('comments')}>
-            {/* <Title text='COMMENTS' align='center' />
-            {data &&
-                // (data.map((d, i) => (
+            <Title text='COMMENTS' align='center' />
+            {Commentss &&
+
                 <div className={cx('comment-item')}>
-                   
-                    < (data.map((d, i) => (Comment data={d} />
-                    {d.reply && d.reply.map((a, index) =>
-                    (
-                        <div className={cx('comment-reply')}>
-                            <Comment data={a} />
-                        </div>
-                    )
-                    )}
-                    )))
+
+                    {Commentss.map((d, i) => <div><Comment data={d} setrepid={setrepid} setrepname={setrepname} />
+                        {d.CommentChild.length > 0 && d.CommentChild.map(
+                            a =>
+                                <div className={cx('comment-reply')}>
+                                    <Comment data={a} setrepid={setrepid} setrepname={setrepname} />
+                                </div>
+                        )}
+                    </div>)}
+
                 </div>
-            } */}
-            aaa
+
+
+
+            }
+
         </div>
     )
 }
