@@ -7,7 +7,7 @@ import { Comment, GetComment } from '@/pages/api/CallAPI';
 const cx = classNames.bind(style);
 
 
-const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
+const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
     const [input, setinput] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
 
@@ -15,6 +15,7 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
         const response = await Comment(id, input, currentUser.FullName, prid);
         if (response.status == 200) {
             setloadcm(!loadcm);
+
         }
         console.log(response)
     }
@@ -22,7 +23,8 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
     const handleComment = () => {
         if (input != '') {
             CallAPI();
-            setinput('')
+            setinput('');
+            setrepid();
         }
     }
     useEffect(() => {
@@ -41,7 +43,7 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
             {prid && <p> Reply comment of {repname}</p>}
             <textarea className={cx('textarea')} rows='10' onChange={(e) => setinput(e.target.value)} value={input}></textarea>
             <div className={cx('login-list')}>
-                <span>Login by</span>
+                {/* <span>Login by</span> */}
             </div>
             <button className={cx('btn')} onClick={() => handleComment()}>ADD COMMENT</button>
         </div>

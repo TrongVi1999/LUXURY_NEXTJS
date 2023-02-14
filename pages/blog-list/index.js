@@ -90,7 +90,7 @@ function BlogList() {
         {/* <Button className={cx('btnFill')} onClick={() => setShowFilterMobile(!showFilterMobile)}>Filter By</Button> */}
         <div id='list'></div>
 
-        <Section className={cx('bodyContent')} gapBox={1}>
+        <div className={cx('bodyContent')} gapBox={1}>
 
             <div className={cx('listBlogBody')}>
                 {Data && <span className={cx('bodyPage')}>Showing {(page - 1) * 10 + 1} - {(page - 1) * 10 + Data.Object.length} of {count} products</span>}
@@ -118,7 +118,7 @@ function BlogList() {
                     hotblog={Datahot}
                 />
             }
-        </Section>
+        </div>
     </div>);
 }
 
