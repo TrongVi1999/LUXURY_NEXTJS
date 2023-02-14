@@ -7,6 +7,7 @@ const images = {
 const avatars = {
     avatar1: require('./avt2.png'),
     avatar2: require('./avt3.png'),
+    avatar3: require('./avt4.png')
 }
 
 const banners = {
