@@ -151,7 +151,7 @@ const BlogDetail = () => {
                     {Commentss.length > 0 &&
                         <div className={cx('comment-container')}>
                             <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />
-                            <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} />
+                            <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
                         </div>}
                 </div>)
             }

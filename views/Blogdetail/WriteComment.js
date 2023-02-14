@@ -7,7 +7,7 @@ import { Comment, GetComment } from '@/pages/api/CallAPI';
 const cx = classNames.bind(style);
 
 
-const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
+const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
     const [input, setinput] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
 
@@ -15,6 +15,7 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
         const response = await Comment(id, input, currentUser.FullName, prid);
         if (response.status == 200) {
             setloadcm(!loadcm);
+
         }
         console.log(response)
     }
@@ -22,7 +23,8 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname }) => {
     const handleComment = () => {
         if (input != '') {
             CallAPI();
-            setinput('')
+            setinput('');
+            setrepid();
         }
     }
     useEffect(() => {
