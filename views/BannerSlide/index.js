@@ -16,6 +16,7 @@ import 'swiper/css/pagination';
 import { useState, useEffect } from 'react';
 import { categoryFillerAddress } from '@/public/dataRender';
 import { useApppContext } from '@/pages/_app';
+import { GetSocial } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
@@ -28,13 +29,20 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
     const [ip2, setip2] = useState();
     const [list1, setlist1] = useState([]);
     const [show1, setshow1] = useState(true)
+    const [List2, setlist2] = useState()
     const handleChange1 = (e) => {
         setip1(e.targer.value);
     }
-
+    const CallList = async () => {
+        const response = await GetSocial(6256);
+        if (response.status == 200) {
+            setlist2(JSON.parse(response.data.Object[0].intro_text));
+        }
+    }
     useEffect(() => {
-        { show1 && ip1 != '' ? setlist1(categoryFillerAddress.elements.filter(d => d.name.toLowerCase().replace(' ', '').includes(ip1.toLowerCase().replace(' ', '')))) : setlist1([]) }
-        console.log('loca', CT.loca)
+        CallList();
+        { show1 && List2 && ip1 != '' ? setlist1(List2[0].filter(d => d.toLowerCase().replace(' ', '').includes(ip1.toLowerCase().replace(' ', '')))) : setlist1([]) }
+
 
     }, [ip1])
     console.log(list1);
@@ -75,10 +83,10 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                                         setshow1(true)
                                         setip1(e.target.value)
                                     }} value={ip1}></input>
-                                    {show1 &&
+                                    {show1 && list1 &&
                                         <div className={cx('list1')}>
                                             {list1.map(d =>
-                                                <p onClick={() => { setshow1(false); setip1(d.name); setlist1([]) }}>{d.name}</p>)}
+                                                <p onClick={() => { setshow1(false); setip1(d); setlist1([]) }}>{d}</p>)}
                                         </div>
                                     }
                                 </div>

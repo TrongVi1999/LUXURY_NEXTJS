@@ -173,7 +173,10 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
         headers: {
             'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
+
     });
+
+
 
 //lấy list hotel https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel
 export const ListHotel = () =>
@@ -232,4 +235,11 @@ export const Comment = (id, prid, cm, user) => axios({
     },
 });
 
-//Lấy list 
+//Lấy list des
+
+export const GetAllDes = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/GetAllDestination`,
+        type: 'json',
+    });
