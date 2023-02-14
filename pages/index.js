@@ -29,8 +29,8 @@ export default function Home() {
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
                     className={cx('bodyBanner')}
-                    titleBanner={'south asia'}
-                    textTop={'Luxury tailor-made tours to'}
+                    titleBanner={'& BE SPOKE TOURS TO VIETNAM & SOUTHEAST ASIA'}
+                    textTop={'Luxury tailor-made'}
                     imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
                 />
                 <ItemInfoHome className={cx('boxInfo')} />

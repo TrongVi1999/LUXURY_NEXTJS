@@ -12,13 +12,14 @@ import Image from 'next/image';
 
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
 // import TitleLine from '@/components/TitleLine';
-import { Getblog, GetComment } from '../api/CallAPI';
+import { GetComment } from '../api/CallAPI';
+import { Getblog } from '../api/QuerryAPI';
 import TitleLine from '@/components/TitleLine';
 import Listtag from '@/views/Blogdetail/Listtag';
 
 const cx = classNames.bind(style);
 
-const data = {
+const datafake = {
     banner: IMGbn,
     date: 'April 27, 2022',
     author: 'admin',
@@ -68,14 +69,20 @@ const BlogDetail = () => {
     const [repname, setrepname] = useState()
 
 
-    const CallAPI = async () => {
-        const response = await Getblog(router.query.id);
-        if (response.status === 200) {
-            setData(response.data.Object);
-            console.log(response.data.Object[0])
 
-        }
-    }
+    // { router.query.id && Getblog(router.query.id) };
+    // console.log(Getblog(router.query.id));
+    // const { data, isLoading, error } = Getblog(router.query.id);
+    const BlogDetail = Getblog(router.query.id);
+    console.log('BlogDetail', BlogDetail);
+    // const CallAPI = async () => {
+    //     const response = await Getblog(router.query.id);
+    //     if (response.status === 200) {
+    //         setData(response.data.Object);
+    //         console.log(response.data.Object[0])
+
+    //     }
+    // }
     const CallComment = async () => {
         const response = await GetComment(router.query.id);
         if (response.status === 200) {
@@ -85,7 +92,7 @@ const BlogDetail = () => {
     const contentRef = useRef()
 
     useEffect(() => {
-        CallAPI();
+        // CallAPI();
 
 
     }, [router.query.id]);
@@ -93,68 +100,49 @@ const BlogDetail = () => {
         CallComment();
     }, [router.query.id, loadcm])
 
-    // var re = /[]\s|","\s/;
 
-    // if (Data[0]) {
-    //     let hast = Data[0].hash_tag.split(re)
-    //     console.log(hast)
-    // }
     console.log('cm', Commentss);
     console.log('load', loadcm);
 
+    if (BlogDetail.isLoading) {
+        return <p>Loading...</p>;
+    }
 
+    if (BlogDetail.error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <div className={cx('container')}>
-            {Data[0] &&
-                <BannerIMG img={data.banner} title={Data[0].title.toUpperCase()} bg='bg' type={data.type} color='black' date={data.date} by={data.author} number={data.comments.length} />
-            }
+            {/* {Data[0] && */}
+            <BannerIMG img={datafake.banner} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />
+            {/* }
             {
-                Data[0] &&
-                (<div className={cx('main')} ref={contentRef}>
+                Data[0] && */}
+            (<div className={cx('main')} ref={contentRef}>
 
 
 
-                    <div className={cx('main-top')}>
-                        <div className={cx('author')}>
-                            <Author />
-                        </div>
-                        {/* <div className={cx('content')} dangerouslySetInnerHTML={{
-                            __html: data.content1,
-                        }}>
-                        </div> */}
-                        <div className={cx('content')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
-                    </div>
-                    {/* <Image src={data.banner} alt='blog-travel' className={cx('img-banner')} /> */}
-                    <div className={cx('main-bot')}>
-                        {/* <div className={cx('content')} dangerouslySetInnerHTML={{
-                            __html: data.content2,
-                        }}>
-
-                        </div> */}
-                        <Listtag data={Data[0].hash_tag} />
-                        {/* <div className={cx('main-end')}>
-                            <div className={cx('tag-list')}>
-                                {JSON.parse(Data[0].hash_tag).filter(a => a != '#Blog').map((d, i) =>
-                                    <div>
-                                        <TitleLine key={i} text={d.replace('#', '').toUpperCase()} />
-                                    </div>
-                                )}
-                            
-                            </div>
-                            <div className={cx('share-list')}>
-                                <span>Share</span>
-                                <Share />
-                            </div>
-                        </div> */}
+                <div className={cx('main-top')}>
+                    <div className={cx('author')}>
+                        <Author />
                     </div>
 
-                    <div className={cx('comment-container')}>
-                        {Commentss.length > 0 && <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />}
-                        <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
-                    </div>
-                </div>)
-            }
+                    <div className={cx('content')} dangerouslySetInnerHTML={{ __html: BlogDetail.data.Object[0].full_text }}></div>
+                </div>
+
+                <div className={cx('main-bot')}>
+
+                    <Listtag data={BlogDetail.data.Object[0].hash_tag} />
+
+                </div>
+
+                <div className={cx('comment-container')}>
+                    {Commentss.length > 0 && <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />}
+                    <WriteComment id={router.query.id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
+                </div>
+            </div>)
+            {/* } */}
             <Blogrecomment />
         </div >
     )

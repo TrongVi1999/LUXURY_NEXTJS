@@ -1,5 +1,6 @@
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
+import qs from 'qs';
 
 
 
@@ -24,14 +25,21 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
             return response.data;
         }
     );
-
     return { data, isLoading, error };
 };
 
+//Lấy 1 blog
 export const Getblog = (id) => {
-    const { data, isLoading, error } = useQuery('getblog', async () => {
+    return useQuery(['getblog', id], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPostWithId?Id=${id}`);
         return response.data;
     });
-    return { data, isLoading, error };
-}
+};
+
+//lấy tất cả tour
+export const Alltour = () => {
+    return useQuery(['getblog'], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/AllTourTable`);
+        return response.data;
+    });
+};
