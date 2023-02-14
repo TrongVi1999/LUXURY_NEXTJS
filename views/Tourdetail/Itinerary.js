@@ -62,7 +62,7 @@ const Itinerary = ({ description, detail, click, btn, dataref }) => {
                                 <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
                             </div>
                             <div>
-                                <button className={cx('btn-design')} onClick={() => click()}>SHARE WITH FRIEND</button>
+                                <button className={cx('btn-design')} onClick={() => click(2)}>SHARE WITH FRIEND</button>
                             </div>
 
                             <ReactToPrint
