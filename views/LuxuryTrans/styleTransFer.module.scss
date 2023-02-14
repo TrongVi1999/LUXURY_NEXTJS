@@ -72,3 +72,14 @@
     margin-right: 5px;
     font-weight: bold;
 }
+
+@media only screen and (max-width: 850px){
+    .card{
+        width: 40%;
+    }
+}
+@media only screen and (max-width: 485px){
+    .card{
+        width: 80%;
+    }
+}

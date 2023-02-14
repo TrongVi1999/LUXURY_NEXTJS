@@ -94,6 +94,10 @@
             margin-left: 2rem;
             padding: 1.2rem 0.7rem;
             background-image: var(--linear-gradient-btn);
+
+            span{
+                white-space: break-spaces;
+            }
         }
     }
 }

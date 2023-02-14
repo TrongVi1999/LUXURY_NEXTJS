@@ -44,6 +44,7 @@ const Header = () => {
     const [currentUser, setCurrentUser] = useState(null);
     const { asPath } = useRouter();
     const router = useRouter();
+    const [closeUser, setCloseUser] = useState(false)
     const origin =
         typeof window !== 'undefined' && window.location.origin
             ? window.location.origin
@@ -117,12 +118,13 @@ const Header = () => {
                         }}>
                             {currentUser ?
 
-                                <div className={cx('item-user')}>
+                                <div className={cx('item-user')} onMouseEnter={() => setCloseUser(true)}
+                                    onMouseLeave={() => setCloseUser(false)}>
                                     <FiUserCheck className={cx('icon')} />
-                                    <div className={cx('menuHover')} >
-                                        <Link href='/profile' className={cx('itemMenuHover')}>Profile</Link>
+                                    {closeUser && <div className={cx('menuHover')} >
+                                        <Link href='/profile' className={cx('itemMenuHover')} onClick={() => setCloseUser(false)}>Profile</Link>
                                         <h4 className={cx('itemMenuHover')} onClick={() => handleLogout()}>Logout</h4>
-                                    </div>
+                                    </div>}
 
                                 </div>
                                 : <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />}
@@ -139,7 +141,7 @@ const Header = () => {
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
-                    <Button className={cx('button')}>hotline: +84 901591111</Button>
+                    <Button className={cx('button')}>hotline: <span>+84 901591111</span></Button>
 
                 </div>
             </div>

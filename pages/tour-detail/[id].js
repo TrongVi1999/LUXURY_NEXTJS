@@ -91,7 +91,6 @@ const index = () => {
 
                 <div className={cx('pdf')}>
                     <div className={cx('main-infor1')} ref={el => (componentRef.current = el)}>
-
                         <div className={cx('crumb-cost')}>
                             <h3> {Tourdata.TourName} </h3>
                             <div className={cx('cost')}>
