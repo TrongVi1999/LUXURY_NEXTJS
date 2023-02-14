@@ -21,7 +21,7 @@ const Blogcard2 = ({ className, data }) => {
         <div className={clases}>
             <div className={cx('blog')}>
                 <div className={cx('img')}>
-                    <img src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="blogerroimg" className={cx('blogImg')} />
+                    <img src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="blogimg" className={cx('blogImg')} />
                 </div>
                 {/* <div className={cx('icon')}>
                     <Image src={icon} alt="blogerroimg" />
@@ -31,10 +31,10 @@ const Blogcard2 = ({ className, data }) => {
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('icon2')}>
-                    <Image src={icon1} alt="blogerroimg" />  <span>By Admin</span>
-                    <Image src={icon2} alt="blogerroimg" /> <span>Aplil 27,2019</span>
-                    <Image src={icon3} alt="blogerroimg" /> <span>05</span>
-                    <Image src={icon4} alt="blogerroimg" /> <span>Viet Nam</span>
+                    <Image src={icon1} alt="blogimg" />  <span>By Admin</span>
+                    <Image src={icon2} alt="blogimg" /> <span>Aplil 27,2019</span>
+                    <Image src={icon3} alt="blogimg" /> <span>05</span>
+                    <Image src={icon4} alt="blogimg" /> <span>Viet Nam</span>
                 </div>
                 <div className={cx('text')}>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat dui at lacus aliquet, a consequat enim aliquet. Integer molestie sit amet sem et faucibus. Nunc ornare pharetra dui, vitae auctor orci fringilla eget. Pellentesque in placerat felis. Etiam mollis venenatis luctus. Morbi ac scelerisque maurisdunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc faucibus imperdiet vulputate.

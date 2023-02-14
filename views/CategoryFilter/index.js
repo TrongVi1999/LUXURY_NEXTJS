@@ -287,7 +287,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
                         hotblog.map((item, index) => (
                             <Link key={index} href={`/blog-detail/${item.id}`} className={cx('recentItem', 'itemMobileShow')}>
                                 <div className={cx('imgBox')}>
-                                    <Image src={`https://vnxpedia.3i.com.vn${item.gallery}`} alt="errorImgPostRecent" className={cx('img')} width={200} height={200} />
+                                    <Image src={`https://vnxpedia.3i.com.vn${item.gallery}`} alt="ImgPostRecent" className={cx('img')} width={200} height={200} />
                                 </div>
                                 <div className={cx('recentInfo')}>
                                     <p className={cx('titleRecentPost')}>{item.title}</p>
@@ -315,7 +315,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
             {
                 banner ? (<a className={cx('boxFillterItem', 'boxBanner')}>
-                    <Image src={banners.bannerBlogListFilter} alt="bannerError" className={cx('bannerImg')} />
+                    <Image src={banners.bannerBlogListFilter} alt="banner" className={cx('bannerImg')} />
                     <div className={cx('content')}>
                         <span className={cx('number')}>299</span>
                         <p className={cx('text')}>look hot with style</p>

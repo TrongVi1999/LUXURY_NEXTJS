@@ -14,7 +14,7 @@ const History = () => {
             <p className={cx('text-top')}>
                 We are proud to be the branch company specialized in organizing in Indochina under Voyages Saigon – a travel company that was born and operated in the 1980s and officially brought the brand to customers in 1991. Voyages Saigon serves Serving delegations from North America, Canada with extremely selected and designed products to most destinations around the world.
             </p>
-            <Image src={IMG} className={cx('img-history')} />
+            <Image src={IMG} className={cx('img-history')} alt='imgHistory' />
             <div className={cx('text-bot')}>
                 <div className={cx('text-bot-left')}>
                     <Title text='OUR VISION' align='start' />

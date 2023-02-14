@@ -15,7 +15,7 @@ function ItemBookingUser({
     status }) {
     return (<Link href={'/'} className={cx('wrapperItem')}>
         <div className={cx('boxImg')}>
-            <Image src={img} alt='imgError' className={cx('img')} />
+            <Image src={img} alt='img' className={cx('img')} />
         </div>
         <div className={cx('boxContent')}>
             {titleTour && <h2 className={cx('titleTour')}>{titleTour}</h2>}

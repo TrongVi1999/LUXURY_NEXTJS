@@ -14,7 +14,7 @@ const index = () => {
       <div className={cx('formHighlight')}>
 
         <div className={cx('highlight')}>
-          <Image src={HighImg} className={cx('image')}></Image>
+          <Image src={HighImg} className={cx('image')} alt='imgAbout'></Image>
           <h3>About VietNam</h3>
           <p>Vietnam is home to an abundance of beautiful landscapes, amazing historical monuments and cultural diversity.</p>
           <p> Hanoi, the capital of Vietnam is filled with a fusion of traditional and European architecture and atmosphere. It offers numerous colonial buildings and museums and is a perfect place to explore on foot or on a cyclo. Hanoi is also known for its charming streets, the bustling local markets and the iconic herds of scooters.</p>
@@ -27,7 +27,7 @@ const index = () => {
         <p>If time permits, pay a visit to many other beautiful parts of Vietnam such as Sapa, Ninh Binh, Mai Chau, Hue and Mekong Delta. If you want to enjoy a beach stay, there are plenty of places to unwind along the vast coastal line. Da Nang, Nha Trang, Con Dao and Phu Quoc – just a few to consider.</p>
         <p>When it comes to food, Vietnam is certainly a place to tantalise your taste buds. The cuisine is renowned for being diverse, healthy, and delicious. The French colonisation has also left its mark on many dishes including the banh mi and the coffee.</p>
         <p> Whatever you wish to experience, this long “S” shaped country has it all covered. Visit this picturesque nation and awaken all of your senses.</p>
-        <Image src={HighImg1} className={cx('image1')}></Image>
+        <Image src={HighImg1} className={cx('image1')} alt='imgAbout'></Image>
       </div>
     </div>
   )

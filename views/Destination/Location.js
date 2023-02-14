@@ -37,6 +37,7 @@ const Location = () => {
                             width='1000'
                             height='1000'
                             className={cx('img')}
+                            alt='img-Location'
                         ></Image>
                         <a href="" className={cx('h3')}>
                             <h3>{d.title}</h3>
@@ -66,6 +67,7 @@ const Location = () => {
                                 width='1000'
                                 height='1000'
                                 className={cx('img')}
+                                alt='img-Location'
                             ></Image>
                             <a href="" className={cx('h3')}>
                                 <h3>{d.title}</h3>
@@ -88,6 +90,7 @@ const Location = () => {
                                 width='1000'
                                 height='1000'
                                 className={cx('img')}
+                                alt='img-Location'
                             ></Image>
                             <a href="" className={cx('h3')}>
                                 <h3>{d.title}</h3>
@@ -111,6 +114,7 @@ const Location = () => {
                                 width='1000'
                                 height='1000'
                                 className={cx('img')}
+                                alt='img-Location'
                             ></Image>
                             <a href="" className={cx('h3')}>
                                 <h3>{d.title}</h3>
@@ -136,6 +140,7 @@ const Location = () => {
                                 width='1000'
                                 height='1000'
                                 className={cx('img')}
+                                alt='img-Location'
                             ></Image>
                             <p>{d.intro_text}</p>
                         </div>

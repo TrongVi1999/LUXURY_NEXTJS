@@ -52,7 +52,7 @@ const Index = () => {
                     <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
 
                     <div className={cx('des')}>
-                        <h2>Khu nghỉ dưỡng AMANOI Ninh Thuận</h2>
+                        <h2>{Data[0].title}</h2>
                         <div className={cx('star')}>
 
                             <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>

@@ -72,17 +72,17 @@ function Destimation() {
                         Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
                     <div className={cx('icon')}>
                         <div>
-                            <Image src={a1} />
+                            <Image src={a1} alt='car'/>
                             <h4>Professional Service</h4>
                         </div>
                         <div className={cx('seperate')}></div>
                         <div>
-                            <Image src={a2} />
+                            <Image src={a2} alt='car' />
                             <h4>Professional Service</h4>
                         </div>
                         <div className={cx('seperate')}></div>
                         <div className={cx('icon1')}>
-                            <Image src={a3} />
+                            <Image src={a3} alt='car'/>
                             <h4>Professional Service</h4>
                         </div>
                     </div>
