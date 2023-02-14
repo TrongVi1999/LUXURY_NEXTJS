@@ -119,28 +119,7 @@
     }
 }
 
-@media only screen and (max-width: 1150px) {
-    .container {
-        padding: 2rem 15%;
-    }
-    .Siminal-Hotel {
-        justify-content: center !important;
-    }
-    .card {
-        width: 40% !important;
-    }
-}
-@media only screen and (max-width: 800px) {
-    .container {
-        padding: 2rem 10%;
-    }
-    .Siminal-Hotel {
-        justify-content: center !important;
-    }
-    .card {
-        width: 70% !important;
-    }
-}
+
 .main-hotel {
     padding: 2% 0;
     h2 {
@@ -198,4 +177,84 @@
             color: #565656;
         }
     }
+}
+@media only screen and (max-width: 1150px) {
+    .container {
+        padding: 2rem 15%;
+    }
+    .Siminal-Hotel {
+        justify-content: center !important;
+    }
+    .card {
+        width: 40% !important;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .container {
+        padding: 2rem 10%;
+    }
+    .Siminal-Hotel {
+        justify-content: center !important;
+    }
+    .card {
+        width: 70% !important;
+    }
+}
+@media only screen and (max-width: 580px) {
+    .container {
+        padding: 2rem 10%;
+    }
+    .Siminal-Hotel {
+        justify-content: center !important;
+    }
+    .card {
+        width: 70% !important;
+    }
+    .main-hotel {
+        ul{
+            margin-left: 2rem;
+        }
+        li{
+            width: 40%;
+        }
+    }
+}
+@media only screen and (max-width: 430px) {
+    .main-hotel {
+        // padding: 1rem 1rem !important;
+        ul{
+            margin-left: 1rem;
+        }
+        li{
+            width: 45%;
+        }
+        table{
+            th{
+                margin-left: 0.5rem !important;
+                padding-left: 0.5rem !important;
+                width: 35%;
+            }
+        }
+    }
+    .des{
+        button {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffd307;
+            width: 150px !important;
+            height: 3vh !important;
+            text-align: center;
+            font-size: 1.6rem !important;
+            font-weight: bold;
+            cursor: pointer;
+            .hr-left {
+                border-left: 1px solid #000;
+                height: 90%;
+                margin: 20px;
+            }
+        }
+    }
+
 }
