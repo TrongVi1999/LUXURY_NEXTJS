@@ -255,7 +255,6 @@
                 border-left: 1px solid black;
                 height: fit-content;
                 margin: 0 5px;
-
             }
         }
 
@@ -272,8 +271,6 @@
         //         background-color: #fdd223;
         //         border-radius: 16px;
         //     }
-
-
     }
 }
 
@@ -370,7 +367,7 @@
 
 .print {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 //Tourrecomment
@@ -482,8 +479,12 @@
         }
     }
 
+
+
     .btn-design,
     .btn-book {
-        font-size: 12px;
+        font-size: 10px;
+        margin: 0 5px;
     }
+
 }
