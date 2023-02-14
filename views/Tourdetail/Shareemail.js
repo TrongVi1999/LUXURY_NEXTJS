@@ -29,24 +29,18 @@ function Shareemail({ onClick, datas, title, long, close }) {
         callApiSendmail(data);
     };
 
-    const [moreShare, setMoreShare] = useState([
-        {
-            fullname: '',
-            email: '',
-        },
-    ]);
 
     const callApiSendmail = async (d) => {
         const response = await axios({
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
             data: qs.stringify({
-                header: `${d.FullName} want share his travel with you`,
+                header: `${d.Email} want share his travel with you`,
                 content: `
-                          Note: ${d.Note}
+                          Note: ${textArea}
                         
                 `,
-                mail: d.Emailg,
+                mail: d.Email2,
             }),
             headers: {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
@@ -107,17 +101,17 @@ function Shareemail({ onClick, datas, title, long, close }) {
                                 type="text"
                                 placeholder="Your Friend's Email "
                                 className={cx("cus-mail")}
-                                {...register('Email', {
+                                {...register('Email2', {
                                     required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
+                            {errors.Email2 && errors.Email2.type === 'required' && (
                                 <span className={cx("error-message")}>Email cannot be empty !</span>
                             )}
-                            {errors.Email && errors.Email.type === 'pattern' && (
+                            {errors.Email2 && errors.Email2.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
                         </div>
@@ -136,9 +130,9 @@ function Shareemail({ onClick, datas, title, long, close }) {
                                     )
                                 }
                             ></textarea>
-                            {errors.Email && errors.Email.type === 'required' && (
+                            {/* {errors.Email && errors.Email.type === 'required' && (
                                 <span className={cx("error-message")}>More information cannot be empty !</span>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>

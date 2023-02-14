@@ -141,7 +141,11 @@ const Header = () => {
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
 
-                    <Button className={cx('button')}>hotline: <span>+84 901591111</span></Button>
+                    <div className={cx('button-call')} >
+                        <Button className={cx('button')}>Call US +84-90-159-1111</Button>
+                        <span>OR</span>
+                        <Button className={cx('button')}>Request a quote</Button>
+                    </div>
 
                 </div>
             </div>
