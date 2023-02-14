@@ -12,7 +12,7 @@ import Image from 'next/image';
 
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
 // import TitleLine from '@/components/TitleLine';
-import { Getblog } from '../api/CallAPI';
+import { Getblog, GetComment } from '../api/CallAPI';
 import TitleLine from '@/components/TitleLine';
 import Listtag from '@/views/Blogdetail/Listtag';
 
@@ -61,19 +61,37 @@ const data = {
 
 const BlogDetail = () => {
     const router = useRouter();
-    const [Data, setData] = useState([])
+    const [Data, setData] = useState([]);
+    const [Commentss, setcomment] = useState([]);
+    const [loadcm, setloadcm] = useState(false);
+    const [repid, setrepid] = useState()
+    const [repname, setrepname] = useState()
+
 
     const CallAPI = async () => {
         const response = await Getblog(router.query.id);
         if (response.status === 200) {
             setData(response.data.Object);
+            console.log(response.data.Object[0])
+
+        }
+    }
+    const CallComment = async () => {
+        const response = await GetComment(router.query.id);
+        if (response.status === 200) {
+            setcomment(response.data.Object);
         }
     }
     const contentRef = useRef()
 
     useEffect(() => {
         CallAPI();
+
+
     }, [router.query.id]);
+    useEffect(() => {
+        CallComment();
+    }, [router.query.id, loadcm])
 
     // var re = /[]\s|","\s/;
 
@@ -81,6 +99,9 @@ const BlogDetail = () => {
     //     let hast = Data[0].hash_tag.split(re)
     //     console.log(hast)
     // }
+    console.log('cm', Commentss);
+    console.log('load', loadcm);
+
 
 
     return (
@@ -127,10 +148,11 @@ const BlogDetail = () => {
                             </div>
                         </div> */}
                     </div>
-                    <div className={cx('comment-container')}>
-                        <Comments />
-                        <WriteComment id={Data[0].id} prid={''} />
-                    </div>
+                    {Commentss.length > 0 &&
+                        <div className={cx('comment-container')}>
+                            <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />
+                            <WriteComment id={Data[0].id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} />
+                        </div>}
                 </div>)
             }
             <Blogrecomment />

@@ -64,20 +64,20 @@ const index = () => {
 
 
                 {Book == 0 &&
-                    <div className={cx('main-infor')} ref={el => (componentRef.current = el)}>
+                    <div className={cx('main-infor')}>
 
                         <div className={cx('crumb-cost')}>
                             <Crumb text={Tourdata.TourName} />
                             <div className={cx('cost')}>
                                 <sup>From</sup>
-                                <p>$1000</p>
+                                <p>$ {Tourdata.PRICE[0].price}</p>
                                 <span>/PAX</span>
                             </div>
                         </div>
 
                         <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} btn />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} btn />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} btn cla='name' cla2='highlight' />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} btn dataref={componentRef.current} />
 
                     </div>}
                 {Book == 1 && <Booking
@@ -89,13 +89,32 @@ const index = () => {
                 {Book == 2 && <Shareemail close={setBook} />}
                 <Tourrecomment type={Tourdata.TourType} />
 
-                <p>PDF</p>
+                <div className={cx('pdf')}>
+                    <div className={cx('main-infor1')} ref={el => (componentRef.current = el)}>
+
+                        <div className={cx('crumb-cost')}>
+                            <h3> {Tourdata.TourName} </h3>
+                            <div className={cx('cost')}>
+                                <sup>From</sup>
+                                <p>${Tourdata.PRICE[0].price}</p>
+                                <span>/PAX</span>
+                            </div>
+                        </div>
+
+                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
+                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} cla='name1' cla2='highlight2' />
+                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} />
+
+                    </div>
+                </div>
 
 
-                <ReactToPrint
-                    trigger={() => <button>In</button>}
+
+
+                {/* <ReactToPrint
+                    trigger={() => <button >In</button>}
                     content={() => componentRef.current}
-                />
+                /> */}
 
             </div>
             }
