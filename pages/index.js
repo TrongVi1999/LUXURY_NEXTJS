@@ -1,5 +1,4 @@
 import Head from 'next/head';
-// import { Inter } from '@next/font/google';
 import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
@@ -11,7 +10,7 @@ import { ItemInfoHome, BannerSlide } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
-import { Alltour } from './api/CallAPI';
+
 
 
 const cx = classNames.bind(styles);
