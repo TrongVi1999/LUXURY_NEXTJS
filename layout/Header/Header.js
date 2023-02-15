@@ -105,7 +105,7 @@ const Header = () => {
                 <div className={cx('itemRight')}>
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
-                            <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} alt="icon" />
+                            <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} alt='icon-language' />
                             {/* <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} /> */}
                             <div className={cx('sl-trans')} style={{ display: translate }}>
                                 <div id="google_translate_element" ></div>

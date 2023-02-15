@@ -12,8 +12,8 @@ import Image from 'next/image';
 
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
 // import TitleLine from '@/components/TitleLine';
-import { GetComment } from '../api/CallAPI';
-import { Getblog } from '../api/QuerryAPI';
+// import { GetComment } from '../api/CallAPI';
+import { Getblog, GetComment } from '../api/QuerryAPI';
 import TitleLine from '@/components/TitleLine';
 import Listtag from '@/views/Blogdetail/Listtag';
 
@@ -74,7 +74,7 @@ const BlogDetail = () => {
     // console.log(Getblog(router.query.id));
     // const { data, isLoading, error } = Getblog(router.query.id);
     const BlogDetail = Getblog(router.query.id);
-    console.log('BlogDetail', BlogDetail);
+    const Blogcomment = GetComment(router.query.id)
     // const CallAPI = async () => {
     //     const response = await Getblog(router.query.id);
     //     if (response.status === 200) {
@@ -83,26 +83,17 @@ const BlogDetail = () => {
 
     //     }
     // }
-    const CallComment = async () => {
-        const response = await GetComment(router.query.id);
-        if (response.status === 200) {
-            setcomment(response.data.Object);
-        }
-    }
-    const contentRef = useRef()
-
-    useEffect(() => {
-        // CallAPI();
 
 
-    }, [router.query.id]);
-    useEffect(() => {
-        CallComment();
-    }, [router.query.id, loadcm])
+
+    // CallAPI();
 
 
-    console.log('cm', Commentss);
-    console.log('load', loadcm);
+
+    console.log(Blogcomment.data)
+
+
+
 
     if (BlogDetail.isLoading) {
         return <p>Loading...</p>;
@@ -114,12 +105,10 @@ const BlogDetail = () => {
 
     return (
         <div className={cx('container')}>
-            {/* {Data[0] && */}
-            <BannerIMG img={datafake.banner} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />
-            {/* }
-            {
-                Data[0] && */}
-            (<div className={cx('main')} ref={contentRef}>
+
+            {BlogDetail.data && <BannerIMG img={datafake.banner} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />}
+
+            (<div className={cx('main')} >
 
 
 
@@ -138,11 +127,11 @@ const BlogDetail = () => {
                 </div>
 
                 <div className={cx('comment-container')}>
-                    {Commentss.length > 0 && <Comments Commentss={Commentss} setrepid={setrepid} setrepname={setrepname} />}
-                    <WriteComment id={router.query.id} prid={repid} setloadcm={setloadcm} loadcm={loadcm} repname={repname} setrepid={setrepid} />
+                    {Blogcomment.data && <Comments Commentss={Blogcomment.data.Object} setrepid={setrepid} setrepname={setrepname} />}
+                    <WriteComment id={router.query.id} prid={repid} setloadcm={Blogcomment.refetch} repname={repname} setrepid={setrepid} />
                 </div>
             </div>)
-            {/* } */}
+
             <Blogrecomment />
         </div >
     )

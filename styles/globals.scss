@@ -63,7 +63,17 @@ body {
     font-size: 1.4rem;
     top: 0px !important;
 }
+body {
+    transition: all 0.3s ease-in-out;
+}
 
+body.scroll-up {
+    transform: translateY(0);
+}
+
+body.scroll-down {
+    transform: translateY(-50px);
+}
 html *::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.15);

@@ -59,11 +59,11 @@ const Comments = ({ Commentss, setrepid, setrepname }) => {
 
                 <div className={cx('comment-item')}>
 
-                    {Commentss.map((d, i) => <div><Comment data={d} setrepid={setrepid} setrepname={setrepname} />
+                    {Commentss.map((d, i) => <div><Comment data={d} setrepid={setrepid} setrepname={setrepname} id={d.ID} />
                         {d.CommentChild.length > 0 && d.CommentChild.map(
                             a =>
                                 <div className={cx('comment-reply')}>
-                                    <Comment data={a} setrepid={setrepid} setrepname={setrepname} />
+                                    <Comment data={a} setrepid={setrepid} setrepname={setrepname} id={d.ID} />
                                 </div>
                         )}
                     </div>)}

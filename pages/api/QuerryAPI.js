@@ -77,7 +77,7 @@ export const GetAllCountry = () => {
 };
 
 //list blog
-export const Allblog = (tag, page) => {
+export const GetAllblog = (tag, page) => {
     return useQuery(['bloglist', tag, page], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=${tag}&CurrentPage=${page}`);
         return response.data;
@@ -126,7 +126,7 @@ export const Searchtour = (key) => {
 
 //search blog keyword
 export const Searchblog = (key) => {
-    return useQuery(['searchblog', key], async () => {
+    return useQuery(['searchblog'], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`);
         return response.data;
     });
