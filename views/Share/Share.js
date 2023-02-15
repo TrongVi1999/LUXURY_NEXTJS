@@ -4,6 +4,7 @@ import { CiMail, CiTwitter } from 'react-icons/ci';
 import { FaLinkedin } from 'react-icons/fa';
 import { SlSocialFacebook } from 'react-icons/sl';
 import style from './style.module.scss';
+import { AiOutlinePrinter } from 'react-icons/ai'
 
 
 const cx = classNames.bind(style);
@@ -15,6 +16,8 @@ const Share = () => {
             <Link href={'https://twitter.com/intent/tweet?url=${window.location.href}&text='} target="_blank"><CiTwitter /></Link>
             <Link href={'mailto:info@example.com?&subject=&cc=&bcc=&body=${window.location.href}%0A'} target="_blank"><CiMail /></Link>
             <Link href={'https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}'} target="_blank"><FaLinkedin /></Link>
+            <Link href={'https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}'} target="_blank"><AiOutlinePrinter /></Link>
+
         </div>
     )
 }
