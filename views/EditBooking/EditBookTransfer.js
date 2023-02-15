@@ -82,9 +82,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     className={cx("cus-name")}
                                     {...register('FullName', { required: true })}
                                 />
-                                {errors.FullName && errors.FullName.type === 'required' && (
-                                    <span className={cx("error-message")}>Your Name cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -118,9 +115,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -143,9 +137,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     valueAsNumber: false,
                                 })}
                             />
-                            {errors.Phone && errors.Phone.type === 'required' && (
-                                <span className={cx("error-message")}>Phone number cannot be empty !</span>
-                            )}
                             {errors.Phone && errors.Phone.type === 'maxLength' && (
                                 <span className={cx("error-message")}>Invalid phone number</span>
                             )}
@@ -166,9 +157,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                 placeholder={dataOld.Time}
                                 {...register('Time', { required: true })}
                             />
-                            {errors.Time && errors.Time.type === 'required' && (
-                                <span className={cx("error-message")}>Time cannot be empty !</span>
-                            )}
                         </div>
 
                     </div>
@@ -184,9 +172,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     className={cx("cus-name")}
                                     {...register('PickUp', { required: true })}
                                 />
-                                {errors.PickUp && errors.PickUp.type === 'required' && (
-                                    <span className={cx("error-message")}>PickUp cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -202,9 +187,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     className={cx("cus-name")}
                                     {...register('DropOff', { required: true })}
                                 />
-                                {errors.DropOff && errors.DropOff.type === 'required' && (
-                                    <span className={cx("error-message")}>Drop Off cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -237,9 +219,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                         className={cx("cus-adult")}
                                         {...register('Adult', { required: true })}
                                     /><br />
-                                    {errors.Adult && errors.Adult.type === 'required' && (
-                                        <span className={cx("error-message")}>Adult Off cannot be empty !</span>
-                                    )}
                                 </div>
                             </div>
                         </label>
@@ -254,9 +233,6 @@ function EditBookTransfer({ dataOld, toggle }) {
                                             className={cx("cus-children")}
                                             {...register('children', { required: true })}
                                         /><br />
-                                        {errors.children && errors.children.type === 'required' && (
-                                            <span className={cx("error-message")}>children Off cannot be empty !</span>
-                                        )}
                                     </div>
                                 </div>
                             </label>

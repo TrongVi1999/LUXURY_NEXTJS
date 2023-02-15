@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { EditBooking } from "@/pages/api/QuerryAPI";
+import { EditBookingMice } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 
@@ -39,7 +39,7 @@ function EditBookMice({ dataOld, toggle }) {
         return email === email2 || 'Email not match';
     };
 
-    const Edit = EditBooking()
+    const Edit = EditBookingMice()
 
     const Submit = () => {
         set({ ...data });
@@ -73,9 +73,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     className={cx("cus-name")}
                                     {...register('FullName', { required: true })}
                                 />
-                                {errors.FullName && errors.FullName.type === 'required' && (
-                                    <span className={cx("error-message")}>Your Name cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -104,9 +101,6 @@ function EditBookMice({ dataOld, toggle }) {
                                 className={cx("cus-name")}
                                 {...register('Company', { required: true })}
                             />
-                            {errors.Company && errors.Company.type === 'required' && (
-                                <span className={cx("error-message")}>Your Company cannot be empty !</span>
-                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -126,9 +120,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -152,9 +143,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     validate: validateEmailMatch,
                                 })}
                             />
-                            {errors.Email2 && errors.Email2.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email2 && errors.Email2.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -179,9 +167,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     valueAsNumber: false,
                                 })}
                             />
-                            {errors.Phone && errors.Phone.type === 'required' && (
-                                <span className={cx("error-message")}>Phone number cannot be empty !</span>
-                            )}
                             {errors.Phone && errors.Phone.type === 'maxLength' && (
                                 <span className={cx("error-message")}>Invalid phone number</span>
                             )}
@@ -205,9 +190,6 @@ function EditBookMice({ dataOld, toggle }) {
                                 className={cx("cus-name")}
                                 {...register('event', { required: true })}
                             />
-                            {errors.event && errors.event.type === 'required' && (
-                                <span className={cx("error-message")}>Event Name cannot be empty !</span>
-                            )}
                         </div>
                     </div>
 
@@ -267,9 +249,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     max="100"
                                     {...register('Adult', { required: true })}
                                 />
-                                {errors.Adult && errors.Adult.type === 'required' && (
-                                    <span className={cx("error-message")}>Adult cannot be empty !</span>
-                                )}
                             </div>
                         </div>
 
@@ -284,9 +263,6 @@ function EditBookMice({ dataOld, toggle }) {
                                     className={cx("book-date")}
                                     {...register('StartDate', { required: true })}
                                 />
-                                {errors.StartDate && errors.StartDate.type === 'required' && (
-                                    <span className={cx("error-message")}>Date cannot be empty !</span>
-                                )}
                             </div>
                         </div>
 

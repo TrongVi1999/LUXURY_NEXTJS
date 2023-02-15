@@ -180,27 +180,23 @@ export const GetComment = (id) => {
     });
 };
 
-// //edit booking
-export const EditBooking = (Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, CheckOut, DropOff, Time, PickUp) => {
+// //edit booking default
+export const EditBookingDefault = (Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status) => {
     return useQuery(['editbooking'],
         async () => {
             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
-                country: (Country ? Country : ''),
-                startDate: (StartDate ? StartDate : ''),
-                fullName: (FullName ? FullName : ''),
-                adult: (Adult ? Adult : ''),
-                children: (Children ? Children : ''),
-                children: (Children1 ? Children1 : ''),
-                children: (Children2 ? Children2 : ''),
-                hotel: (Hotel ? Hotel : ''),
-                email: (Email ? Email : ''),
-                phone: (Phone ? Phone : ''),
-                note: (Note ? Note : ''),
-                checkIn: (CheckIn ? CheckIn : ''),
-                checkOut: (CheckOut ? CheckOut : ''),
-                dropOff: (DropOff ? DropOff : ''),
-                time: (Time ? Time : ''),
-                pickUp: (PickUp ? PickUp : ''),
+                Country: (Country ? Country : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                FullName: (FullName ? FullName : ''),
+                Adult: (Adult ? Adult : ''),
+                Children: (Children ? Children : ''),
+                Children: (Children1 ? Children1 : ''),
+                Children: (Children2 ? Children2 : ''),
+                Hotel: (Hotel ? Hotel : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Status: (Status ? Status : ''),
             }));
             return response.data;
         },
@@ -210,36 +206,83 @@ export const EditBooking = (Country, StartDate, FullName, Adult, Children, Child
     );
 };
 
-// export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour, Season, Group) => {
-//     const { data, isLoading, error } = useQuery(
-//         'searchTour',
-//         async () => {
-//             const response = await axios.post('https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance', qs.stringify({
-//                 country: (Country ? Country : ''),
-//                 destination: (Destination ? Destination : ''),
-//                 tourtype: (Tourtype ? Tourtype : ''),
-//                 TagTour1: (Season ? Season : ''),
-//                 TagTour2: (Group ? Group : ''),
-//                 fromcost: (Fromcost ? Fromcost : 0),
-//                 endcost: (Endcost ? Endcost : 15000),
-//                 TagTour: (Tagtour ? Tagtour : ''),
-//             }), {
-//                 headers: {
-//                     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-//                 },
-//             });
-//             return response.data;
-//         }
-//     );
-//     return { data, isLoading, error };
-// };
+// //edit booking MICE
+export const EditBookingMice = (Country, EventName, Lenght, Company, StartDate, FullName, Adult, Perpose, Destination, Require, Email, Phone, Note, Subcrible, Status) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Country: (Country ? Country : ''),
+                EventName: (EventName ? EventName : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                Lenght: (Lenght ? Lenght : ''),
+                Company: (Company ? Company : ''),
+                FullName: (FullName ? FullName : ''),
+                Adult: (Adult ? Adult : ''),
+                Perpose: (Perpose ? Perpose : ''),
+                Destination: (Destination ? Destination : ''),
+                Require: (Require ? Require : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Subcrible: (Subcrible ? Subcrible : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
 
-//Lấy 1 blog
-// export const Getblog = (id) => {
-//     return useQuery(['getblog', id], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPostWithId?Id=${id}`);
-//         return response.data;
-//     });
-// };
+// //edit booking transfer
+export const EditBookingTransfer = (Country, StartDate, FullName, Adult, Babycarseat, Children, Status, Email, Phone, Note, DropOff, PickUp) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Country: (Country ? Country : ''),
+                Adult: (Adult ? Adult : ''),
+                FullName: (FullName ? FullName : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                DropOff: (DropOff ? DropOff : ''),
+                PickUp: (PickUp ? PickUp : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Babycarseat: (Babycarseat ? Babycarseat : ''),
+                Children: (Children ? Children : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
+
+// //edit booking hotel
+export const EditBookingHotel = (Country, FullName, Adult, Email, Phone, Note, CheckIn, CheckOut) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Country: (Country ? Country : ''),
+                Adult: (Adult ? Adult : ''),
+                FullName: (FullName ? FullName : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                CheckIn: (CheckIn ? CheckIn : ''),
+                CheckOut: (CheckOut ? CheckOut : ''),
+                TypeRoom: (TypeRoom ? TypeRoom : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
 
 

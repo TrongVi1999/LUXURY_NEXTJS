@@ -83,9 +83,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     className={cx("cus-name")}
                                     {...register('FullName', { required: true })}
                                 />
-                                {errors.FullName && errors.FullName.type === 'required' && (
-                                    <span className={cx("error-message")}>Your Name cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -119,9 +116,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -144,9 +138,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     validate: validateEmailMatch,
                                 })}
                             />
-                            {errors.Email2 && errors.Email2.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email2 && errors.Email2.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -171,9 +162,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     valueAsNumber: false,
                                 })}
                             />
-                            {errors.Phone && errors.Phone.type === 'required' && (
-                                <span className={cx("error-message")}>Phone number cannot be empty !</span>
-                            )}
                             {errors.Phone && errors.Phone.type === 'maxLength' && (
                                 <span className={cx("error-message")}>Invalid phone number</span>
                             )}
@@ -194,10 +182,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     className={cx("check-in")}
                                     {...register('CheckIn', { required: true })}
                                 />
-                                {errors.CheckIn && errors.CheckIn.type === 'required' && (
-                                    <span className={cx("error-message")}>Check In cannot be empty !</span>
-                                )}
-
                             </div>
                         </label>
                         <div className={cx('groupcheck')}>
@@ -212,9 +196,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             className={cx("check-out")}
                                             {...register('CheckOut', { required: true })}
                                         />
-                                        {errors.CheckOut && errors.CheckOut.type === 'required' && (
-                                            <span className={cx("error-message")}>CheckOut cannot be empty !</span>
-                                        )}
                                     </div>
                                 </label></div>
                             <div>
@@ -228,9 +209,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             className={cx("persons-attendtion")}
                                             {...register('PersonsAttendtion', { required: true })}
                                         />
-                                        {errors.PersonsAttendtion && errors.PersonsAttendtion.type === 'required' && (
-                                            <span className={cx("error-message")}>PersonsAttendtion cannot be empty !</span>
-                                        )}
                                     </div>
                                 </label>
                             </div>
@@ -265,9 +243,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 }
                                 {...register('Note', { required: true })}
                             ></textarea>
-                            {errors.Note && errors.Note.type === 'required' && (
-                                <span className={cx("error-message")}>Note cannot be empty !</span>
-                            )}
                         </div>
                     </div>
 

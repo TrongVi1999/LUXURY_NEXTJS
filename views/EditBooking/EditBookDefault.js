@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { EditBooking } from "@/pages/api/QuerryAPI";
+import { EditBookingDefault } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 
@@ -10,6 +10,7 @@ import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
+import Country from "../Country/Country";
 
 const cx = classNames.bind(style);
 
@@ -27,15 +28,29 @@ function EditBookDefault({ set, dataOld, toggle }) {
         formState: { errors },
     } = useForm();
 
-    const Edit = EditBooking();
+    const Edit = EditBookingDefault();
 
-    // const Edit = EditBooking(dataOld.Country.Lenght>0?dataOld.Country:sdataOld.Country);
+    const [dataSelect, setDataSelect] = useState({ Hotel: 'Hotel', Country: 'Country', Note: 'Note' });
 
-    const Submit = () => {
-        set({ ...data });
-        Edit.refetch();
+    const Submit = (data) => {
+        Edit.refetch(
+            dataSelect.Country ? dataSelect.Country : dataOld.Country,
+            data.StartDate ? data.StartDate : dataOld.StartDate,
+            data.FullName ? data.FullName : dataOld.FullName,
+            data.Adult ? data.Adult : dataOld.Adult,
+            data.Children ? data.Children : dataOld.Children,
+            data.Children1 ? data.Children1 : dataOld.Children1,
+            data.Children2 ? data.Children2 : dataOld.Children2,
+            dataSelect.Hotel ? dataSelect.Hotel : dataOld.Hotel,
+            data.Email ? data.Email : dataOld.Email,
+            data.Phone ? data.Phone : dataOld.Phone,
+            dataSelect.Note ? dataSelect.Note : dataOld.Note,
+            // data.Status ? data.Status : dataOld.Status,
+        );
+        console.log("test:", data)
+        console.log("hi:", dataSelect)
+        alert('test');
     };
-
 
 
     return (
@@ -78,7 +93,7 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 name="date"
                                 placeholder={dataOld.StartDate}
                                 className={cx("book-date")}
-                                {...register('StartDate', { required: true })}
+                                {...register('StartDate')}
                             />
                         </div>
                     </div>
@@ -93,11 +108,11 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 className={cx("book-age")}
                                 min="0"
                                 max="100"
-                                {...register('Adult', { required: true })}
+                                {...register('Adult')}
                             />
-                            {errors.Adult && errors.Adult.type === 'required' && (
+                            {/* {errors.Adult && errors.Adult.type === 'required' && (
                                 <span className={cx("error-message")}>Adult cannot be empty !</span>
-                            )}
+                            )} */}
                             <input
                                 type="text"
                                 placeholder={dataOld.Children}
@@ -153,11 +168,8 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                     type="text"
                                     placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
-                                    {...register('FullName', { required: true })}
+                                    {...register('FullName')}
                                 />
-                                {errors.FullName && errors.FullName.type === 'required' && (
-                                    <span className={cx("error-message")}>Your Name cannot be empty !</span>
-                                )}
                             </div>
                         </div>
                     </div>
@@ -166,10 +178,10 @@ function EditBookDefault({ set, dataOld, toggle }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='national' className={cx("our-services")} onChange={(e) => setCountry(e.target.value)}>
+                            <select name='national' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
-                                    <option key={d.code} value={d.code}>{d.name}</option>
+                                    <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
                         </div>
@@ -184,15 +196,12 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
+
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -208,15 +217,11 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
                                 })}
                             />
-                            {errors.Email && errors.Email.type === 'required' && (
-                                <span className={cx("error-message")}>Email cannot be empty !</span>
-                            )}
                             {errors.Email && errors.Email.type === 'pattern' && (
                                 <span className={cx("error-message")}>Invalid email</span>
                             )}
@@ -232,15 +237,12 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
-                                    required: true,
+
                                     minLength: 9,
                                     maxLength: 15,
                                     valueAsNumber: false,
                                 })}
                             />
-                            {errors.Phone && errors.Phone.type === 'required' && (
-                                <span className={cx("error-message")}>Phone number cannot be empty !</span>
-                            )}
                             {errors.Phone && errors.Phone.type === 'maxLength' && (
                                 <span className={cx("error-message")}>Invalid phone number</span>
                             )}
