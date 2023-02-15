@@ -1,131 +1,68 @@
-import React from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+import { EditBooking } from "@/pages/api/QuerryAPI";
+import national from '@/pages/api/national.json';
+import Link from "next/link";
+
 import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-import $, { data } from 'jquery';
-import qs from 'qs';
-import { toastSuccess } from '@/hook/toastr';
-import national from '@/pages/api/national.json';
-import ScrollToTop from '@/hook/scrollToTop';
-import Link from 'next/link';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import ScrollToTop from "@/hook/scrollToTop";
 
 const cx = classNames.bind(style);
 
-function Booking({ onClick, datas, title, long }) {
-    const [currentUser, setCurrentUser] = useState(null);
-    const [ipAddress, setIpAddress] = useState('');
-    const [country, setcountry] = useState();
-    const [hotel, sethotel] = useState();
-    const [texta, settexta] = useState()
+function EditBookDefault({ set, dataOld, toggle }) {
 
+    const [tourData, setTourData] = useState(null);
+    const [country, setCountry] = useState();
+    const [hotel, setHotel] = useState();
+    const [texta, setTexta] = useState();
     const {
         register,
         handleSubmit,
+        watch,
+        reset,
         formState: { errors },
     } = useForm();
 
-    const handleEnquire = (data) => {
-        callApi(data);
-        callApiSendmail(data);
+    const Edit = EditBooking();
+
+    // const Edit = EditBooking(dataOld.Country.Lenght>0?dataOld.Country:sdataOld.Country);
+
+    const Submit = () => {
+        set({ ...data });
+        Edit.refetch();
     };
 
-    // lay ip address
-    $.getJSON('https://jsonip.com/?callback=?').done(function (data) {
-        var ip_address = window.JSON.parse(JSON.stringify(data, null, 2));
-        ip_address = ip_address.ip;
-        setIpAddress(ip_address);
-    });
-    // useEffect(() => {
-    //     setBookinfor({ ...Bookinfor });
-    // }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [])
-    const callApi = async (data) => {
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
-            data: qs.stringify({
-                Ip: ipAddress,
-                Type: 'TOUR',
-                TourCode: datas.TourCode,
-                UserName: currentUser ? currentUser.UserName : null,
-                TourName: datas.TourName,
-                Country: country,
-                StartDate: data.StartDate,
-                Adult: data.Adult,
-                Children: data.Children,
-                Children1: data.Children1,
-                Children2: data.Children2,
-                Hotel: hotel,
-                FullName: data.FullName,
-                Email: data.Email,
-                Phone: data.Phone,
-                Note: texta,
-                Status: 'BOOKED'
-
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
-        console.log(response)
-
-        if (response.status === 200) {
-            console.log('Inquire complete!')
-            toastSuccess(' Inquire complete!');
 
 
-        } else alert('Invaild infor')
-
-    };
-    console.log(datas.TourName)
-
-    const callApiSendmail = async (data) => {
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
-            data: qs.stringify({
-                header: `You have new travel from VNXpedia`,
-                content: `Tour name: ${datas.TourName}`,
-                mail: data.Email,
-            }),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
-    };
     return (
-        <div className={cx("booking-infor")}>
+        <div className={cx("book-edit")}>
             <ScrollToTop />
-            <div className={cx("book-crumb")}><Link href='/'>Home</Link> | <span onClick={() => onClick(0)}>{datas.TourName}</span> | BOOK TOUR</div>
-
-            <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
+            <div className={cx("book-crumb-edit")}>
+                <Link href='/'>Home</Link> | <span>{/* {datas.TourName} */}</span> |EDIT BOOK TOUR
+            </div>
+            <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
+            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
                         Tour Name:&nbsp;
                         <span className={cx("tour-name-content")}>
-                            {datas.TourName}
+                            {dataOld.TourName}
                         </span>
                     </p>
                     <p className={cx("tour-duration")}>
                         Tour duration:&nbsp;
                         <span className={cx("tour-duration-content")}>
-                            {datas.DETAIL.length} days
+                            {dataOld.Lenght} days
                         </span>
                     </p>
                     <p className={cx("tour-country")}>
                         Country:&nbsp;
                         <span className={cx("tour-country-content")}>
-                            {datas.Country}
+                            {dataOld.Country}
                         </span>
                     </p>
                 </div>
@@ -139,12 +76,10 @@ function Booking({ onClick, datas, title, long }) {
                             <input
                                 type="date"
                                 name="date"
+                                placeholder={dataOld.StartDate}
                                 className={cx("book-date")}
                                 {...register('StartDate', { required: true })}
                             />
-                            {errors.StartDate && errors.StartDate.type === 'required' && (
-                                <span className={cx("error-message")}>Date cannot be empty !</span>
-                            )}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -154,24 +89,18 @@ function Booking({ onClick, datas, title, long }) {
                         <div className={cx("age-option")}>
                             <input
                                 type="number"
-                                placeholder="Adult(s) (>=12 years old)"
+                                placeholder={dataOld.Adult}
                                 className={cx("book-age")}
                                 min="0"
                                 max="100"
                                 {...register('Adult', { required: true })}
-                            // onChange={(e) =>
-                            //     setBookinfor({
-                            //         ...Bookinfor,
-                            //         Adult: e.target.value,
-                            //     })
-                            // }
                             />
                             {errors.Adult && errors.Adult.type === 'required' && (
                                 <span className={cx("error-message")}>Adult cannot be empty !</span>
                             )}
                             <input
                                 type="text"
-                                placeholder="Child(ren) (7-11 years old)"
+                                placeholder={dataOld.Children}
                                 className={cx("book-age")}
                                 min="0"
 
@@ -179,7 +108,7 @@ function Booking({ onClick, datas, title, long }) {
                             />
                             <input
                                 type="text"
-                                placeholder="Infant(s) (0-2 years old)"
+                                placeholder={dataOld.Children2}
                                 className={cx("book-age")}
                                 min="0"
 
@@ -187,7 +116,7 @@ function Booking({ onClick, datas, title, long }) {
                             />
                             <input
                                 type="text"
-                                placeholder="Child(ren) (2-6 years old)"
+                                placeholder={dataOld.Children1}
                                 className={cx("book-age")}
                                 min="0"
 
@@ -200,11 +129,13 @@ function Booking({ onClick, datas, title, long }) {
                             Hotel categories you desire to stay?
                         </label>
                         {/* <input
-                            type="select"
-                            className={cx("book-hotel")}
-                        /> */}
+                        type="select"
+                        className={cx("book-hotel")}
+                    /> */}
                         <div>
-                            <select name='ourServices' className={cx("our-services")} onChange={(e) => sethotel(e.target.value)}>
+                            <select name='ourServices' className={cx("our-services")}
+                                onChange={(e) => setHotel(e.target.value)}
+                            >
                                 <option value="">-- Select --</option>
                                 <option value="Hotel 3 *">Hotel 3 *</option>
                                 <option value="Hotel 4 *">Hotel 4 *</option>
@@ -220,7 +151,7 @@ function Booking({ onClick, datas, title, long }) {
                             <div className={cx("input-enquire--name")}>
                                 <input
                                     type="text"
-                                    placeholder="Enter Your Name"
+                                    placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
                                     {...register('FullName', { required: true })}
                                 />
@@ -228,26 +159,6 @@ function Booking({ onClick, datas, title, long }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            {/* <div className={cx("sex")}>
-                                <input
-                                    name="gender"
-                                    type="checkbox"
-                                    value="male"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    MALE
-                                </label>
-                                <input
-                                    name="gender"
-                                    type="checkbox"
-                                    value="female"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    FEMALE
-                                </label>
-                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -255,7 +166,7 @@ function Booking({ onClick, datas, title, long }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
+                            <select name='national' className={cx("our-services")} onChange={(e) => setCountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.code}>{d.name}</option>
@@ -270,7 +181,7 @@ function Booking({ onClick, datas, title, long }) {
                         <div className={cx("input-enquire")}>
                             <input
                                 type="text"
-                                placeholder="Enter Your Email"
+                                placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
                                     required: true,
@@ -294,7 +205,7 @@ function Booking({ onClick, datas, title, long }) {
                         <div className={cx("input-enquire")}>
                             <input
                                 type="text"
-                                placeholder="Confirm Email"
+                                placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
                                     required: true,
@@ -318,7 +229,7 @@ function Booking({ onClick, datas, title, long }) {
                         <div className={cx("input-enquire")}>
                             <input
                                 type="text"
-                                placeholder="Enter Your Phone"
+                                placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
                                     required: true,
@@ -344,10 +255,10 @@ function Booking({ onClick, datas, title, long }) {
                         </label>
                         <div>
                             <textarea
-                                placeholder="Type here for special activities, alergy, wheel chair, vegetari"
+                                placeholder={dataOld.Note}
                                 className={cx("book-note")}
                                 onChange={(e) =>
-                                    settexta(
+                                    setTexta(
                                         e.target.value,
                                     )
                                 }
@@ -373,7 +284,8 @@ function Booking({ onClick, datas, title, long }) {
                 </div>
             </form>
         </div>
+
     );
 }
 
-export default Booking;
+export default EditBookDefault;

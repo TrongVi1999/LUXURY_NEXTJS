@@ -180,18 +180,64 @@ export const GetComment = (id) => {
     });
 };
 
-// //
-// export const Tourhot = () => {
-//     return useQuery(['tourhot'], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
-//         return response.data;
-//     });
+// //edit booking
+export const EditBooking = (Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, CheckOut, DropOff, Time, PickUp) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                country: (Country ? Country : ''),
+                startDate: (StartDate ? StartDate : ''),
+                fullName: (FullName ? FullName : ''),
+                adult: (Adult ? Adult : ''),
+                children: (Children ? Children : ''),
+                children: (Children1 ? Children1 : ''),
+                children: (Children2 ? Children2 : ''),
+                hotel: (Hotel ? Hotel : ''),
+                email: (Email ? Email : ''),
+                phone: (Phone ? Phone : ''),
+                note: (Note ? Note : ''),
+                checkIn: (CheckIn ? CheckIn : ''),
+                checkOut: (CheckOut ? CheckOut : ''),
+                dropOff: (DropOff ? DropOff : ''),
+                time: (Time ? Time : ''),
+                pickUp: (PickUp ? PickUp : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
+
+// export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour, Season, Group) => {
+//     const { data, isLoading, error } = useQuery(
+//         'searchTour',
+//         async () => {
+//             const response = await axios.post('https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance', qs.stringify({
+//                 country: (Country ? Country : ''),
+//                 destination: (Destination ? Destination : ''),
+//                 tourtype: (Tourtype ? Tourtype : ''),
+//                 TagTour1: (Season ? Season : ''),
+//                 TagTour2: (Group ? Group : ''),
+//                 fromcost: (Fromcost ? Fromcost : 0),
+//                 endcost: (Endcost ? Endcost : 15000),
+//                 TagTour: (Tagtour ? Tagtour : ''),
+//             }), {
+//                 headers: {
+//                     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+//                 },
+//             });
+//             return response.data;
+//         }
+//     );
+//     return { data, isLoading, error };
 // };
 
-// //
-// export const Tourhot = () => {
-//     return useQuery(['tourhot'], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
+//Lấy 1 blog
+// export const Getblog = (id) => {
+//     return useQuery(['getblog', id], async () => {
+//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPostWithId?Id=${id}`);
 //         return response.data;
 //     });
 // };
