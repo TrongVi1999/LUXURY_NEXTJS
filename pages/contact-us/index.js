@@ -116,7 +116,7 @@ const index = () => {
                                         <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                     )}
                                 </div>
-                                <div className={cx("sex")}>
+                                {/* <div className={cx("sex")}>
                                     <input
                                         name="gender"
                                         type="checkbox"
@@ -135,7 +135,7 @@ const index = () => {
                                     <label className={cx("sex-m")} for="">
                                         FEMALE
                                     </label>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className={cx("item-form")}>
