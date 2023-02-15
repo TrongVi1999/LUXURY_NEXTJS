@@ -10,4 +10,5 @@ module.exports = {
     siteUrl: 'https://www.luxuryvietravel.com',
     generateRobotsTxt: true, // (optional)
     // ...other options
+    outDir: './out',
 };
