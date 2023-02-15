@@ -3,6 +3,8 @@ import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
 import { Title } from '@/components';
 import { Comment, GetComment } from '@/pages/api/CallAPI';
+import { InsertComment } from '@/pages/api/QuerryAPI';
+import { useMutation } from '@tanstack/react-query';
 
 const cx = classNames.bind(style);
 
@@ -11,18 +13,30 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
     const [input, setinput] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
 
-    const CallAPI = async () => {
-        const response = await Comment(id, input, currentUser.FullName, prid);
-        if (response.status == 200) {
-            setloadcm(!loadcm);
+    // const CallAPI = async () => {
+    //     const response = await Comment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
+    //     if (response.status == 200) {
+    //         setloadcm();
 
+    //     }
+
+    // }
+    const CreateComment = useMutation((commentData) => InsertComment(...commentData),
+        {
+            onSuccess: () => {
+                console.log('Comment submitted successfully!');
+            },
+            onError: (error) => {
+                console.error('Error submitting comment:', error);
+            },
         }
-        console.log(response)
-    }
+    );
 
     const handleComment = () => {
         if (input != '') {
-            CallAPI();
+            CreateComment.mutate([id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid]);
+            // CallAPI();
+            // const CreateComment = InsertComment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
             setinput('');
             setrepid();
         }

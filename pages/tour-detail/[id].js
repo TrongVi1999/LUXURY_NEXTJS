@@ -13,53 +13,49 @@ import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
 import Shareemail from '@/views/Tourdetail/Shareemail';
 import ReactToPrint from 'react-to-print';
+import { Gettour } from '../api/QuerryAPI';
 
 const cx = classNames.bind(style);
 
-const data = {
-    img: IMG,
-    title: 'Ha long bay day cruise - paradise explore',
-    rate: 4.7,
-    ratecount: 100,
-    book: 999,
-    long: 15,
-    price: 3000,
-    sale: 50,
-    destination: 'Sung Sot Cave -Luon Cave -Soi Sim Beach',
-    highlight: ['Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam', 'Local life in Viet Nam'],
-};
 
 const index = () => {
     const router = useRouter();
-    const [Tourdata, setTourdata] = useState();
+    // const [Tourdata, setTourdata] = useState();
     const [Book, setBook] = useState(0);
     const componentRef = useRef(null);
 
+    const Tourresponse = Gettour(router.query.id)
+    const Tourdata = Tourresponse.data;
+
+    // const callApi = async () => {
+    //     const response = await axios({
+    //         method: 'post',
+    //         url: `https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=${router.query.id}`,
+    //         type: 'json',
+    //     });
+
+    //     if (response.status === 200) {
+    //         setTourdata(response.data.Object[0]);
+    //     }
+
+    // };
 
 
-    const callApi = async () => {
-        const response = await axios({
-            method: 'post',
-            url: `https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=${router.query.id}`,
-            type: 'json',
-        });
 
-        if (response.status === 200) {
-            setTourdata(response.data.Object[0]);
-        }
+    if (Tourresponse.isLoading) {
+        return <p>Loading...</p>;
+    }
 
-    };
-
-    useEffect(() => {
-        callApi();
-    }, [router.query.id])
+    if (Tourresponse.error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <div className={cx('container')}>
-            {Tourdata && <div className={cx('main')}>
-                {Tourdata.BannerImg ?
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.BannerImg}`} title={Tourdata.TourName} bg='bg' /> :
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`} title={Tourdata.TourName} bg='bg' />
+            <div className={cx('main')}>
+                {Tourdata.Object[0].BannerImg ?
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.Object[0].BannerImg}`} title={Tourdata.Object[0].TourName} bg='bg' /> :
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`} title={Tourdata.Object[0].TourName} bg='bg' />
                 }
 
 
@@ -67,42 +63,42 @@ const index = () => {
                     <div className={cx('main-infor')}>
 
                         <div className={cx('crumb-cost')}>
-                            <Crumb text={Tourdata.TourName} />
+                            <Crumb text={Tourdata.Object[0].TourName} />
                             <div className={cx('cost')}>
                                 <sup>From</sup>
-                                <p>$ {Tourdata.PRICE[0].price}</p>
+                                <p>$ {Tourdata.Object[0].PRICE[0].price}</p>
                                 <span>/PAX</span>
                             </div>
                         </div>
 
-                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} btn cla='name' cla2='highlight' />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} btn dataref={componentRef.current} />
+                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`]} issv={true} />
+                        <Highlight title={Tourdata.Object[0].TourName} destination={Tourdata.Object[0].Destination} long={Tourdata.Object[0].DETAIL.length} highlight={Tourdata.Object[0].Hightlight} click={setBook} btn cla='name' cla2='highlight' />
+                        <Itinerary description={Tourdata.Object[0].TourDescription} detail={Tourdata.Object[0].DETAIL} click={setBook} btn dataref={componentRef.current} />
 
                     </div>}
                 {Book == 1 && <Booking
                     onClick={setBook}
-                    datas={Tourdata}
+                    datas={Tourdata.Object[0]}
                 />
 
                 }
                 {Book == 2 && <Shareemail close={setBook} />}
-                <Tourrecomment type={Tourdata.TourType} />
+                <Tourrecomment type={Tourdata.Object[0].TourType} />
 
                 <div className={cx('pdf')}>
                     <div className={cx('main-infor1')} ref={el => (componentRef.current = el)}>
                         <div className={cx('crumb-cost')}>
-                            <h3> {Tourdata.TourName} </h3>
+                            <h3> {Tourdata.Object[0].TourName} </h3>
                             <div className={cx('cost')}>
                                 <sup>From</sup>
-                                <p>${Tourdata.PRICE[0].price}</p>
+                                <p>${Tourdata.Object[0].PRICE[0].price}</p>
                                 <span>/PAX</span>
                             </div>
                         </div>
 
-                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.TourName} destination={Tourdata.Destination} long={Tourdata.DETAIL.length} highlight={Tourdata.Hightlight} click={setBook} cla='name1' cla2='highlight2' />
-                        <Itinerary description={Tourdata.TourDescription} detail={Tourdata.DETAIL} click={setBook} />
+                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`]} issv={true} />
+                        <Highlight title={Tourdata.Object[0].TourName} destination={Tourdata.Object[0].Destination} long={Tourdata.Object[0].DETAIL.length} highlight={Tourdata.Object[0].Hightlight} click={setBook} cla='name1' cla2='highlight2' />
+                        <Itinerary description={Tourdata.Object[0].TourDescription} detail={Tourdata.Object[0].DETAIL} click={setBook} />
 
                     </div>
                 </div>
@@ -116,7 +112,7 @@ const index = () => {
                 /> */}
 
             </div>
-            }
+
         </div>
     )
 }

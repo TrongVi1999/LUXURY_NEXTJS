@@ -8,7 +8,7 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 
 const cx = classNames.bind(style);
 
-const Comment = ({ data, setrepid, setrepname }) => {
+const Comment = ({ data, setrepid, setrepname, id }) => {
     return (
         <div className={cx('comment')}>
             <div className={cx('avt')}>
@@ -17,7 +17,7 @@ const Comment = ({ data, setrepid, setrepname }) => {
             <div className={cx('main')}>
                 <p className={cx('au-cm')}>{data.UserName ? data.UserName : 'No Name'} <AiOutlineClockCircle /><span>{data.TimeComment}</span></p>
                 <p className={cx('text-cm')}>{data.Comment}</p>
-                <p className={cx('btn-rep')} onClick={() => { setrepid(data.ID); setrepname(data.UserName ? data.UserName : 'No Name') }}><BsChat /> Reply</p>
+                <p className={cx('btn-rep')} onClick={() => { setrepid(id); setrepname(data.UserName ? data.UserName : 'No Name') }}><BsChat /> Reply</p>
             </div>
         </div>
     )

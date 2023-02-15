@@ -2,13 +2,9 @@ import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from 'react-google-recaptcha'
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import national from '@/pages/api/national.json';
-
-import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 import ScrollToTop from '@/hook/scrollToTop';
