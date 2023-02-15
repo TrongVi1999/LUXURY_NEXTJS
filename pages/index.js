@@ -1,5 +1,4 @@
 import Head from 'next/head';
-// import { Inter } from '@next/font/google';
 import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
@@ -11,7 +10,7 @@ import { ItemInfoHome, BannerSlide } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
-import { Alltour } from './api/CallAPI';
+
 
 
 const cx = classNames.bind(styles);
@@ -29,8 +28,8 @@ export default function Home() {
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
                     className={cx('bodyBanner')}
-                    titleBanner={'south asia'}
-                    textTop={'Luxury tailor-made tours to'}
+                    titleBanner={'& BE SPOKE TOURS TO VIETNAM & SOUTHEAST ASIA'}
+                    textTop={'Luxury tailor-made'}
                     imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
                 />
                 <ItemInfoHome className={cx('boxInfo')} />

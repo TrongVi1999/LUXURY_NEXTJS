@@ -45,12 +45,14 @@
     }
 
     .titleHome {
-        font-size: 7.2rem;
+        font-size: 5.2rem;
         font-weight: 700;
+        text-align: center;
         text-transform: uppercase;
         color: var(--white);
         margin-bottom: 2rem;
         text-shadow: 0.2rem 0.1rem 0.2rem var(--menu-text);
+        padding: 0 10%;
     }
 
     .boxSearch {
@@ -130,7 +132,7 @@
         }
 
         .titleHome {
-            font-size: 6rem;
+            font-size: 3rem;
         }
     }
 
