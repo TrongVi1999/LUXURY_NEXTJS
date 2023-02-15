@@ -19,19 +19,22 @@ import { ListTransfer } from '../api/CallAPI';
 const cx = classNames.bind(style);
 
 const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+const listtype = ['VEHICLES', 'YACHTS', 'HELICOPTERS', 'LUX TRAIN']
 
 function Destimation() {
     const router = useRouter();
     const [page, setPage] = useState(1)
-    const [transActive, setTransActive] = useState(0)
+    const [transActive, setTransActive] = useState(0);
     const [Book, setBook] = useState(true);
+    const [Type, settype] = useState('VEHICLES')
     const handleBooking = () => {
         setBook(false);
     }
 
     const [Data, setdata] = useState();
     const CallAPI = async () => {
-        const response = await (ListTransfer(page, router.query.id));
+
+        const response = await (ListTransfer(Type));
         if (response.status == 200) {
             setdata(response.data.Object);
         }
@@ -40,7 +43,7 @@ function Destimation() {
 
     useEffect(() => {
         CallAPI();
-    }, [page, router.query.id]);
+    }, [page, router.query.id, Type]);
 
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
@@ -55,10 +58,10 @@ function Destimation() {
             </Section>
 
             <Section maxWidth={800} isWrap className={cx('boxBtn')} gapBox={0}>
-                <Button className={cx('btn', transActive === 0 ? 'active' : null)} onClick={() => setTransActive(0)}>VEHICLES </Button>
-                <Button className={cx('btn', transActive === 1 ? 'active' : null)} onClick={() => setTransActive(1)}>YACHTS </Button>
-                <Button className={cx('btn', transActive === 2 ? 'active' : null)} onClick={() => setTransActive(2)}>HELICOPTERS </Button>
-                <Button className={cx('btn', transActive === 3 ? 'active' : null)} onClick={() => setTransActive(3)}>LUX TRAIN </Button>
+                {listtype.map((d, i) =>
+                    <Button className={cx('btn', transActive === i ? 'active' : null)} onClick={() => { setTransActive(i); settype(d) }}>{d} </Button>
+                )}
+
             </Section>
 
             <div className={cx('container')}>

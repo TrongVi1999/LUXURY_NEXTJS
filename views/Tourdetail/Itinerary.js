@@ -3,11 +3,13 @@ import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { GetSocial } from '@/pages/api/CallAPI';
+import ReactToPrint from 'react-to-print';
+import { GrDocumentPdf } from 'react-icons/gr';
 
 
 const cx = classNames.bind(style);
 
-const Itinerary = ({ description, detail, click }) => {
+const Itinerary = ({ description, detail, click, btn, dataref }) => {
     const [content, setcontent] = useState(['active', '', '']);
     const [Data, setData] = useState();
 
@@ -25,8 +27,8 @@ const Itinerary = ({ description, detail, click }) => {
         <div className={cx('iti-container')}>
             <div className={cx('iti-menu')}>
                 <p onClick={() => setcontent(['active', '', ''])} className={cx(content[0])}>ITINERARY</p>
-                <p onClick={() => setcontent(['', 'active', ''])} className={cx(content[1])}>PRICE & POLICY</p>
-                <p onClick={() => setcontent(['', '', 'active'])} className={cx(content[2])}>TERM & CONDITIONS</p>
+                {btn && <p onClick={() => setcontent(['', 'active', ''])} className={cx(content[1])}>PRICE & POLICY</p>}
+                {btn && <p onClick={() => setcontent(['', '', 'active'])} className={cx(content[2])}>TERM & CONDITIONS</p>}
             </div>
             {content[0] == 'active' &&
                 <div className={cx('iti-main')}>
@@ -53,8 +55,19 @@ const Itinerary = ({ description, detail, click }) => {
                             )}
                         </div>
                     </div>
-                    <p>If you want to design your own tour for your trip to be unique, don't hesitate to share it with us!</p>
-                    <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
+                    {btn && <p>If you want to design your own tour for your trip to be unique, dont hesitate to share it with us!</p>}
+                    {btn &&
+                        <div className={cx('print')}>
+                            <div>
+                                <button className={cx('btn-design')} onClick={() => click()}>DESIGN YOUR TOUR</button>
+                            </div>
+
+                            <ReactToPrint
+                                trigger={() => <button className={cx('btn-design')}><GrDocumentPdf /> PRINT TO PDF</button>}
+                                content={() => dataref}
+                            />
+                        </div>
+                    }
                 </div>
             }
             {content[1] == 'active' && Data &&
@@ -62,6 +75,7 @@ const Itinerary = ({ description, detail, click }) => {
 
                 </div>
             }
+
         </div>
     )
 }

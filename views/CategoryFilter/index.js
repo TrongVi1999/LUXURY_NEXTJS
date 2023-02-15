@@ -10,6 +10,8 @@ import { Input } from '@/components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { GrPowerReset } from 'react-icons/gr';
 import Buttom from '@/components/Button';
+import { GetSocial, GetAllDes } from '@/pages/api/CallAPI';
+
 const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -27,6 +29,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
     // active show filter mobile
     const [showFillter, setShowFillter] = useState(0)
+    const [ListDes, setlist] = useState();
 
     const convertTimeString = () => {
         const listMonths = [];
@@ -49,11 +52,20 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
         return listMonths;
     }
 
+    const CAllAPIList = async () => {
+        const response = await GetSocial(6256);
+        if (response.status == 200) {
+            setlist(JSON.parse(response.data.Object[0].intro_text));
+        }
+
+    }
+
     useEffect(() => {
         const listmonth = convertTimeString()
         if (listmonth.length > 0) {
             setListMonthArchives(listmonth)
         }
+        CAllAPIList();
     }, [])
 
     const handelShowfillter = (index) => {
@@ -81,7 +93,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     const handelActiveItemCate = (index) => {
         setActiveCategory(index)
         setShowFillter(0)
-        setvldestination(category.elements[index].name);
+        setvldestination(ListDes[0][index]);
     }
     const handelActivePrice = (index) => {
         setActivePrice(index)
@@ -116,11 +128,11 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
         [className]: className,
     });
 
-    useEffect(() => {
-        if (setValueFillter) {
-            setValueFillter({ category: activeCategory, tourTag: activeTour })
-        }
-    }, [activeCategory, activeTour])
+    // useEffect(() => {
+    //     if (setValueFillter) {
+    //         setValueFillter({ category: activeCategory, tourTag: activeTour })
+    //     }
+    // }, [activeCategory, activeTour])
 
 
 
@@ -143,21 +155,21 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             </div>
 
 
-            {category ? (
+            {category && ListDes && (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
-                    <h2 className={cx('title')}>{category.title}  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination(''); setShowFillter(0) }} /></h2>
-                    {category.elements?.map((element, index) => (
+                    <h2 className={cx('title')}>Destination  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination(''); setShowFillter(0) }} /></h2>
+                    {ListDes[0].map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
                             key={index}
                             onClick={() => handelActiveItemCate(index)}
                         >
-                            <span className={cx('itemName')}>{element.name}</span>
-                            <span className={cx('itemAmount')}>{element.amount}</span>
+                            <span className={cx('itemName')}>{element}</span>
+                            {/* <span className={cx('itemAmount')}>{element.amount}</span> */}
                         </div>
                     ))}
                 </div>
-            ) : null}
+            )}
             {price ? (
                 <div className={cx('boxFillterItem', 'boxArchives', showFillter === 2 ? 'active' : null)}>
                     <h2 className={cx('title')} >filter by price <GrPowerReset className={cx('icon-reset')} onClick={() => { setActivePrice(-1); setvlfromcost(0); setvlendcost(15000); setShowFillter(0) }} /></h2>

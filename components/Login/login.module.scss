@@ -4,6 +4,7 @@
     background-color: white;
     padding: 2rem;
     border: 2px solid var(--button);
+    max-width: 100%;
     &::after {
         position: absolute;
         content: '';

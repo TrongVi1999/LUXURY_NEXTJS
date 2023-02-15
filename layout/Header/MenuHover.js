@@ -10,7 +10,7 @@ import style from './header.module.scss';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 const cx = classNames.bind(style);
 
-function MenuHover({ className, showmenu, items, isScroll, close }) {
+function MenuHover({ className, showmenu, items, isScroll, close, close1, close2, close3 }) {
     const [historyMenu, setHistoryMenu] = useState([{ data: items }])
 
     const current = historyMenu[historyMenu.length - 1]
@@ -21,7 +21,7 @@ function MenuHover({ className, showmenu, items, isScroll, close }) {
             return (
                 isParent ? (<div onClick={() => setHistoryMenu((prev) => [...prev, item.children])} className={cx('itemMenuHover', 'itemIsChildren')}>{item.title} <MdOutlineKeyboardArrowDown className={cx('icon')} /></div>)
                     :
-                    <Link key={index} href={item.to} className={cx('itemMenuHover')} onClick={() => close()}>{item.title}</Link>
+                    <Link key={index} href={item.to} className={cx('itemMenuHover')} onClick={() => { close(); close1(false) }}>{item.title}</Link>
             )
         })
     }

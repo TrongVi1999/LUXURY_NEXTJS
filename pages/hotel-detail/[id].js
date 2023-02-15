@@ -47,11 +47,9 @@ const Index = () => {
     return (
         <div>
             {Data && Data.length > 0 && <div>
-                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title='amoanoi resort' bg='bg' />
+                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={Data[0].title} bg='bg' />
                 {book ? <Hotelbook click={setbook} hotel={Data[0].title} /> : <div className={cx('container')}>
                     <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
-
-
 
                     <div className={cx('des')}>
                         <h2>Khu nghỉ dưỡng AMANOI Ninh Thuận</h2>
@@ -59,10 +57,10 @@ const Index = () => {
 
                             <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>
                             <p className={cx('address')}><CiLocationOn />
-                                {Data[0].intro_text.split('|')[0]}
+                                {Data[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
                                 {/* Làng Vĩnh Hy, Xã Vĩnh Hải, Huyện Ninh Hải, Ninh Thuận, Việt Nam */}
                             </p>
-                            <p>{Data[0].intro_text.split('|')[1]}
+                            <p>{Data[0].intro_text}
                                 {/* Amanoi là tên gọi khởi nguồn từ sự kết hợp khéo léo của 	&quot;aman	&quot; - nghĩa là 	&quot;bình yên	&quot; theo tiếng Sanskrit và 	&quot;nơi	&quot; - ý chỉ 	&quot;chỗ lưu trú	&quot; trong tiếng Việt. Đến với Amanoi Ninh Thuận, điều các thượng khách nhận được không phải là dịch vụ nghỉ dưỡng thông thường mà là sự phục vụ đẳng cấp từ cơ sở vật chất đến tất cả tâm huyết của đội ngũ nhân viên - những người được đào tạo chuyên nghiệp để mang đến cho thượng khách cảm giác được trân trọng trên từng bước chân. Nằm trong lòng vườn quốc gia Núi Chúa, với vị thế đắc địa vừa có hồ vừa có biển, khu nghỉ dưỡng cung cấp rất nhiều hoạt động thể thao kết hợp với thiên nhiên như yoga trong lành giữa lòng sông, chèo thuyền kayak, lặn biển,... đặc biệt chỉ có tại Amanoi, cung đường trekking tự nhiên theo cấp độ sẽ làm thỏa mãn các thượng khách muốn chinh phục giới hạn.
 
                                 Cầu hôn tại Amanoi cũng là một ý tưởng tuyệt vời - với một mức giá không thể tốt hơn tại iVIVU - thượng khách hoàn toàn có thể mang đến cho người bạn đời một kỉ niệm không thể nào quên.

@@ -173,7 +173,10 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
         headers: {
             'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
+
     });
+
+
 
 //lấy list hotel https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel
 export const ListHotel = () =>
@@ -182,12 +185,11 @@ export const ListHotel = () =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel`,
         type: 'json',
     });
-
-//lấy list transfer https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel
-export const ListTransfer = () =>
+//List transfer
+export const ListTransfer = (type, value) =>
     axios({
         method: 'post',
-        url: `https://vnxpedia.3i.com.vn/TravelAPI/LuxuryTransfer`,
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/LuxuryTransfer?type=${type}&value=${value}`,
         type: 'json',
     });
 
@@ -219,7 +221,7 @@ export const Sendmail = (bookname, email) => axios({
     },
 });
 //comment
-export const Comment = (id, prid, cm, user) => axios({
+export const Comment = (id, cm, user, prid) => axios({
     method: 'post',
     url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost',
     data: qs.stringify({
@@ -233,3 +235,18 @@ export const Comment = (id, prid, cm, user) => axios({
     },
 });
 
+//Lấy list des
+
+export const GetAllDes = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/GetAllDestination`,
+        type: 'json',
+    });
+//list comment
+export const GetComment = (id) =>
+    axios({
+        method: 'post',
+        url: `https://vnxpedia.3i.com.vn/TravelAPI/ListComment?postid=${id}`,
+        type: 'json',
+    });

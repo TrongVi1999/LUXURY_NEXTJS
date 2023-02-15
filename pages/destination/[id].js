@@ -88,29 +88,36 @@ function Destimation() {
     const CallAPISuperfilter = async () => {
         // console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
         // console.log('des1', vldestination)
+
         const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
         if (response.status == 200) {
             setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
         }
         setPage(1);
     }
-
     useEffect(() => {
-        // { router.query.id && (router.query.id).substring((router.query.id).indexOf('destination=') + 'destination='.length) && setvldestination(router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
+
+        { router.query.id && setvldestination((router.query.id).substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
+        console.log('DES', vldestination)
+    }, [router.query.id])
+    useEffect(() => {
         { router.query.id && CallAPISuperfilter() }
-    }, [router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup])
+
+
+    }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup, router])
 
     const dataFillter = (data) => {
         setValueFillter(data)
     }
 
 
+    // Phân trang
     const [page, setPage] = useState(1)
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
-    console.log(sort)
 
+    //Hàm sắp xếp
     function sortByName(arr) {
         return arr.sort(function (a, b) {
             if (a.TourNname < b.TourName) {
@@ -122,6 +129,8 @@ function Destimation() {
             return 0;
         });
     }
+
+    console.log('Data', Data);
 
 
 
@@ -186,7 +195,7 @@ function Destimation() {
                         className={cx('boxFilter')}
                         season={seasonFillter}
                         groupSize={groupSizeFillter}
-                        setValueFillter={dataFillter}
+                        // setValueFillter={dataFillter}
                         setvlcountry={setvlcountry}
                         setvldestination={setvldestination}
                         setvltype={setvltype}
