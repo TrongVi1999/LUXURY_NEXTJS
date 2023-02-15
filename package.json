@@ -7,7 +7,8 @@
         "build": "next build && next export",
         "start": "next start",
         "lint": "next lint",
-        "build:sitemap": "next-sitemap"
+        "build:sitemap": "next-sitemap",
+        "sitemap": "next-sitemap --config next-sitemap.config.js"
     },
     "dependencies": {
         "@next/font": "13.1.2",
@@ -23,7 +24,6 @@
         "jquery": "^3.6.3",
         "next": "^13.1.6",
         "next-auth": "^4.19.2",
-        "next-sitemap": "^3.1.52",
         "node-modules": "^0.0.1",
         "qs": "^6.11.0",
         "react": "18.2.0",
@@ -44,6 +44,7 @@
         "swiper": "^8.4.7"
     },
     "devDependencies": {
+        "next-sitemap": "^3.1.52",
         "sass": "^1.57.1"
     }
 }
