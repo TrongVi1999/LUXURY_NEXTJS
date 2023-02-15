@@ -6,6 +6,10 @@ const ScrollToTop = (props) => {
     useEffect(() => {
         if (!location.hash) {
             window.scrollTo(0, 0);
+            document.body.classList.add('scroll-up');
+            setTimeout(() => {
+                document.body.classList.remove('scroll-up');
+            }, 300);
         }
     }, [location]);
 
