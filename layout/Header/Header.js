@@ -18,7 +18,8 @@ import { FiUserCheck } from 'react-icons/fi';
 import { MdGTranslate } from 'react-icons/md';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { ToastContainer } from 'react-toastify';
-import Img1 from '@/public/icon/Layer15.png'
+import Img1 from '@/public/icon/Layer15.png';
+import { useApppContext } from '@/pages/_app';
 
 
 const cx = classNames.bind(style);
@@ -41,7 +42,7 @@ const Header = () => {
     const [signup, setsignup] = useState(false);
     const [login, setlogin] = useState(false)
     const [translate, settranslate] = useState('none');
-    const [currentUser, setCurrentUser] = useState(null);
+    // const [currentUser, setCurrentUser] = useState(null);
     const { asPath } = useRouter();
     const router = useRouter();
     const [closeUser, setCloseUser] = useState(false)
@@ -51,6 +52,7 @@ const Header = () => {
             : '';
 
     const URL = `${origin}${asPath}`;
+    const CT = useApppContext();
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -61,7 +63,7 @@ const Header = () => {
     }
     const handleLogout = () => {
         localStorage.removeItem('VNXUser');
-        setCurrentUser(null);
+        CT.setCurrentUser(null);
         { asPath == '/profile' && router.push('/') }
 
 
@@ -86,14 +88,8 @@ const Header = () => {
             window.removeEventListener('scroll', handelScroll);
         };
     }, [showMenu]);
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [URL])
+
+    console.log('ct', CT.currentUser);
 
     return (
         <div className={cx(`header`)} id={bgheader}>
@@ -116,7 +112,7 @@ const Header = () => {
                         <OutsideClickHandler onOutsideClick={() => {
                             setlogin(false);
                         }}>
-                            {currentUser ?
+                            {CT.currentUser ?
 
                                 <div className={cx('item-user')} onMouseEnter={() => setCloseUser(true)}
                                     onMouseLeave={() => setCloseUser(false)}>
@@ -129,7 +125,7 @@ const Header = () => {
                                 </div>
                                 : <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />}
 
-                            {login && <div className={cx('login')}>< Login Click={setsignup} setuser={setCurrentUser} close={setlogin} /> </div>}
+                            {login && <div className={cx('login')}>< Login Click={setsignup} setuser={CT.setCurrentUser} close={setlogin} /> </div>}
 
                         </OutsideClickHandler>
                     </div>

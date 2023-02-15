@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/bloghome.module.scss';
 import { Title } from '@/components';
 import Blogcard1 from './Blogcard1';
-import IMG from '@/public/8.jpg';
-import { Bloghot } from '@/pages/api/CallAPI';
 import { Getbloghot } from '@/pages/api/QuerryAPI';
 
 

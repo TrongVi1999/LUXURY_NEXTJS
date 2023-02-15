@@ -6,10 +6,12 @@ import qs from "qs";
 import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa';
 import style from './login.module.scss';
-const cx = classNames.bind(style);
+import { useApppContext } from '@/pages/_app';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastError, toastSuccess } from '../Toast';
+
+const cx = classNames.bind(style);
 // import { signIn } from "next-auth/react"
 
 const Login = ({ Click, setuser, close }) => {
@@ -20,6 +22,7 @@ const Login = ({ Click, setuser, close }) => {
         reset,
         formState: { errors },
     } = useForm();
+    const CT = useApppContext();
 
     const [showFPass, setShowFPass] = useState("hidden");
 
@@ -73,6 +76,7 @@ const Login = ({ Click, setuser, close }) => {
             if (datas?.data?.Error === false) {
                 toastSuccess('Login success!');
                 localStorage.setItem("VNXUser", JSON.stringify(datas.data));
+                CT.setCurrentUser(datas.data);
                 setTimeout(() => {
                     setuser(`${datas.data?.Title}`)
                     close(false);

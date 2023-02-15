@@ -112,7 +112,6 @@ export const InsertComment = (id, reply, username, comment) => {
         {
             enabled: false,
         }
-
     );
 
 
@@ -183,8 +182,8 @@ export const GetAllDes = () => {
 };
 
 //list comment
-export const GetComment = (id) => {
-    return useQuery(['listcomment', id], async () => {
+export const GetComment = (id, load) => {
+    return useQuery(['listcomment', id, load], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListComment?postid=${id}`);
         return response.data;
     });
