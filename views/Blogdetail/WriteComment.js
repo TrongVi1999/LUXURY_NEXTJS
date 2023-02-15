@@ -12,6 +12,7 @@ const cx = classNames.bind(style);
 const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
     const [input, setinput] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
+    const [shouldFetch, setShouldFetch] = useState(false);
 
     // const CallAPI = async () => {
     //     const response = await Comment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
@@ -21,20 +22,13 @@ const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
     //     }
 
     // }
-    const CreateComment = useMutation((commentData) => InsertComment(...commentData),
-        {
-            onSuccess: () => {
-                console.log('Comment submitted successfully!');
-            },
-            onError: (error) => {
-                console.error('Error submitting comment:', error);
-            },
-        }
-    );
+    const CreateComment = InsertComment(id, prid, currentUser ? currentUser.FullName : 'NoName', prid ? `@${repname} ` + input : input)
+
 
     const handleComment = () => {
         if (input != '') {
-            CreateComment.mutate([id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid]);
+            setShouldFetch(true);
+            CreateComment.refetch();
             // CallAPI();
             // const CreateComment = InsertComment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
             setinput('');

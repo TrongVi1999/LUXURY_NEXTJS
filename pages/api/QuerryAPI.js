@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import qs from 'qs';
+import { useState } from 'react';
 
 
 
@@ -102,10 +103,19 @@ export const GetTourLocation = (location) => {
 
 //thêm comment
 export const InsertComment = (id, reply, username, comment) => {
+
+
     return useQuery(['insertcomment', id, reply, username, comment], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost?PostId=${id}&ParentId=${reply}&UserName=${username}&Comment=${comment}`);
         return response.data;
-    });
+    },
+        {
+            enabled: false,
+        }
+
+    );
+
+
 };
 
 //lấy blog hot
@@ -180,8 +190,8 @@ export const GetComment = (id) => {
     });
 };
 
-// //
-// export const Tourhot = () => {
+// //thêm comment
+// export const  = () => {
 //     return useQuery(['tourhot'], async () => {
 //         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
 //         return response.data;
