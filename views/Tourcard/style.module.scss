@@ -47,8 +47,8 @@
     font-weight: bold;
 }
 
-.price {
-    .price1 {
+.price-type {
+    .price {
         color: black;
         font-weight: bold;
     }
@@ -59,7 +59,7 @@
         color: rgb(203, 144, 26);
     }
 
-    .price2 {
+    .real-price {
         text-decoration: line-through;
     }
 }
@@ -81,7 +81,7 @@
 
 //Card 2 -----------------------------------------------------
 
-.card2 {
+.card-tour {
     width: 100%;
     display: flex;
     height: auto;
@@ -89,12 +89,12 @@
     margin-bottom: 2vw;
 }
 
-.img-card2 {
+.img-card-tour {
     flex: 1;
     height: auto;
 }
 
-.img2 {
+.img-tour {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -174,7 +174,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .card2 {
+    .card-tour {
         width: 100%;
         margin-bottom: 3rem;
         flex-direction: column;

@@ -11,7 +11,7 @@ const Introduce2 = () => {
         <div className={cx('container')}>
             <Image src={gt2} className={cx('img')} alt='img-Introduce' />
 
-            <div className={cx('h2')}>
+            <div className={cx('text-title')}>
                 <h2> WE OFFER LUXURY PRIVATE TOURS TO SOUTHREAST ASIA</h2>
             </div>
             <div className={cx('text')}>

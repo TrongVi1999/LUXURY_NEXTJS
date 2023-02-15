@@ -195,7 +195,7 @@ const Signup = ({ Click, openlogin }) => {
                             < div className={
                                 cx('sex')}>
                                 <label className={
-                                    cx('sex-m')} for="">
+                                    cx('sex-type')} for="">
                                     Male
                                 </label>
                                 <input
@@ -208,7 +208,7 @@ const Signup = ({ Click, openlogin }) => {
                             </div >
                             <div className={cx('sex')}>
                                 < label className={
-                                    cx('sex-m')} for=''>
+                                    cx('sex-type')} for=''>
                                     Female
                                 </label >
                                 <input

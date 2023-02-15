@@ -97,7 +97,7 @@ const menuAbouUs = [
     },
     {
         title: 'Payment',
-        to: '/payment/DEPOSIT & PAYMENT'
+        to: '/payment/DEPOSIT&PAYMENT'
     },
     {
         title: 'Responsible',
@@ -113,28 +113,28 @@ function Menu({ className, showmenu, menuBgr, close }) {
         active: showmenu,
     });
 
-    const [cclosed1, setclose1] = useState();
-    const [cclosed2, setclose2] = useState();
-    const [cclosed3, setclose3] = useState();
+    const [cclosed1, setClose1] = useState();
+    const [cclosed2, setClose2] = useState();
+    const [cclosed3, setClose3] = useState();
 
     return (
         <nav className={clases}>
-            <div className={cx('item')} onMouseEnter={() => setclose1(true)}
-                onMouseLeave={() => setclose1(false)}>
+            <div className={cx('item')} onMouseEnter={() => setClose1(true)}
+                onMouseLeave={() => setClose1(false)}>
                 destination
-                {cclosed1 && <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose1} />}
+                {cclosed1 && <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setClose1} />}
             </div>
-            <div className={cx('item')} onMouseEnter={() => setclose2(true)}
-                onMouseLeave={() => setclose2(false)}>
+            <div className={cx('item')} onMouseEnter={() => setClose2(true)}
+                onMouseLeave={() => setClose2(false)}>
                 way to travel
-                {cclosed2 && <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} close1={setclose2} />}
+                {cclosed2 && <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} close1={setClose2} />}
             </div>
 
             <Link href={'/blog-list'} className={cx('item')} onClick={() => close()}>Inspirations</Link>
-            <div className={cx('item')} onMouseEnter={() => setclose3(true)}
-                onMouseLeave={() => setclose3(false)}>
+            <div className={cx('item')} onMouseEnter={() => setClose3(true)}
+                onMouseLeave={() => setClose3(false)}>
                 about us
-                {cclosed3 && <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} close1={setclose3} />}
+                {cclosed3 && <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} close1={setClose3} />}
 
             </div>
         </nav>

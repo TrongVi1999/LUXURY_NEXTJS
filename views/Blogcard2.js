@@ -30,7 +30,7 @@ const Blogcard2 = ({ className, data }) => {
                     <h2>{data.title}</h2>
                 </div>
                 <hr className={cx('hr')} />
-                <div className={cx('icon2')}>
+                <div className={cx('icon-form')}>
                     <Image src={icon1} alt="blogimg" />  <span>By Admin</span>
                     <Image src={icon2} alt="blogimg" /> <span>Aplil 27,2019</span>
                     <Image src={icon3} alt="blogimg" /> <span>05</span>
@@ -41,7 +41,7 @@ const Blogcard2 = ({ className, data }) => {
 
                         Morbi volutpat leo iaculis elit vehicula, eu convallis magna finibus. Suspendisse tristique ullamcorper erat a elementum. Cras eget elit non nunc aliquam ullamcorper quis sed metus. Lorem ipsum dolor sit amet</p>
                 </div>
-                <div className={cx('btn')}>
+                <div className={cx('btn-read')}>
                     <Button to={`/blog-detail/${data.id}`} className={cx('readmore')}>READ MORE</Button>
                 </div>
 

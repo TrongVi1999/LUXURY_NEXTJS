@@ -25,10 +25,10 @@ const Hotelcard = ({ data }) => {
                         (1000 rate) | {data.featured_ordering} book
                     </span>
                 </p>
-                <p className={cx('price')}>
+                <p className={cx('price-type')}>
                     {/* <span className={cx('price1')}>$ {1500 - ((1500 * data.sale) / 100)}</span> <ImFire />${' '} */}
-                    <span className={cx('price1')}>$ {1500 - ((1500 * 0.1) / 100)}</span> <ImFire />${' '}
-                    <span className={cx('price2')}>1500</span>
+                    <span className={cx('price')}>$ {1500 - ((1500 * 0.1) / 100)}</span> <ImFire />${' '}
+                    <span className={cx('real-price')}>1500</span>
                 </p>
             </div>
         </Link>

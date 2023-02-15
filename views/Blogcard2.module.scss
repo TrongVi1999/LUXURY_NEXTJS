@@ -33,7 +33,7 @@
     margin-bottom: 2rem;
 }
 
-.blog .icon2 span {
+.blog .icon-form span {
     margin: 0px 1rem;
     font-weight: bold;
     font-size: 12px;
@@ -54,7 +54,7 @@
     text-overflow: ellipsis;
 }
 
-.btn {
+.btn-read {
     margin: 7rem 0;
     height: 5.4rem;
 
@@ -84,14 +84,14 @@
     .icon {
         height: 8px;
     }
-    .blog .icon2 span {
+    .blog .icon-form span {
         font-size: 8px;
     }
 
     .blog {
         padding-top: 2rem;
     }
-    .btn {
+    .btn-read {
         margin: 3rem 0 !important;
     }
 }

@@ -69,7 +69,7 @@ const Index = () => {
                     <div className={cx('main-hotel')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
 
                     <h2>Siminal Hotels</h2>
-                    <div className={cx('Siminal-Hotel')}>
+                    <div className={cx('siminal-hotel')}>
                         <Link href={`/hotel-detail/5258`} className={cx('card')}>
                             <div className={cx('card-img')}>
                                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />

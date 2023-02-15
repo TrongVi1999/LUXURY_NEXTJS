@@ -23,7 +23,7 @@ const Feedback = () => {
                     Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia, eros vel fermentum
                     consectetur, risus p
                 </p>
-                <h5 className={cx('text2')}>JOHN SMITH</h5>
+                <h5 className={cx('text-title')}>JOHN SMITH</h5>
             </div>
             <div className={cx('img')}>
                 <Image src={feedback} alt='img-feedback' />

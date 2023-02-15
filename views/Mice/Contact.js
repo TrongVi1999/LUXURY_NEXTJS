@@ -284,7 +284,7 @@ function Booking({ click }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")}>Send Message</button>
+                    <button className={cx("btn-send")}>Send Message</button>
                 </div>
             </form>
         </div>

@@ -123,7 +123,7 @@ const index = () => {
                                         value="male"
                                         className={cx("form-control")}
                                     />
-                                    <label className={cx("sex-m")} for="">
+                                    <label className={cx("sex-type")} for="">
                                         MALE
                                     </label>
                                     <input
@@ -132,7 +132,7 @@ const index = () => {
                                         value="female"
                                         className={cx("form-control")}
                                     />
-                                    <label className={cx("sex-m")} for="">
+                                    <label className={cx("sex-type")} for="">
                                         FEMALE
                                     </label>
                                 </div>
@@ -250,7 +250,7 @@ const index = () => {
                     </div>
                     {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                     <div className={cx("content-bot")}>
-                        <button className={cx("btn")}>Send Message</button>
+                        <button className={cx('btn-send')}>Send Message</button>
                     </div>
                 </form>
             </div>

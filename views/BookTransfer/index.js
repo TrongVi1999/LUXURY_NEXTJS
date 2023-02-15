@@ -373,7 +373,7 @@ function Transferbook({ click, transfer }) {
 
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >Send Message</button>
+                    <button className={cx("btn-send")} >Send Message</button>
                 </div>
             </form>
         </div>
