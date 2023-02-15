@@ -60,7 +60,7 @@ const Index = () => {
                                 {Data[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
                                 {/* Làng Vĩnh Hy, Xã Vĩnh Hải, Huyện Ninh Hải, Ninh Thuận, Việt Nam */}
                             </p>
-                           
+
 
                             <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                         </div>
@@ -70,7 +70,7 @@ const Index = () => {
 
                     <h2>Siminal Hotels</h2>
                     <div className={cx('Siminal-Hotel')}>
-                        <Link href={`/hotel-detail/5258`} className={cx('card')}>
+                        <Link href={`/hotel-detail/5258=`} className={cx('card')}>
                             <div className={cx('card-img')}>
                                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
                             </div>

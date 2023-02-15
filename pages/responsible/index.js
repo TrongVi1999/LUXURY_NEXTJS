@@ -9,12 +9,14 @@ import anh6 from '@/public/anh6.png';
 import anh7 from '@/public/anh7.png';
 import Image from 'next/image';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
 const Responsible = () => {
     return (
         <div className={cx('container')}>
+
             <BannerIMG img={anh1} title='OUR FOCUS ON SUSTAINABILITY' bg='bg' />
             <div className={cx('text1')}>
                 <p>At Black Tomato, we believe in the positive influence travel can have. Not just for individuals and their experiences but for the destinations that receive them and the world as a whole.
