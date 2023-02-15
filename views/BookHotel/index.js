@@ -315,6 +315,8 @@ function Hotelbook({ click, hotel }) {
                                             type="number"
                                             name="date"
                                             className={cx("persons-attendtion")}
+                                            min="0"
+                                            max="100"
                                             {...register('PersonsAttendtion', { required: true })}
                                         />
                                         {errors.PersonsAttendtion && errors.PersonsAttendtion.type === 'required' && (

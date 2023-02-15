@@ -6,28 +6,33 @@
     margin-bottom: 1.8vw;
     display: flex;
     flex-direction: column;
-    margin-right: 5px;
+    // margin-right: 5px;
 }
+
 .card-img {
     width: 100%;
     height: 15vw;
     min-height: 180px;
 }
+
 .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .infor {
     padding: 10px;
     display: flex;
     // flex: 1;
     flex-direction: column;
+
     p {
         padding: 5px 0;
         color: gray;
     }
 }
+
 .title {
     font-weight: bolder;
     font-size: 15px;
@@ -36,11 +41,13 @@
     flex: 1;
     color: black;
 }
+
 .rating {
     color: rgb(209, 148, 27);
     margin-right: 5px;
     font-weight: bold;
 }
+
 .price {
     .price1 {
         color: black;
@@ -52,15 +59,18 @@
         // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
         color: rgb(203, 144, 26);
     }
+
     .price2 {
         text-decoration: line-through;
     }
 }
+
 .place {
     svg {
         margin-right: 5px;
     }
 }
+
 @media only screen and (max-width: 700px) {
     .card {
         width: 100%;

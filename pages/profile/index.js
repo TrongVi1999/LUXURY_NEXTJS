@@ -80,7 +80,7 @@ function Profile() {
 
                             // loader={<div>Loading...</div>}
                             /> :
-                                <Image src={avatars.avatar1} alt="avatarErro" className={cx('avatar')} />}
+                                <Image src={avatars.avatar3} alt="avatarErro" className={cx('avatar')} />}
 
                         </div>
                         <label htmlFor="file"><IoIosAdd className={cx('iconAdd')} /></label>

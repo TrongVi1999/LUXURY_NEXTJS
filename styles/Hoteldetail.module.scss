@@ -4,27 +4,34 @@
     .des {
         border: solid black 1px;
         padding: 5rem 0;
+
         h2 {
             font-size: 24px;
             margin-left: 5rem;
         }
+
         .star {
             margin-left: 5rem;
             padding: 2rem 5rem 0 0;
+
             .icon-star {
                 color: #9c9c9c;
             }
+
             span {
                 color: #f5a623;
             }
+
             p {
                 padding: 1rem 0;
                 font-size: 14px;
                 color: #565656;
             }
+
             .address {
                 font-weight: bolder;
             }
+
             button {
                 margin-top: 3rem;
                 display: flex;
@@ -37,6 +44,7 @@
                 font-size: 2.4rem;
                 font-weight: bold;
                 cursor: pointer;
+
                 .hr-left {
                     border-left: 1px solid #000;
                     height: 90%;
@@ -54,9 +62,10 @@
         width: 100%;
         align-items: center;
     }
+
     .card {
         width: 31.4%;
-        min-width: 220px;
+        min-width: 300px;
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         // margin-bottom: 1.8vw;
@@ -64,26 +73,31 @@
         flex-direction: column;
         margin: 5px;
     }
+
     .card-img {
         width: 100%;
         height: 15vw;
         min-height: 180px;
     }
+
     .img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
+
     .infor {
         padding: 10px;
         display: flex;
         flex: 1;
         flex-direction: column;
+
         p {
             padding: 5px 0;
             color: gray;
         }
     }
+
     .title {
         font-weight: bolder;
         font-size: 15px;
@@ -92,11 +106,13 @@
         flex: 1;
         color: black;
     }
+
     .rating {
         color: rgb(209, 148, 27);
         margin-right: 5px;
         font-weight: bold;
     }
+
     .price {
         .price1 {
             color: black;
@@ -108,10 +124,12 @@
             // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
             color: rgb(203, 144, 26);
         }
+
         .price2 {
             text-decoration: line-through;
         }
     }
+
     .place {
         svg {
             margin-right: 5px;
@@ -122,10 +140,12 @@
 
 .main-hotel {
     padding: 2% 0;
+
     h2 {
         padding: 0 !important;
         margin-top: 40px;
     }
+
     ul {
         padding-top: 5rem;
         display: flex;
@@ -135,10 +155,12 @@
         margin-left: 5rem;
         list-style: disc inside #f5a623;
     }
+
     li {
         font-size: 14px;
         margin: 1.5rem 0;
         width: 30%;
+
         svg {
             color: #f5a623;
             font-size: 18px;
@@ -153,6 +175,7 @@
         // font-weight: 400;
         color: #000000;
     }
+
     span {
         font-weight: bold;
     }
@@ -160,9 +183,11 @@
     table {
         padding-top: 2rem;
         font-size: 14px;
+
         tr {
             height: 100%;
         }
+
         th {
             width: 25%;
             // text-align: left;
@@ -170,6 +195,7 @@
             border-bottom: 1px solid #000;
             text-align: start;
         }
+
         td {
             padding: 2rem 0;
             border-bottom: 1px solid #000;
@@ -178,65 +204,81 @@
         }
     }
 }
+
 @media only screen and (max-width: 1150px) {
     .container {
         padding: 2rem 15%;
     }
+
     .Siminal-Hotel {
         justify-content: center !important;
     }
+
     .card {
         width: 40% !important;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .container {
         padding: 2rem 10%;
     }
+
     .Siminal-Hotel {
         justify-content: center !important;
     }
+
     .card {
         width: 70% !important;
     }
 }
+
 @media only screen and (max-width: 580px) {
     .container {
         padding: 2rem 10%;
     }
+
     .Siminal-Hotel {
         justify-content: center !important;
     }
+
     .card {
         width: 70% !important;
     }
+
     .main-hotel {
-        ul{
+        ul {
             margin-left: 2rem;
         }
-        li{
+
+        li {
             width: 40%;
         }
     }
 }
+
 @media only screen and (max-width: 430px) {
     .main-hotel {
+
         // padding: 1rem 1rem !important;
-        ul{
+        ul {
             margin-left: 1rem;
         }
-        li{
+
+        li {
             width: 45%;
         }
-        table{
-            th{
+
+        table {
+            th {
                 margin-left: 0.5rem !important;
                 padding-left: 0.5rem !important;
                 width: 35%;
             }
         }
     }
-    .des{
+
+    .des {
         button {
             margin-top: 3rem;
             display: flex;
@@ -249,6 +291,7 @@
             font-size: 1.6rem !important;
             font-weight: bold;
             cursor: pointer;
+
             .hr-left {
                 border-left: 1px solid #000;
                 height: 90%;
