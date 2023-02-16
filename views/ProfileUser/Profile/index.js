@@ -6,20 +6,11 @@ import { TfiPencilAlt } from "react-icons/tfi";
 import style from './profile.module.scss';
 import qs from 'qs'
 import { toastSuccess } from "@/components/Toast";
+import { EditUserInfor } from "@/pages/api/QuerryAPI";
 
 const cx = classNames.bind(style);
 
-const fakedata = {
-    name: 'Nora Tsunoda',
-    Gender: 'fermale',
-    Birthday: '21.06.1998',
-    Address: '160 minh khia, ha noi',
-    phone: '0983548866',
-    email: 'NoraTsunoda@gmail.com',
-    about: 'asdas',
-}
-
-function InfoUser({ data, setuser }) {
+function InfoUser({ data, setuser, dataOld }) {
 
     const {
         register,
@@ -27,24 +18,13 @@ function InfoUser({ data, setuser }) {
         formState: { errors },
     } = useForm();
 
-    const [edit, setedit] = useState(false)
-    const [valueInput, setValueInput] = useState()
-    console.log('data', data)
-    const [isEdit, setIsEdit] = useState(-1)
-    const [name, setName] = useState('')
-    const [gender, setgender] = useState(data.Gender)
-    const [birthday, setbirthday] = useState('')
-    const [phone, setphone] = useState('')
-    const [email, setemail] = useState('')
-    const [address, setaddress] = useState('')
-    const [about, setabout] = useState('')
+    const [edit, setedit] = useState(false);
+
     const [userEdit, setUserEdit] = useState(data);
     const HandleEdit = (e) => {
         e.preventDefault()
         callApiEdit(data);
         setedit(false);
-
-
     }
 
     const callApiEdit = async (data) => {
@@ -58,30 +38,56 @@ function InfoUser({ data, setuser }) {
             PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
             Email: userEdit.Email == '' ? data.Email : userEdit.Email
         }
-        const response = await axios({
-            method: 'post',
-            url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
-            data: qs.stringify(Newinfor),
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-            },
-        });
-        if (response.data.Error === true) {
-            toastError('Error!');
-        } else {
-            toastSuccess('Successfully changed information.');
-            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
-            setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
-            // setCurrentUser({
-            //     ...Useredit,
-            //     ...data,
-            // });
-        }
+        // const response = await axios({
+        //     method: 'post',
+        //     url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
+        //     data: qs.stringify(Newinfor),
+        //     headers: {
+        //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+        //     },
+        // });
+        // if (response.data.Error === true) {
+        //     toastError('Error!');
+        // } else {
+        //     toastSuccess('Successfully changed information.');
+        //     localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+        //     setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
+        //     // setCurrentUser({
+        //     //     ...Useredit,
+        //     //     ...data,
+        //     // });
+        // }
     };
+
+    const Edit = EditUserInfor();
+
+
+    //Call API edit booking Mice
+
+    // const Edit = EditUserInfor();
+
+    // const [dataSelect, setDataSelect] = useState({ Note: 'Note' });
+
+    // const Submit = (data) => {
+    //     Edit.refetch(
+    //         dataOld.Id,
+    //         dataOld.UserName: data.UserName,
+    //         dataOld.GivenName: userEdit.FullName == '' ? data.FullName : userEdit.FullName,
+    //         dataOld.Gender: userEdit.Gender,
+    //         dataOld.Reason: userEdit.BirthDay == '' ? data.BirthDay : userEdit.BirthDay,
+    //         dataOld.Description: userEdit.About == '' ? data.About : userEdit.About,
+    //         dataSelect.Note: userEdit.Address == '' ? data.Address : userEdit.Address,
+    //         dataOld.PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
+    //         dataOld.Email: userEdit.Email == '' ? data.Email : userEdit.Email
+    //     );
+    //     console.log("test:", data)
+    //     console.log("hi:", dataSelect)
+    // };
+
     return (
 
         <div className={cx('wrapper')}>
-            <h1 className={cx('title')}>profile infomation   <TfiPencilAlt onClick={() => { edit ? setedit(false) : setedit(true) }}>Edit</TfiPencilAlt></h1>
+            <h1 className={cx('title')}>profile information   <TfiPencilAlt onClick={() => { edit ? setedit(false) : setedit(true) }}>Edit</TfiPencilAlt></h1>
             <form onSubmit={(e) => HandleEdit(e)}>
                 <div> <h3>Name: </h3>   {edit ? <input type='text' placeholder={data.FullName} onChange={(e) => setUserEdit({ ...userEdit, FullName: e.target.value })} /> : <p>{data.FullName}</p>}</div>
                 <hr />

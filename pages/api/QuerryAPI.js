@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import qs from 'qs';
 import { useState } from 'react';
+import { toastError, toastSuccess } from '@/components/Toast';
 
 
 //super filter
@@ -193,20 +194,148 @@ export const GetComment = (id, load) => {
     });
 };
 
-// //thêm comment
-// export const  = () => {
-//     return useQuery(['tourhot'], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
-//         return response.data;
-//     });
-// };
+//Login
+export const Login = (username, password) => {
+    return useQuery(['login', username, password], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LoginXpedia`,
+            qs.stringify({
+                UserName: username,
+                Password: password,
+            })
+        );
+        return response.data.Object;
+    },
+        { enabled: false })
+}
+//edit booking default
+export const EditBookingDefault = (Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
+                Country: (Country ? Country : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                FullName: (FullName ? FullName : ''),
+                Adult: (Adult ? Adult : ''),
+                Children: (Children ? Children : ''),
+                Children: (Children1 ? Children1 : ''),
+                Children: (Children2 ? Children2 : ''),
+                Hotel: (Hotel ? Hotel : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
 
-// //
-// export const Tourhot = () => {
-//     return useQuery(['tourhot'], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
-//         return response.data;
-//     });
-// };
+//edit booking MICE
+export const EditBookingMice = (Id, Country, EventName, Lenght, Company, StartDate, FullName, Adult, Perpose, Destination, Require, Email, Phone, Note, Subcrible, Status) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
+                Country: (Country ? Country : ''),
+                EventName: (EventName ? EventName : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                Lenght: (Lenght ? Lenght : ''),
+                Company: (Company ? Company : ''),
+                FullName: (FullName ? FullName : ''),
+                Adult: (Adult ? Adult : ''),
+                Perpose: (Perpose ? Perpose : ''),
+                Destination: (Destination ? Destination : ''),
+                Require: (Require ? Require : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Subcrible: (Subcrible ? Subcrible : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
+
+//edit booking transfer
+export const EditBookingTransfer = (Id, Country, StartDate, FullName, Adult, Babycarseat, Children, Status, Email, Phone, Note, DropOff, PickUp) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
+                Country: (Country ? Country : ''),
+                Adult: (Adult ? Adult : ''),
+                FullName: (FullName ? FullName : ''),
+                StartDate: (StartDate ? StartDate : ''),
+                DropOff: (DropOff ? DropOff : ''),
+                PickUp: (PickUp ? PickUp : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                Babycarseat: (Babycarseat ? Babycarseat : ''),
+                Children: (Children ? Children : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
+
+//edit booking hotel
+export const EditBookingHotel = (Id, Country, FullName, Adult, Email, Phone, Note, CheckIn, CheckOut) => {
+    return useQuery(['editbooking'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
+                Country: (Country ? Country : ''),
+                Adult: (Adult ? Adult : ''),
+                FullName: (FullName ? FullName : ''),
+                Email: (Email ? Email : ''),
+                Phone: (Phone ? Phone : ''),
+                Note: (Note ? Note : ''),
+                CheckIn: (CheckIn ? CheckIn : ''),
+                CheckOut: (CheckOut ? CheckOut : ''),
+                TypeRoom: (TypeRoom ? TypeRoom : ''),
+                Status: (Status ? Status : ''),
+            }));
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};
 
 
+//edit user infor
+
+export const EditUserInfor = (Newinfor) => {
+    return useQuery(['edituserinfor'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo`, qs.stringify
+                (Newinfor),
+            );
+            if (response.data.Error === true) {
+                toastError('Error!');
+            } else {
+                toastSuccess('Successfully changed information.');
+                localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+                setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
+            }
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};

@@ -10,11 +10,12 @@ import { useApppContext } from '@/pages/_app';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastError, toastSuccess } from '../Toast';
+import { Login } from '@/pages/api/QuerryAPI';
 
 const cx = classNames.bind(style);
 // import { signIn } from "next-auth/react"
 
-const Login = ({ Click, setuser, close }) => {
+const LogIn = ({ Click, setuser, close }) => {
     const {
         register,
         handleSubmit,
@@ -23,6 +24,7 @@ const Login = ({ Click, setuser, close }) => {
         formState: { errors },
     } = useForm();
     const CT = useApppContext();
+    // const login = Login();
 
     const [showFPass, setShowFPass] = useState("hidden");
 
@@ -85,6 +87,7 @@ const Login = ({ Click, setuser, close }) => {
         } catch (error) {
             toastError(`${error.message}`);
         }
+
 
     };
 
@@ -158,4 +161,4 @@ const Login = ({ Click, setuser, close }) => {
     )
 }
 
-export default Login
+export default LogIn
