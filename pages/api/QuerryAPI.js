@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import qs from 'qs';
 import { useState } from 'react';
@@ -207,32 +207,43 @@ export const Login = (username, password) => {
     },
         { enabled: false })
 }
-//edit booking default
-export const EditBookingDefault = (Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status) => {
-    return useQuery(['editbooking'],
+//edit booking default Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status
+// export const EditBookingDefault = (data) => {
+//     return useQuery(['editbooking', data],
+//         async () => {
+//             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify(data
+//             ),
+//                 {
+//                     headers: {
+//                         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+//                     },
+//                 }
+//             );
+//             console.log('data', data);
+//             console.log('resonse', response)
+//             return response.data;
+//         }
+
+//     );
+// };
+export function EditBookingDefault(data) {
+    return useMutation(
         async () => {
-            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
-                Id,
-                Country: (Country ? Country : ''),
-                StartDate: (StartDate ? StartDate : ''),
-                FullName: (FullName ? FullName : ''),
-                Adult: (Adult ? Adult : ''),
-                Children: (Children ? Children : ''),
-                Children: (Children1 ? Children1 : ''),
-                Children: (Children2 ? Children2 : ''),
-                Hotel: (Hotel ? Hotel : ''),
-                Email: (Email ? Email : ''),
-                Phone: (Phone ? Phone : ''),
-                Note: (Note ? Note : ''),
-                Status: (Status ? Status : ''),
-            }));
+            const response = await axios.post(
+                `https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`,
+                qs.stringify(data),
+                {
+                    headers: {
+                        "content-type": "application/x-www-form-urlencoded;charset=utf-8",
+                    },
+                }
+            );
+            console.log("data", data);
+            console.log("response", response);
             return response.data;
-        },
-        {
-            enabled: false,
         }
     );
-};
+}
 
 //edit booking MICE
 export const EditBookingMice = (Id, Country, EventName, Lenght, Company, StartDate, FullName, Adult, Perpose, Destination, Require, Email, Phone, Note, Subcrible, Status) => {

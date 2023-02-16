@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { EditBookingDefault } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 
@@ -12,6 +11,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
 import Country from "../Country/Country";
 import Loading from "@/components/Loading";
+import { EditBookingDefault } from "@/pages/api/QuerryAPI";
 
 const cx = classNames.bind(style);
 
@@ -30,28 +30,35 @@ function EditBookDefault({ set, dataOld, toggle }) {
     } = useForm();
 
     //Call API edit booking tour
+    // const Edit = EditBookingDefault();
 
-    const Edit = EditBookingDefault();
+    const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '' });
+    const [dataDefault, setdata] = useState(dataOld);
 
-    const [dataSelect, setDataSelect] = useState({ Hotel: 'Hotel', Country: 'Country', Note: 'Note' });
+    const { mutate: callApi } = EditBookingDefault();
 
     const Submit = (data) => {
-        Edit.refetch(
-            dataOld.Id,
-            dataSelect.Country ? dataSelect.Country : dataOld.Country,
-            data.StartDate ? data.StartDate : dataOld.StartDate,
-            data.FullName ? data.FullName : dataOld.FullName,
-            data.Adult ? data.Adult : dataOld.Adult,
-            data.Children ? data.Children : dataOld.Children,
-            data.Children1 ? data.Children1 : dataOld.Children1,
-            data.Children2 ? data.Children2 : dataOld.Children2,
-            dataSelect.Hotel ? dataSelect.Hotel : dataOld.Hotel,
-            data.Email ? data.Email : dataOld.Email,
-            data.Phone ? data.Phone : dataOld.Phone,
-            dataSelect.Note ? dataSelect.Note : dataOld.Note,
-        );
-        console.log("test:", data)
-        console.log("hi:", dataSelect);
+
+        callApi({
+            Id: dataOld.Id,
+            ...data,
+        });
+
+        // Edit.refetch(
+        //     dataOld.Id,
+        //     dataSelect.Country ? dataSelect.Country : dataOld.Country,
+        //     data.StartDate ? data.StartDate : dataOld.StartDate,
+        //     data.FullName ? data.FullName : dataOld.FullName, 
+        //     data.Adult ? data.Adult : dataOld.Adult,
+        //     data.Children ? data.Children : dataOld.Children,
+        //     data.Children1 ? data.Children1 : dataOld.Children1,
+        //     data.Children2 ? data.Children2 : dataOld.Children2,
+        //     dataSelect.Hotel ? dataSelect.Hotel : dataOld.Hotel,
+        //     data.Email ? data.Email : dataOld.Email,
+        //     data.Phone ? data.Phone : dataOld.Phone,
+        //     dataSelect.Note ? dataSelect.Note : dataOld.Note,
+        // );
+
     };
 
     // if (Edit.isLoading) {

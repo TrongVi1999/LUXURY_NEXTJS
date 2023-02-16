@@ -38,25 +38,25 @@ function InfoUser({ data, setuser, dataOld }) {
             PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
             Email: userEdit.Email == '' ? data.Email : userEdit.Email
         }
-        // const response = await axios({
-        //     method: 'post',
-        //     url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
-        //     data: qs.stringify(Newinfor),
-        //     headers: {
-        //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-        //     },
-        // });
-        // if (response.data.Error === true) {
-        //     toastError('Error!');
-        // } else {
-        //     toastSuccess('Successfully changed information.');
-        //     localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
-        //     setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
-        //     // setCurrentUser({
-        //     //     ...Useredit,
-        //     //     ...data,
-        //     // });
-        // }
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
+            data: qs.stringify(Newinfor),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+        if (response.data.Error === true) {
+            toastError('Error!');
+        } else {
+            toastSuccess('Successfully changed information.');
+            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+            setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
+            // setCurrentUser({
+            //     ...Useredit,
+            //     ...data,
+            // });
+        }
     };
 
     const Edit = EditUserInfor();
