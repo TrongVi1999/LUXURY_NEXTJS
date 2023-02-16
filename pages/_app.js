@@ -19,6 +19,25 @@ const AppContext = createContext();
 
 export default function App({ Component, pageProps }) {
 
+    //Lấy trạng thái đăng nhập hiện tại 
+    const { asPath } = useRouter();
+    const origin =
+        typeof window !== 'undefined' && window.location.origin
+            ? window.location.origin
+            : '';
+
+    const URL = `${origin}${asPath}`;
+    const [currentUser, setCurrentUser] = useState(null);
+    useEffect(() => {
+        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+        if (VNXuser) {
+            setCurrentUser(VNXuser);
+        } else {
+            setCurrentUser(null);
+        }
+    }, [URL])
+
+
     const [loca, setloca] = useState('')
 
     const { isFallback, events } = useRouter()
@@ -63,7 +82,7 @@ export default function App({ Component, pageProps }) {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <AppContext.Provider value={{ loca, setloca }} setloca={setloca}>
+            <AppContext.Provider value={{ currentUser, setCurrentUser }} >
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
