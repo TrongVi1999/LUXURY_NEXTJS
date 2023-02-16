@@ -1,27 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/router";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
-
 import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
-import Country from "../Country/Country";
-import Loading from "@/components/Loading";
-import { EditBookingDefault } from "@/pages/api/QuerryAPI";
 import { EditBooking } from "@/pages/api/CallAPI";
 
 const cx = classNames.bind(style);
 
 function EditBookDefault({ set, dataOld, toggle }) {
-
-    const [tourData, setTourData] = useState(null);
-    const [country, setCountry] = useState();
-    const [hotel, setHotel] = useState();
-    const [texta, setTexta] = useState();
     const {
         register,
         handleSubmit,
@@ -30,21 +20,9 @@ function EditBookDefault({ set, dataOld, toggle }) {
         formState: { errors },
     } = useForm();
 
-    //Call API edit booking tour
-    // const Edit = EditBookingDefault();
 
     const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '' });
-    const [dataDefault, setdata] = useState(dataOld);
 
-    const { mutate: callApi } = EditBookingDefault();
-
-    // const Submit = (data) => {
-
-    //     callApi({
-    //         Id: dataOld.Id,
-    //         ...data,
-    //     });
-    // }
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
@@ -58,6 +36,7 @@ function EditBookDefault({ set, dataOld, toggle }) {
         CallEdit({
             Id: dataOld.Id,
             ...data,
+            ...dataSelect
         })
     }
 
@@ -66,14 +45,6 @@ function EditBookDefault({ set, dataOld, toggle }) {
 
 
 
-    // if (Edit.isLoading) {
-    //     return <p>Success: Success</p>;
-    // }
-
-    // if (Edit.error) {
-    //     return
-    //     <p>Error: Error</p>;
-    // }
 
     return (
         <div className={cx("book-edit")}>

@@ -1,15 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/router";
-import { EditBooking, EditBookingTransfer } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
-
 import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai'
 import ScrollToTop from "@/hook/scrollToTop";
+import { EditBooking } from "@/pages/api/CallAPI";
 
 const cx = classNames.bind(style);
 
@@ -21,38 +19,30 @@ function EditBookTransfer({ dataOld, toggle }) {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const email = watch('Email');
-    const email2 = watch('Email2');
 
-    const validateEmailMatch = () => {
-        return email === email2 || 'Email not match';
-    };
 
     //Call API edit booking Transfer
 
-    const Edit = EditBookingTransfer();
+    const [dataSelect, setDataSelect] = useState({ Country: '', Babycarseat: '', Note: '' });
 
-    const [dataSelect, setDataSelect] = useState({ Country: 'Country', Babycarseat: 'Babycarseat', Note: 'Note' });
-
+    const CallEdit = async (data) => {
+        const response = await EditBooking(data);
+        if (response.status == 200) {
+            console.log(response.data);
+        }
+        else {
+            console.log('ok')
+        }
+    }
     const Submit = (data) => {
-        Edit.refetch(
-            dataOld.Id,
-            dataSelect.Country ? dataSelect.Country : dataOld.Country,
-            data.Adult ? data.Adult : dataOld.Adult,
-            data.FullName ? data.FullName : dataOld.FullName,
-            data.StartDate ? data.StartDate : dataOld.StartDate,
-            data.DropOff ? data.DropOff : dataOld.DropOff,
-            data.PickUp ? data.PickUp : dataOld.PickUp,
-            data.Destination ? data.Destination : dataOld.Destination,
-            data.Email ? data.Email : dataOld.Email,
-            data.Phone ? data.Phone : dataOld.Phone,
-            dataSelect.Note ? dataSelect.Note : dataOld.Note,
-            dataSelect.Babycarseat ? dataSelect.Babycarseat : dataOld.Babycarseat,
-            data.Children ? data.Children : dataOld.Children,
-        );
-        console.log("test:", data)
-        console.log("hi:", dataSelect)
-    };
+        CallEdit({
+            Id: dataOld.Id,
+            ...data,
+            ...dataSelect
+        })
+    }
+
+
 
     return (
         <div className={cx("book-edit")}>
