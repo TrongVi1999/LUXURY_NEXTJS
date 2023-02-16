@@ -45,13 +45,19 @@ function EditBookDefault({ set, dataOld, toggle }) {
             data.Email ? data.Email : dataOld.Email,
             data.Phone ? data.Phone : dataOld.Phone,
             dataSelect.Note ? dataSelect.Note : dataOld.Note,
-            // data.Status ? data.Status : dataOld.Status,
         );
         console.log("test:", data)
         console.log("hi:", dataSelect)
         alert('test');
     };
 
+    if (hotelData.isLoading) {
+        return;
+    }
+
+    if (hotelData.error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <div className={cx("book-edit")}>
@@ -149,7 +155,7 @@ function EditBookDefault({ set, dataOld, toggle }) {
                     /> */}
                         <div>
                             <select name='ourServices' className={cx("our-services")}
-                                onChange={(e) => setHotel(e.target.value)}
+                                onChange={(e) => setDataSelect({ ...dataSelect, Hotel: e.target.value })}
                             >
                                 <option value="">-- Select --</option>
                                 <option value="Hotel 3 *">Hotel 3 *</option>
@@ -259,11 +265,7 @@ function EditBookDefault({ set, dataOld, toggle }) {
                             <textarea
                                 placeholder={dataOld.Note}
                                 className={cx("book-note")}
-                                onChange={(e) =>
-                                    setTexta(
-                                        e.target.value,
-                                    )
-                                }
+                                onChange={(e) => setDataSelect({ ...dataSelect, Note: e.target.value })}
                             ></textarea>
                         </div>
                     </div>

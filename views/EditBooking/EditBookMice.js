@@ -39,18 +39,37 @@ function EditBookMice({ dataOld, toggle }) {
         return email === email2 || 'Email not match';
     };
 
-    const Edit = EditBookingMice()
+    const Edit = EditBookingMice();
 
-    const Submit = () => {
-        set({ ...data });
-        Edit();
+    const [dataSelect, setDataSelect] = useState({ Country: 'Country', Perpose: 'Perpose', Require: 'Require', Note: 'Note', Subcrible: 'Subcrible' });
+
+    const Submit = (data) => {
+        Edit.refetch(
+            dataSelect.Country ? dataSelect.Country : dataOld.Country,
+            data.EventName ? data.EventName : dataOld.EventName,
+            data.StartDate ? data.StartDate : dataOld.StartDate,
+            data.Lenght ? data.Lenght : dataOld.Lenght,
+            data.Company ? data.Company : dataOld.Company,
+            data.FullName ? data.FullName : dataOld.FullName,
+            data.Adult ? data.Adult : dataOld.Adult,
+            dataSelect.Perpose ? data.Perpose : dataOld.Perpose,
+            data.Destination ? data.Destination : dataOld.Destination,
+            dataSelect.Require ? data.Require : dataOld.Require,
+            data.Email ? data.Email : dataOld.Email,
+            data.Phone ? data.Phone : dataOld.Phone,
+            dataSelect.Note ? dataSelect.Note : dataOld.Note,
+            dataSelect.Subcrible ? dataSelect.Subcrible : dataOld.Subcrible,
+        );
+        console.log("test:", data)
+        console.log("hi:", dataSelect)
+        alert('test');
     };
 
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
             <div className={cx("book-crumb-edit")}>
-                <Link href='/'>Home</Link> | <span>{/* {datas.TourName} */}</span> |EDIT BOOK TOUR
+                <Link href='/'>Home</Link> | <span>MICE</span> |EDIT BOOK TOUR
             </div>
             <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
             <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
@@ -81,7 +100,7 @@ function EditBookMice({ dataOld, toggle }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='national' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='national' className={cx("our-services")} oonChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.name}>{d.name}</option>
@@ -288,7 +307,7 @@ function EditBookMice({ dataOld, toggle }) {
                             Level of Responsiveness required:
                         </label>
                         <div className={cx("input-enquire")}>
-                            <select name='level' className={cx("our-services")} onChange={(e) => setselect4(e.target.value)}>
+                            <select name='level' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Require: e.target.value })}>
                                 <option value="">Urgent</option>
                                 <option value="Food">Normal</option>
                             </select>
@@ -304,7 +323,7 @@ function EditBookMice({ dataOld, toggle }) {
                                 placeholder={dataOld.Note}
                                 className={cx("book-note")}
                                 {...register('Note')}
-                                onChange={(e) => settextarea(e.target.value)}
+                                onChange={(e) => setDataSelect({ ...dataSelect, Note: e.target.value })}
                                 rows="6"
                             ></textarea>
                         </div>
@@ -314,7 +333,7 @@ function EditBookMice({ dataOld, toggle }) {
                             How did you hear about our services?
                         </label>
                         <div>
-                            <select name='ourServices' className={cx("our-services")} onChange={(e) => setselect1(e.target.value)}>
+                            <select name='ourServices' className={cx("our-services")}>
                                 <option value="">-- Select --</option>
                                 <option value="Your Friend">Recommended by friend or colleague</option>
                                 <option value="Social Network">Social Network</option>

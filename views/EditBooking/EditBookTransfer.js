@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { EditBooking } from "@/pages/api/QuerryAPI";
+import { EditBooking, EditBookingTransfer } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 
@@ -34,11 +34,28 @@ function EditBookTransfer({ dataOld, toggle }) {
         return email === email2 || 'Email not match';
     };
 
-    const Edit = EditBooking()
+    const Edit = EditBookingTransfer();
 
-    const Submit = () => {
-        set({ ...data });
-        Edit();
+    const [dataSelect, setDataSelect] = useState({ Country: 'Country', Babycarseat: 'Babycarseat', Note: 'Note' });
+
+    const Submit = (data) => {
+        Edit.refetch(
+            dataSelect.Country ? dataSelect.Country : dataOld.Country,
+            data.Adult ? data.Adult : dataOld.Adult,
+            data.FullName ? data.FullName : dataOld.FullName,
+            data.StartDate ? data.StartDate : dataOld.StartDate,
+            data.DropOff ? data.DropOff : dataOld.DropOff,
+            data.PickUp ? data.PickUp : dataOld.PickUp,
+            data.Destination ? data.Destination : dataOld.Destination,
+            data.Email ? data.Email : dataOld.Email,
+            data.Phone ? data.Phone : dataOld.Phone,
+            dataSelect.Note ? dataSelect.Note : dataOld.Note,
+            dataSelect.Babycarseat ? dataSelect.Babycarseat : dataOld.Babycarseat,
+            data.Children ? data.Children : dataOld.Children,
+        );
+        console.log("test:", data)
+        console.log("hi:", dataSelect)
+        alert('test');
     };
 
     return (
@@ -90,7 +107,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='Country' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
+                            <select name='Country' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.code}>{d.name}</option>
@@ -197,7 +214,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                         <div>
                             <select name='Babycartseat' className={cx("our-services")}
                                 //  ref={register({ required: true })}
-                                onChange={(e) => setBaby(e.target.value)}>
+                                onChange={(e) => setDataSelect({ ...dataSelect, Babycarseat: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="Yes" label="Yes">Yes</option>
                                 <option value="No" label="No">No</option>

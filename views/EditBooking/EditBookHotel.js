@@ -5,7 +5,7 @@ import style from '@/styles/Contact.module.scss';
 import ScrollToTop from '@/hook/scrollToTop';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { EditBooking } from "@/pages/api/QuerryAPI";
+import { EditBooking, EditBookingHotel } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 import { AiFillCloseCircle } from 'react-icons/ai'
@@ -35,11 +35,27 @@ function EditBookHotel({ dataOld, set, toggle }) {
         return email === email2 || 'Email not match';
     };
 
-    const Edit = EditBooking()
+    const Edit = EditBookingHotel();
 
-    const Submit = () => {
-        set({ ...data });
-        Edit();
+    const [dataSelect, setDataSelect] = useState({ Country: 'Country', TypeRoom: 'TypeRoom', Note: 'Note'});
+
+    const Submit = (data) => {
+        Edit.refetch(
+            dataSelect.Country ? dataSelect.Country : dataOld.Country,
+            data.Adult ? data.Adult : dataOld.Adult,
+            data.FullName ? data.FullName : dataOld.FullName,
+            data.StartDate ? data.StartDate : dataOld.StartDate,
+            data.CheckIn ? data.CheckIn : dataOld.CheckIn,
+            data.CheckOut ? data.CheckOut : dataOld.CheckOut,
+            data.Destination ? data.Destination : dataOld.Destination,
+            data.Email ? data.Email : dataOld.Email,
+            data.Phone ? data.Phone : dataOld.Phone,
+            data.TypeRoom ? data.TypeRoom : dataOld.TypeRoom,
+            dataSelect.Note ? dataSelect.Note : dataOld.Note,
+        );
+        console.log("test:", data)
+        console.log("hi:", dataSelect)
+        alert('test');
     };
 
     return (
@@ -91,7 +107,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='national' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
+                            <select name='national' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.code}>{d.name}</option>
