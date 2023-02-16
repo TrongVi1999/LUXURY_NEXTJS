@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
 import ScrollToTop from '@/hook/scrollToTop';
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import national from '@/pages/api/national.json';
 import qs from 'qs';
@@ -34,7 +34,7 @@ const index = () => {
 
     const handleEnquire = (data) => {
         callApiSendAdmin(data);
-        // console.log(data);
+
     }
 
     const callApi = async (data) => {
@@ -116,7 +116,7 @@ const index = () => {
                                         <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                     )}
                                 </div>
-                                <div className={cx("sex")}>
+                                {/* <div className={cx("sex")}>
                                     <input
                                         name="gender"
                                         type="checkbox"
@@ -135,7 +135,7 @@ const index = () => {
                                     <label className={cx("sex-m")} for="">
                                         FEMALE
                                     </label>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className={cx("item-form")}>

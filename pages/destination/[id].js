@@ -16,6 +16,7 @@ import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import { animateScroll as scroll } from 'react-scroll';
 
 
+
 const cx = classNames.bind(style);
 
 const listmenu = [
