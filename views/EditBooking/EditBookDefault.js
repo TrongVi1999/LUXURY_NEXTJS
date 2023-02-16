@@ -12,6 +12,7 @@ import ScrollToTop from "@/hook/scrollToTop";
 import Country from "../Country/Country";
 import Loading from "@/components/Loading";
 import { EditBookingDefault } from "@/pages/api/QuerryAPI";
+import { EditBooking } from "@/pages/api/CallAPI";
 
 const cx = classNames.bind(style);
 
@@ -37,29 +38,33 @@ function EditBookDefault({ set, dataOld, toggle }) {
 
     const { mutate: callApi } = EditBookingDefault();
 
-    const Submit = (data) => {
+    // const Submit = (data) => {
 
-        callApi({
+    //     callApi({
+    //         Id: dataOld.Id,
+    //         ...data,
+    //     });
+    // }
+    const CallEdit = async (data) => {
+        const response = await EditBooking(data);
+        if (response.status == 200) {
+            console.log(response.data);
+        }
+        else {
+            console.log('ok')
+        }
+    }
+    const Submit = (data) => {
+        CallEdit({
             Id: dataOld.Id,
             ...data,
-        });
+        })
+    }
 
-        // Edit.refetch(
-        //     dataOld.Id,
-        //     dataSelect.Country ? dataSelect.Country : dataOld.Country,
-        //     data.StartDate ? data.StartDate : dataOld.StartDate,
-        //     data.FullName ? data.FullName : dataOld.FullName, 
-        //     data.Adult ? data.Adult : dataOld.Adult,
-        //     data.Children ? data.Children : dataOld.Children,
-        //     data.Children1 ? data.Children1 : dataOld.Children1,
-        //     data.Children2 ? data.Children2 : dataOld.Children2,
-        //     dataSelect.Hotel ? dataSelect.Hotel : dataOld.Hotel,
-        //     data.Email ? data.Email : dataOld.Email,
-        //     data.Phone ? data.Phone : dataOld.Phone,
-        //     dataSelect.Note ? dataSelect.Note : dataOld.Note,
-        // );
 
-    };
+
+
+
 
     // if (Edit.isLoading) {
     //     return <p>Success: Success</p>;

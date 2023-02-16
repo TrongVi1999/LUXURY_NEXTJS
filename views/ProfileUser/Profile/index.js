@@ -7,6 +7,7 @@ import style from './profile.module.scss';
 import qs from 'qs'
 import { toastSuccess } from "@/components/Toast";
 import { EditUserInfor } from "@/pages/api/QuerryAPI";
+import { useApppContext } from "@/pages/_app";
 
 const cx = classNames.bind(style);
 
@@ -19,7 +20,7 @@ function InfoUser({ data, setuser, dataOld }) {
     } = useForm();
 
     const [edit, setedit] = useState(false);
-
+    const CT = useApppContext();
     const [userEdit, setUserEdit] = useState(data);
     const HandleEdit = (e) => {
         e.preventDefault()
@@ -29,7 +30,7 @@ function InfoUser({ data, setuser, dataOld }) {
 
     const callApiEdit = async (data) => {
         let Newinfor = {
-            UserName: data.UserName,
+            UserName: CT.UserName,
             GivenName: userEdit.FullName == '' ? data.FullName : userEdit.FullName,
             Gender: userEdit.Gender,
             Reason: userEdit.BirthDay == '' ? data.BirthDay : userEdit.BirthDay,

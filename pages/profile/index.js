@@ -27,14 +27,14 @@ function Profile() {
 
     const editPicture = (data) => {
         var formdata = new FormData();
-        formdata.append('UserName', currentUser.UserName);
-        formdata.append('GivenName', currentUser.FullName);
-        formdata.append('Gender', currentUser.Gender);
-        formdata.append('Reason', currentUser.BirthDay);
-        formdata.append('Description', currentUser.About);
-        formdata.append('Note', currentUser.Address);
-        formdata.append('PhoneNumber', currentUser.PhoneNumber);
-        formdata.append('Email', currentUser.Email);
+        formdata.append('UserName', CT.currentUser.UserName);
+        formdata.append('GivenName', CT.currentUser.FullName);
+        formdata.append('Gender', CT.currentUser.Gender);
+        formdata.append('Reason', CT.currentUser.BirthDay);
+        formdata.append('Description', CT.currentUser.About);
+        formdata.append('Note', CT.currentUser.Address);
+        formdata.append('PhoneNumber', CT.currentUser.PhoneNumber);
+        formdata.append('Email', CT.currentUser.Email);
         formdata.append('image', data);
 
         var requestOptions = {
