@@ -4,12 +4,10 @@ import style from '@/styles/informationBooking.module.scss';
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import national from '@/pages/api/national.json'
-
-
+import national from '@/pages/api/national.json';
+import { useApppContext } from '@/pages/_app';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
-
 import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
@@ -27,11 +25,13 @@ const BookMICE = ({ close }) => {
     const [errsl, seterrsl] = useState(false);
     const [listdes, setlist] = useState([]);
     const [textarea, settextarea] = useState()
+    const CT = useApppContext();
 
     const {
         watch,
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -46,6 +46,9 @@ const BookMICE = ({ close }) => {
 
         callApi(data);
         callApiSendmail(data);
+        setTimeout(() => {
+            reset();
+        }, 2000);
     }
     const AddDes = (e) => {
 
@@ -59,14 +62,7 @@ const BookMICE = ({ close }) => {
         // console.log(e.target.value)
     }
 
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [])
+
 
 
     const callApi = async (data) => {
@@ -77,7 +73,7 @@ const BookMICE = ({ close }) => {
                 // Ip: ipAddress,
                 Type: 'MICE',
                 TourCode: data.event,
-                UserName: currentUser ? currentUser.UserName : null,
+                UserName: CT.currentUser ? CT.currentUser.UserName : null,
                 TourName: data.event,
                 Country: Select,
                 EventName: data.event,

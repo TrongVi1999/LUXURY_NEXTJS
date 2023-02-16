@@ -81,7 +81,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     type="text"
                                     placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
-                                    {...register('FullName', { required: true })}
+                                    {...register('FullName')}
                                 />
                             </div>
                         </div>
@@ -110,7 +110,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
@@ -132,7 +131,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
-                                    required: true,
+
                                     minLength: 9,
                                     maxLength: 15,
                                     valueAsNumber: false,
@@ -156,7 +155,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     name="date"
                                     placeholder={dataOld.CheckIn}
                                     className={cx("check-in")}
-                                    {...register('CheckIn', { required: true })}
+                                    {...register('CheckIn')}
                                 />
                             </div>
                         </label>
@@ -170,7 +169,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             name="date"
                                             placeholder={dataOld.CheckOut}
                                             className={cx("check-out")}
-                                            {...register('CheckOut', { required: true })}
+                                            {...register('CheckOut')}
                                         />
                                     </div>
                                 </label></div>
@@ -183,7 +182,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             name="date"
                                             placeholder={dataOld.Adult}
                                             className={cx("persons-attendtion")}
-                                            {...register('PersonsAttendtion', { required: true })}
+                                            {...register('PersonsAttendtion')}
                                         />
                                     </div>
                                 </label>
@@ -214,7 +213,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 onChange={(e) =>
                                     setDataSelect({ ...dataSelect, Note: e.target.value })
                                 }
-                                {...register('Note', { required: true })}
+                                {...register('Note')}
                             ></textarea>
                         </div>
                     </div>
