@@ -29,7 +29,7 @@ function EditBookMice({ dataOld, toggle }) {
     //Call API edit booking Mice
 
 
-    const [dataSelect, setDataSelect] = useState({ Country: '', Perpose: '', Require: '', Note: '', Subcrible: '' });
+    const [dataSelect, setDataSelect] = useState({ Country: '', Lenght: '', Perpose: '', Require: '', Note: '', Subcrible: '' });
 
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
@@ -41,6 +41,7 @@ function EditBookMice({ dataOld, toggle }) {
         }
     }
     const Submit = (data) => {
+        alert('?')
         CallEdit({
             Id: dataOld.Id,
             ...data,
@@ -73,7 +74,7 @@ function EditBookMice({ dataOld, toggle }) {
                                     type="text"
                                     placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
-                                    {...register('FullName', { required: true })}
+                                    {...register('FullName')}
                                 />
                             </div>
                         </div>
@@ -101,7 +102,7 @@ function EditBookMice({ dataOld, toggle }) {
                                 type="text"
                                 placeholder={dataOld.Company}
                                 className={cx("cus-name")}
-                                {...register('Company', { required: true })}
+                                {...register('Company')}
                             />
                         </div>
                     </div>
@@ -116,7 +117,7 @@ function EditBookMice({ dataOld, toggle }) {
                                 name='Email'
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
+
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
@@ -138,7 +139,7 @@ function EditBookMice({ dataOld, toggle }) {
                                 placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
-                                    required: true,
+
                                     minLength: 9,
                                     maxLength: 15,
                                     valueAsNumber: false,
@@ -165,7 +166,7 @@ function EditBookMice({ dataOld, toggle }) {
                                 type="text"
                                 placeholder={dataOld.EventName}
                                 className={cx("cus-name")}
-                                {...register('event', { required: true })}
+                                {...register('event')}
                             />
                         </div>
                     </div>
@@ -224,7 +225,7 @@ function EditBookMice({ dataOld, toggle }) {
                                     className={cx("book-age")}
                                     min="0"
                                     max="100"
-                                    {...register('Adult', { required: true })}
+                                    {...register('Adult')}
                                 />
                             </div>
                         </div>
@@ -238,7 +239,7 @@ function EditBookMice({ dataOld, toggle }) {
                                     type="date"
                                     name="date"
                                     className={cx("book-date")}
-                                    {...register('StartDate', { required: true })}
+                                    {...register('StartDate')}
                                 />
                             </div>
                         </div>
@@ -249,9 +250,9 @@ function EditBookMice({ dataOld, toggle }) {
                             </label>
                             <div className={cx("input-enquire")}>
 
-                                <select name='level' className={cx("our-services")} onChange={(e) => setselect3(e.target.value)}>
-                                    <option value="1 days">1 days</option>
-                                    <option value="2 - 3 days">6 - 15</option>
+                                <select name='level' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Lenght: e.target.value })}>
+                                    <option value="1 day">1 day</option>
+                                    <option value="2 - 3 days">2 - 3 days</option>
                                     <option value="> 3 days">{` > 3 days `}</option>
                                 </select>
                                 {/* {errsl && <span className={cx("error-message")}>Preliminary Duration cannot be empty !</span>} */}

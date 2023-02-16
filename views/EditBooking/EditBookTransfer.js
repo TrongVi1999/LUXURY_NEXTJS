@@ -83,7 +83,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     type="text"
                                     placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
-                                    {...register('FullName', { required: true })}
+                                    {...register('FullName')}
                                 />
                             </div>
                         </div>
@@ -112,7 +112,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                 placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
+
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
@@ -134,7 +134,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                 placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
-                                    required: true,
+
                                     minLength: 9,
                                     maxLength: 15,
                                     valueAsNumber: false,
@@ -158,7 +158,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                 name="date"
                                 className={cx("cus-time")}
                                 placeholder={dataOld.Time}
-                                {...register('Time', { required: true })}
+                                {...register('Time')}
                             />
                         </div>
 
@@ -173,7 +173,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     type="text"
                                     placeholder={dataOld.PickUp}
                                     className={cx("cus-name")}
-                                    {...register('PickUp', { required: true })}
+                                    {...register('PickUp',)}
                                 />
                             </div>
                         </div>
@@ -188,7 +188,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                     type="text"
                                     placeholder={dataOld.DropOff}
                                     className={cx("cus-name")}
-                                    {...register('DropOff', { required: true })}
+                                    {...register('DropOff')}
                                 />
                             </div>
                         </div>
@@ -215,7 +215,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                         type="text"
                                         placeholder={dataOld.Adult}
                                         className={cx("cus-adult")}
-                                        {...register('Adult', { required: true })}
+                                        {...register('Adult')}
                                     /><br />
                                 </div>
                             </div>
@@ -229,7 +229,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                             type="text"
                                             placeholder={dataOld.Children}
                                             className={cx("cus-children")}
-                                            {...register('children', { required: true })}
+                                            {...register('children')}
                                         /><br />
                                     </div>
                                 </div>
@@ -245,7 +245,7 @@ function EditBookTransfer({ dataOld, toggle }) {
                                 placeholder={dataOld.Note}
                                 className={cx("book-note")}
 
-                                {...register('Note', { required: true })}
+                                {...register('Note')}
                             ></textarea>
                             {errors.Note && errors.Note.type === 'required' && (
                                 <span className={cx("error-message")}>Note cannot be empty !</span>
