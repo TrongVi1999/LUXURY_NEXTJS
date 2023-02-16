@@ -130,7 +130,6 @@ const Header = () => {
                                 : <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />}
 
                             {login && <div className={cx('login')}>< Login Click={setsignup} setuser={setCurrentUser} close={setlogin} /> </div>}
-
                         </OutsideClickHandler>
                     </div>
                     <OutsideClickHandler onOutsideClick={() => { setShowSearch(false) }}>
@@ -140,19 +139,15 @@ const Header = () => {
                         {showSearch && <Searchkey />}
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
-
                     <div className={cx('button-call')} >
-                        <Button className={cx('button')}>Call US +84-90-159-1111</Button>
-                        <span>OR</span>
-                        <Button className={cx('button')}>Request a quote</Button>
+                        <Button className={cx('button')}>Call US <span>+84-90-159-1111</span></Button>
+                        {/* <span>OR</span>
+                        <Button className={cx('button')}>Request a quote</Button> */}
                     </div>
-
                 </div>
             </div>
             {signup && <Signup Click={setsignup} openlogin={setlogin} />}
             <ToastContainer />
-
-
         </div>
     );
 };
