@@ -4,13 +4,13 @@ import qs from 'qs';
 import { useState } from 'react';
 
 
-
+//super filter
 export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, Tagtour, Season, Group) => {
-    const { data, isLoading, error } = useQuery(
-        'searchTour',
+    return useQuery(
+        ['searchTour', Country, Destination, Tourtype, Fromcost, Endcost, Tagtour, Season, Group],
         async () => {
             const response = await axios.post('https://vnxpedia.3i.com.vn/TravelAPI/SearchTourAdvance', qs.stringify({
-                country: (Country ? Country : ''),
+                country: (Country ? Country.split('dest')[0] : ''),
                 destination: (Destination ? Destination : ''),
                 tourtype: (Tourtype ? Tourtype : ''),
                 TagTour1: (Season ? Season : ''),
@@ -23,10 +23,10 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
                     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
                 },
             });
-            return response.data;
+            console.log(response.data);
+            return response.data.Object.filter(d => d.TourType != 'TYPE_MICE');
         }
     );
-    return { data, isLoading, error };
 };
 
 //Lấy 1 blog
@@ -129,16 +129,20 @@ export const Getbloghot = () => {
 export const Searchtour = (key) => {
     return useQuery(['searchtour', key], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/SearchTour?TourKey=${key}`);
-        return response.data;
-    });
+        return response.data.Object;
+    },
+        { enabled: false }
+    );
 };
 
 //search blog keyword
 export const Searchblog = (key) => {
-    return useQuery(['searchblog'], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`);
-        return response.data;
-    });
+    return useQuery(['searchblog', key], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}`);
+        return response.data.Object;
+    },
+        { enabled: false }
+    );
 };
 
 //đăng kí nhận email 
@@ -150,9 +154,9 @@ export const Subcrise = (email) => {
 };
 
 //lấy list hotel
-export const ListHotel = () => {
-    return useQuery(['listhotel'], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel`);
+export const ListHotel = (tag) => {
+    return useQuery(['listhotel', tag], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel?tag=${tag}`);
         return response.data;
     });
 };

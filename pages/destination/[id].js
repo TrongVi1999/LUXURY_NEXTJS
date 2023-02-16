@@ -7,13 +7,14 @@ import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Superfilter } from '../api/CallAPI';
+// import { Superfilter } from '../api/CallAPI';
 import AboutVN from '@/views/Destination/AboutVN';
 import Location from '@/views/Destination/Location';
 import Faq from '@/views/Destination/FAQ';
 import { useApppContext } from '@/pages/_app';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import { animateScroll as scroll } from 'react-scroll';
+import { Superfilter } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 
 
@@ -35,20 +36,21 @@ function Destimation() {
     const [vlendcost, setvlendcost] = useState(15000);
     const [Listdata, setlistdata] = useState();
     const [sort, setsort] = useState()
-
-
-    const CT = useApppContext();
-
     const [Data, setdata] = useState();
     const router = useRouter();
+    const tourList = Superfilter(router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
 
     const [act, setact] = useState(['act', '', '', '']);
+
+
     const Pickmenu = (a) => {
         let arr = act;
         arr = arr.map((d, i) => i == a ? 'act' : '');
         setact(arr);
     }
 
+
+    //hàm sắp xếp theo thứ tự
     const sortp = (Data) => {
 
         if (sort == 'Ascending') {
@@ -86,26 +88,24 @@ function Destimation() {
 
     // }
 
-    const CallAPISuperfilter = async () => {
-        // console.log('des', router.query.id.substring(router.query.id.indexOf('destination=') + 'destination='.length));
-        // console.log('des1', vldestination)
+    // const CallAPISuperfilter = async () => {
 
-        const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
-        if (response.status == 200) {
-            setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
-        }
-        setPage(1);
-    }
+
+    //     const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
+    //     if (response.status == 200) {
+    //         setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
+    //     }
+    //     setPage(1);
+    // }
     useEffect(() => {
 
         { router.query.id && setvldestination((router.query.id).substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
-        console.log('DES', vldestination)
     }, [router.query.id])
-    useEffect(() => {
-        { router.query.id && CallAPISuperfilter() }
+    // useEffect(() => {
+    //     { router.query.id && CallAPISuperfilter() }
 
 
-    }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup, router])
+    // }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup, router]);
 
     const dataFillter = (data) => {
         setValueFillter(data)
@@ -131,13 +131,15 @@ function Destimation() {
         });
     }
 
-    console.log('Data', Data);
 
+    if (tourList.error) {
+        return <p>Error: {tourList.error.message}</p>;
+    }
 
 
     return (
         <div className={cx('wrapper')}>
-            {/* <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} titleBanner={router.query.id} classNameTitle={cx('titleBanner')} textBottom={"Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content"} /> */}
+
             {router.query.id && <BannerIMG img={banners.resolt} title={(router.query.id).split('dest')[0]} bg='bg' descrip='Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content' />}
             <div className={cx('list-menu')} id='list'>
                 {listmenu.map((d, i) =>
@@ -145,9 +147,10 @@ function Destimation() {
                 )}
 
             </div>
+            {tourList.isLoading && <Loading />}
             {act[0] == 'act' &&
                 <Section maxWidth={1170} className={cx('container')} >
-                    {Data &&
+                    {tourList.data &&
                         <div className={cx('list')}>
                             {vldestination != '' && vltag != '' && vlseason != '' && vlgroup != '' && <div className={cx('list-active')}>
                                 {vldestination != '' && <p>Category : {vldestination} /</p>}
@@ -158,7 +161,7 @@ function Destimation() {
                             <div className={cx('sort')}>
                                 <div className={cx('sortContent')}>
                                     <label>Sort by :</label>
-                                    {/* <label htmlFor="sort-price" for='sort-price' name='sort-price'>Price</label> */}
+
                                     <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
                                         <option value='None'>--Price/Day--</option>
                                         <option value='Ascending'>Price Ascending</option>
@@ -167,36 +170,32 @@ function Destimation() {
                                         <option value='Asc'>Day   Ascending</option>
                                         <option value='Des'>Day   Descending</option>
                                     </select>
-                                    {/* 
-                                    <label htmlFor="sort-long">Long</label>
-                                    <select name='sort-long' id='sort-long' className={cx("sort-sl")} onChange={(e) => setsort(e.target.value)}>
-                                        <option value='select'>--All--</option>
 
-                                    </select> */}
 
                                 </div>
-                                <span>Showing {(page - 1) * 9 + 1} - {(page - 1) * 9 + Data.slice(firstIndex, lastIndex).length} of {Data.length} products</span>
+                                <span>Showing {(page - 1) * 9 + 1} - {(page - 1) * 9 + tourList.data.slice(firstIndex, lastIndex).length} of {tourList.data.length} products</span>
                             </div>
                             <div className={cx('tour-list')}>
-                                {sortp(Data).slice(firstIndex, lastIndex).map((d, i) =>
+                                {sortp(tourList.data).slice(firstIndex, lastIndex).map((d, i) =>
                                     <Tourcard2 data={d} />
                                 )}
                             </div>
-
-                            <Pagination totalPosts={Data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+                            {tourList.data && tourList.data.length == 0 && <h1>Not result</h1>}
+                            <Pagination totalPosts={tourList.data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
 
                         </div>
                     }
+
                     <CategoryFilter
                         price
                         priceft={priceFilter}
-                        // day
+
                         category={categoryFillerAddress}
                         tourTags={tourTagsFilter}
                         className={cx('boxFilter')}
                         season={seasonFillter}
                         groupSize={groupSizeFillter}
-                        // setValueFillter={dataFillter}
+
                         setvlcountry={setvlcountry}
                         setvldestination={setvldestination}
                         setvltype={setvltype}
