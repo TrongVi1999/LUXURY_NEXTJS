@@ -37,7 +37,7 @@
             }
             .iconAdd {
                 position: absolute;
-                z-index: 10;
+                z-index: 0;
                 right: 5rem;
                 bottom: 2rem;
                 font-size: 3rem;
@@ -47,6 +47,7 @@
                 border: 0.1rem solid var(--white);
                 color: var(--white);
                 background-image: var(--linear-gradient-btn2);
+                cursor: pointer;
             }
         }
         .name {
