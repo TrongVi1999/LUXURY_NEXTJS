@@ -53,88 +53,89 @@
             }
         }
     }
-
-    .Siminal-Hotel {
-        display: flex;
-        padding-top: 5rem;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 100%;
-        align-items: center;
-    }
-
-    .card {
-        width: 31.4%;
-        min-width: 300px;
-        border-radius: 5px;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        // margin-bottom: 1.8vw;
-        display: flex;
-        flex-direction: column;
-        margin: 5px;
-    }
-
-    .card-img {
-        width: 100%;
-        height: 15vw;
-        min-height: 180px;
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .infor {
-        padding: 10px;
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-
-        p {
-            padding: 5px 0;
-            color: gray;
+ 
+        .Siminal-Hotel {
+            display: flex;
+            padding-top: 5rem;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
         }
-    }
 
-    .title {
-        font-weight: bolder;
-        font-size: 15px;
-        margin-bottom: 5px;
-        letter-spacing: 2px;
-        flex: 1;
-        color: black;
-    }
+        .card {
+            width: 31.4%;
+            min-width: 300px;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            // margin-bottom: 1.8vw;
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+        }
 
-    .rating {
-        color: rgb(209, 148, 27);
-        margin-right: 5px;
-        font-weight: bold;
-    }
+        .card-img {
+            width: 100%;
+            height: 15vw;
+            min-height: 180px;
+        }
 
-    .price {
-        .price1 {
+        .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .infor {
+            padding: 10px;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
+            p {
+                padding: 5px 0;
+                color: gray;
+            }
+        }
+
+        .title {
+            font-weight: bolder;
+            font-size: 15px;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            flex: 1;
             color: black;
+        }
+
+        .rating {
+            color: rgb(209, 148, 27);
+            margin-right: 5px;
             font-weight: bold;
         }
 
-        svg {
-            margin-right: 5px;
-            // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
-            color: rgb(203, 144, 26);
+        .price {
+            .price1 {
+                color: black;
+                font-weight: bold;
+            }
+
+            svg {
+                margin-right: 5px;
+                // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
+                color: rgb(203, 144, 26);
+            }
+
+            .price2 {
+                text-decoration: line-through;
+            }
         }
 
-        .price2 {
-            text-decoration: line-through;
+        .place {
+            svg {
+                margin-right: 5px;
+            }
         }
-    }
-
-    .place {
-        svg {
-            margin-right: 5px;
-        }
-    }
+    
 }
 
 
