@@ -258,7 +258,7 @@ function Booking({ onClick, datas, title, long }) {
                             <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
-                                    <option key={d.code} value={d.code}>{d.name}</option>
+                                    <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
                         </div>

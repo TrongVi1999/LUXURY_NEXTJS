@@ -250,3 +250,13 @@ export const GetComment = (id) =>
         url: `https://vnxpedia.3i.com.vn/TravelAPI/ListComment?postid=${id}`,
         type: 'json',
     });
+
+//edit booking
+export const EditBooking = (data) => axios({
+    method: 'post',
+    url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking',
+    data: qs.stringify(data),
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    },
+});

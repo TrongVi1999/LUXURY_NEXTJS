@@ -20,20 +20,18 @@ import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
-const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 const listtype = ['VEHICLES', 'YACHTS', 'HELICOPTERS', 'LUX TRAIN']
 
-function Destimation() {
-    const router = useRouter();
+function index() {
+
     const [page, setPage] = useState(1)
     const [transActive, setTransActive] = useState(0);
-    const [Book, setBook] = useState(true);
+
     const [Type, settype] = useState('VEHICLES')
     const handleBooking = () => {
         setBook(false);
     }
 
-    const [Data, setdata] = useState();
 
     const transferList = ListTransfer(Type);
 
@@ -90,7 +88,7 @@ function Destimation() {
             <Section maxWidth={1270} isWrap gapBox={3.2}>
                 {
                     transferList.data.Object.map((d) => (
-                        <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} click={handleBooking} />
+                        <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
                     ))
                 }
             </Section>
@@ -99,4 +97,4 @@ function Destimation() {
     );
 }
 
-export default Destimation;
+export default index;
