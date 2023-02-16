@@ -139,8 +139,8 @@ const Header = () => {
 
                     <div className={cx('button-call')} >
                         <Button className={cx('button')}>Call US +84-90-159-1111</Button>
-                        <span>OR</span>
-                        <Link href='/contact-us' className={cx('button')}>Request a quote</Link>
+                        {/* <span>OR</span>
+                        <Button className={cx('button')}>Request a quote</Button> */}
                     </div>
 
                 </div>

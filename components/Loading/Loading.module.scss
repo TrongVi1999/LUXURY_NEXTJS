@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    span{
+        font-weight: bold;
+        font-size: 24px;
+        
+    }
+    svg{
+        color: green;
+        font-size: 42px;
+        // padding-top: 15px;
+        margin-bottom: 9px;
+        margin-left: 5px;
+    }
+}
+
+@media only screen and (max-width:800px){
+    .container{
+        span{
+            font-size: 18px !important;
+        }
+        div{
+        svg{
+            width: 80px !important;
+            height: 80px !important;
+        }
+    }
+    }
+}
+@media only screen and (max-width:530px){
+    .container{
+        span{
+            font-size: 14px !important;
+        }
+        div{
+        svg{
+            width: 60px !important;
+            height: 60px !important;
+        }
+    }
+    svg{
+        color: green;
+        font-size: 36px;
+        margin-bottom: 14px;
+        margin-left: 2px;
+    }
+    }
+}

@@ -16,6 +16,7 @@ import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetai
 import { Getblog, GetComment } from '../api/QuerryAPI';
 import TitleLine from '@/components/TitleLine';
 import Listtag from '@/views/Blogdetail/Listtag';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
@@ -68,7 +69,7 @@ const BlogDetail = () => {
 
 
     if (BlogDetail.isLoading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
 
     if (BlogDetail.error) {
