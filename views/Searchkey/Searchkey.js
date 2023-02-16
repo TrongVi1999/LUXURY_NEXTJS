@@ -26,7 +26,7 @@ const Searchkey = () => {
                 {tourSearch.data && tourSearch.data.length > 0 &&
                     <div className={cx('result-div')}>
                         <p className={cx('title')}>Tour result</p>
-                        {Tour.map((d, i) =>
+                        {tourSearch.data.map((d, i) =>
                             <Link href={`/tour-detail/${d.TourCode}`} className={cx('result-tour')} key={i}>
                                 <img src={`https://vnxpedia.3i.com.vn${d.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} layout='fill' />
                                 <p>{d.TourName.toUpperCase()}</p>
@@ -37,7 +37,7 @@ const Searchkey = () => {
                 {blogSearch.data && blogSearch.data.length > 0 &&
                     <div className={cx('result-div')}>
                         <p className={cx('title')}> Blog result</p>
-                        {Blog.map((d, i) =>
+                        {blogSearch.data.map((d, i) =>
                             <Link href={`/tour-detail/${d.id}`} className={cx('result-tour')} key={i}>
                                 <img src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} />
                                 <p>{d.title.toUpperCase()}</p>
