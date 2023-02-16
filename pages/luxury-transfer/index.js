@@ -14,7 +14,9 @@ import xe3 from '@/public/images/xe3.jpg';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { ListTransfer } from '../api/CallAPI';
+// import { ListTransfer } from '../api/CallAPI';
+import { ListTransfer } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
@@ -32,23 +34,19 @@ function Destimation() {
     }
 
     const [Data, setdata] = useState();
-    const CallAPI = async () => {
 
-        const response = await (ListTransfer(Type));
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
-
-    }
-
-    useEffect(() => {
-        CallAPI();
-    }, [page, router.query.id, Type]);
+    const transferList = ListTransfer(Type);
 
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
+    if (transferList.isLoading) {
+        return <Loading />;
+    }
 
+    if (transferList.error) {
+        return <p>Error: {error.message}</p>;
+    }
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
@@ -72,7 +70,7 @@ function Destimation() {
                         Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
                     <div className={cx('icon')}>
                         <div>
-                            <Image src={a1} alt='car'/>
+                            <Image src={a1} alt='car' />
                             <h4>Professional Service</h4>
                         </div>
                         <div className={cx('seperate')}></div>
@@ -82,7 +80,7 @@ function Destimation() {
                         </div>
                         <div className={cx('seperate')}></div>
                         <div className={cx('icon1')}>
-                            <Image src={a3} alt='car'/>
+                            <Image src={a3} alt='car' />
                             <h4>Professional Service</h4>
                         </div>
                     </div>
@@ -90,12 +88,12 @@ function Destimation() {
             </div>
             <Section maxWidth={1270} isWrap gapBox={3.2}>
                 {
-                    Data && Data.map((d) => (
+                    transferList.data.Object.map((d) => (
                         <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} click={handleBooking} />
                     ))
                 }
             </Section>
-            <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />
         </div>
     );
 }

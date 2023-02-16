@@ -6,7 +6,9 @@ import ImgBn from '@/public/images/paymentbn.png';
 import Imgpay from '@/public/images/iconpay.png';
 import Image from 'next/image';
 import { useRouter } from "next/router";
-import { GetSocial } from '../api/CallAPI';
+import { GetSocial } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
+
 
 
 
@@ -20,6 +22,8 @@ const index = () => {
     const [Active, setactive] = useState(['act', '', '']);
     const [Data, setdata] = useState();
     const [Data2, setData2] = useState();
+
+    const dataContent1 = GetSocial(5262);
     const handlePick = (i) => {
         setcontent(ListMenu[i]);
         let list = Active;
@@ -27,33 +31,21 @@ const index = () => {
 
     }
 
-    const CallAPI2 = async () => {
-        const response = await GetSocial(5262);
-        if (response.status == 200) {
-            setData2(response.data.Object)
-        }
-        console.log(response);
-    }
-    useEffect(() => {
-        CallAPI()
-    }, []);
 
-    const CallAPI = async () => {
-
-        const response = await GetSocial(5262);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
-
-    }
 
 
     useEffect(() => {
         setcontent(router.query.id);
         { router.query.id == 'policy' && handlePick(1) }
-        CallAPI();
+
     }, [router.query.id]);
-    console.log(Data);
+    if (dataContent1.isLoading) {
+        return <Loading />;
+    }
+
+    if (dataContent1.error) {
+        return <p>Error: {dataContent1.error.message}</p>;
+    }
 
     return (
         <div className={cx('container')}>
@@ -88,7 +80,7 @@ const index = () => {
                 {Active[1] == 'act' &&
                     <div className={cx('content')}>
                         {/* <h1>Policy</h1> */}
-                        {Data2 && <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>}
+                        <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: dataContent1.data.Object[0].full_text }}></div>
                     </div>
                 }
 

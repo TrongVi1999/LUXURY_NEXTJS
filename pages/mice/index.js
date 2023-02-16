@@ -17,9 +17,6 @@ import Img9 from '@/public/images/Layer77.png'
 import Img10 from '@/public/images/Layer78.png'
 import Img11 from '@/public/images/Layer79.png'
 import Link from 'next/link';
-
-// import { categoryFillerAddress, tourTagsFilter } from '@/public/dataRender';
-import { images } from '@/public/images';
 import { TitleMice, DiffItem, BoxImageMice } from '@/views/Mice';
 import Booking from '@/views/Mice/Contact';
 import { useState } from 'react';
