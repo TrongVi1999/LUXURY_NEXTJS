@@ -13,12 +13,12 @@
             margin: 1vw 0 3vw 0;
         }
     }
-    .box {
+    table {
         display: flex;
         justify-content: center;
         height: 100%;
         width: 100%;
-        div {
+        tr {
             border: 1px solid black;
             width: 30%;
             flex: 1;
@@ -58,20 +58,23 @@
 @media only screen and (max-width: 768px) {
     .container {
         padding: 0 10% 5% 10% !important;
-    }
-    .box {
+         table {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        div {
+        tr {
             width: 60% !important;
         }
     }
+    }
+   
 }
 @media only screen and (max-width: 550px) {
-    .box {
-        div {
+    .container{
+    table {
+        tr {
             width: 80% !important;
         }
     }
+}
 }

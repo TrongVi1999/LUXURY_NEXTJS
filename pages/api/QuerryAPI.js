@@ -157,7 +157,7 @@ export const Subcrise = (email) => {
 //lấy list hotel
 export const ListHotel = (tag) => {
     return useQuery(['listhotel', tag], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel?tag=${tag}`);
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryHotel`);
         return response.data;
     });
 };
@@ -165,7 +165,8 @@ export const ListHotel = (tag) => {
 //lấy list transfer
 export const ListTransfer = (type, value) => {
     return useQuery(['listtransfer', type, value], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryTransfer?type=${type}&value=${value}`);
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LuxuryTransfer`);
+
         return response.data;
     });
 };

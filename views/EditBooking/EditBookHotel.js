@@ -23,7 +23,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
     } = useForm();
 
 
-    const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '', TypeRoom });
+    const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '', TypeRoom: '' });
 
     const CallEdit = async (data) => {
         const response = await EditBooking(data);

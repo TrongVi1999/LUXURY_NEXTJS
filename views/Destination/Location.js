@@ -29,30 +29,22 @@ const Location = () => {
 
             {Localist.length > 0 && (
                 <div className={cx('cl')}>
-                    {Localist.filter((f) => f.hash_tag.includes('SOUTH_EAST&MEKONG_RIVER_DELTA')).map((d, i) =>
-                    (<div className={cx('cl-item')} key={i}>
-
-                        <Image
-                            src={`https://vnxpedia.3i.com.vn${d.gallery}`}
-                            width='1000'
-                            height='1000'
-                            className={cx('img')}
-                            alt='img-Location'
-                        ></Image>
-                        <a href="" className={cx('h3')}>
-                            <h3>{d.title}</h3>
-                        </a>
-                        <p>{d.intro_text}</p>
-                    </div>)
-
-                    )}
-
-
-
-
-
-
-
+                    {Localist.filter((f) => f.hash_tag.includes('SOUTH_EAST&MEKONG_RIVER_DELTA')).map((d, i) => (
+                        <div className={cx('cl-item')} key={i}>
+                            <div className={cx('img')}>
+                                <Image
+                                    src={`https://vnxpedia.3i.com.vn${d.gallery}`}
+                                    width="1000"
+                                    height="1000"
+                                    alt="img-Location"
+                                ></Image>
+                            </div>
+                            <p className={cx('h3')}>
+                                <h3>{d.title}</h3>
+                            </p>
+                            <p>{d.intro_text}</p>
+                        </div>
+                    ))}
                 </div>
             )}
             <br />
@@ -61,17 +53,17 @@ const Location = () => {
                 <div className={cx('cl')}>
                     {Localist.filter((f) => f.hash_tag.includes('SOUTH_CENTRAL_COAST')).map((d, i) => (
                         <div className={cx('cl-item')} key={i}>
-
-                            <Image
-                                src={`https://vnxpedia.3i.com.vn${d.gallery}`}
-                                width='1000'
-                                height='1000'
-                                className={cx('img')}
-                                alt='img-Location'
-                            ></Image>
-                            <a href="" className={cx('h3')}>
+                            <div className={cx('img')}>
+                                <Image
+                                    src={`https://vnxpedia.3i.com.vn${d.gallery}`}
+                                    width="1000"
+                                    height="1000"
+                                    alt="img-Location"
+                                ></Image>
+                            </div>
+                            <p className={cx('h3')}>
                                 <h3>{d.title}</h3>
-                            </a>
+                            </p>
                             <p>{d.intro_text}</p>
                         </div>
                     ))}
@@ -84,17 +76,17 @@ const Location = () => {
                 <div className={cx('cl')}>
                     {Localist.filter((f) => f.hash_tag.includes('NORTH_CENTRAL_COAST')).map((d, i) => (
                         <div className={cx('cl-item')} key={i}>
-
-                            <Image
-                                src={`https://vnxpedia.3i.com.vn${d.gallery}`}
-                                width='1000'
-                                height='1000'
-                                className={cx('img')}
-                                alt='img-Location'
-                            ></Image>
-                            <a href="" className={cx('h3')}>
+                            <div className={cx('img')}>
+                                <Image
+                                    src={`https://vnxpedia.3i.com.vn${d.gallery}`}
+                                    width="1000"
+                                    height="1000"
+                                    alt="img-Location"
+                                ></Image>
+                            </div>
+                            <p className={cx('h3')}>
                                 <h3>{d.title}</h3>
-                            </a>
+                            </p>
                             <p>{d.intro_text}</p>
                         </div>
                     ))}
@@ -108,17 +100,17 @@ const Location = () => {
                 <div className={cx('cl')}>
                     {Localist.filter((f) => f.hash_tag.includes('RED_RIVER_DELTA')).map((d, i) => (
                         <div className={cx('cl-item')} key={i}>
-
-                            <Image
-                                src={`https://vnxpedia.3i.com.vn${d.gallery}`}
-                                width='1000'
-                                height='1000'
-                                className={cx('img')}
-                                alt='img-Location'
-                            ></Image>
-                            <a href="" className={cx('h3')}>
+                            <div className={cx('img')}>
+                                <Image
+                                    src={`https://vnxpedia.3i.com.vn${d.gallery}`}
+                                    width="1000"
+                                    height="1000"
+                                    alt="img-Location"
+                                ></Image>
+                            </div>
+                            <p className={cx('h3')}>
                                 <h3>{d.title}</h3>
-                            </a>
+                            </p>
                             <p>{d.intro_text}</p>
                         </div>
                     ))}
@@ -132,16 +124,17 @@ const Location = () => {
                 <div className={cx('cl')}>
                     {Localist.filter((f) => f.hash_tag.includes('NORTH_WEST')).map((d, i) => (
                         <div className={cx('cl-item')} key={i}>
-                            <a href="" className={cx('h3')}>
+                            <p className={cx('h3')}>
                                 <h3>{d.title}</h3>
-                            </a>
-                            <Image
-                                src={`https://vnxpedia.3i.com.vn${d.gallery}`}
-                                width='1000'
-                                height='1000'
-                                className={cx('img')}
-                                alt='img-Location'
-                            ></Image>
+                            </p>
+                            <div className={cx('img')}>
+                                <Image
+                                    src={`https://vnxpedia.3i.com.vn${d.gallery}`}
+                                    width="1000"
+                                    height="1000"
+                                    alt="img-Location"
+                                ></Image>
+                            </div>
                             <p>{d.intro_text}</p>
                         </div>
                     ))}

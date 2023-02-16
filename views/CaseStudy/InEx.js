@@ -11,7 +11,7 @@ const cx = classNames.bind(style);
 const InEx = ({ data, type }) => {
     return (
         <div className={cx('in-ex')}>
-            {type == 'inc' ? <Title text='Tour Inclusion' /> : <Title text='Tour Exclusion' />}
+            {type == 'inc' ? <Title className={cx('title-header')} text='Tour Inclusion' /> : <Title className={cx('title-header')} text='Tour Exclusion' />}
             <div className={cx('main-list')}>
                 {data.map((d) =>
                     <span>
