@@ -9,6 +9,7 @@ import Hotelcard from '@/views/HotelCard/Hotelcard';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
 import style from '@/styles/luxuryhotel.module.scss';
 import { ListHotel } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
@@ -21,8 +22,16 @@ const index = () => {
 
     const hotelList = ListHotel();
 
-    const lastIndex = page * 9;
-    const firstIndex = lastIndex - 9;
+    const lastIndex = page * 8
+    const firstIndex = lastIndex - 8;
+
+    if (hotelList.isLoading) {
+        return <Loading />;
+    }
+
+    if (hotelList.error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <div className={cx('wrapper')}>
@@ -37,7 +46,7 @@ const index = () => {
                         <button>Sort by</button>
                     </div>
                     {
-                        Data && Data.slice(firstIndex, lastIndex).map((d) => (
+                        hotelList.data.Object.slice(firstIndex, lastIndex).map((d) => (
                             <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
                         ))
                     }
@@ -50,7 +59,7 @@ const index = () => {
 
             {/* } */}
 
-            <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            <Pagination totalPosts={hotelList.data.Object.length} postPerPage={8} setPage={setPage} pageIndex={page} />
         </div>
     )
 }

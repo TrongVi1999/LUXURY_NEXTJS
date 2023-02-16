@@ -42,7 +42,7 @@ const Index = () => {
     if (hotelData.error) {
         return <p>Error: {error.message}</p>;
     }
-    console.log(hotelData.data)
+
 
     return (
         <div>
