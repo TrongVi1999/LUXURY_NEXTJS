@@ -1,29 +1,30 @@
 import React from 'react'
-import style from '@/styles/Hoteldetail.module.scss';
 import classNames from 'classnames/bind';
-import Link from 'next/link';
+import style from './TransDetail.module.scss'
+// import style from '@/styles/Hoteldetail.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
+import a4 from '@/public/oto4.png';
 import { AiFillStar } from 'react-icons/ai';
 import Loading from '@/components/Loading';
-import { ListHotel } from '@/pages/api/QuerryAPI';
+import { ListTransfer } from '@/pages/api/QuerryAPI';
+
 
 const cx = classNames.bind(style);
 
-const HotelDetail = () => {
-    const getHotelDetail = ListHotel()
-    if (getHotelDetail.isLoading) {
+const TransListDetail = () => {
+    const getTransDetail = ListTransfer()
+    if (getTransDetail.isLoading) {
         return <Loading />;
     }
 
-    if (getHotelDetail.error) {
+    if (getTransDetail.error) {
         return <p>Error: {error.message}</p>;
     }
+    console.log("get", getTransDetail.data);
     return (
-
-
-
         <div className={cx('Siminal-Hotel')}>
-            {getHotelDetail.data && getHotelDetail.data.Object.slice(0, 3).map((d, i) =>
+            {getTransDetail.data && getTransDetail.data.Object.slice(0, 3).map((d, i) =>
                 <div className={cx('card')} key={i}>
                     <div className={cx('card-img')} >
                         <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width={200} height={200} />
@@ -42,6 +43,10 @@ const HotelDetail = () => {
                             {/* <span className={cx('price1')}>$ {data.price}</span> */}
 
                         </p>
+                        <p className={cx('describe')}>
+                            <span>Describe: </span>
+                            {d.intro_text}
+                        </p>
                     </div>
                 </div>
             )
@@ -50,4 +55,4 @@ const HotelDetail = () => {
     )
 }
 
-export default HotelDetail
+export default TransListDetail

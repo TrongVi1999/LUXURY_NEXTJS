@@ -47,6 +47,7 @@ function Destimation() {
     if (transferList.error) {
         return <p>Error: {error.message}</p>;
     }
+    console.log("tran", transferList.data);
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />

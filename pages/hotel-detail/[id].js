@@ -42,9 +42,6 @@ const Index = () => {
         return <p>Error: {error.message}</p>;
     }
 
-
-
-
     return (
         <div>
             {hotelData.data && <div>
