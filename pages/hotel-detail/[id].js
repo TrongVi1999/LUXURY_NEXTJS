@@ -18,8 +18,8 @@ import { CiLocationOn } from 'react-icons/ci';
 import { GetHotel } from '../api/CallAPI';
 import { Section } from '@/components';
 import Hotelcard from '@/views/HotelCard/Hotelcard';
-
-
+import { GetLuxservice } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 
 const cx = classNames.bind(style);
@@ -33,44 +33,44 @@ const Index = () => {
         title: 'HA LONG BAY DAY CRUISE - PARADISE EXPLORER',
         price: 200000000,
     }
-    const CallAPI = async () => {
-        const response = await GetHotel(router.query.id);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
+
+    const hotelData = GetLuxservice(router.query.id);
+    if (hotelData.isLoading) {
+        return <Loading />;
     }
-    useEffect(() => {
-        CallAPI();
-    }, [router.query.id]);
-    console.log(Data);
+
+    if (hotelData.error) {
+        return <p>Error: {error.message}</p>;
+    }
+    console.log(hotelData.data)
 
     return (
         <div>
-            {Data && Data.length > 0 && <div>
-                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={Data[0].title} bg='bg' />
-                {book ? <Hotelbook click={setbook} hotel={Data[0].title} /> : <div className={cx('container')}>
-                    <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
+            {hotelData.data && <div>
+                <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={hotelData.data.Object[0].title} bg='bg' />
+                {book ? <Hotelbook click={setbook} hotel={hotelData.data.Object[0].title} /> : <div className={cx('container')}>
+                    <Imglist data={[`https://vnxpedia.3i.com.vn${hotelData.data.Object[0].gallery}`, a2, a3, a4]} issv={false} />
 
                     <div className={cx('des')}>
-                        <h2>{Data[0].title}</h2>
+                        <h2>{hotelData.data.Object[0].title}</h2>
                         <div className={cx('star')}>
 
                             <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>
                             <p className={cx('address')}><CiLocationOn />
-                                {Data[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
-                                {/* Làng Vĩnh Hy, Xã Vĩnh Hải, Huyện Ninh Hải, Ninh Thuận, Việt Nam */}
+                                {hotelData.data.Object[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
+
                             </p>
-                           
+
 
                             <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                         </div>
                     </div>
 
-                    <div className={cx('main-hotel')} dangerouslySetInnerHTML={{ __html: Data[0].full_text }}></div>
+                    <div className={cx('main-hotel')} dangerouslySetInnerHTML={{ __html: hotelData.data.Object[0].full_text }}></div>
 
                     <h2>Siminal Hotels</h2>
-                    <div className={cx('siminal-hotel')}>
-                        <Link href={`/hotel-detail/5258`} className={cx('card')}>
+                    <div className={cx('Siminal-Hotel')}>
+                        <Link href={`/hotel-detail/5258=`} className={cx('card')}>
                             <div className={cx('card-img')}>
                                 <Image src={data.img} alt="vnxpedia-tour-img" className={cx('img')} />
                             </div>
@@ -130,13 +130,7 @@ const Index = () => {
                                 </p>
                             </div>
                         </Link>
-                        {/* <Section maxWidth={1170} isWrap gapBox={3.2}>
-                            {
-                                Data && Data.map((d) => (
-                                    <Hotelcard data={d} key={d} to={`/transfer-detail/${d.id}`} />
-                                ))
-                            }
-                        </Section> */}
+
                     </div>
                 </div>
                 }

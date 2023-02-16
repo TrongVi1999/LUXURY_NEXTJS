@@ -9,6 +9,7 @@ import { categoryFillerAddress, tourTagsFilter, recentPostFake } from '@/public/
 import { Allblog, Bloghot } from '../api/CallAPI';
 import { useState, useEffect } from 'react';
 import { GetAllblog, Getbloghot, Searchblog } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 
 const cx = classNames.bind(style)
@@ -65,23 +66,7 @@ function BlogList() {
         })
     }, [showFilterMobile])
 
-    //Blog hot
-
-
-
-    // useEffect(() => {
-    //     CallAPIBlog();
-    // }, [])
-
-    // if (Datalistblog.isLoading) {
-    //     return <p>Loading...</p>;
-    // }
-
-    // if (Datalistblog.error) {
-    //     return <p>Error: {error.message}</p>;
-    // }
-    console.log(Datasearch.data)
-
+    if (Datalistblog.isLoading) return <Loading />
     return (
         <div className={cx('wrapper')}>
             <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='vnxpedia blog list' bg='bg' crumb={{ title: 'BLOG' }} />

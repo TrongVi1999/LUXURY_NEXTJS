@@ -16,6 +16,7 @@ import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetai
 import { Getblog, GetComment } from '../api/QuerryAPI';
 import TitleLine from '@/components/TitleLine';
 import Listtag from '@/views/Blogdetail/Listtag';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
@@ -68,7 +69,7 @@ const BlogDetail = () => {
 
 
     if (BlogDetail.isLoading) {
-        return <p>Loading...</p>;
+        return <Loading />;
     }
 
     if (BlogDetail.error) {
@@ -80,7 +81,7 @@ const BlogDetail = () => {
 
             {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />}
 
-            (<div className={cx('main')} >
+            <div className={cx('main')} >
 
 
 
