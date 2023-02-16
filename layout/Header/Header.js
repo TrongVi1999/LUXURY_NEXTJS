@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Menu from './Menu';
 
-import Login from '@/components/Login';
+import LogIn from '@/components/Login';
 import Signup from '@/components/SignUp';
 import Searchkey from '@/views/Searchkey/Searchkey';
 import { AiOutlineMenu, AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
@@ -89,8 +89,6 @@ const Header = () => {
         };
     }, [showMenu]);
 
-    console.log('ct', CT.currentUser);
-
     return (
         <div className={cx(`header`)} id={bgheader}>
             <div className={cx(`wrapper`)}>
@@ -125,7 +123,7 @@ const Header = () => {
                                 </div>
                                 : <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />}
 
-                            {login && <div className={cx('login')}>< Login Click={setsignup} setuser={CT.setCurrentUser} close={setlogin} /> </div>}
+                            {login && <div className={cx('login')}>< LogIn Click={setsignup} setuser={CT.setCurrentUser} close={setlogin} /> </div>}
 
                         </OutsideClickHandler>
                     </div>

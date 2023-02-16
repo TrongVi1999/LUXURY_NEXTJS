@@ -9,6 +9,7 @@ import Hotelcard from '@/views/HotelCard/Hotelcard';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
 import style from '@/styles/luxuryhotel.module.scss';
 import { ListHotel } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
@@ -16,13 +17,21 @@ const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 const index = () => {
     const router = useRouter();
-    const [Data, setdata] = useState([]);
+    const [tag, settag] = useState('')
     const [page, setPage] = useState(1);
 
-    const hotelList = ListHotel();
+    const hotelList = ListHotel(tag);
 
-    const lastIndex = page * 9;
-    const firstIndex = lastIndex - 9;
+    const lastIndex = page * 8
+    const firstIndex = lastIndex - 8;
+
+    // if (hotelList.isLoading) {
+    //     return <Loading />;
+    // }
+
+    // if (hotelList.error) {
+    //     return <p>Error: {error.message}</p>;
+    // }
 
     return (
         <div className={cx('wrapper')}>
@@ -32,25 +41,30 @@ const index = () => {
                 />} */}
             {/* {data.length > 0 && */}
             <div className={cx('main')}>
-                <div className={cx('hotel-list')}>
-                    <div className={cx('sort')}>
-                        <button>Sort by</button>
+                {hotelList.isLoading && <Loading />}
+                {hotelList.data &&
+                    <div className={cx('hotel-list')}>
+                        <div className={cx('sort')}>
+                            <button>Sort by</button>
+                        </div>
+                        {
+                            hotelList.data.Object.slice(firstIndex, lastIndex).map((d) => (
+                                <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
+                            ))
+                        }
                     </div>
-                    {
-                        Data && Data.slice(firstIndex, lastIndex).map((d) => (
-                            <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
-                        ))
-                    }
-                </div>
+                }
                 <CategoryFilter
                     category={categoryFillerAddress}
                     className={cx('boxFilter')}
+                    setvldestination={settag}
+
                 />
             </div>
 
             {/* } */}
-
-            <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            {hotelList.data &&
+                <Pagination totalPosts={hotelList.data.Object.length} postPerPage={8} setPage={setPage} pageIndex={page} />}
         </div>
     )
 }

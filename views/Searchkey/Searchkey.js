@@ -2,42 +2,28 @@ import classNames from 'classnames/bind';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import style from './style.module.scss';
-import Image from 'next/image';
-import { Searchtour, Searchblog } from '@/pages/api/CallAPI';
+
+import { Searchtour, Searchblog } from '@/pages/api/QuerryAPI';
 
 const cx = classNames.bind(style);
 
 const Searchkey = () => {
-    const [Tour, setTour] = useState();
-    const [Blog, setBlog] = useState();
-    const [keyword, setKeyWord] = useState();
 
-    const CallTour = async () => {
-        const response = await Searchtour(keyword);
+    const [keyword, setkeyword] = useState();
 
-        if (response.status == 200) {
-            setTour(response.data.Object);
-        }
-    }
-    const CallBlog = async () => {
-        const response = await Searchblog(keyword);
-
-        if (response.status == 200) {
-            setBlog(response.data.Object);
-        }
-    }
-
+    const tourSearch = Searchtour(keyword);
+    const blogSearch = Searchblog(keyword);
     useEffect(() => {
-        CallTour();
-        CallBlog();
-    }, [keyword]);
-
-
+        if (keyword !== '') {
+            tourSearch.refetch();
+            blogSearch.refetch()
+        }
+    }, [keyword])
     return (
         <div className={cx('searchkey-container')}>
-            <input type='text' className={cx('input')} onChange={(e) => setKeyWord(e.target.value)} placeholder='Type keyword here' />
+            <input type='text' className={cx('input')} onChange={(e) => setkeyword(e.target.value)} placeholder='Type keyword here' />
             <div className={cx('result')}>
-                {Tour && Tour.length > 0 &&
+                {tourSearch.data && tourSearch.data.length > 0 &&
                     <div className={cx('result-div')}>
                         <p className={cx('title')}>Tour result</p>
                         {Tour.map((d, i) =>
@@ -48,7 +34,7 @@ const Searchkey = () => {
 
                         )}</div>}
 
-                {Blog && Blog.length > 0 &&
+                {blogSearch.data && blogSearch.data.length > 0 &&
                     <div className={cx('result-div')}>
                         <p className={cx('title')}> Blog result</p>
                         {Blog.map((d, i) =>

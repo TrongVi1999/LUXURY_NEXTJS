@@ -6,21 +6,24 @@ import { Button, Section } from "@/components";
 import { BookingUser, ProfileUser } from "@/views/ProfileUser";
 import Image from "next/image";
 import { IoIosAdd } from "react-icons/io";
+import { useApppContext } from "../_app";
+
 const cx = classNames.bind(style);
 
 function Profile() {
     const [activeProfile, setActiveProfile] = useState(1);
-    const [currentUser, setCurrentUser] = useState(null);
+    // const [currentUser, setCurrentUser] = useState(null);
+    const CT = useApppContext();
 
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, []);
-    console.log(currentUser);
+    // useEffect(() => {
+    //     let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
+    //     if (VNXuser) {
+    //         setCurrentUser(VNXuser);
+    //     } else {
+    //         setCurrentUser(null);
+    //     }
+    // }, []);
+    // console.log(currentUser);
 
     const editPicture = (data) => {
         var formdata = new FormData();
@@ -43,22 +46,18 @@ function Profile() {
         fetch('https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo', requestOptions)
             .then((response) => response.text())
             .then((result) => {
-                setCurrentUser({
-                    ...currentUser,
+                CT.setCurrentUser({
+                    ...CT.currentUser,
                     Picture: JSON.parse(result).Object,
                 });
                 alert('Successfully changed avatar.');
                 localStorage.setItem(
                     'VNXUser',
                     JSON.stringify({
-                        ...currentUser,
+                        ...CT.currentUser,
                         Picture: JSON.parse(result).Object,
                     }),
                 );
-                // setUseredit({
-                //     ...currentUser,
-                //     Picture: JSON.parse(result).Object,
-                // });
             })
             .catch(() => alert('Error!'));
 
@@ -67,11 +66,11 @@ function Profile() {
 
     return (<Section notPadding className={cx('wrapper')} >
         <div className={cx('body')}>
-            {currentUser &&
+            {CT.currentUser &&
                 <div className={cx('boxOption')}>
                     <div className={cx('boxAvatar')}>
                         <div className={cx('boxAvatar-div')}>
-                            {currentUser.Picture ? <Image src={`https://vnxpedia.3i.com.vn${currentUser.Picture}`}
+                            {CT.currentUser.Picture ? <Image src={`https://vnxpedia.3i.com.vn${CT.currentUser.Picture}`}
                                 alt='Avatar'
                                 className={cx('avatar')}
                                 width="2000"
@@ -92,7 +91,7 @@ function Profile() {
                             onChange={(e) => editPicture(e.target.files[0])}
                         ></input>
                     </div>
-                    <h2 className={cx('name')}>{currentUser.FullName}</h2>
+                    <h2 className={cx('name')}>{CT.currentUser.FullName}</h2>
                     <div className={cx('boxItemPage')}>
                         <Button className={cx('itemPage', activeProfile === 1 ? 'active' : null)} onClick={() => setActiveProfile(1)}>profile</Button>
                         <Button className={cx('itemPage', activeProfile === 2 ? 'active' : null)} onClick={() => setActiveProfile(2)}>notifications</Button>
@@ -100,14 +99,14 @@ function Profile() {
                     </div>
                 </div>
             }
-            {currentUser &&
+            {CT.currentUser &&
                 <div className={cx('content')}>
                     {
                         activeProfile === 1 ?
-                            <ProfileUser data={currentUser} setuser={setCurrentUser} /> :
+                            <ProfileUser data={CT.currentUser} setuser={CT.setCurrentUser} /> :
                             activeProfile === 3 ?
                                 <div>
-                                    {currentUser && <BookingUser user={currentUser.UserName} />}
+                                    {CT.currentUser && <BookingUser user={CT.currentUser.UserName} />}
                                 </div> : null
                     }
                 </div>
