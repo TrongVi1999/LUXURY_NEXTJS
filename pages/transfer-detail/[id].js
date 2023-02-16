@@ -18,6 +18,8 @@ import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { GetTransfer } from '../api/CallAPI';
+import { GetLuxservice } from '../api/QuerryAPI';
+import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
@@ -27,28 +29,25 @@ const index = () => {
     const [page, setPage] = useState(1);
     const [Data, setdata] = useState()
     const router = useRouter();
+    const transferData = GetLuxservice(router.query.id);
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
-
-    const CallAPI = async () => {
-        const response = await GetTransfer(router.query.id);
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
+    if (transferData.isLoading) {
+        return <Loading />;
     }
-    useEffect(() => {
-        CallAPI();
-    }, [router.query.id]);
-    console.log(Data);
+
+    if (transferData.error) {
+        return <p>Error: {error.message}</p>;
+    }
     return (
         <div>
-            {Data && Data.length > 0 && <div>
+            <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
-                {book ? <Transferbook click={setbook} transfer={Data[0].title} /> :
+                {book ? <Transferbook click={setbook} transfer={transferData.data.Object[0].title} /> :
                     <div className={cx('container')}>
                         <Crumb text='Luxury Transfer | Vehicles Mercedes' />
-                        <Imglist data={[`https://vnxpedia.3i.com.vn${Data[0].gallery}`, a2, a3, a4]} issv={false} />
+                        <Imglist data={[`https://vnxpedia.3i.com.vn${transferData.data.Object[0].gallery}`, a2, a3, a4]} issv={false} />
                         <div className={cx('des')}>
                             <h2>MERSEDES BENS AMG COUPE</h2>
                             <p>The sporty Mercedes-AMG C 43 4MATIC vehicles enhance the new generation of the C-Class. This facelift is characterised by the sharpened design and the stronger differentiation from the AMG Line of the series-production models. Sporty, striking features reflect the level of performance which is to be expected. The enhanced 3.0-litre V6 biturbo engine, together with the all-wheel drive system offering maximum agility, enables optimum acceleration values. In the interior too, the AMG experience is discernible in every detail – the result is a perfect fusion of first-class comfort and a sporty ambience.</p>
@@ -85,15 +84,15 @@ const index = () => {
 
                         <Section maxWidth={1170} isWrap gapBox={3.2}>
                             {
-                                Data && Data.map((d) => (
+                                transferData.data.Object.map((d) => (
                                     <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
                                 ))
                             }
                         </Section>
-                        <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+                        {/* <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} /> */}
 
                     </div>}
-            </div>}
+            </div>
         </div>)
 }
 

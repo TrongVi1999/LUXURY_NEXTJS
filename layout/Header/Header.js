@@ -89,8 +89,6 @@ const Header = () => {
         };
     }, [showMenu]);
 
-    console.log('ct', CT.currentUser);
-
     return (
         <div className={cx(`header`)} id={bgheader}>
             <div className={cx(`wrapper`)}>
