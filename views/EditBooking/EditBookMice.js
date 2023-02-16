@@ -11,6 +11,7 @@ import style from '@/styles/informationBooking.module.scss';
 import { EditBooking } from "@/pages/api/CallAPI";
 import { AiFillCloseCircle } from 'react-icons/ai'
 import ScrollToTop from "@/hook/scrollToTop";
+import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 const ListLocation =
@@ -35,13 +36,14 @@ function EditBookMice({ dataOld, toggle }) {
         const response = await EditBooking(data);
         if (response.status == 200) {
             console.log(response.data);
+            toastSuccess('Edit success!')
         }
         else {
-            console.log('ok')
+            toastError('Error')
         }
     }
     const Submit = (data) => {
-        alert('?')
+
         CallEdit({
             Id: dataOld.Id,
             ...data,

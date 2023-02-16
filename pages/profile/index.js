@@ -12,6 +12,7 @@ const cx = classNames.bind(style);
 
 function Profile() {
     const [activeProfile, setActiveProfile] = useState(1);
+    const [reloadBook, setreload] = useState(false);
     // const [currentUser, setCurrentUser] = useState(null);
     const CT = useApppContext();
 
@@ -106,7 +107,7 @@ function Profile() {
                             <ProfileUser data={CT.currentUser} setuser={CT.setCurrentUser} /> :
                             activeProfile === 3 ?
                                 <div>
-                                    {CT.currentUser && <BookingUser user={CT.currentUser.UserName} />}
+                                    {CT.currentUser && <BookingUser user={CT.currentUser.UserName} reload={reloadBook} setreload={setreload} />}
                                 </div> : null
                     }
                 </div>

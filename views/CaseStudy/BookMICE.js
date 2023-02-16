@@ -7,7 +7,7 @@ import axios from 'axios';
 import national from '@/pages/api/national.json';
 import { useApppContext } from '@/pages/_app';
 import qs from 'qs';
-import { toastSuccess } from '@/hook/toastr';
+import { toastSuccess, toastWarning } from '@/hook/toastr';
 import ScrollToTop from '@/hook/scrollToTop';
 
 const cx = classNames.bind(style);
@@ -107,7 +107,7 @@ const BookMICE = ({ close }) => {
 
 
 
-        } else alert('Invaild infor')
+        } else toastWarning('Invaild infor')
 
     };
 

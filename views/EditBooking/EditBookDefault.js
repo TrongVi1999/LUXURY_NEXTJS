@@ -8,10 +8,11 @@ import style from '@/styles/informationBooking.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
 import { EditBooking } from "@/pages/api/CallAPI";
+import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 
-function EditBookDefault({ set, dataOld, toggle }) {
+function EditBookDefault({ dataOld, toggle, reload, setreload }) {
     const {
         register,
         handleSubmit,
@@ -26,10 +27,10 @@ function EditBookDefault({ set, dataOld, toggle }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            console.log(response.data);
+            toastSuccess('Edit Success!')
         }
         else {
-            console.log('ok')
+            toastError('Error')
         }
     }
     const Submit = (data) => {
@@ -38,6 +39,7 @@ function EditBookDefault({ set, dataOld, toggle }) {
             ...data,
             ...dataSelect
         })
+        setreload(!reload);
     }
 
 
