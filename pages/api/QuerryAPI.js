@@ -193,13 +193,20 @@ export const GetComment = (id, load) => {
     });
 };
 
-// //thêm comment
-// export const  = () => {
-//     return useQuery(['tourhot'], async () => {
-//         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/Hottour`);
-//         return response.data;
-//     });
-// };
+//Login
+export const Login = (username, password) => {
+    return useQuery(['login', username, password], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/LoginXpedia`,
+            qs.stringify({
+                UserName: username,
+                Password: password,
+            })
+        );
+        return response.data.Object;
+    },
+        { enabled: false }
+    );
+};
 
 // //
 // export const Tourhot = () => {
