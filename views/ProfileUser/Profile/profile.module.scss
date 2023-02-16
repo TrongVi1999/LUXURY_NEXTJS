@@ -1,8 +1,8 @@
 .wrapper {
     width: 100%;
-    padding-top: 5rem;  
+    padding-top: 5rem;
     // display: flex;
-    .btn{
+    .btn {
         background-color: var(--button);
         width: 150px;
         height: 50px;
@@ -18,43 +18,41 @@
         text-transform: capitalize;
         margin-bottom: 3rem;
 
-        svg{
+        svg {
             margin-left: 30px;
         }
-        svg:hover{
+        svg:hover {
             color: var(--button);
         }
     }
-    .radio{
-        padding:5px 0;
-        p{
+    .radio {
+        padding: 5px 0;
+        p {
             padding: 1.5rem 0;
         }
-        div{
+        div {
             padding: 0;
-            input{
+            input {
                 margin-right: 50px;
                 margin-left: 20px;
             }
         }
     }
 
-    div{
+    div {
         display: flex;
         align-items: center;
         font-size: 14px;
         padding: 2rem 0;
 
-        h3{
+        h3 {
             width: 20%;
-
         }
-        p{
-            width:50%;
+        p {
+            width: 50%;
             font-weight: bold;
-
         }
-        input{
+        input {
             width: 100%;
             height: 4rem;
             background-color: transparent;
@@ -68,37 +66,37 @@
             resize: none;
             justify-content: left !important;
         }
-        textarea{
+        textarea {
             width: 100%;
+            border: 0.1rem solid var(--light);
+            border-radius: 0.5rem;
+            padding: 1rem;
         }
     }
-   
-    hr{
+
+    hr {
         border: solid 1px rgb(221, 216, 216);
         width: 70%;
         // margin-bottom: 10px;
     }
 
-    .about{
+    .about {
         width: 50% !important;
         word-wrap: break-word;
     }
 }
 
-@media only screen and (max-width:480px){
+@media only screen and (max-width: 480px) {
+    .wrapper {
+        div {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding: 2rem 0;
 
-
-
-    .wrapper{
-
-    div{
-        display: flex;  
-        align-items: center;
-        font-size: 14px;
-        padding: 2rem 0;
-
-        h3{
-            width: 35% !important;
-
+            h3 {
+                width: 35% !important;
+            }
         }
-}}}
+    }
+}

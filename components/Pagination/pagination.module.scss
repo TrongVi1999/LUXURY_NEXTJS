@@ -36,6 +36,7 @@
         text-align: center;
         cursor: pointer;
         color: var(--white);
+        padding: 4px;
 
         &:hover {
             background-color: var(--buttonPagination-active);
@@ -46,5 +47,6 @@
     .button.active {
         background-color: var(--buttonPagination-active);
         color: var(--black);
+        padding: 4px;
     }
 }

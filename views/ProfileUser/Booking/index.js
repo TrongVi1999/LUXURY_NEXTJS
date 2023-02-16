@@ -8,10 +8,12 @@ import { banners } from "@/public/images";
 import ItemBookingUser from "./item";
 import { Pagination } from "@/components";
 import axios from "axios";
+import EditBookDefault from "@/views/EditBooking/EditBookDefault";
+import EditBookMice from "@/views/EditBooking/EditBookMice";
+import EditBookTransfer from "@/views/EditBooking/EditBookTransfer";
+import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 
 const cx = classNames.bind(style);
-
-
 
 // useEffect(() => {
 //     let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
@@ -93,15 +95,15 @@ const cx = classNames.bind(style);
 function BookingUser({ user }) {
     // const [currentUser, setCurrentUser] = useState(null);
     const [Bookdata, setBookdata] = useState([]);
-    const [page, setPage] = useState(1)
-    const [tourData, setTourdata] = useState([])
+    const [page, setPage] = useState(1);
+    const [showEdit, setShowEdit] = useState(false);
+
+    const [data, setData] = useState();
 
     const lastIndex = page * 6;
     const firstIndex = lastIndex - 6;
 
-
     const CallApi = async () => {
-
 
         const response = await axios({
             method: 'post',
@@ -143,21 +145,23 @@ function BookingUser({ user }) {
         <>
             <h1 className={cx('title')}>booking list</h1>
             {Bookdata &&
-                Bookdata.slice(firstIndex, lastIndex).map((item, index) => (
+                Bookdata.slice(firstIndex, lastIndex).map((item, index, d) => (
 
                     <ItemBookingUser key={index}
                         img={banners.banner2}
-                        titleTour={item.TourName}
-                        id={item.Id}
-                        place={'Da Nang, Viet Nam'}
-                        time={item.StartDate}
-                        type={'Luxury Tour'}
-                        status={item.Status} />
-
+                        data={item}
+                        toggle={setShowEdit}
+                        setData={setData}
+                    />
                 ))
             }
         </>
         <Pagination totalPosts={Bookdata.length} postPerPage={6} setPage={setPage} pageIndex={page} />
+
+        {showEdit && data.Type == "TOUR" && <EditBookDefault dataOld={data} toggle={setShowEdit} />}
+        {showEdit && data.Type == "MICE" && <EditBookMice dataOld={data} toggle={setShowEdit} />}
+        {showEdit && data.Type == "TRANSFER" && <EditBookTransfer dataOld={data} toggle={setShowEdit} />}
+        {showEdit && data.Type == "HOTEL" && <EditBookHotel dataOld={data} toggle={setShowEdit} />}
 
     </div>);
 }
