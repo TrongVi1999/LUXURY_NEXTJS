@@ -9,6 +9,7 @@ import national from '@/pages/api/national.json';
 import Link from "next/link";
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { EditBooking } from "@/pages/api/CallAPI";
+import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 
@@ -97,7 +98,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     <option key={d.code} value={d.code}>{d.name}</option>
                                 ))}
                             </select>
-                            {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>}
+
                         </div>
                     </div>
                     <div className={cx("item-form")}>

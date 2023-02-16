@@ -208,25 +208,17 @@ export const Login = (username, password) => {
     },
         { enabled: false })
 }
-//edit booking default Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status
-// export const EditBookingDefault = (data) => {
-//     return useQuery(['editbooking', data],
-//         async () => {
-//             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify(data
-//             ),
-//                 {
-//                     headers: {
-//                         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-//                     },
-//                 }
-//             );
-//             console.log('data', data);
-//             console.log('resonse', response)
-//             return response.data;
-//         }
 
-//     );
-// };
+//list booking
+export const Getbookinglist = (user, load) => {
+    return useQuery(['listbook', user, load], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/BookingTable?Username=${user}`);
+        return response.data.Object;
+    });
+};
+
+
+
 export function EditBookingDefault(data) {
     return useMutation(
         async () => {

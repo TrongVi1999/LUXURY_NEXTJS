@@ -8,10 +8,11 @@ import style from '@/styles/Contact.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai'
 import ScrollToTop from "@/hook/scrollToTop";
 import { EditBooking } from "@/pages/api/CallAPI";
+import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 
-function EditBookTransfer({ dataOld, toggle }) {
+function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
 
     const {
         watch,
@@ -28,10 +29,10 @@ function EditBookTransfer({ dataOld, toggle }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            console.log(response.data);
+            toastSuccess('Edit Success!')
         }
         else {
-            console.log('ok')
+            toastError('Error')
         }
     }
     const Submit = (data) => {
@@ -40,6 +41,7 @@ function EditBookTransfer({ dataOld, toggle }) {
             ...data,
             ...dataSelect
         })
+        setreload(!reload);
     }
 
 
@@ -68,10 +70,10 @@ function EditBookTransfer({ dataOld, toggle }) {
                 </div>
                 <hr className={cx("line")}></hr>
                 <div className={cx("content-mid")}>
-                    <div className={cx("header-form")}>
+                    {/* <div className={cx("header-form")}>
                         <span className={cx("title-form")}>CONTACT US</span>
                         <p className={cx("intro-form")}>SEND US A MESSAGE</p>
-                    </div>
+                    </div> */}
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
@@ -244,18 +246,15 @@ function EditBookTransfer({ dataOld, toggle }) {
                             <textarea
                                 placeholder={dataOld.Note}
                                 className={cx("book-note")}
+                                onChange={(e => setDataSelect({ ...dataSelect, Note: e.target.value }))}></textarea>
 
-                                {...register('Note')}
-                            ></textarea>
-                            {errors.Note && errors.Note.type === 'required' && (
-                                <span className={cx("error-message")}>Note cannot be empty !</span>
-                            )}
+
                         </div>
                     </div>
 
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >Send Message</button>
+                    <button className={cx("btn")} >SUBMIT</button>
                 </div>
             </form>
         </div>
