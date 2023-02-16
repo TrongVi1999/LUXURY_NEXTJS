@@ -16,7 +16,7 @@ const Banner = ({ image, className, title, description }) => {
                 // height={40}
                 priority
             /> */}
-            <img src={image.default.src} alt="bannerError" className={cx('banner', { [className]: className })} />
+            <img src={image.default.src} alt="banner" className={cx('banner', { [className]: className })} />
         </>
     );
 };

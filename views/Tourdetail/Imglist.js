@@ -14,8 +14,8 @@ const Imglist = ({ data, issv }) => {
                 height='2000' />
             <div className={cx('list-right')}>
                 {issv ? <img src={data[1]} alt='img vnxpedia tour' className={cx('img2')} /> : <Image src={data[1]} alt='img vnxpedia tour' className={cx('img2')} />}
-                {issv ? <img src={data[1]} alt='img vnxpedia tour' className={cx('img2')} /> : <Image src={data[2]} alt='img vnxpedia tour' className={cx('img2')} />}
-                {issv ? <img src={data[1]} alt='img vnxpedia tour' className={cx('img2')} /> : <Image src={data[3]} alt='img vnxpedia tour' className={cx('img2')} />}
+                {issv ? <img src={data[2]} alt='img vnxpedia tour' className={cx('img2')} /> : <Image src={data[2]} alt='img vnxpedia tour' className={cx('img2')} />}
+                {issv ? <img src={data[3]} alt='img vnxpedia tour' className={cx('img2')} /> : <Image src={data[3]} alt='img vnxpedia tour' className={cx('img2')} />}
             </div>
         </div>
     )

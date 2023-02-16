@@ -9,7 +9,7 @@ const cx = classNames.bind(style);
 const Introduce2 = () => {
     return (
         <div className={cx('container')}>
-            <Image src={gt2} className={cx('img')} />
+            <Image src={gt2} className={cx('img')} alt='img-Introduce' />
 
             <div className={cx('h2')}>
                 <h2> WE OFFER LUXURY PRIVATE TOURS TO SOUTHREAST ASIA</h2>
@@ -22,7 +22,7 @@ const Introduce2 = () => {
                     travel to, our local professional team is always by your side & take care of your trip from start to
                     end to make your tour incredible & unforgettable experiences...
                 </p>
-                
+
             </div>
         </div>
     );

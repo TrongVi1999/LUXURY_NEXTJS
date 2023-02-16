@@ -28,6 +28,7 @@
     .menubody {
         font-size: 1.4rem;
         display: flex;
+
         // text-shadow: var(--menu-text) 0.1rem 0 0.8rem;
         .item {
             position: relative;
@@ -94,21 +95,29 @@
             margin-left: 2rem;
             padding: 1.2rem 0.7rem;
             background-image: var(--linear-gradient-btn);
+
+            span{
+                white-space: break-spaces;
+            }
         }
     }
 }
+
 .item-user {
     position: relative;
+
     .menuHover {
         left: 0;
         display: none;
     }
 }
+
 .item-user:hover {
     .menuHover {
         display: block;
     }
 }
+
 .menuHover {
     position: absolute;
     width: 15rem;
@@ -133,6 +142,7 @@
 
     .itemIsChildren {
         position: relative;
+
         .icon {
             position: absolute;
             right: 1rem;
@@ -145,6 +155,7 @@
     .itemMenuHover:hover {
         color: var(--primary);
     }
+
     // &::after {
     //     position: absolute;
     //     content: '';
@@ -175,6 +186,7 @@
         align-items: center;
         padding: 1rem;
         border-top: 0.2rem solid var(--black2);
+
         .back-btn {
             text-align: center;
             display: flex;
@@ -189,6 +201,7 @@
         }
     }
 }
+
 .sl-trans {
     top: 50px;
     position: absolute;
@@ -214,6 +227,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 868px) {
     .itemRight .icon.active {
         color: var(--primary);
@@ -247,6 +261,7 @@
 
         .item:hover {
             color: var(--primary);
+
             &::before {
                 width: 0% !important;
                 transition: var(--transition-delay);

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import qs from 'qs';
+import { useState } from 'react';
 
 
 
@@ -77,7 +78,7 @@ export const GetAllCountry = () => {
 };
 
 //list blog
-export const Allblog = (tag, page) => {
+export const GetAllblog = (tag, page) => {
     return useQuery(['bloglist', tag, page], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=${tag}&CurrentPage=${page}`);
         return response.data;
@@ -102,10 +103,18 @@ export const GetTourLocation = (location) => {
 
 //thêm comment
 export const InsertComment = (id, reply, username, comment) => {
+
+
     return useQuery(['insertcomment', id, reply, username, comment], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/InsertCommentOnPost?PostId=${id}&ParentId=${reply}&UserName=${username}&Comment=${comment}`);
         return response.data;
-    });
+    },
+        {
+            enabled: false,
+        }
+    );
+
+
 };
 
 //lấy blog hot
@@ -126,7 +135,7 @@ export const Searchtour = (key) => {
 
 //search blog keyword
 export const Searchblog = (key) => {
-    return useQuery(['searchblog', key], async () => {
+    return useQuery(['searchblog'], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/SearchListPost?searchkey=${key}&CurrentPage=1`);
         return response.data;
     });
@@ -173,8 +182,8 @@ export const GetAllDes = () => {
 };
 
 //list comment
-export const GetComment = (id) => {
-    return useQuery(['listcomment', id], async () => {
+export const GetComment = (id, load) => {
+    return useQuery(['listcomment', id, load], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListComment?postid=${id}`);
         return response.data;
     });

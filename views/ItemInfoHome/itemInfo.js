@@ -13,7 +13,7 @@ function ItemInfo({ data, id }) {
     return (
         <div className={clases}>
             <div className={cx('boxTitle')}>
-                <Image src={data.icon} alt="bannerError" className={cx('icon')} />
+                <Image src={data.icon} alt="banner" className={cx('icon')} />
 
 
 

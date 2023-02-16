@@ -3,39 +3,42 @@ import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
 import { Title } from '@/components';
 import { Comment, GetComment } from '@/pages/api/CallAPI';
+import { InsertComment } from '@/pages/api/QuerryAPI';
+import { useMutation } from '@tanstack/react-query';
+import { useApppContext } from '@/pages/_app';
 
 const cx = classNames.bind(style);
 
 
-const WriteComment = ({ id, prid, setloadcm, loadcm, repname, setrepid }) => {
+const WriteComment = ({ id, prid, loadcm, repname, setrepid, refet }) => {
     const [input, setinput] = useState('');
-    const [currentUser, setCurrentUser] = useState(null);
 
-    const CallAPI = async () => {
-        const response = await Comment(id, input, currentUser.FullName, prid);
-        if (response.status == 200) {
-            setloadcm(!loadcm);
+    const [shouldFetch, setShouldFetch] = useState(false);
+    const CT = useApppContext();
 
-        }
-        console.log(response)
-    }
+    // const CallAPI = async () => {
+    //     const response = await Comment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
+    //     if (response.status == 200) {
+    //         setloadcm();
+
+    //     }
+
+    // }
+    const CreateComment = InsertComment(id, prid, CT.currentUser ? CT.currentUser.FullName : 'NoName', prid ? `@${repname} ` + input : input)
+
 
     const handleComment = () => {
         if (input != '') {
-            CallAPI();
+            setShouldFetch(true);
+            refet(!loadcm);
+            CreateComment.refetch();
+            // CallAPI();
+            // const CreateComment = InsertComment(id, prid ? `@${repname} ` + input : input, currentUser.FullName, prid);
             setinput('');
-            setrepid();
+            setrepid(null);
         }
     }
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
 
-    }, [])
 
     return (
         <div className={cx('write-cm')}>

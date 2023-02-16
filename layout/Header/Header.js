@@ -18,7 +18,8 @@ import { FiUserCheck } from 'react-icons/fi';
 import { MdGTranslate } from 'react-icons/md';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { ToastContainer } from 'react-toastify';
-import Img1 from '@/public/icon/Layer15.png'
+import Img1 from '@/public/icon/Layer15.png';
+import { useApppContext } from '@/pages/_app';
 
 
 const cx = classNames.bind(style);
@@ -41,15 +42,17 @@ const Header = () => {
     const [signup, setsignup] = useState(false);
     const [login, setlogin] = useState(false)
     const [translate, settranslate] = useState('none');
-    const [currentUser, setCurrentUser] = useState(null);
+    // const [currentUser, setCurrentUser] = useState(null);
     const { asPath } = useRouter();
     const router = useRouter();
+    const [closeUser, setCloseUser] = useState(false)
     const origin =
         typeof window !== 'undefined' && window.location.origin
             ? window.location.origin
             : '';
 
     const URL = `${origin}${asPath}`;
+    const CT = useApppContext();
 
     const handelShowMenu = () => {
         setShowMenu(!showMenu);
@@ -60,7 +63,7 @@ const Header = () => {
     }
     const handleLogout = () => {
         localStorage.removeItem('VNXUser');
-        setCurrentUser(null);
+        CT.setCurrentUser(null);
         { asPath == '/profile' && router.push('/') }
 
 
@@ -85,26 +88,20 @@ const Header = () => {
             window.removeEventListener('scroll', handelScroll);
         };
     }, [showMenu]);
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [URL])
+
+    console.log('ct', CT.currentUser);
 
     return (
         <div className={cx(`header`)} id={bgheader}>
             <div className={cx(`wrapper`)}>
                 <Link href={'/'}>
-                    <Image src={images.LOGO} alt={'errorLogo'} priority className={cx('logo')} />
+                    <Image src={images.LOGO} alt={'Logo'} priority className={cx('logo')} />
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} close={closeMenuMobile} />
                 <div className={cx('itemRight')}>
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
-                            <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} />
+                            <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} alt='icon-language' />
                             {/* <MdGTranslate className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} /> */}
                             <div className={cx('sl-trans')} style={{ display: translate }}>
                                 <div id="google_translate_element" ></div>
@@ -115,19 +112,20 @@ const Header = () => {
                         <OutsideClickHandler onOutsideClick={() => {
                             setlogin(false);
                         }}>
-                            {currentUser ?
+                            {CT.currentUser ?
 
-                                <div className={cx('item-user')}>
+                                <div className={cx('item-user')} onMouseEnter={() => setCloseUser(true)}
+                                    onMouseLeave={() => setCloseUser(false)}>
                                     <FiUserCheck className={cx('icon')} />
-                                    <div className={cx('menuHover')} >
-                                        <Link href='/profile' className={cx('itemMenuHover')}>Profile</Link>
+                                    {closeUser && <div className={cx('menuHover')} >
+                                        <Link href='/profile' className={cx('itemMenuHover')} onClick={() => setCloseUser(false)}>Profile</Link>
                                         <h4 className={cx('itemMenuHover')} onClick={() => handleLogout()}>Logout</h4>
-                                    </div>
+                                    </div>}
 
                                 </div>
                                 : <AiOutlineUser className={cx('icon', { active: showUser })} onClick={() => login ? setlogin(false) : setlogin(true)} />}
 
-                            {login && <div className={cx('login')}>< Login Click={setsignup} setuser={setCurrentUser} close={setlogin} /> </div>}
+                            {login && <div className={cx('login')}>< Login Click={setsignup} setuser={CT.setCurrentUser} close={setlogin} /> </div>}
 
                         </OutsideClickHandler>
                     </div>
@@ -141,8 +139,8 @@ const Header = () => {
 
                     <div className={cx('button-call')} >
                         <Button className={cx('button')}>Call US +84-90-159-1111</Button>
-                        <span>OR</span>
-                        <Button className={cx('button')}>Request a quote</Button>
+                        {/* <span>OR</span>
+                        <Button className={cx('button')}>Request a quote</Button> */}
                     </div>
 
                 </div>

@@ -18,6 +18,16 @@
     background-color: #f4f4f4;
     width: 100%;
     padding-bottom: 60px;
+
+}
+
+.back {
+    //color: red;
+    width: 70%;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .book-crumb {
@@ -276,6 +286,8 @@
 }
 
 @media only screen and (min-width: 1185px) and (max-width: 1350px) {
+
+    .back,
     .book-crumb,
     .book-content,
     .content-mid {
@@ -287,7 +299,10 @@
     }
 }
 
+
 @media only screen and (min-width: 1001px) and (max-width: 1184px) {
+
+    .back,
     .book-crumb,
     .book-content,
     .content-mid {
@@ -304,6 +319,8 @@
 }
 
 @media only screen and (min-width: 851px) and (max-width: 1001px) {
+
+    .back,
     .book-crumb,
     .book-content,
     .content-mid {
@@ -325,6 +342,7 @@
         margin-right: 2%;
     }
 
+    .back,
     .book-crumb,
     .book-content {
         width: 91%;
@@ -366,6 +384,7 @@
         width: 85%;
     }
 
+    .back,
     .book-crumb,
     .book-content {
         width: 91%;
@@ -420,42 +439,52 @@
     padding: 20px 0;
     text-align: center;
 }
+
 .h6-header {
     font-size: 18px !important;
     margin: 3vw 0;
+
     span {
         color: #ffc600;
         font-size: 14px !important;
         margin-left: 20px;
     }
 }
+
 .list-location {
     width: 100% !important;
     display: flex;
     flex-wrap: wrap;
     margin: 20px 0;
+
     .location-item {
         width: 25%;
         margin: 10px 0;
         min-width: 120px;
+
         label {
             font-weight: normal !important;
         }
     }
 }
+
 .item-column {
     flex-direction: column;
 }
+
 .group-item {
     display: flex;
     justify-content: space-between;
+
     .item-form {
         width: 30%;
         display: flex;
         flex-direction: column;
+
         label {
             width: 100%;
         }
+
         div {
             width: 100%;
             margin-top: 20px;

@@ -61,7 +61,7 @@ function ForgetPass() {
 
             <div className={cx('sign-up')}>
                 <form className={cx('form-signup')} id="form-1">
-                    <Image src={logo} />
+                    <Image src={logo} alt='logo' />
                     <h3 className={cx('heading')}>Reset Password</h3>
                     <div className={cx('form-group')}>
                         <label className={cx('label-form')}>Email</label>

@@ -8,8 +8,7 @@ import { useRouter } from "next/router";
 import Hotelcard from '@/views/HotelCard/Hotelcard';
 import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
 import style from '@/styles/luxuryhotel.module.scss';
-import { ListHotel } from '../api/CallAPI';
-
+import { ListHotel } from '../api/QuerryAPI';
 
 const cx = classNames.bind(style);
 
@@ -20,16 +19,7 @@ const index = () => {
     const [Data, setdata] = useState([]);
     const [page, setPage] = useState(1);
 
-    const CallAPI = async () => {
-        const response = await (ListHotel(page, router.query.id));
-        if (response.status == 200) {
-            setdata(response.data.Object);
-        }
-    }
-
-    useEffect(() => {
-        CallAPI();
-    }, [page, router.query.id]);
+    const hotelList = ListHotel();
 
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;

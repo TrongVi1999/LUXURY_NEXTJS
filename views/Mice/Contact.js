@@ -2,13 +2,9 @@ import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
 import { useForm } from "react-hook-form";
-import ReCAPTCHA from 'react-google-recaptcha'
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import national from '@/pages/api/national.json';
-
-import $, { data } from 'jquery';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
 import ScrollToTop from '@/hook/scrollToTop';
@@ -80,7 +76,7 @@ function Booking({ click }) {
                     "application/x-www-form-urlencoded;charset=utf-8",
             },
         });
-        console.log(response);
+
     };
 
 
@@ -117,20 +113,7 @@ function Booking({ click }) {
                 <p onClick={() => click(false)}>Back</p></div>
 
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
-                {/* <div className={cx("content-header")}>
-                    <p className={cx("service-name")}>
-                        Service Name:&nbsp;
-                        <span className={cx("service-name-content")}>
-                            Amanoi Resort
-                        </span>
-                    </p>
-                    <p className={cx("tour-country")}>
-                        Country:&nbsp;
-                        <span className={cx("tour-country-content")}>
-                            VIET NAM
-                        </span>
-                    </p>
-                </div> */}
+
                 <hr className={cx("line")}></hr>
                 <div className={cx("content-mid")}>
                     <div className={cx("header-form")}>

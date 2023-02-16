@@ -15,7 +15,7 @@ function DiffItem({ img, title, des, isLeft }) {
             <p className={cx('des')}>{des}</p>
         </div>
         <div className={cx('boxImg')}>
-            <Image src={img} alt='DiffImgerror' className={cx('img')} />
+            <Image src={img} alt='DiffImg' className={cx('img')} />
         </div>
     </div>);
 }

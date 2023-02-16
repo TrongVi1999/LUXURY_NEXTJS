@@ -9,7 +9,7 @@ function Item({ avatar, name, position }) {
     return (<div className={cx('wrapperItem')}>
 
         <div className={cx('avatar')}>
-            <Image src={avatar || IMG} alt='avatarError' className={cx('img')} />
+            <Image src={avatar || IMG} alt='avatar' className={cx('img')} />
         </div>
         <h3 className={cx('name')}>{name}</h3>
         <p className={cx('position')}>{position}</p>

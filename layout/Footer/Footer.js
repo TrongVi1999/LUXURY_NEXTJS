@@ -88,7 +88,7 @@ function Footer() {
 
                                     <Link href='/responsible'>Responsible Travel</Link>
                                     <Link href='/payment/conditions'>Terms & Conditions</Link>
-                                    <Link href='/payment/Deposit & Payment'>Deposit & Payment</Link>
+                                    <Link href='/payment/Deposit&Payment'>Deposit & Payment</Link>
                                     <Link href='/payment/policy'>Cancellation Policy</Link>
                                 </div>
                             </div>
