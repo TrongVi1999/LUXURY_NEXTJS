@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios';
 import qs from 'qs';
 import { useState } from 'react';
+import { toastError, toastSuccess } from '@/components/Toast';
 
 
 
@@ -189,11 +190,12 @@ export const GetComment = (id, load) => {
     });
 };
 
-// //edit booking default
-export const EditBookingDefault = (Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status) => {
+//edit booking default
+export const EditBookingDefault = (Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status) => {
     return useQuery(['editbooking'],
         async () => {
             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
                 Country: (Country ? Country : ''),
                 StartDate: (StartDate ? StartDate : ''),
                 FullName: (FullName ? FullName : ''),
@@ -215,11 +217,12 @@ export const EditBookingDefault = (Country, StartDate, FullName, Adult, Children
     );
 };
 
-// //edit booking MICE
-export const EditBookingMice = (Country, EventName, Lenght, Company, StartDate, FullName, Adult, Perpose, Destination, Require, Email, Phone, Note, Subcrible, Status) => {
+//edit booking MICE
+export const EditBookingMice = (Id, Country, EventName, Lenght, Company, StartDate, FullName, Adult, Perpose, Destination, Require, Email, Phone, Note, Subcrible, Status) => {
     return useQuery(['editbooking'],
         async () => {
             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
                 Country: (Country ? Country : ''),
                 EventName: (EventName ? EventName : ''),
                 StartDate: (StartDate ? StartDate : ''),
@@ -244,11 +247,12 @@ export const EditBookingMice = (Country, EventName, Lenght, Company, StartDate, 
     );
 };
 
-// //edit booking transfer
-export const EditBookingTransfer = (Country, StartDate, FullName, Adult, Babycarseat, Children, Status, Email, Phone, Note, DropOff, PickUp) => {
+//edit booking transfer
+export const EditBookingTransfer = (Id, Country, StartDate, FullName, Adult, Babycarseat, Children, Status, Email, Phone, Note, DropOff, PickUp) => {
     return useQuery(['editbooking'],
         async () => {
             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
                 Country: (Country ? Country : ''),
                 Adult: (Adult ? Adult : ''),
                 FullName: (FullName ? FullName : ''),
@@ -270,11 +274,12 @@ export const EditBookingTransfer = (Country, StartDate, FullName, Adult, Babycar
     );
 };
 
-// //edit booking hotel
-export const EditBookingHotel = (Country, FullName, Adult, Email, Phone, Note, CheckIn, CheckOut) => {
+//edit booking hotel
+export const EditBookingHotel = (Id, Country, FullName, Adult, Email, Phone, Note, CheckIn, CheckOut) => {
     return useQuery(['editbooking'],
         async () => {
             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify({
+                Id,
                 Country: (Country ? Country : ''),
                 Adult: (Adult ? Adult : ''),
                 FullName: (FullName ? FullName : ''),
@@ -295,3 +300,25 @@ export const EditBookingHotel = (Country, FullName, Adult, Email, Phone, Note, C
 };
 
 
+//edit user infor
+
+export const EditUserInfor = (Newinfor) => {
+    return useQuery(['edituserinfor'],
+        async () => {
+            const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo`, qs.stringify
+                (Newinfor),
+            );
+            if (response.data.Error === true) {
+                toastError('Error!');
+            } else {
+                toastSuccess('Successfully changed information.');
+                localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+                setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
+            }
+            return response.data;
+        },
+        {
+            enabled: false,
+        }
+    );
+};

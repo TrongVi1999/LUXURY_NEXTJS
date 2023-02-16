@@ -11,6 +11,7 @@ import style from '@/styles/informationBooking.module.scss';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
 import Country from "../Country/Country";
+import Loading from "@/components/Loading";
 
 const cx = classNames.bind(style);
 
@@ -28,12 +29,15 @@ function EditBookDefault({ set, dataOld, toggle }) {
         formState: { errors },
     } = useForm();
 
+    //Call API edit booking tour
+
     const Edit = EditBookingDefault();
 
     const [dataSelect, setDataSelect] = useState({ Hotel: 'Hotel', Country: 'Country', Note: 'Note' });
 
     const Submit = (data) => {
         Edit.refetch(
+            dataOld.Id,
             dataSelect.Country ? dataSelect.Country : dataOld.Country,
             data.StartDate ? data.StartDate : dataOld.StartDate,
             data.FullName ? data.FullName : dataOld.FullName,
@@ -47,17 +51,17 @@ function EditBookDefault({ set, dataOld, toggle }) {
             dataSelect.Note ? dataSelect.Note : dataOld.Note,
         );
         console.log("test:", data)
-        console.log("hi:", dataSelect)
-        alert('test');
+        console.log("hi:", dataSelect);
     };
 
-    if (hotelData.isLoading) {
-        return;
-    }
+    // if (Edit.isLoading) {
+    //     return <p>Success: Success</p>;
+    // }
 
-    if (hotelData.error) {
-        return <p>Error: {error.message}</p>;
-    }
+    // if (Edit.error) {
+    //     return
+    //     <p>Error: Error</p>;
+    // }
 
     return (
         <div className={cx("book-edit")}>
@@ -116,15 +120,11 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 max="100"
                                 {...register('Adult')}
                             />
-                            {/* {errors.Adult && errors.Adult.type === 'required' && (
-                                <span className={cx("error-message")}>Adult cannot be empty !</span>
-                            )} */}
                             <input
                                 type="text"
                                 placeholder={dataOld.Children}
                                 className={cx("book-age")}
                                 min="0"
-
                                 {...register('Children')}
                             />
                             <input
@@ -132,7 +132,6 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 placeholder={dataOld.Children2}
                                 className={cx("book-age")}
                                 min="0"
-
                                 {...register('Children1')}
                             />
                             <input
@@ -140,7 +139,6 @@ function EditBookDefault({ set, dataOld, toggle }) {
                                 placeholder={dataOld.Children1}
                                 className={cx("book-age")}
                                 min="0"
-
                                 {...register('Children2')}
                             />
                         </div>
@@ -149,10 +147,6 @@ function EditBookDefault({ set, dataOld, toggle }) {
                         <label className={cx("label-booking")}>
                             Hotel categories you desire to stay?
                         </label>
-                        {/* <input
-                        type="select"
-                        className={cx("book-hotel")}
-                    /> */}
                         <div>
                             <select name='ourServices' className={cx("our-services")}
                                 onChange={(e) => setDataSelect({ ...dataSelect, Hotel: e.target.value })}

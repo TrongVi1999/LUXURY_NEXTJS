@@ -14,12 +14,8 @@ const cx = classNames.bind(style);
 
 function EditBookHotel({ dataOld, set, toggle }) {
 
-    const [ipAddress, setIpAddress] = useState('');
-    const [currentUser, setCurrentUser] = useState(null);
     const [Select, setselect] = useState();
-    const [Typeroom, settyperoom] = useState();
     const [errsl, seterrsl] = useState(false);
-    const [texta, setTexta] = useState();
 
     const {
         watch,
@@ -35,12 +31,15 @@ function EditBookHotel({ dataOld, set, toggle }) {
         return email === email2 || 'Email not match';
     };
 
+    //Call API edit booking Hotel
+
     const Edit = EditBookingHotel();
 
-    const [dataSelect, setDataSelect] = useState({ Country: 'Country', TypeRoom: 'TypeRoom', Note: 'Note'});
+    const [dataSelect, setDataSelect] = useState({ Country: 'Country', TypeRoom: 'TypeRoom', Note: 'Note' });
 
     const Submit = (data) => {
         Edit.refetch(
+            dataOld.Id,
             dataSelect.Country ? dataSelect.Country : dataOld.Country,
             data.Adult ? data.Adult : dataOld.Adult,
             data.FullName ? data.FullName : dataOld.FullName,
@@ -55,7 +54,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
         );
         console.log("test:", data)
         console.log("hi:", dataSelect)
-        alert('test');
     };
 
     return (
@@ -221,7 +219,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                         <input
                                             type="number"
                                             name="date"
-                                            placeholder={dataOld.PersonsAttendtion}
+                                            placeholder={dataOld.Adult}
                                             className={cx("persons-attendtion")}
                                             {...register('PersonsAttendtion', { required: true })}
                                         />

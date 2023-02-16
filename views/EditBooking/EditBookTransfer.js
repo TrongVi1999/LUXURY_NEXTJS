@@ -21,18 +21,14 @@ function EditBookTransfer({ dataOld, toggle }) {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const [ipAddress, setIpAddress] = useState('');
-    const [currentUser, setCurrentUser] = useState(null);
-    const [Country, setcountry] = useState();
-    const [Baby, setBaby] = useState()
-    const [errsl, seterrsl] = useState(false);
     const email = watch('Email');
     const email2 = watch('Email2');
-    const selectedValue = watch('Babycartseat');
 
     const validateEmailMatch = () => {
         return email === email2 || 'Email not match';
     };
+
+    //Call API edit booking Transfer
 
     const Edit = EditBookingTransfer();
 
@@ -40,6 +36,7 @@ function EditBookTransfer({ dataOld, toggle }) {
 
     const Submit = (data) => {
         Edit.refetch(
+            dataOld.Id,
             dataSelect.Country ? dataSelect.Country : dataOld.Country,
             data.Adult ? data.Adult : dataOld.Adult,
             data.FullName ? data.FullName : dataOld.FullName,
@@ -55,7 +52,6 @@ function EditBookTransfer({ dataOld, toggle }) {
         );
         console.log("test:", data)
         console.log("hi:", dataSelect)
-        alert('test');
     };
 
     return (
@@ -213,16 +209,11 @@ function EditBookTransfer({ dataOld, toggle }) {
                         </label>
                         <div>
                             <select name='Babycartseat' className={cx("our-services")}
-                                //  ref={register({ required: true })}
                                 onChange={(e) => setDataSelect({ ...dataSelect, Babycarseat: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="Yes" label="Yes">Yes</option>
                                 <option value="No" label="No">No</option>
                             </select>
-                            {/* {errsl && <span className={cx("error-message")}> Baby car seat: cannot be empty !</span>} */}
-                            {/* {errors.Babycartseat && errors.Babycartseat.type === 'required' && (
-                            <span className={cx("error-message")}>Babycart seat cannot be empty !</span>
-                        )} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>

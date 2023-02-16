@@ -17,15 +17,6 @@ const ListLocation =
 
 function EditBookMice({ dataOld, toggle }) {
 
-    const [currentUser, setCurrentUser] = useState(null);
-    const [Select, setselect] = useState();
-    const [Select1, setselect1] = useState();
-    const [Select3, setselect3] = useState();
-    const [Select4, setselect4] = useState();
-    const [errsl, seterrsl] = useState(false);
-    const [listdes, setlist] = useState([]);
-    const [textarea, settextarea] = useState()
-
     const {
         watch,
         register,
@@ -39,12 +30,15 @@ function EditBookMice({ dataOld, toggle }) {
         return email === email2 || 'Email not match';
     };
 
+    //Call API edit booking Mice
+
     const Edit = EditBookingMice();
 
     const [dataSelect, setDataSelect] = useState({ Country: 'Country', Perpose: 'Perpose', Require: 'Require', Note: 'Note', Subcrible: 'Subcrible' });
 
     const Submit = (data) => {
         Edit.refetch(
+            dataOld.Id,
             dataSelect.Country ? dataSelect.Country : dataOld.Country,
             data.EventName ? data.EventName : dataOld.EventName,
             data.StartDate ? data.StartDate : dataOld.StartDate,
@@ -62,7 +56,6 @@ function EditBookMice({ dataOld, toggle }) {
         );
         console.log("test:", data)
         console.log("hi:", dataSelect)
-        alert('test');
     };
 
     return (
@@ -205,7 +198,7 @@ function EditBookMice({ dataOld, toggle }) {
                         <div className={cx("input-enquire")}>
                             <input
                                 type="text"
-                                placeholder={dataOld.event}
+                                placeholder={dataOld.EventName}
                                 className={cx("cus-name")}
                                 {...register('event', { required: true })}
                             />
