@@ -139,7 +139,7 @@ const BookMICE = ({ close }) => {
                 </div>
 
                 <div className={cx("content-mid")}>
-                    <h6 className={cx("h6-header")}>PERSONAL DETAILS    <span>*Mandatory Field</span></h6>
+                    <h6 className={cx("title-header")}>PERSONAL DETAILS    <span>*Mandatory Field</span></h6>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             How should we call you? (*)
@@ -290,7 +290,7 @@ const BookMICE = ({ close }) => {
                         </div>
                     </div>
                     <hr className={cx("line")}></hr>
-                    <h6 className={cx("h6-header")}>EVENT DETAILS</h6>
+                    <h6 className={cx("title-header")}>EVENT DETAILS</h6>
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
@@ -460,7 +460,7 @@ const BookMICE = ({ close }) => {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUBMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>
         </div>

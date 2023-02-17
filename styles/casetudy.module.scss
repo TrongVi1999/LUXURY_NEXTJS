@@ -1,9 +1,11 @@
 .container {
     width: 100%;
 }
+
 .main {
     width: 100%;
 }
+
 .main-infor {
     width: 100%;
     padding: 5% 20%;
@@ -12,13 +14,16 @@
 //hilghlight
 .highlight {
     width: 100%;
+
     .top {
         width: 100%;
         display: flex;
+
         .top-img {
             width: 30% !important;
             height: 28vw;
         }
+
         .top-hl {
             width: 50%;
             flex: 1;
@@ -27,6 +32,7 @@
             p {
                 margin-top: 30px;
                 color: var(--light2);
+
                 svg {
                     margin-right: 5px;
                     color: var(--primary);
@@ -34,6 +40,7 @@
             }
         }
     }
+
     .bot-img {
         margin-top: 30px;
         width: 100%;
@@ -45,14 +52,19 @@
 .in-ex {
     width: 100%;
     padding-top: 40px;
+
+
 }
+
 .main-list {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+
     span {
         width: 30%;
         margin: 10px 0;
+
         svg {
             margin-right: 5px;
         }
@@ -65,13 +77,15 @@
     padding: 10% 0 5% 0;
     margin: 0 auto;
     border-bottom: 1px solid gray;
-    .h6 {
+
+    .text {
         font-weight: bold;
         width: 100%;
         font-size: 18px;
         text-align: center;
     }
-    .btn {
+
+    .btn-book {
         display: block;
         font-size: 24px;
         border-radius: 10px;

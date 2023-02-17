@@ -379,7 +379,7 @@ function Booking({ onClick, datas, title, long }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUMMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>
         </div>

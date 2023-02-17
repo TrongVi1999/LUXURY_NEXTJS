@@ -365,7 +365,7 @@ function Hotelbook({ click, hotel }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
+                    <button className={cx("btn-send")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
                 </div>
             </form>
         </div>

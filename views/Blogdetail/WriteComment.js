@@ -48,7 +48,7 @@ const WriteComment = ({ id, prid, loadcm, repname, setrepid, refet }) => {
             <div className={cx('login-list')}>
                 {/* <span>Login by</span> */}
             </div>
-            <button className={cx('btn')} onClick={() => handleComment()}>ADD COMMENT</button>
+            <button className={cx('btn-add')} onClick={() => handleComment()}>ADD COMMENT</button>
         </div>
     )
 }

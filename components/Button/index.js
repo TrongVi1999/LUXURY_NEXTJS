@@ -4,7 +4,7 @@ import style from './button.module.scss';
 import Link from 'next/link';
 const cx = classNames.bind(style);
 
-function Buttom({
+function Button({
     to,
     href,
     onClick,
@@ -20,7 +20,7 @@ function Buttom({
     large = false,
     ...passProps
 }) {
-    let Comp = 'buttom';
+    let Comp = 'button';
 
     const props = {
         onClick,
@@ -63,4 +63,4 @@ function Buttom({
     );
 }
 
-export default Buttom;
+export default Button;

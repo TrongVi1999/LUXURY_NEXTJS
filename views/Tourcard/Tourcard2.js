@@ -35,9 +35,9 @@ const Tourcard2 = ({ data }) => {
                 <p className={cx('length')}>
                     <BsCalendarWeek /> {data.DETAIL.length} Day
                 </p>
-                <p className={cx('price')}>
-                    <span className={cx('price1')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
-                    <span className={cx('price2')}>{data.PRICE[0].price}</span>
+                <p className={cx('price-type')}>
+                    <span className={cx('price')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
+                    <span className={cx('real-price')}>{data.PRICE[0].price}</span>
                 </p>{data.PRICE[0].price}
                 <p className={cx('place')}>
                     <SlLocationPin />

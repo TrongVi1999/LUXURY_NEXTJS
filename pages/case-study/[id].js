@@ -56,8 +56,8 @@ const index = () => {
                         <InEx data={Data.Exclusions} type='exc' />
 
                         <div className={cx('book-div')}>
-                            <h6 className={cx('h6')}>Let me us know your dream trip for your company! </h6>
-                            <button className={cx('btn')} onClick={() => setBook(false)}>Book Now</button>
+                            <h6 className={cx('text')}>Let me us know your dream trip for your company! </h6>
+                            <button className={cx('btn-book')} onClick={() => setBook(false)}>Book Now</button>
                         </div>
                         <Listtag data={Data.hash_tag} />
 

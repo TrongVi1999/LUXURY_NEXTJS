@@ -101,8 +101,8 @@ function Footer() {
                                 img elements must have an alt prop, either with meaningful text, or an empty string for
                                 decorative img elements must have an alt prop, either with meaningful text
                             </p>
-                            <div className={cx('Newsletter')}>Newsletter Sign up</div>
-                            <div className={cx('sub')}>
+                            <div className={cx('new-letter')}>Newsletter Sign up</div>
+                            <div className={cx('form-email')}>
                                 <input type="text" placeholder="Your Email Address" onChange={(e) => setemail(e.target.value)} />
                                 <button type="button" onClick={() => CallAPI()}>SUBSCRIBE</button>
                             </div>

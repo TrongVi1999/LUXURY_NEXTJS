@@ -37,10 +37,10 @@ const Country = () => {
     return (
         <div >
             <div className={cx('container')}>
-                <div className={cx('grid1')}>
+                <div className={cx('grid')}>
                     <Countrycard data={data[0]} />
                 </div>
-                <div className={cx('grid2')}>
+                <div className={cx('form-grid')}>
                     <div className={cx('card')}>
                         <Countrycard data={data[1]} />
                     </div>

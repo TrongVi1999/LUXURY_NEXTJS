@@ -90,7 +90,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                                 </div>
                             </div> */}
 
-                            <Link href={`/destination/VietNamdestination=${ip1}`} className={cx('button')}>Search Tour </Link>
+                            <Link href={`/destination/VietNamdestination=${ip1}`} className={cx('btn-search')} onClick={() => CT.setloca(ip1)}>Search Tour </Link>
                         </div>
                     }
                 </div>

@@ -137,7 +137,7 @@ function Shareemail({ onClick, datas, title, long, close }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUMMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>
         </div>

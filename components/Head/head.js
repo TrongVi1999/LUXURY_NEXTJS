@@ -1,8 +1,7 @@
-import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 import Logo from '@/asset/images/LogoFN1.png'
 
-const Headpage = () => {
+const Headpage = ({ data }) => {
     return (
         // <Head>
         //     <title>Vietnam Luxury Tours - Incentive Tailor-made Trips</title>

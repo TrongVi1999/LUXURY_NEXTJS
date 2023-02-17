@@ -12,20 +12,20 @@
     font-size: 1.75rem;
 }
 
-.cl {
+.title-card {
     /* padding: 20px; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.cl-item {
+.title-card-item {
     width: 30%;
     min-width: 250px;
     margin: 0 15px;
     padding-top: 3rem;
 }
-.cl-item h3 {
+.title-card-item h3 {
     height: 60px;
     font-size: 16px;
     font-weight: bolder;
@@ -68,7 +68,7 @@
     }
 }
 @media only screen and (max-width: 1350px) {
-    .cl-item {
+    .title-card-item {
         width: 40%;
     }
 }

@@ -17,7 +17,7 @@ function Pagination({ totalPosts, postPerPage, setPage, pageIndex }) {
     }
 
     return (<div className={cx('wrapper')}>
-        <Link href='#list' disabled={pageIndex === 1} className={cx('buttonIcon', pageIndex === 1 ? 'dis' : null)} onClick={() => setPage(prev => prev - 1)}>
+        <Link href='#list' disabled={pageIndex === 1} className={cx('btn-icon', pageIndex === 1 ? 'dis' : null)} onClick={() => setPage(prev => prev - 1)}>
             <MdKeyboardArrowLeft />
         </Link>
 
@@ -27,7 +27,7 @@ function Pagination({ totalPosts, postPerPage, setPage, pageIndex }) {
             ))
         }
 
-        <Link href='#list' disabled={pageIndex === pages.length} className={cx('buttonIcon', pageIndex === pages.length ? 'dis' : null)} onClick={() => setPage(prev => prev + 1)}>
+        <Link href='#list' disabled={pageIndex === pages.length} className={cx('btn-icon', pageIndex === pages.length ? 'dis' : null)} onClick={() => setPage(prev => prev + 1)}>
             <MdKeyboardArrowRight />
         </Link>
     </div>);
