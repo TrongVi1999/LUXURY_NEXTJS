@@ -13,7 +13,7 @@ import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 
-function EditBookHotel({ dataOld, set, toggle }) {
+function EditBookHotel({ dataOld, toggle, reload, setreload }) {
 
     const {
         register,
@@ -29,10 +29,10 @@ function EditBookHotel({ dataOld, set, toggle }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            console.log(response.data);
+            toastSuccess('Edit Success!')
         }
         else {
-            console.log('ok')
+            toastError('Error')
         }
     }
     const Submit = (data) => {
@@ -41,6 +41,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
             ...data,
             ...dataSelect
         })
+        setreload(!reload);
     }
 
     return (

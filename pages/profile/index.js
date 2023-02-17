@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import classNames from "classnames/bind";
 import style from '@/styles/profile.module.scss'
 import { avatars } from "@/public/images";
@@ -7,24 +7,16 @@ import { BookingUser, ProfileUser } from "@/views/ProfileUser";
 import Image from "next/image";
 import { IoIosAdd } from "react-icons/io";
 import { useApppContext } from "../_app";
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
 function Profile() {
     const [activeProfile, setActiveProfile] = useState(1);
     const [reloadBook, setreload] = useState(false);
-    // const [currentUser, setCurrentUser] = useState(null);
+
     const CT = useApppContext();
 
-    // useEffect(() => {
-    //     let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-    //     if (VNXuser) {
-    //         setCurrentUser(VNXuser);
-    //     } else {
-    //         setCurrentUser(null);
-    //     }
-    // }, []);
-    // console.log(currentUser);
 
     const editPicture = (data) => {
         var formdata = new FormData();
@@ -61,11 +53,10 @@ function Profile() {
                 );
             })
             .catch(() => alert('Error!'));
-
-        // setnew(!new1);
     };
 
     return (<Section notPadding className={cx('wrapper')} >
+        <Headpage />
         <div className={cx('body')}>
             {CT.currentUser &&
                 <div className={cx('boxOption')}>
@@ -76,9 +67,6 @@ function Profile() {
                                 className={cx('avatar')}
                                 width="2000"
                                 height='2000'
-                            // layout='fill'
-
-                            // loader={<div>Loading...</div>}
                             /> :
                                 <Image src={avatars.avatar3} alt="avatarErro" className={cx('avatar')} />}
 

@@ -6,11 +6,11 @@ import Link from "next/link";
 import qs from "qs";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
-// import useLocation from 'react-router-dom'
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import logo from '@/public/images/logos/logo-b-1.png'
+import logo from '@/public/images/logos/logo-b-1.png';
+import Headpage from '@/components/Head/head';
 
 
 const cx = classNames.bind(style);
@@ -56,6 +56,7 @@ function ForgetPass() {
     };
 
     return (<>
+        <Headpage />
 
         <div className={cx('wrapper')}>
 

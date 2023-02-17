@@ -10,6 +10,7 @@ import axios from 'axios';
 import national from '@/pages/api/national.json';
 import qs from 'qs';
 import { toastSuccess } from '@/hook/toastr';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
@@ -84,6 +85,7 @@ const index = () => {
 
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
             <BannerIMG className={cx('bannerBody')} bg='bg' title={"Contact Us"} img={Img11} />
 
             <div className={cx("booking-infor")}>

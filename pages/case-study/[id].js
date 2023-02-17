@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/casetudy.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-// import { Gettour } from '../api/CallAPI';
 import { useRouter } from "next/router";
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import Highlight from '@/views/CaseStudy/Highlight';
@@ -11,6 +10,7 @@ import Listtag from '@/views/Blogdetail/Listtag';
 import { Blogrecomment } from '@/views/Blogdetail';
 import BookMICE from '@/views/CaseStudy/BookMICE';
 import { Gettour } from '../api/QuerryAPI';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
@@ -26,8 +26,6 @@ const index = () => {
     const router = useRouter();
     const [Book, setBook] = useState(true);
 
-
-
     const caseStudy = Gettour(router.query.id);
 
 
@@ -42,6 +40,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
+            <Headpage />
             <div className={cx('main')}>
                 {(caseStudy.data.Object[0] && caseStudy.data.Object[0].BannerImg && caseStudy.data.Object[0].HightlightImg) ?
                     <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.Object[0].BannerImg}`} title={caseStudy.data.Object[0].TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.Object[0].TourDescription)} /> :

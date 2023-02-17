@@ -10,6 +10,7 @@ import { OutTeamAboutUs } from '@/views';
 import History from '@/views/Aboutus/History';
 import AboutVideo from '@/views/Aboutus/Video';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import Headpage from '@/components/Head/head';
 
 
 import Image from 'next/image';
@@ -20,6 +21,7 @@ const cx = classNames.bind(styles)
 const index = () => {
     return (
         <>
+            <Headpage />
             <div className={cx('wrapperBanner')}>
                 <BannerIMG bg='bg' title={"about vnxpedia"} descrip={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} img={banners.banner4} crumb={{ title: 'About' }} crumbStyle2 />
                 <div className={cx('boxInfo')}>

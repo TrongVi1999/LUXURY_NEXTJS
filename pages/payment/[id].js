@@ -8,9 +8,7 @@ import Image from 'next/image';
 import { useRouter } from "next/router";
 import { GetSocial } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
-
-
-
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(styles);
 const ListMenu = ['Deposit & Payment', 'Cancellation Policy', 'Term & Conditions'];
@@ -49,6 +47,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
+            <Headpage />
             {Content && <BannerIMG img={ImgBn} title={Content.toUpperCase()} bg='bg' />}
             <div className={cx(`main`)}>
                 <div className={cx('menu')}>

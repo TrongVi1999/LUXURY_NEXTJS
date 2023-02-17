@@ -12,6 +12,7 @@ import { GrPowerReset } from 'react-icons/gr';
 import Buttom from '@/components/Button';
 import { GetSocial, GetAllDes } from '@/pages/api/CallAPI';
 
+
 const cx = classNames.bind(style);
 
 const months = [`January`, 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -142,7 +143,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {
                 isSearch ? (<div className={cx('inputSearch-div')}>
                     <input type='text' className={cx('inputSearch')} placeholder="search" onChange={(e) => setinput(e.target.value)} />
-                    <AiOutlineSearch className={cx('icon')} onClick={() => searchinput()} />
+                    <AiOutlineSearch className={cx('icon')} />
                 </div>) : null
             }
             <div className={cx('boxFillterMobile')}>

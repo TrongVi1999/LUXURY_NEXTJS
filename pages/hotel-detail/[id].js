@@ -10,15 +10,14 @@ import Hotelbook from '@/views/BookHotel';
 import HotelDetail from '@/views/HotelDetail';
 import Imglist from '@/views/Tourdetail/Imglist';
 import classNames from 'classnames/bind';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GetLuxservice } from '../api/QuerryAPI';
-import { ListHotel } from '../api/QuerryAPI';
+import Headpage from '@/components/Head/head';
+
 
 
 const cx = classNames.bind(style);
@@ -44,6 +43,7 @@ const Index = () => {
 
     return (
         <div>
+            <Headpage />
             {hotelData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={hotelData.data.Object[0].title} bg='bg' />
                 {book ? <Hotelbook click={setbook} hotel={hotelData.data.Object[0].title} /> : <div className={cx('container')}>

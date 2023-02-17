@@ -6,14 +6,14 @@ import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';
 import { useRouter } from "next/router";
 import Hotelcard from '@/views/HotelCard/Hotelcard';
-import { categoryFillerAddress, tourTagsFilter, seasonFillter, groupSizeFillter } from '@/public/dataRender';
+import { categoryFillerAddress } from '@/public/dataRender';
 import style from '@/styles/luxuryhotel.module.scss';
 import { ListHotel } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
-const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 const index = () => {
     const router = useRouter();
@@ -25,21 +25,13 @@ const index = () => {
     const lastIndex = page * 8
     const firstIndex = lastIndex - 8;
 
-    // if (hotelList.isLoading) {
-    //     return <Loading />;
-    // }
 
-    // if (hotelList.error) {
-    //     return <p>Error: {error.message}</p>;
-    // }
 
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} />
-            {/* {data.length > 0 && 
-                <Tourcard2 data={data[0]} 
-                />} */}
-            {/* {data.length > 0 && */}
+
             <div className={cx('main')}>
                 {hotelList.isLoading && <Loading />}
                 {hotelList.data &&
