@@ -1,45 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import classNames from 'classnames/bind';
 import style from '@/styles/Tourdetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import axios from 'axios';
 import Crumb from '@/views/Crumb/Crumb';
 import Imglist from '@/views/Tourdetail/Imglist';
 import Highlight from '@/views/Tourdetail/Highlight';
 import Itinerary from '@/views/Tourdetail/Itinerary';
 import Tourrecomment from '@/views/Tourdetail/Tourrecomment';
 import { useRouter } from "next/router";
-import IMG from '@/public/images/tour1.jpg';
 import Booking from '@/views/Tourdetail/Booking';
 import Shareemail from '@/views/Tourdetail/Shareemail';
-import ReactToPrint from 'react-to-print';
 import { Gettour } from '../api/QuerryAPI';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
 
 const index = () => {
     const router = useRouter();
-    // const [Tourdata, setTourdata] = useState();
     const [Book, setBook] = useState(0);
     const componentRef = useRef(null);
 
     const Tourresponse = Gettour(router.query.id)
     const Tourdata = Tourresponse.data;
-
-    // const callApi = async () => {
-    //     const response = await axios({
-    //         method: 'post',
-    //         url: `https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=${router.query.id}`,
-    //         type: 'json',
-    //     });
-
-    //     if (response.status === 200) {
-    //         setTourdata(response.data.Object[0]);
-    //     }
-
-    // };
-
 
 
     if (Tourresponse.isLoading) {
@@ -52,6 +35,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
+            <Headpage />
             <div className={cx('main')}>
                 {Tourdata.Object[0].BannerImg ?
                     <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.Object[0].BannerImg}`} title={Tourdata.Object[0].TourName} bg='bg' /> :

@@ -1,26 +1,29 @@
 .bodyContent {
     padding: 5% 20%;
     display: flex;
-    .listBlogBody {
-        flex: 2;
-
-        .bodyPage {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .bodyBlogItem {
+    .listBlog-main {
+        width: 50%;
+        flex: 1;
+        .listBlogBody {
             width: 100%;
-            border-top: 0.1rem solid var(--light2);
 
-            &:first-child {
-                border-top: none;
+            .bodyPage {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .bodyBlogItem {
+                width: 100%;
+                border-top: 0.1rem solid var(--light2);
+
+                &:first-child {
+                    border-top: none;
+                }
             }
         }
     }
-
     .boxFilter {
-        width: 30rem;
+        width: 30%;
     }
 }
 

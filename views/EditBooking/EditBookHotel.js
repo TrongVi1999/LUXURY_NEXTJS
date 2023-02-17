@@ -9,10 +9,11 @@ import national from '@/pages/api/national.json';
 import Link from "next/link";
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { EditBooking } from "@/pages/api/CallAPI";
+import { toastSuccess, toastError } from "@/components/Toast";
 
 const cx = classNames.bind(style);
 
-function EditBookHotel({ dataOld, set, toggle }) {
+function EditBookHotel({ dataOld, toggle, reload, setreload }) {
 
     const {
         register,
@@ -28,10 +29,10 @@ function EditBookHotel({ dataOld, set, toggle }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            console.log(response.data);
+            toastSuccess('Edit Success!')
         }
         else {
-            console.log('ok')
+            toastError('Error')
         }
     }
     const Submit = (data) => {
@@ -40,6 +41,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
             ...data,
             ...dataSelect
         })
+        setreload(!reload);
     }
 
     return (
@@ -97,7 +99,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     <option key={d.code} value={d.code}>{d.name}</option>
                                 ))}
                             </select>
-                            {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>}
+
                         </div>
                     </div>
                     <div className={cx("item-form")}>

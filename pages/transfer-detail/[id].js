@@ -1,4 +1,3 @@
-import { Section } from '@/components';
 import Loading from '@/components/Loading';
 import { banners } from '@/public/images';
 import a2 from '@/public/oto2.png';
@@ -14,14 +13,12 @@ import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { GetLuxservice } from '../api/QuerryAPI';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
-const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 
 const index = () => {
     const [book, setbook] = useState(false);
-    const [page, setPage] = useState(1);
-    const [Data, setdata] = useState()
     const router = useRouter();
     const transferData = GetLuxservice(router.query.id);
     const onChangePag = (page) => {
@@ -36,6 +33,7 @@ const index = () => {
     }
     return (
         <div>
+            <Headpage />
             <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
                 {book ? <Transferbook click={setbook} transfer={transferData.data.Object[0].title} /> :
@@ -48,26 +46,7 @@ const index = () => {
 
                         </div>
                         <div className={cx('box')}>
-                            {/* <div>
-                                <p>Engine: <span>2.143 cm3</span><br />
-                                    Airbags: <span>8</span><br />
-                                    Air conditioning: <span>Yes</span><br />
-                                    Interrior Color: <span>Lite-Gray</span><br />
-                                    Seats: <span>6</span></p>
-                            </div>
-                            <div>
-                                <p>Types: <span>2143 cm3</span><br /></p>
-                                <p>Doors: <span>4</span><br /></p>
-                                <p>Interior: <span>Leather</span><br /></p>
-                                <p>Entertainment: <span>CD/DVD Player I Radio | Microcomputer</span><br /></p>
-                            </div>
-                            <div>
-                                <p>Model: <span>Mercedes-Benz AMG COUPE</span><br /></p>
-                                <p>Roof type: <span>Simple</span><br /></p>
-                                <p>Smoking: <span>Prohubited</span><br /></p>
-                                <p>Big/Small suitcases: <span>8/8</span><br /></p>
-                                <p>Year: <span>2014</span></p>
-                            </div> */}
+
                             <table>
                                 <tr>
                                     <p>Engine: <span>2.143 cm3</span><br />
@@ -98,15 +77,8 @@ const index = () => {
                         </div>
                         <h2>Similar Vehicles</h2>
 
-                        {/* <Section maxWidth={1170} isWrap gapBox={3.2}> */}
-                        {/* {
-                                transferData.data.Object.map((d) => (
-                                    <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
-                                ))
-                            } */}
+
                         <TransListDetail />
-                        {/* </Section> */}
-                        {/* <Pagination totalPosts={datafa.length} postPerPage={9} setPage={setPage} pageIndex={page} /> */}
 
                     </div>}
             </div>

@@ -1,8 +1,7 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { toastError, toastSuccess } from '@/components/Toast';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import qs from 'qs';
-import { useState } from 'react';
-import { toastError, toastSuccess } from '@/components/Toast';
 
 
 //super filter
@@ -79,9 +78,9 @@ export const GetAllCountry = () => {
 };
 
 //list blog
-export const GetAllblog = (tag, page) => {
-    return useQuery(['bloglist', tag, page], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=${tag}&CurrentPage=${page}`);
+export const GetAllblog = (tag, keyword, page) => {
+    return useQuery(['bloglist', tag, keyword, page], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPost?hastag=${tag}&searchkey=${keyword}&CurrentPage=${page}`);
         return response.data;
     });
 };
@@ -208,25 +207,17 @@ export const Login = (username, password) => {
     },
         { enabled: false })
 }
-//edit booking default Id, Country, StartDate, FullName, Adult, Children, Children1, Children2, Hotel, Email, Phone, Note, CheckIn, Status
-// export const EditBookingDefault = (data) => {
-//     return useQuery(['editbooking', data],
-//         async () => {
-//             const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/UpdateBooking`, qs.stringify(data
-//             ),
-//                 {
-//                     headers: {
-//                         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-//                     },
-//                 }
-//             );
-//             console.log('data', data);
-//             console.log('resonse', response)
-//             return response.data;
-//         }
 
-//     );
-// };
+//list booking
+export const Getbookinglist = (user, load) => {
+    return useQuery(['listbook', user, load], async () => {
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/BookingTable?Username=${user}`);
+        return response.data.Object;
+    });
+};
+
+
+
 export function EditBookingDefault(data) {
     return useMutation(
         async () => {
