@@ -22,12 +22,12 @@ const index = () => {
           <p>Hoi An offer it’s visitors an experience of old school charm and captures a snapshot of Vietnam that has stood still in time for centuries. The trading port dating from the 15th century reflects a unique heritage style in its buildings and streets.</p>
         </div>
       </div>
-      <div className={cx('InforTour')}>
+      <div className={cx('inforTour')}>
         <p>Holiday to Vietnam is not complete without experiencing the scenic and the UNESCO heritage listed Ha Long Bay. An overnight cruise is an ideal way to explore the serenity and beauty, as you take home wonderful memories.</p>
         <p>If time permits, pay a visit to many other beautiful parts of Vietnam such as Sapa, Ninh Binh, Mai Chau, Hue and Mekong Delta. If you want to enjoy a beach stay, there are plenty of places to unwind along the vast coastal line. Da Nang, Nha Trang, Con Dao and Phu Quoc – just a few to consider.</p>
         <p>When it comes to food, Vietnam is certainly a place to tantalise your taste buds. The cuisine is renowned for being diverse, healthy, and delicious. The French colonisation has also left its mark on many dishes including the banh mi and the coffee.</p>
         <p> Whatever you wish to experience, this long “S” shaped country has it all covered. Visit this picturesque nation and awaken all of your senses.</p>
-        <Image src={HighImg1} className={cx('image1')} alt='imgAbout'></Image>
+        <Image src={HighImg1} className={cx('img-about')} alt='imgAbout'></Image>
       </div>
     </div>
   )

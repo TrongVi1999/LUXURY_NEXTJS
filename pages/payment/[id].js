@@ -60,7 +60,7 @@ const index = () => {
                 </div>
                 {Active[0] == 'act' &&
                     <div className={cx('content')}>
-                        <h1 >Deposit & Payment</h1>
+                        <h2 >Deposit & Payment</h2>
                         <h6 >PAYMENT BY CREDIT CARD</h6>
                         <p className={cx('p-bold')}>Instructions to pay online with Visa, MasterCard, American Express, JCB Card</p>
                         <p >We connect with OnePAY Payment Gateway to accept Online Card Payment (www.onepay.vn). All of your card information is processed through SSL protocol with international card security standard. Your card information will not be stored at our system (merchant) but MasterCard with international security standard.</p>
@@ -78,7 +78,7 @@ const index = () => {
                 }
                 {Active[1] == 'act' &&
                     <div className={cx('content')}>
-                        {/* <h1>Policy</h1> */}
+
                         <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: dataContent1.data.Object[0].full_text }}></div>
                     </div>
                 }

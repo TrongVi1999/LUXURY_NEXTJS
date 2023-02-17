@@ -37,7 +37,7 @@
             padding-top: 10px;
             overflow-y: scroll;
 
-            .p {
+            .title {
                 font-weight: bold;
             }
         }
@@ -49,8 +49,8 @@
         padding: 5px;
 
         img {
-            width: 100px;
-            height: 100%;
+            width: 100px !important;
+            height: 100% !important;
             object-fit: cover;
         }
         p {

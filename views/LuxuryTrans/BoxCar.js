@@ -12,10 +12,10 @@ function BoxCar({ className, click, data }) {
     return (
         <Link href={`/transfer-detail/${data.id}`} className={cx('card', { [className]: className })}>
             <div className={cx('boxImg')}>
-                <img className={cx('img')} src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="carImg" />
+                <Image className={cx('img')} src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="carImg" width='1000' height='1000' />
             </div>
             <div className={cx('infor')}>
-                <h1 className={cx('nameCar')}>{data.title}</h1>
+                <h2 className={cx('nameCar')}>{data.title}</h2>
                 <p className={cx('rate')}>
                     {/* <span className={cx('seats')}> */}
                     <Image src={a4} alt='icon' /> <span> 6 seats</span>

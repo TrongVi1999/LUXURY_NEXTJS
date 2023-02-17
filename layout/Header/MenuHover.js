@@ -10,7 +10,7 @@ import style from './header.module.scss';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 const cx = classNames.bind(style);
 
-function MenuHover({ className, showmenu, items, isScroll, close, close1 }) {
+function MenuHover({ className, showMenu, items, isScroll, close, close1 }) {
     const [historyMenu, setHistoryMenu] = useState([{ data: items }])
 
     const current = historyMenu[historyMenu.length - 1]
@@ -29,7 +29,7 @@ function MenuHover({ className, showmenu, items, isScroll, close, close1 }) {
 
     const clases = cx('menuHover', {
         [className]: className,
-        active: showmenu,
+        active: showMenu,
         isScroll: isScroll,
     });
 
@@ -37,7 +37,7 @@ function MenuHover({ className, showmenu, items, isScroll, close, close1 }) {
         <div className={clases}>
             {
                 historyMenu.length > 1 && (<header className={cx('headerBack')}>
-                    <Button className={cx('back-btn')} onClick={() => {
+                    <Button className={cx('btn-back')} onClick={() => {
                         setHistoryMenu((prev) => prev.slice(0, prev.length - 1));
                     }}>
                         <MdOutlineArrowBackIosNew />

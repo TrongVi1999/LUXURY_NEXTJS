@@ -151,7 +151,7 @@ const LogIn = ({ Click, setuser, close }) => {
                 <br />
                 <div className={cx('group')}>
                     <p onClick={() => Click(true)}>SIGN UP</p>
-                    <p className={cx('fb')}><FaFacebook />LOGIN</p>
+                    <p className={cx('icon-fb')}><FaFacebook />LOGIN</p>
                 </div>
             </form>
             {/* <ToastContainer /> */}

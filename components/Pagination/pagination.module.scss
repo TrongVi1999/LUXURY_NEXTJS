@@ -5,7 +5,7 @@
     gap: 1rem;
     margin: 7rem 0;
 
-    .buttonIcon {
+    .btn-icon {
         width: 2.4rem;
         height: 2.4rem;
         font-size: 2rem;
@@ -21,7 +21,7 @@
         }
     }
 
-    .buttonIcon.dis {
+    .btn-icon.dis {
         opacity: 0.5;
 
         &:hover {

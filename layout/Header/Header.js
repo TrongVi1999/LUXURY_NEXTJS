@@ -121,19 +121,13 @@ const Header = () => {
                         {showSearch && <Searchkey />}
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
-
                     <div className={cx('button-call')} >
-                        <Button className={cx('button')}>Call US +84-90-159-1111</Button>
-                        {/* <span>OR</span>
-                        <Button className={cx('button')}>Request a quote</Button> */}
+                        <Button className={cx('button')}>Call US <span>+84-90-159-1111</span></Button>
                     </div>
-
                 </div>
             </div>
             {signup && <Signup Click={setsignup} openlogin={setlogin} />}
             <ToastContainer />
-
-
         </div>
     );
 };

@@ -63,32 +63,10 @@ function InfoUser({ data, setuser, dataOld }) {
     const Edit = EditUserInfor();
 
 
-    //Call API edit booking Mice
-
-    // const Edit = EditUserInfor();
-
-    // const [dataSelect, setDataSelect] = useState({ Note: 'Note' });
-
-    // const Submit = (data) => {
-    //     Edit.refetch(
-    //         dataOld.Id,
-    //         dataOld.UserName: data.UserName,
-    //         dataOld.GivenName: userEdit.FullName == '' ? data.FullName : userEdit.FullName,
-    //         dataOld.Gender: userEdit.Gender,
-    //         dataOld.Reason: userEdit.BirthDay == '' ? data.BirthDay : userEdit.BirthDay,
-    //         dataOld.Description: userEdit.About == '' ? data.About : userEdit.About,
-    //         dataSelect.Note: userEdit.Address == '' ? data.Address : userEdit.Address,
-    //         dataOld.PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
-    //         dataOld.Email: userEdit.Email == '' ? data.Email : userEdit.Email
-    //     );
-    //     console.log("test:", data)
-    //     console.log("hi:", dataSelect)
-    // };
-
     return (
 
         <div className={cx('wrapper')}>
-            <h1 className={cx('title')}>profile information   <TfiPencilAlt onClick={() => { edit ? setedit(false) : setedit(true) }}>Edit</TfiPencilAlt></h1>
+            <h2 className={cx('title')}>profile information   <TfiPencilAlt onClick={() => { edit ? setedit(false) : setedit(true) }}>Edit</TfiPencilAlt></h2>
             <form onSubmit={(e) => HandleEdit(e)}>
                 <div> <h3>Name: </h3>   {edit ? <input type='text' placeholder={data.FullName} onChange={(e) => setUserEdit({ ...userEdit, FullName: e.target.value })} /> : <p>{data.FullName}</p>}</div>
                 <hr />

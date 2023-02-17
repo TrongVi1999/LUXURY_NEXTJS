@@ -16,8 +16,8 @@
 }
 
 .img {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
 }
 
@@ -48,8 +48,8 @@
     font-weight: bold;
 }
 
-.price {
-    .price1 {
+.price-type {
+    .price {
         color: black;
         font-weight: bold;
     }
@@ -60,7 +60,7 @@
         color: rgb(203, 144, 26);
     }
 
-    .price2 {
+    .real-price {
         text-decoration: line-through;
     }
 }

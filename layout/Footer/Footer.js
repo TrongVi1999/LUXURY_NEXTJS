@@ -15,6 +15,7 @@ import Img3 from '../../public/3.webp';
 import Img4 from '../../public/4.png';
 import Img5 from '../../public/5.webp';
 import Img6 from '../../public/6.webp';
+import Listlogo from '@/public/icon/listlogofooter.jpg';
 import Link from 'next/link';
 import { Subcrise } from '@/pages/api/CallAPI';
 import { useState, useEffect } from 'react';
@@ -36,16 +37,17 @@ function Footer() {
         <div className={cx('wrapper')}>
             <div className={cx('footer')}>
                 <div className={cx('list-logo')}>
-                    {Listimg.map((d) => (
+                    {/* {Listimg.map((d) => (
                         <Image src={d} className={cx('img')} alt="logo-prize-vnxpedia" />
-                    ))}
+                    ))} */}
+                    <Image src={Listlogo} className={cx('img')} alt="logo-prize-vnxpedia" />
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('main')}>
                     <div className={cx('main-top')}>
                         <div className={cx('main-left')}>
                             <div className={cx('infor')}>
-                                {/* <img src={Logo} className={cx("logo-img")} alt="logo-VNXpedia" /> */}
+
                                 <Image src={Logo} className={cx('logo-img')} alt="logo-VNXpedia" />
                                 <div className={cx('infor-bot')}>
                                     <div className={cx('phone')}>
@@ -99,8 +101,8 @@ function Footer() {
                                 img elements must have an alt prop, either with meaningful text, or an empty string for
                                 decorative img elements must have an alt prop, either with meaningful text
                             </p>
-                            <div className={cx('Newsletter')}>Newsletter Sign up</div>
-                            <div className={cx('sub')}>
+                            <div className={cx('new-letter')}>Newsletter Sign up</div>
+                            <div className={cx('form-email')}>
                                 <input type="text" placeholder="Your Email Address" onChange={(e) => setemail(e.target.value)} />
                                 <button type="button" onClick={() => CallAPI()}>SUBSCRIBE</button>
                             </div>

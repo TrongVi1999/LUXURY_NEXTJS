@@ -19,10 +19,8 @@ const Highlight = ({ data }) => {
                         <p className={cx('p-hl')}><GoPrimitiveDot />{d}</p>
                     )}
                 </div>
-
             </div>
             <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt={data.TourName} width='1000' height='1000' className={cx('bot-img')} />
-
         </div>
     )
 }

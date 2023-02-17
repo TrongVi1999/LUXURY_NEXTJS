@@ -78,7 +78,7 @@ const BlogDetail = () => {
 
             {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />}
 
-            (<div className={cx('main')} >
+            <div className={cx('main')} >
 
 
 

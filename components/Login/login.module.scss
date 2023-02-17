@@ -105,7 +105,7 @@
 .forget-pass:hover {
     color: #cec32a !important;
 }
-.btn{
+.btn-submit{
     display: flex;
 }
 
@@ -124,7 +124,7 @@
         text-align: center;
         padding: 15px 20px;
     }
-    .fb {
+    .icon-fb {
         margin-left: 25px;
     }
     svg {
@@ -133,7 +133,7 @@
         margin-left: 3rem;
     }
 }
-.fb {
+.icon-fb {
     text-align: center;
 }
 .error-message {
