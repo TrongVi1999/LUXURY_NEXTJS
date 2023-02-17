@@ -12,7 +12,7 @@ const Highlight = ({ title, destination, long, highlight, click, btn, cla, cla2 
     return (
         <div className={cx('introduce')}>
             <div className={cx(cla)}>
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <div>
                     <p className={cx('long')}><SlClock />{long} days</p>
                     <p><SlLocationPin />{ChangeTextHTML(destination)}</p>

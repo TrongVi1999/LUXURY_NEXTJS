@@ -5,6 +5,7 @@ import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { GetSocial } from '@/pages/api/CallAPI';
 import ReactToPrint from 'react-to-print';
 import { GrDocumentPdf } from 'react-icons/gr';
+import Image from 'next/image';
 
 
 const cx = classNames.bind(style);
@@ -49,7 +50,7 @@ const Itinerary = ({ description, detail, click, btn, dataref }) => {
                                         <p className={cx('text-day')} dangerouslySetInnerHTML={{
                                             __html: d.Description,
                                         }}></p>
-                                        {d.Image && <img src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" />}
+                                        {d.Image && <Image src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" width='1000' height='1000' />}
                                     </div>
                                 </div>
                             )}
