@@ -2,20 +2,18 @@ import { Pagination, Section } from '@/components';
 import { categoryFillerAddress, groupSizeFillter, priceFilter, seasonFillter, tourTagsFilter } from '@/public/dataRender';
 import { banners } from '@/public/images';
 import style from '@/styles/destinations.module.scss';
-import { BannerSlide, CategoryFilter } from '@/views';
+import { CategoryFilter } from '@/views';
 import Tourcard2 from '@/views/Tourcard/Tourcard2';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-// import { Superfilter } from '../api/CallAPI';
 import AboutVN from '@/views/Destination/AboutVN';
 import Location from '@/views/Destination/Location';
 import Faq from '@/views/Destination/FAQ';
-import { useApppContext } from '@/pages/_app';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import { Superfilter } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
-
+import Headpage from '@/components/Head/head';
 
 
 const cx = classNames.bind(style);
@@ -34,9 +32,7 @@ function Destimation() {
     const [vlgroup, setvlgroup] = useState('');
     const [vlfromcost, setvlfromcost] = useState(0);
     const [vlendcost, setvlendcost] = useState(15000);
-    const [Listdata, setlistdata] = useState();
     const [sort, setsort] = useState()
-    const [Data, setdata] = useState();
     const router = useRouter();
     const tourList = Superfilter(router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
 
@@ -81,36 +77,11 @@ function Destimation() {
     }
 
 
-    // { Data && Data.map(d => d.DETAIL.length == 0 && console.log(d.TourName)) }
 
-    // const sortd = (Data) => {
-
-
-    // }
-
-    // const CallAPISuperfilter = async () => {
-
-
-    //     const response = await Superfilter(router.query.id.split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup);
-    //     if (response.status == 200) {
-    //         setdata(response.data.Object.filter(d => d.TourType != 'TYPE_MICE'));
-    //     }
-    //     setPage(1);
-    // }
     useEffect(() => {
 
         { router.query.id && setvldestination((router.query.id).substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
     }, [router.query.id])
-    // useEffect(() => {
-    //     { router.query.id && CallAPISuperfilter() }
-
-
-    // }, [vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup, router]);
-
-    const dataFillter = (data) => {
-        setValueFillter(data)
-    }
-
 
     // Phân trang
     const [page, setPage] = useState(1)
@@ -118,7 +89,7 @@ function Destimation() {
     const lastIndex = page * 9;
     const firstIndex = lastIndex - 9;
 
-    //Hàm sắp xếp
+    //Hàm sắp xếp theo tên
     function sortByName(arr) {
         return arr.sort(function (a, b) {
             if (a.TourNname < b.TourName) {
@@ -139,6 +110,7 @@ function Destimation() {
 
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
 
             {router.query.id && <BannerIMG img={banners.resolt} title={(router.query.id).split('dest')[0]} bg='bg' descrip='Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content' />}
             <div className={cx('list-menu')} id='list'>

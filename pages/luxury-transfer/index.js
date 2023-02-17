@@ -1,22 +1,16 @@
 import style from '@/styles/luxuryTransfer.module.scss';
 import classNames from 'classnames/bind';
-
 import { Button, Pagination, Section } from '@/components';
 import a1 from '@/public/icon/transfer1.png';
 import a2 from '@/public/icon/transfer2.png';
 import a3 from '@/public/icon/transfer3.png';
 import { banners } from '@/public/images';
 import { BannerSlide, BoxCarTrans } from '@/views';
-
-import xe1 from '@/public/images/xe1.jpg';
-import xe2 from '@/public/images/xe2.jpg';
-import xe3 from '@/public/images/xe3.jpg';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-// import { ListTransfer } from '../api/CallAPI';
+import { useState } from 'react';
 import { ListTransfer } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
@@ -38,6 +32,7 @@ function index() {
 
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
             <Section maxWidth={850} className={cx('boxTitle')}>
                 <h1 className={cx('title')}>luxury transfer</h1>

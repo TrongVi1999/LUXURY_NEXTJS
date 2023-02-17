@@ -9,6 +9,7 @@ import { banners } from '@/public/images';
 import { useRouter } from "next/router";
 import { Tourtype } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
+import Headpage from '@/components/Head/head';
 
 
 const cx = classNames.bind(style);
@@ -64,6 +65,7 @@ const index = () => {
 
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
             <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} />
             <div id='list' />
             {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}

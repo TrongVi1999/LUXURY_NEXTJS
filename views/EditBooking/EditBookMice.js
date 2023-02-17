@@ -17,7 +17,7 @@ const cx = classNames.bind(style);
 const ListLocation =
     ['Hanoi', 'HoChiMinh City', 'Myanmar', 'Laos', 'Nha Trang', 'Phu Quoc', 'Thailand', 'Multi-Country', 'Danang', 'Multi Province', 'Cambodia', 'Other']
 
-function EditBookMice({ dataOld, toggle }) {
+function EditBookMice({ dataOld, toggle, reload, setreload }) {
 
     const {
         watch,
@@ -49,6 +49,7 @@ function EditBookMice({ dataOld, toggle }) {
             ...data,
             ...dataSelect
         })
+        setreload(!reload);
     }
 
     return (

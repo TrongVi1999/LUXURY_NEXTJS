@@ -16,10 +16,10 @@ import Img8 from '@/public/images/Layer76.png'
 import Img9 from '@/public/images/Layer77.png'
 import Img10 from '@/public/images/Layer78.png'
 import Img11 from '@/public/images/Layer79.png'
-import Link from 'next/link';
 import { TitleMice, DiffItem, BoxImageMice } from '@/views/Mice';
 import Booking from '@/views/Mice/Contact';
 import { useState } from 'react';
+import Headpage from '@/components/Head/head';
 
 
 const cx = classNames.bind(style);
@@ -28,6 +28,7 @@ function Mice() {
     const [book, setbook] = useState(false);
     return (
         <div className={cx('wrapper')}>
+            <Headpage />
             <BannerIMG className={cx('bannerBody')} bg='bg' title={"mice"} img={Img11} />
 
             {book ? <Booking click={setbook} /> :

@@ -1,22 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from "next/router";
-
 import classNames from 'classnames/bind';
 import style from '@/styles/blogdetail.module.scss';
-
 import IMGbn from '@/public/images/blogbn.png';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
-
-
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
-// import TitleLine from '@/components/TitleLine';
-// import { GetComment } from '../api/CallAPI';
+
 import { Getblog, GetComment } from '../api/QuerryAPI';
-import TitleLine from '@/components/TitleLine';
+
 import Listtag from '@/views/Blogdetail/Listtag';
 import Loading from '@/components/Loading';
+import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(style);
 
@@ -78,6 +74,7 @@ const BlogDetail = () => {
 
     return (
         <div className={cx('container')}>
+            <Headpage />
 
             {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />}
 
@@ -100,7 +97,7 @@ const BlogDetail = () => {
                 </div>
 
                 <div className={cx('comment-container')}>
-                    {Blogcomment.data && <Comments Commentss={Blogcomment.data.Object} setrepid={setrepid} setrepname={setrepname} />}
+                    {router.query.id && <Comments id={router.query.id} setrepid={setrepid} setrepname={setrepname} loadcm={loadcm} />}
                     <WriteComment id={router.query.id} prid={repid} loadcm={loadcm} repname={repname} setrepid={setrepid} refet={setloadcm} />
                 </div>
             </div>)
