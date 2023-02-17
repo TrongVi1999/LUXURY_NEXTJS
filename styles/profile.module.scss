@@ -95,6 +95,11 @@
         }
     }
     .content {
-        width: 80% !important;
+        width: 60% !important;
     }
+}
+@media only screen and (max-width: 808px) {
+   .content{
+    width: 80% !important;
+   }
 }

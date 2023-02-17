@@ -7,6 +7,7 @@ import style from './profile.module.scss';
 import qs from 'qs'
 import { toastSuccess } from "@/components/Toast";
 import { EditUserInfor } from "@/pages/api/QuerryAPI";
+import { useApppContext } from "@/pages/_app";
 
 const cx = classNames.bind(style);
 
@@ -19,7 +20,7 @@ function InfoUser({ data, setuser, dataOld }) {
     } = useForm();
 
     const [edit, setedit] = useState(false);
-
+    const CT = useApppContext();
     const [userEdit, setUserEdit] = useState(data);
     const HandleEdit = (e) => {
         e.preventDefault()
@@ -29,7 +30,7 @@ function InfoUser({ data, setuser, dataOld }) {
 
     const callApiEdit = async (data) => {
         let Newinfor = {
-            UserName: data.UserName,
+            UserName: CT.UserName,
             GivenName: userEdit.FullName == '' ? data.FullName : userEdit.FullName,
             Gender: userEdit.Gender,
             Reason: userEdit.BirthDay == '' ? data.BirthDay : userEdit.BirthDay,
@@ -38,25 +39,25 @@ function InfoUser({ data, setuser, dataOld }) {
             PhoneNumber: userEdit.PhoneNumber == '' ? data.PhoneNumber : userEdit.PhoneNumber,
             Email: userEdit.Email == '' ? data.Email : userEdit.Email
         }
-        // const response = await axios({
-        //     method: 'post',
-        //     url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
-        //     data: qs.stringify(Newinfor),
-        //     headers: {
-        //         'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-        //     },
-        // });
-        // if (response.data.Error === true) {
-        //     toastError('Error!');
-        // } else {
-        //     toastSuccess('Successfully changed information.');
-        //     localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
-        //     setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
-        //     // setCurrentUser({
-        //     //     ...Useredit,
-        //     //     ...data,
-        //     // });
-        // }
+        const response = await axios({
+            method: 'post',
+            url: 'https://vnxpedia.3i.com.vn/TravelAPI/UpdateInfo',
+            data: qs.stringify(Newinfor),
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+            },
+        });
+        if (response.data.Error === true) {
+            toastError('Error!');
+        } else {
+            toastSuccess('Successfully changed information.');
+            localStorage.setItem('VNXUser', JSON.stringify({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email }));
+            setuser({ ...data, FullName: Newinfor.GivenName, Gender: Newinfor.Gender, BirthDay: Newinfor.Reason, About: Newinfor.Description, Address: Newinfor.Note, PhoneNumber: Newinfor.PhoneNumber, Email: Newinfor.Email });
+            // setCurrentUser({
+            //     ...Useredit,
+            //     ...data,
+            // });
+        }
     };
 
     const Edit = EditUserInfor();

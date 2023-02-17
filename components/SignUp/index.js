@@ -68,10 +68,10 @@ const Signup = ({ Click, openlogin }) => {
                 </div>
                 <form className={cx('form-signup')} onSubmit={handleSubmit(onSubmit)} id="form-1">
 
-                    <h3 className={cx('heading')}>Create new Account</h3>
+                    <h3 className={cx('heading')}>Create New Account</h3>
                     <p className={cx('desc')}>Hi My Friends</p>
                     <div className={cx('form-group')}>
-                        <label className={cx('label-form')}>User name</label>
+                        <label className={cx('label-form')}>User Name</label>
 
                         <input id="username"
                             name="username"
@@ -84,14 +84,14 @@ const Signup = ({ Click, openlogin }) => {
                         <span className="form-message"></span>
                     </div>
                     <div className={cx('form-group')}>
-                        <label className={cx('label-form')}>Full name</label>
+                        <label className={cx('label-form')}>Full Name</label>
 
                         <input type="text" id="fullname"
                             name="fullname"
                             placeholder="example: Nguyen A"
                             {...register('GivenName', { required: true })} />
                         {errors.GivenName && errors.GivenName.type === 'required' && (
-                            <span className={cx('error-message')}>Fullname cannot be empty !</span>
+                            <span className={cx('error-message')}>FullName cannot be empty !</span>
                         )}
                     </div>
 

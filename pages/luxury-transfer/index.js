@@ -20,33 +20,22 @@ import Loading from '@/components/Loading';
 
 const cx = classNames.bind(style);
 
-const datafa = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 const listtype = ['VEHICLES', 'YACHTS', 'HELICOPTERS', 'LUX TRAIN']
 
-function Destimation() {
-    const router = useRouter();
+function index() {
+
     const [page, setPage] = useState(1)
     const [transActive, setTransActive] = useState(0);
-    const [Book, setBook] = useState(true);
-    const [Type, settype] = useState('VEHICLES')
-    const handleBooking = () => {
-        setBook(false);
-    }
 
-    const [Data, setdata] = useState();
+    const [Type, settype] = useState('VEHICLES')
+
 
     const transferList = ListTransfer(Type);
 
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
-    if (transferList.isLoading) {
-        return <Loading />;
-    }
 
-    if (transferList.error) {
-        return <p>Error: {error.message}</p>;
-    }
     return (
         <div className={cx('wrapper')}>
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
@@ -64,7 +53,7 @@ function Destimation() {
 
             <div className={cx('container')}>
                 <div className={cx('text')}>
-                    <h2>VEHICLES</h2>
+                    <h2>{Type}</h2>
                     <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.<br /><br />
 
                         Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
@@ -86,16 +75,19 @@ function Destimation() {
                     </div>
                 </div>
             </div>
-            <Section maxWidth={1270} isWrap gapBox={3.2}>
-                {
-                    transferList.data.Object.map((d) => (
-                        <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} click={handleBooking} />
-                    ))
-                }
-            </Section>
-            <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            {transferList.isLoading && <Loading />}
+            {transferList.data &&
+                <Section maxWidth={1270} isWrap gapBox={3.2}>
+                    {
+                        transferList.data.Object.map((d) => (
+                            <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
+                        ))
+                    }
+                </Section>}
+            {transferList.data &&
+                <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />}
         </div>
     );
 }
 
-export default Destimation;
+export default index;

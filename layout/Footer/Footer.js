@@ -54,7 +54,7 @@ function Footer() {
                                     </div>
                                     <div className={cx('email')}>
                                         <MdEmail />
-                                        <div>info@vnxpedia.com</div>
+                                        <div>info@luxuryvietravel.com</div>
                                     </div>
                                     <div className={cx('icon')}>
                                         <div className={cx('item-icon')}>
@@ -75,11 +75,11 @@ function Footer() {
                             <div className={cx('list-link')}>
                                 <div className={cx('list')}>
                                     <div className={cx('title')}>OUR DESTINATIONS</div>
-                                    <Link href='/destination/VietNam'>VIETNAM tours</Link>
-                                    <Link href='/destination/VietNam'>THAILAND tours</Link>
-                                    <Link href='/destination/VietNam'>CAMBODIA tours</Link>
-                                    <Link href='/destination/VietNam'>LAOS tours</Link>
-                                    <Link href='/destination/VietNam'>MYANMAR tours</Link>
+                                    <Link href='/destination/VietNam'>VietNam</Link>
+                                    <Link href='/destination/VietNam'>Thailand</Link>
+                                    <Link href='/destination/VietNam'>Cambodia</Link>
+                                    <Link href='/destination/VietNam'>Laos</Link>
+                                    <Link href='/destination/VietNam'>Myanmar</Link>
                                 </div>
                                 <div className={cx('list')}>
                                     <div className={cx('title')}>AS TOUR OPERATOR</div>

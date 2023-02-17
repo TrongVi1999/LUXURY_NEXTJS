@@ -5,56 +5,42 @@ import style from '@/styles/Contact.module.scss';
 import ScrollToTop from '@/hook/scrollToTop';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { EditBooking, EditBookingHotel } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { EditBooking } from "@/pages/api/CallAPI";
 
 const cx = classNames.bind(style);
 
 function EditBookHotel({ dataOld, set, toggle }) {
 
-    const [Select, setselect] = useState();
-    const [errsl, seterrsl] = useState(false);
-
     const {
-        watch,
         register,
         handleSubmit,
+        watch,
+        reset,
         formState: { errors },
     } = useForm();
 
-    const email = watch('Email');
-    const email2 = watch('Email2');
 
-    const validateEmailMatch = () => {
-        return email === email2 || 'Email not match';
-    };
+    const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '', TypeRoom: '' });
 
-    //Call API edit booking Hotel
-
-    const Edit = EditBookingHotel();
-
-    const [dataSelect, setDataSelect] = useState({ Country: 'Country', TypeRoom: 'TypeRoom', Note: 'Note' });
-
+    const CallEdit = async (data) => {
+        const response = await EditBooking(data);
+        if (response.status == 200) {
+            console.log(response.data);
+        }
+        else {
+            console.log('ok')
+        }
+    }
     const Submit = (data) => {
-        Edit.refetch(
-            dataOld.Id,
-            dataSelect.Country ? dataSelect.Country : dataOld.Country,
-            data.Adult ? data.Adult : dataOld.Adult,
-            data.FullName ? data.FullName : dataOld.FullName,
-            data.StartDate ? data.StartDate : dataOld.StartDate,
-            data.CheckIn ? data.CheckIn : dataOld.CheckIn,
-            data.CheckOut ? data.CheckOut : dataOld.CheckOut,
-            data.Destination ? data.Destination : dataOld.Destination,
-            data.Email ? data.Email : dataOld.Email,
-            data.Phone ? data.Phone : dataOld.Phone,
-            data.TypeRoom ? data.TypeRoom : dataOld.TypeRoom,
-            dataSelect.Note ? dataSelect.Note : dataOld.Note,
-        );
-        console.log("test:", data)
-        console.log("hi:", dataSelect)
-    };
+        CallEdit({
+            Id: dataOld.Id,
+            ...data,
+            ...dataSelect
+        })
+    }
 
     return (
         <div className={cx("book-edit")}>
@@ -95,7 +81,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     type="text"
                                     placeholder={dataOld.FullName}
                                     className={cx("cus-name")}
-                                    {...register('FullName', { required: true })}
+                                    {...register('FullName')}
                                 />
                             </div>
                         </div>
@@ -124,7 +110,6 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 placeholder={dataOld.Email}
                                 className={cx("cus-mail")}
                                 {...register('Email', {
-                                    required: true,
                                     pattern: {
                                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     },
@@ -135,31 +120,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                             )}
                         </div>
                     </div>
-                    <div className={cx("item-form")}>
-                        <label className={cx("label-booking")}>
-                            Confirm Email Contact (*):
-                        </label>
-                        <div className={cx("input-enquire")}>
-                            <input
-                                type="text"
-                                placeholder={dataOld.Email}
-                                className={cx("cus-mail")}
-                                {...register('Email2', {
-                                    required: true,
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                    },
-                                    validate: validateEmailMatch,
-                                })}
-                            />
-                            {errors.Email2 && errors.Email2.type === 'pattern' && (
-                                <span className={cx("error-message")}>Invalid email</span>
-                            )}
-                            {errors.Email2 && errors.Email2.message === 'Email not match' && (
-                                <span className={cx("error-message")}>Email not match</span>
-                            )}
-                        </div>
-                    </div>
+
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             Do you expect a phone call?
@@ -170,7 +131,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 placeholder={dataOld.Phone}
                                 className={cx("cus-phone")}
                                 {...register('Phone', {
-                                    required: true,
+
                                     minLength: 9,
                                     maxLength: 15,
                                     valueAsNumber: false,
@@ -194,7 +155,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                     name="date"
                                     placeholder={dataOld.CheckIn}
                                     className={cx("check-in")}
-                                    {...register('CheckIn', { required: true })}
+                                    {...register('CheckIn')}
                                 />
                             </div>
                         </label>
@@ -208,7 +169,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             name="date"
                                             placeholder={dataOld.CheckOut}
                                             className={cx("check-out")}
-                                            {...register('CheckOut', { required: true })}
+                                            {...register('CheckOut')}
                                         />
                                     </div>
                                 </label></div>
@@ -221,7 +182,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                             name="date"
                                             placeholder={dataOld.Adult}
                                             className={cx("persons-attendtion")}
-                                            {...register('PersonsAttendtion', { required: true })}
+                                            {...register('PersonsAttendtion')}
                                         />
                                     </div>
                                 </label>
@@ -233,12 +194,11 @@ function EditBookHotel({ dataOld, set, toggle }) {
                             Type of Room:
                         </label>
                         <div>
-                            <select name='TypeRoom' className={cx("our-services")} onChange={(e) => settyperoom(e.target.value)}>
+                            <select name='TypeRoom' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, TypeRoom: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select</option>
                                 <option value="vip" label="Vip Room">Vip Room</option>
                                 <option value="normal" label="Normal Room">Normal Room</option>
                             </select>
-                            {errsl && <span className={cx("error-message")}>TypeRoom cannot be empty !</span>}
 
                         </div>
                     </div>
@@ -251,11 +211,9 @@ function EditBookHotel({ dataOld, set, toggle }) {
                                 placeholder={dataOld.Note}
                                 className={cx("book-note")}
                                 onChange={(e) =>
-                                    setTexta(
-                                        e.target.value,
-                                    )
+                                    setDataSelect({ ...dataSelect, Note: e.target.value })
                                 }
-                                {...register('Note', { required: true })}
+                                {...register('Note')}
                             ></textarea>
                         </div>
                     </div>
@@ -263,7 +221,7 @@ function EditBookHotel({ dataOld, set, toggle }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} onClick={() => { Select ? seterrsl(false) : seterrsl(true) }}>Send Message</button>
+                    <button className={cx("btn")} >Send Message</button>
                 </div>
             </form>
         </div>

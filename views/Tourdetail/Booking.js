@@ -11,6 +11,8 @@ import { toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
 import ScrollToTop from '@/hook/scrollToTop';
 import Link from 'next/link';
+import { isPast } from 'date-fns';
+import { useApppContext } from '@/pages/_app';
 
 const cx = classNames.bind(style);
 
@@ -19,17 +21,29 @@ function Booking({ onClick, datas, title, long }) {
     const [ipAddress, setIpAddress] = useState('');
     const [country, setcountry] = useState();
     const [hotel, sethotel] = useState();
-    const [texta, settexta] = useState()
-
+    const [texta, settexta] = useState();
+    const [submitting, setSubmitting] = useState(false);
+    const CT = useApppContext()
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
-
+    function validateDate(value) {
+        if (isPast(new Date(value))) {
+            return "Please pick a day in tomorrow";
+        }
+        return true;
+    }
     const handleEnquire = (data) => {
+        setSubmitting(true);
         callApi(data);
         callApiSendmail(data);
+        setTimeout(() => {
+            reset();
+            setSubmitting(false);
+        }, 2000);
     };
 
     // lay ip address
@@ -41,14 +55,7 @@ function Booking({ onClick, datas, title, long }) {
     // useEffect(() => {
     //     setBookinfor({ ...Bookinfor });
     // }, [Bookinfor.Adult, Bookinfor.Children, Bookinfor.Children1, Bookinfor.Children2, Bookinfor.Hotel, Bookinfor.UsFrom]);
-    useEffect(() => {
-        let VNXuser = localStorage.getItem('VNXUser') ? JSON.parse(localStorage.getItem('VNXUser')) : null;
-        if (VNXuser) {
-            setCurrentUser(VNXuser);
-        } else {
-            setCurrentUser(null);
-        }
-    }, [])
+
     const callApi = async (data) => {
         const response = await axios({
             method: 'post',
@@ -57,7 +64,7 @@ function Booking({ onClick, datas, title, long }) {
                 Ip: ipAddress,
                 Type: 'TOUR',
                 TourCode: datas.TourCode,
-                UserName: currentUser ? currentUser.UserName : null,
+                UserName: CT.currentUser ? CT.currentUser.UserName : null,
                 TourName: datas.TourName,
                 Country: country,
                 StartDate: data.StartDate,
@@ -140,8 +147,11 @@ function Booking({ onClick, datas, title, long }) {
                                 type="date"
                                 name="date"
                                 className={cx("book-date")}
-                                {...register('StartDate', { required: true })}
+                                {...register('StartDate', { required: true },
+                                    { validate: validateDate }
+                                )}
                             />
+                            {errors.StartDate && <span className={cx("error-message")}>{errors.StartDate.message}</span>}
                             {errors.StartDate && errors.StartDate.type === 'required' && (
                                 <span className={cx("error-message")}>Date cannot be empty !</span>
                             )}
@@ -258,7 +268,7 @@ function Booking({ onClick, datas, title, long }) {
                             <select name='national' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
-                                    <option key={d.code} value={d.code}>{d.name}</option>
+                                    <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
                         </div>

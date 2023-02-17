@@ -23,16 +23,7 @@ import { useApppContext } from '@/pages/_app';
 
 
 const cx = classNames.bind(style);
-const menuUser = [
-    {
-        title: 'Profile',
-        to: '/profile'
-    },
-    {
-        title: 'Logout',
-        to: '/'
-    }
-]
+
 
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -46,12 +37,8 @@ const Header = () => {
     const { asPath } = useRouter();
     const router = useRouter();
     const [closeUser, setCloseUser] = useState(false)
-    const origin =
-        typeof window !== 'undefined' && window.location.origin
-            ? window.location.origin
-            : '';
 
-    const URL = `${origin}${asPath}`;
+
     const CT = useApppContext();
 
     const handelShowMenu = () => {
