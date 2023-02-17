@@ -5,6 +5,8 @@ import style from './header.module.scss';
 
 import MenuHover from './MenuHover';
 import { useState } from 'react';
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const cx = classNames.bind(style);
 
@@ -117,7 +119,22 @@ function Menu({ className, showmenu, menuBgr, close }) {
     const [cclosed2, setClose2] = useState();
     const [cclosed3, setClose3] = useState();
 
+    const [showList1, setshow1] = useState(false);
+    const [showList2, setshow2] = useState(false);
+    const [showList3, setshow3] = useState(false);
+    // const [showList4, setshow4] = useState(false);
+    const [showList5, setshow5] = useState(false);
+
+    const CloseAll = () => {
+        setshow1(false);
+        setshow2(false);
+        setshow3(false);
+        setshow5(false);
+        close();
+    }
+
     return (
+
         <nav className={clases}>
             <div className={cx('item')} onMouseEnter={() => setClose1(true)}
                 onMouseLeave={() => setClose1(false)}>
@@ -138,6 +155,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
 
             </div>
         </nav>
+
     );
 }
 

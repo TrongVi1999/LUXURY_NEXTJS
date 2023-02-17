@@ -57,15 +57,20 @@
 
     .boxSearch {
         display: flex;
+        width: 100%;
+        justify-content: center;
 
         .boxSearch-item {
             height: 100%;
+            width: 50%;
+            max-width: 350px;
             // margin-right: 2rem;
 
             border: 0.1rem solid var(--menu-text);
             border-radius: 0.2rem;
             background-color: var(--background-white-opacity);
             display: flex;
+            margin-right: 10px;
 
             svg {
                 margin: auto auto;
@@ -86,6 +91,7 @@
                     // border: 0.1rem solid var(--menu-text);
                     // border-radius: 0.2rem;
                     height: 100%;
+                    width: 100%;
                     padding: 0 10px;
                 }
 

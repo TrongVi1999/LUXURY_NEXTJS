@@ -1,10 +1,10 @@
 import React from 'react'
 import classNames from 'classnames/bind';
 import style from '@/styles/Contact.module.scss';
-
 import ScrollToTop from '@/hook/scrollToTop';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+// import style from '@/styles/informationBooking.module.scss';
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -47,12 +47,11 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-            <div className={cx("book-crumb-edit")}>
-                <Link href='/'>Home</Link> | <span>{/* {datas.TourName} */}</span> |EDIT BOOK TOUR
-            </div>
-            <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
-            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
-                <div className={cx("content-header")}>
+
+
+            <form className={cx("book-content")} onSubmit={handleSubmit(Submit)}>
+                <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
+                {/* <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Service Name:&nbsp;
                         <span className={cx("service-name-content")}>
@@ -66,12 +65,12 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
                         </span>
                     </p>
                 </div>
-                <hr className={cx("line")}></hr>
+                <hr className={cx("line")}></hr> */}
                 <div className={cx("content-mid")}>
-                    <div className={cx("header-form")}>
+                    {/* <div className={cx("header-form")}>
                         <span className={cx("title-form")}>CONTACT US</span>
                         <p className={cx("intro-form")}>SEND US A MESSAGE</p>
-                    </div>
+                    </div> */}
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
