@@ -1,6 +1,6 @@
 .conatiner {
     width: 100%;
-    padding: 5% 20%;
+    padding: 5% 15%;
     background-color: rgb(245 245 245);
 }
 
@@ -340,7 +340,7 @@
     }
 }
 
-@media only screen and (min-width: 851px) and (max-width: 1001px) {
+@media only screen and (min-width: 855px) and (max-width: 1001px) {
     .book-crumb,
     .book-content,
     .content-mid {
@@ -357,7 +357,11 @@
     }
 }
 
-@media only screen and (min-width: 426px) and (max-width: 851px) {
+@media only screen and (min-width: 426px) and (max-width: 854px) {
+    .conatiner {
+        width: 100%;
+        padding: 5% 10% !important;
+    }
     .content-header {
         margin-right: 2%;
     }
@@ -376,11 +380,36 @@
         width: 44%;
         margin-right: 3%;
     }
-
-    .item-form div {
-        width: 54%;
+    .item-form{
+        display: block !important; 
     }
+    .groupcheck{
+        display: block;
+    }
+    .input-enquire{
+        width: 100% !important;
+    }
+    .item-form div {
+        width: 100%;
+    }
+    .cus-infor{
+        margin-top: 10px;
+        width: 100% !important;
+    }
+    .our-services{
+        margin-top: 10px;
+        width: 100% !important;
 
+    }
+    .groupcheck {
+        display: block;
+        div {
+            width: 100%;
+            .input-enquire {
+                width: 100% !important;
+            }
+        }
+    }
     .age-option div {
         width: 141px;
     }
@@ -392,13 +421,37 @@
     .line {
         width: 86%;
     }
+
+        .sex-m label{
+        font-size: 14px !important;
+        }
+        .label-booking{
+            width: 30% !important;
+        }
+        .input-enquire{
+            width: 100% !important;
+        }
+        .check-in{
+            width: 100% !important;
+        }
+        .groupcheck{
+            width: 100% !important;
+        }
+        .persons-attendtion{
+            width: 100% !important;
+        }
+    
 }
 
 @media only screen and (min-width: 350px) and (max-width: 425px) {
     .content-header {
         margin-left: 18px;
     }
-
+    .book-content-edit {
+        width: 100%;
+        padding: 5% 5% !important;
+        background-color: rgb(245 245 245);
+    }
     .line {
         width: 85%;
     }
@@ -426,5 +479,13 @@
 
     .item-form div {
         width: 50%;
+    }
+    .btn-close {
+        position: absolute;
+        left: 0%;
+        top: 8%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
     }
 }

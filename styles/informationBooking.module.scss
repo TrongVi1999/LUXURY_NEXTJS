@@ -341,8 +341,16 @@
         font-size: 18px;
         text-align: left;
     }
+    .btn-close {
+        position: absolute;
+        left: 14.8%;
+        top: 6%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
 }
-@media only screen and (min-width: 426px) and (max-width: 851px) {
+@media only screen and (min-width: 635px) and (max-width: 851px) {
     .content-header {
         margin-right: 2%;
     }
@@ -364,6 +372,7 @@
     .label-booking {
         font-size: 14px;
         width: 44%;
+        height: 100%;
         margin-right: 3%;
     }
 
@@ -382,13 +391,42 @@
     .line {
         width: 86%;
     }
+    .sex-m{
+        font-size: 12px !important;
+    }
+    .list-location{
+        justify-content: center !important;
+    }
+    .location-item{
+        width: 30% !important;
+    }
+    .book-age:nth-child(1) {
+        margin: 0 0px 0px 0;
+        width: 100%;
+    }
 }
 
-@media only screen and (min-width: 350px) and (max-width: 425px) {
+@media only screen and (max-width: 634px) {
     .content-header {
         margin-left: 18px;
     }
-
+    .book-content-edit{
+        width: 80%;
+    }
+    .item-form{
+        display: block !important;
+    }
+    .cus-infor,
+    .our-services
+    {
+        width: 100% !important;
+        margin-top: 10px;
+    }
+    .item-form div{
+        width: 100% !important;
+        margin-top: 10px;
+    }
+    
     .line {
         width: 85%;
     }
@@ -430,6 +468,36 @@
     .item-form div {
         width: 50%;
     }
+    .btn-close {
+        position: absolute;
+        left: 10%;
+        top: 4%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+    .group-item{
+        display: block !important;
+        .item-form{
+            width: 100% !important;
+
+            .input-enquire input{
+            width: 100% !important;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 528px) {
+    .btn-close {
+        position: absolute;
+        left: 10%;
+        top: 8%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
 }
 
 .tour-same-title {
@@ -441,6 +509,9 @@
     position: absolute;
     left: 372.036px;
     top: 2036.859px;
+}
+.list-location{
+    justify-content: center !important;
 }
 
 //Mice
