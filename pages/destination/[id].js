@@ -152,7 +152,7 @@ function Destimation() {
                                     <Tourcard2 data={d} />
                                 )}
                             </div>
-                            {tourList.data && tourList.data.length == 0 && <h1>Not result</h1>}
+                            {tourList.data && tourList.data.length == 0 && <p>Not result</p>}
                             <Pagination totalPosts={tourList.data.length} postPerPage={9} setPage={setPage} pageIndex={page} />
 
                         </div>

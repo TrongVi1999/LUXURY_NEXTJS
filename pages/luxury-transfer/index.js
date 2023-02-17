@@ -35,7 +35,7 @@ function index() {
             <Headpage />
             <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
             <Section maxWidth={850} className={cx('boxTitle')}>
-                <h1 className={cx('title')}>luxury transfer</h1>
+                <h2 className={cx('title')}>luxury transfer</h2>
                 <p className={cx('textTitle')}>At VNXpedia, we are disceming, opinionated, and beleve kairy should be part of the pleasure in exploring our beautiful country No matter what you need from your kury experience, we make sure than your journey is customized to your meds Fram commercialigns to private charters points and legge planning to luxury arexpenence</p>
             </Section>
 
