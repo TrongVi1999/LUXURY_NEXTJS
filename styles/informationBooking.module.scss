@@ -336,18 +336,27 @@
         width: 60%;
     }
 }
-
+@media only screen and (min-width: 426px) and (max-width: 935px) {
+    .book-crumb{
+        font-size: 18px;
+        text-align: left;
+    }
+}
 @media only screen and (min-width: 426px) and (max-width: 851px) {
     .content-header {
         margin-right: 2%;
     }
 
     .back,
-    .book-crumb,
     .book-content {
         width: 91%;
     }
-
+    .book-crumb{
+        text-align: left;
+        margin-left: 5% !important;
+        width: 91%;
+    }
+  
     .content-mid {
         width: 86%;
     }
