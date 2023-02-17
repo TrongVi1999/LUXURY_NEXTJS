@@ -52,16 +52,11 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-            <div className={cx("book-crumb-edit")}>
-                <Link href='/'>Home</Link> | <span>MICE</span> |EDIT BOOK TOUR
-            </div>
-            <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
-            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
-                <div className={cx("content-header")}>
-                    <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
-                        If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
-                </div>
 
+
+            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
+
+                <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
                 <div className={cx("content-mid")}>
                     <h6 className={cx("h6-header")}>PERSONAL DETAILS    <span>*Mandatory Field</span></h6>
                     <div className={cx("item-form")}>

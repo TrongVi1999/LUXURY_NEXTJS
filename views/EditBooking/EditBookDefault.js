@@ -51,11 +51,10 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-            <div className={cx("book-crumb-edit")}>
-                <Link href='/'>Home</Link> | <span>{/* {datas.TourName} */}</span> |EDIT BOOK TOUR
-            </div>
-            <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
+
+
             <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
+                <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
                         Tour Name:&nbsp;
