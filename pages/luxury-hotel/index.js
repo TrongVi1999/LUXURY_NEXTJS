@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
-import IMG from '@/public/images/tour1.jpg';
 import { Section, Title, Pagination } from '@/components';
 import { BannerSlide, CategoryFilter } from '@/views';
 import { banners } from '@/public/images';

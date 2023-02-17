@@ -1,8 +1,7 @@
+import Headpage from '@/components/Head/head';
 import Loading from '@/components/Loading';
+import { GetlistImg } from '@/hook/GetListImg';
 import a1 from '@/public/a1.png';
-import a2 from '@/public/a2.png';
-import a3 from '@/public/a3.png';
-import a4 from '@/public/a4.png';
 import { banners } from '@/public/images';
 import style from '@/styles/Hoteldetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
@@ -16,7 +15,6 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { CiLocationOn } from 'react-icons/ci';
 import { GetLuxservice } from '../api/QuerryAPI';
-import Headpage from '@/components/Head/head';
 
 
 
@@ -40,14 +38,13 @@ const Index = () => {
     if (hotelData.error) {
         return <p>Error: {error.message}</p>;
     }
-
     return (
         <div>
             <Headpage />
             {hotelData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={hotelData.data.Object[0].title} bg='bg' />
                 {book ? <Hotelbook click={setbook} hotel={hotelData.data.Object[0].title} /> : <div className={cx('container')}>
-                    <Imglist data={[`https://vnxpedia.3i.com.vn${hotelData.data.Object[0].gallery}`, a2, a3, a4]} issv={false} />
+                    <Imglist data={GetlistImg(hotelData.data.Object[0].gallery)} />
 
                     <div className={cx('des')}>
                         <h2>{hotelData.data.Object[0].title}</h2>
