@@ -154,12 +154,14 @@
 .list-logo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     margin: 2.5vw 0;
 }
 .img {
-    width: 100%;
-    height: auto;
+    display: block;
+    width: 15% !important;
+    height: 100%;
 }
 
 @media only screen and (max-width: 1200px) {
