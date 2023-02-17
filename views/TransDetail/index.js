@@ -25,7 +25,7 @@ const TransListDetail = () => {
     return (
         <div className={cx('Siminal-Hotel')}>
             {getTransDetail.data && getTransDetail.data.Object.slice(0, 3).map((d, i) =>
-                <div className={cx('card')} key={i}>
+                <Link href={`/transfer-detail/${data.id}`} className={cx('card')} key={i}>
                     <div className={cx('card-img')} >
                         <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width={200} height={200} />
                     </div>
@@ -48,7 +48,7 @@ const TransListDetail = () => {
                             {d.intro_text}
                         </p>
                     </div>
-                </div>
+                </Link>
             )
             }
         </div>

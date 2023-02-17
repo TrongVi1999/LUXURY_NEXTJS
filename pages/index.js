@@ -16,7 +16,6 @@ import Introduce2 from '@/views/Introduce2';
 const cx = classNames.bind(styles);
 
 export default function Home() {
-
     return (
         <>
             <Head>

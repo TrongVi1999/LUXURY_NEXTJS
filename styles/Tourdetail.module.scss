@@ -340,7 +340,7 @@
     padding: 15px 20px;
     background-color: #fdd223;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 30px;
     cursor: pointer;
 }
 
@@ -433,7 +433,15 @@
         padding-bottom: 20px;
     }
 }
-
+@media only screen and (max-width: 670px) {
+    .btn-design {
+        padding: 15px 10px;
+        background-color: #fdd223;
+        font-weight: bold;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+}
 @media only screen and (max-width: 600px) {
     .introduce {
         flex-direction: column;
@@ -481,11 +489,18 @@
 
 
 
-    .btn-design,
+    .btn-design{
+        font-size: 8px !important;
+    }
     .btn-book {
         font-size: 10px;
         margin: 0 5px;
 
     }
 
+}
+@media only screen and (max-width: 420px) {
+    .btn-design{
+        font-size: 6.5px !important;
+    }
 }

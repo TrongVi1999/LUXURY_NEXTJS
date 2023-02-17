@@ -1,17 +1,14 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/router";
-import { EditBookingMice } from "@/pages/api/QuerryAPI";
 import national from '@/pages/api/national.json';
 import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
-import classNames from 'classnames/bind';
-import style from '@/styles/informationBooking.module.scss';
-import { EditBooking } from "@/pages/api/CallAPI";
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { toastError, toastSuccess } from "@/components/Toast";
 import ScrollToTop from "@/hook/scrollToTop";
-import { toastSuccess, toastError } from "@/components/Toast";
+import { EditBooking } from "@/pages/api/CallAPI";
+import style from '@/styles/informationBooking.module.scss';
+import classNames from 'classnames/bind';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 const ListLocation =
@@ -87,7 +84,7 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
                             Your nationality:
                         </label>
                         <div>
-                            <select name='national' className={cx("our-services")} oonChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
+                            <select name='national' className={cx("our-services")} onChange={(e) => setDataSelect({ ...dataSelect, Country: e.target.value })}>
                                 <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
                                 {(national).map((d, item) => (
                                     <option key={d.code} value={d.name}>{d.name}</option>
@@ -202,10 +199,10 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
                                             type="checkbox"
                                             value={d}
                                             className={cx("form-control")}
-                                            // ref={register("location", { required: true })}
+
                                             onClick={(e) => AddDes(e)}
                                         />
-                                        {/* {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>} */}
+
                                         <label className={cx("sex-m")} for="" >
                                             {d}
                                         </label>

@@ -1,8 +1,7 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { toastError, toastSuccess } from '@/components/Toast';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import qs from 'qs';
-import { useState } from 'react';
-import { toastError, toastSuccess } from '@/components/Toast';
 
 
 //super filter

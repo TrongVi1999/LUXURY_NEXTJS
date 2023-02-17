@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 export const toastSuccess = (text) => {
     return toast.success(`${text}`, {
-        position: "center-center",
+        position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
