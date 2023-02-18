@@ -9,12 +9,12 @@ import { TiSocialInstagram } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 import { TfiGoogle } from 'react-icons/tfi';
-import Img1 from '../../public/1.webp';
-import Img2 from '../../public/2.webp';
-import Img3 from '../../public/3.webp';
-import Img4 from '../../public/4.png';
-import Img5 from '../../public/5.webp';
-import Img6 from '../../public/6.webp';
+import Img1 from '../../public/logo6.png';
+import Img2 from '../../public/logo5.png';
+import Img3 from '../../public/logo4.png';
+import Img4 from '../../public/logo3.png';
+import Img5 from '../../public/logo2.png';
+import Img6 from '../../public/logo1.png';
 import Link from 'next/link';
 import { Subcrise } from '@/pages/api/CallAPI';
 import { useState, useEffect } from 'react';
@@ -36,9 +36,12 @@ function Footer() {
         <div className={cx('wrapper')}>
             <div className={cx('footer')}>
                 <div className={cx('list-logo')}>
-                    {Listimg.map((d) => (
-                        <Image src={d} className={cx('img')} alt="logo-prize-vnxpedia" />
-                    ))}
+                    <Image src={Img1} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img2} className={cx('img-logo')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img3} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img4} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img5} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img6} className={cx('img-logo')} alt="logo-prize-vnxpedia" width='200' height='200' />
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('main')}>
