@@ -20,6 +20,15 @@ const Tourcard2 = ({ data }) => {
         <div className={cx('card2')}>
             <div className={cx('img-card2')}>
                 <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img2')} width='1000' height='1000' />
+                {data.Discount && data.Discount != 0 && data.Discount != 'null' &&
+                    <div className={cx('salesticky')}>
+                        <p className={cx('salenumber')}>
+                            {data.Discount}
+                            <span>%</span>
+                        </p>
+                        <p>OFF</p>
+                    </div>
+                }
             </div>
 
             <div className={cx('infor2')}>
@@ -56,15 +65,7 @@ const Tourcard2 = ({ data }) => {
                 </div>
                 <Link href={`/tour-detail/${data.TourCode}`} className={cx('book')}>SEE MORE</Link>
             </div>
-            {data.Discount && data.Discount != 0 && data.Discount != 'null' &&
-                <div className={cx('salesticky')}>
-                    <p className={cx('salenumber')}>
-                        {data.Discount}
-                        <span>%</span>
-                    </p>
-                    <p>OFF</p>
-                </div>
-            }
+
 
         </div>
     );
