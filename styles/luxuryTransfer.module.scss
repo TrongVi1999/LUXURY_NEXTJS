@@ -33,8 +33,7 @@
         margin-bottom: 6.5rem;
         .btn {
             position: relative;
-            flex: 1;
-            min-width: 20rem;
+            width: 25%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -121,25 +120,22 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .container {
-        padding: 0 10% 5% 10% !important;
+    .btn {
+        width: 50% !important;
     }
 }
 @media only screen and (max-width: 1500px) {
     .main {
-        width: 100%;
         padding: 0 15%;
     }
 }
 @media only screen and (max-width: 1200px) {
     .main {
-        width: 100%;
         padding: 0 10%;
     }
 }
 @media only screen and (max-width: 900px) {
     .main {
-        width: 100%;
         padding: 0 5%;
     }
 }
