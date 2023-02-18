@@ -16,14 +16,14 @@
                 width: 100%;
                 border-top: 0.1rem solid var(--light2);
 
-                &:first-child {
+                &:nth-of-type(1) {
                     border-top: none;
                 }
             }
         }
     }
     .boxFilter {
-        width: 30%;
+        width: 31%;
     }
 }
 
