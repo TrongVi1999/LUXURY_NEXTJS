@@ -10,6 +10,7 @@ import ChangeTextHTML from '@/hook/ChangetextHTML';
 import { RandomBook } from '@/hook/random';
 
 import Link from 'next/link';
+import { da } from 'date-fns/locale';
 
 const cx = classNames.bind(style);
 
@@ -36,9 +37,11 @@ const Tourcard2 = ({ data }) => {
                     <BsCalendarWeek /> {data.DETAIL.length} Day
                 </p>
                 <p className={cx('price-type')}>
-                    <span className={cx('price')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
-                    <span className={cx('real-price')}>{data.PRICE[0].price}</span>
-                </p>{data.PRICE[0].price}
+                    <span className={cx('price')}>$ {Math.floor(data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100))}</span>
+                    {data.Discount && data.Discount != 0 &&
+                        <span> <ImFire />${' '}
+                            <span className={cx('real-price')}>{data.PRICE[0].price}</span></span>}
+                </p>
                 <p className={cx('place')}>
                     <SlLocationPin />
                     {ChangeTextHTML(data.Destination)}
