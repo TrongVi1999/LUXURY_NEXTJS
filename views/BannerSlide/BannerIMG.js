@@ -17,7 +17,7 @@ const BannerIMG = ({ img, title, descrip, bg, type, date, by, number, crumb, cru
             <Image src={img} alt='img tour vnxpedia' className={cx('img')} layout="fill" />
             <div className={cx('text-img')} id={bg}>
                 {type && <TitleLine text={type} color='black' />}
-                <h2>{title}</h2>
+                <h1>{title}</h1>
                 {descrip && <p className={cx('text-des')}>{descrip}</p>}
                 {date &&
                     <div className={cx('infor')}>

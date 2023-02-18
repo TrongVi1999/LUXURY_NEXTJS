@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 import style from './footer.module.scss';
-import Logo from '../../public/logo-w-2.png';
+import Logo from '@/asset/images/LogoFN2.png';
 import { GiPhone } from 'react-icons/gi';
 import { MdEmail } from 'react-icons/md';
 import { GrFacebookOption } from 'react-icons/gr';
@@ -15,7 +15,6 @@ import Img3 from '@/public/icon/logo4.png'
 import Img4 from '@/public/icon/logo3.png'
 import Img5 from '@/public/icon/logo2.png'
 import Img6 from '@/public/icon/logo1.png'
-import Listlogo from '@/public/icon/listlogofooter.jpg';
 import Link from 'next/link';
 import { Subcrise } from '@/pages/api/CallAPI';
 import { useState, useEffect } from 'react';

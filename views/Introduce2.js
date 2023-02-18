@@ -12,7 +12,7 @@ const Introduce2 = () => {
             <Image src={gt2} className={cx('img')} alt='img-Introduce' />
 
             <div className={cx('h2')}>
-                <h1> WE OFFER LUXURY PRIVATE TOURS TO SOUTHREAST ASIA</h1>
+                <h2> WE OFFER LUXURY PRIVATE TOURS TO SOUTHREAST ASIA</h2>
             </div>
             <div className={cx('text')}>
                 <p>

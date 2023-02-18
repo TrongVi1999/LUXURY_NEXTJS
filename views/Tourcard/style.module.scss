@@ -47,19 +47,19 @@
     font-weight: bold;
 }
 
-.price {
-    .price1 {
+.price-type {
+    .price {
         color: black;
         font-weight: bold;
     }
 
     svg {
         margin-right: 5px;
-        // color: linear-gradient(rgb(251 163 21), rgb(255 206 25));
+
         color: rgb(203, 144, 26);
     }
 
-    .price2 {
+    .real-price {
         text-decoration: line-through;
     }
 }
