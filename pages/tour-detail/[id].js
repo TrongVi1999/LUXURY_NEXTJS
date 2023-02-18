@@ -21,81 +21,74 @@ const index = () => {
     const [Book, setBook] = useState(0);
     const componentRef = useRef(null);
 
-    const Tourresponse = Gettour(router.query.id)
-    const Tourdata = Tourresponse.data;
+    const Tourdata = Gettour(router.query.id);
 
 
-    if (Tourresponse.isLoading) {
-        return <p>Loading...</p>;
-    }
-
-    if (Tourresponse.error) {
-        return <p>Error: {error.message}</p>;
-    }
 
     return (
         <div className={cx('container')}>
             <Headpage />
-            <div className={cx('main')}>
-                {Tourdata.Object[0].BannerImg ?
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.Object[0].BannerImg}`} title={Tourdata.Object[0].TourName} bg='bg' /> :
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`} title={Tourdata.Object[0].TourName} bg='bg' />
-                }
+            {Tourdata.data &&
+                <div className={cx('main')}>
+                    {Tourdata.data.BannerImg ?
+                        <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.data.BannerImg}`} title={Tourdata.data.TourName} bg='bg' /> :
+                        <BannerIMG img={`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`} title={Tourdata.data.TourName} bg='bg' />
+                    }
 
 
-                {Book == 0 &&
-                    <div className={cx('main-infor')}>
+                    {Book == 0 &&
+                        <div className={cx('main-infor')}>
 
-                        <div className={cx('crumb-cost')}>
-                            <Crumb text={Tourdata.Object[0].TourName} />
-                            <div className={cx('cost')}>
-                                <sup>From</sup>
-                                <p>$ {Tourdata.Object[0].PRICE[0].price}</p>
-                                <span>/PAX</span>
+                            <div className={cx('crumb-cost')}>
+                                <Crumb text={Tourdata.data.TourName} />
+                                <div className={cx('cost')}>
+                                    <sup>From</sup>
+                                    <p>$ {Tourdata.data.PRICE[0].price}</p>
+                                    <span>/PAX</span>
+                                </div>
                             </div>
-                        </div>
 
-                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg1}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg2}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg3}`]} />
-                        <Highlight title={Tourdata.Object[0].TourName} destination={Tourdata.Object[0].Destination} long={Tourdata.Object[0].DETAIL.length} highlight={Tourdata.Object[0].Hightlight} click={setBook} btn cla='name' cla2='highlight' />
-                        <Itinerary description={Tourdata.Object[0].TourDescription} detail={Tourdata.Object[0].DETAIL} click={setBook} btn dataref={componentRef.current} />
+                            <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg1}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg2}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg3}`]} />
+                            <Highlight title={Tourdata.data.TourName} destination={Tourdata.data.Destination} long={Tourdata.data.DETAIL.length} highlight={Tourdata.data.Hightlight} click={setBook} btn cla='name' cla2='highlight' />
+                            <Itinerary description={Tourdata.data.TourDescription} detail={Tourdata.data.DETAIL} click={setBook} btn dataref={componentRef.current} />
 
-                    </div>}
-                {Book == 1 && <Booking
-                    onClick={setBook}
-                    datas={Tourdata.Object[0]}
-                />
+                        </div>}
+                    {Book == 1 && <Booking
+                        onClick={setBook}
+                        datas={Tourdata.data}
+                    />
 
-                }
-                {Book == 2 && <Shareemail close={setBook} />}
-                <Tourrecomment type={Tourdata.Object[0].TourType} />
+                    }
+                    {Book == 2 && <Shareemail close={setBook} />}
+                    <Tourrecomment type={Tourdata.data.TourType} />
 
-                <div className={cx('pdf')}>
-                    <div className={cx('main-infor1')} ref={el => (componentRef.current = el)}>
-                        <div className={cx('crumb-cost')}>
-                            <h3> {Tourdata.Object[0].TourName} </h3>
-                            <div className={cx('cost')}>
-                                <sup>From</sup>
-                                <p>${Tourdata.Object[0].PRICE[0].price}</p>
-                                <span>/PAX</span>
+                    <div className={cx('pdf')}>
+                        <div className={cx('main-infor1')} ref={el => (componentRef.current = el)}>
+                            <div className={cx('crumb-cost')}>
+                                <h3> {Tourdata.data.TourName} </h3>
+                                <div className={cx('cost')}>
+                                    <sup>From</sup>
+                                    <p>${Tourdata.data.PRICE[0].price}</p>
+                                    <span>/PAX</span>
+                                </div>
                             </div>
+
+                            <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`]} />
+                            <Highlight title={Tourdata.data.TourName} destination={Tourdata.data.Destination} long={Tourdata.data.DETAIL.length} highlight={Tourdata.data.Hightlight} click={setBook} cla='name1' cla2='highlight2' />
+                            <Itinerary description={Tourdata.data.TourDescription} detail={Tourdata.data.DETAIL} click={setBook} />
+
                         </div>
-
-                        <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.Object[0].HightlightImg}`]} issv={true} />
-                        <Highlight title={Tourdata.Object[0].TourName} destination={Tourdata.Object[0].Destination} long={Tourdata.Object[0].DETAIL.length} highlight={Tourdata.Object[0].Hightlight} click={setBook} cla='name1' cla2='highlight2' />
-                        <Itinerary description={Tourdata.Object[0].TourDescription} detail={Tourdata.Object[0].DETAIL} click={setBook} />
-
                     </div>
-                </div>
 
 
 
 
-                {/* <ReactToPrint
+                    {/* <ReactToPrint
                     trigger={() => <button >In</button>}
                     content={() => componentRef.current}
                 /> */}
 
-            </div>
+                </div>}
 
         </div>
     )

@@ -20,12 +20,17 @@ import { TitleMice, DiffItem, BoxImageMice } from '@/views/Mice';
 import Booking from '@/views/Mice/Contact';
 import { useState } from 'react';
 import Headpage from '@/components/Head/head';
+import { Tourtype } from '../api/QuerryAPI';
+import ChangeTextHTML from '@/hook/ChangetextHTML';
 
 
 const cx = classNames.bind(style);
 
 function Mice() {
+
+    const listTour = Tourtype('TYPE_MICE');
     const [book, setbook] = useState(false);
+    console.log(listTour.data)
     return (
         <div className={cx('wrapper')}>
             <Headpage />
@@ -41,7 +46,8 @@ function Mice() {
                         <DiffItem title={"EVENTS"} des="On-demand events are extremely diverse. Do you think organizing a luxurious and romantic party in the largest cave in HaLong Bay? Or immerse yourself in an Asian art performance at the main courtyard of the Temple of Literature, as well as the most lavish wedding scenario on a private beach at Phu Quoc Pearl Island.?" img={Img4} />
                     </div>
 
-                    <Section className={cx('sectionDiff')}>
+                    <div className={cx('main')}>
+                        {/* <Section className={cx('sectionDiff')}> */}
                         <TitleMice title={'WHAT ARE DIFFERENCE'} des={"We research, and select unique and clasey values to put into MICE products Customers can experiance the most different values when they have faith and order with VNXPEDIA"} />
                         <div className={cx('sectionDiffCase')}>
                             <BoxImageMice img={Img5} title="INNOVATIVE TEAM-BUIDLING" size={'45%'} />
@@ -49,15 +55,19 @@ function Mice() {
                             <BoxImageMice img={Img7} title="OUTSTANDING IDEA" size={'45%'} />
                             <BoxImageMice img={Img8} title="LOCAL TRANSPORT EXPERIENCES" size={'45%'} />
                         </div>
-                    </Section>
+                        {/* </Section> */}
 
-                    <Section className={cx('sectionDiff')}>
+                        {/* <Section className={cx('sectionDiff')}> */}
                         <TitleMice title={'CASE STUDIES'} des={"We research, and select unique and classy values ​​to put into MICE products. Customers can experience the most different values ​​when they have faith and order with VNXPEDIA"} />
-                        <div className={cx('sectionDiffCase')}>
-                            <BoxImageMice img={Img9} title="Night barbecue party in Mui Ne for 120 paxs" des={"Recreate the image of a barbecue party in the desert at the sand dunes of Phan Thiet"} size={'100%'} minWidth={'40rem'} />
-                            <BoxImageMice img={Img10} title="A unique and luxurious wedding takes place on Phu Quoc beach" des={"With the request to organize a private and luxurious wedding space on Phu Quoc pearl beach it was perfectly fulfilled"} size={'100%'} minWidth={'40rem'} />
-                        </div>
-                    </Section>
+                        {listTour.data && <div className={cx('sectionDiffCase')}>
+                            {listTour.data.Object.map((d, i) =>
+                                <BoxImageMice img={`https://vnxpedia.3i.com.vn${d.HightlightImg}`} title={d.TourName} des={ChangeTextHTML(d.TourDescription)} size={'100%'} minWidth={'40rem'} />
+                            )}
+                            {/* <BoxImageMice img={Img9} title="Night barbecue party in Mui Ne for 120 paxs" des={"Recreate the image of a barbecue party in the desert at the sand dunes of Phan Thiet"} size={'100%'} minWidth={'40rem'} />
+                            <BoxImageMice img={Img10} title="A unique and luxurious wedding takes place on Phu Quoc beach" des={"With the request to organize a private and luxurious wedding space on Phu Quoc pearl beach it was perfectly fulfilled"} size={'100%'} minWidth={'40rem'} /> */}
+                        </div>}
+                        {/* </Section> */}
+                    </div>
 
                     <div className={cx('btnBoxContact')}>
                         <p className={cx('text')}>Let us accompany you to make the experice end trips of your dreams and your loved ones and colleagues!</p>

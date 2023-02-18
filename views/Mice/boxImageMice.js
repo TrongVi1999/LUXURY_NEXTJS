@@ -9,7 +9,7 @@ function BoxImageMice({ title, des, img, size, minWidth }) {
     return (
         <Link href={`/case-study/MICE001`} className={cx('boxImageMice')} style={{ width: size, minWidth: minWidth }}>
             <div className={cx('boxImg')}>
-                <Image src={img} alt='boxImage' className={cx('img')} />
+                <Image src={img} alt='boxImage' className={cx('img')} width='1000' height='1000' />
             </div>
             <div className={cx('boxDes')}>
                 <h3 className={cx('title', des ? 'titleDes' : null)}>{title}</h3>
