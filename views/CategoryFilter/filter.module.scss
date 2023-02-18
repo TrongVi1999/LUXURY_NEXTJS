@@ -447,3 +447,24 @@
         }
     }
 }
+
+@media only screen and (max-width: 840px) {
+    .itemMobileShow{
+        display: block !important;
+    }
+    .imgBox{
+        width: 17rem !important;
+        height: 14rem !important;
+        .img{
+            object-fit: cover;
+        }
+    }
+    .recentInfo{
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
+    .titleRecentPost{
+        margin-bottom: 5px !important;
+    }
+}
