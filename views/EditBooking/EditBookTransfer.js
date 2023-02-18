@@ -21,9 +21,8 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
         formState: { errors },
     } = useForm();
 
-
     //Call API edit booking Transfer
-
+    const [show, setShow] = useState(false);
     const [dataSelect, setDataSelect] = useState({ Country: '', Babycarseat: '', Note: '' });
 
     const CallEdit = async (data) => {
@@ -44,13 +43,9 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
         setreload(!reload);
     }
 
-
-
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-
-
             <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
                 <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
                 <div className={cx("content-header")}>
@@ -63,17 +58,12 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
                     <p className={cx("tour-country")}>
                         Country:&nbsp;
                         <span className={cx("tour-country-content")}>
-                            VIET NAM
+                            {dataOld.Country}
                         </span>
                     </p>
                 </div>
                 <hr className={cx("line")}></hr>
                 <div className={cx("content-mid")}>
-                    {/* <div className={cx("header-form")}>
-                        <span className={cx("title-form")}>CONTACT US</span>
-                        <p className={cx("intro-form")}>SEND US A MESSAGE</p>
-                    </div> */}
-
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             How should we call you? (*)
@@ -100,7 +90,6 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
                                     <option key={d.code} value={d.code}>{d.name}</option>
                                 ))}
                             </select>
-                            {/* {errsl && <span className={cx("error-message")}>Country cannot be empty !</span>} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -253,7 +242,7 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
 
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUBMIT</button>
+                    <button className={cx("btn-send")} >SUBMIT</button>
                 </div>
             </form>
         </div>

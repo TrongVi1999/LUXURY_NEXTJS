@@ -1,5 +1,6 @@
 .wrapper {
     cursor: pointer;
+    background: none;
 
     &:hover {
         opacity: 0.8;
@@ -7,4 +8,16 @@
 }
 .title {
     white-space: nowrap;
+}
+
+.readmore {
+    height: 100%;
+    width: 21rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--buttonPagination);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.6rem;
 }

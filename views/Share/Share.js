@@ -14,9 +14,7 @@ const Share = () => {
         <div className={cx('container')}>
             <Link href={'https://www.facebook.com/sharer/sharer.php?u=${window.location.href}'} target="_blank"><SlSocialFacebook /></Link>
             <Link href={'https://twitter.com/intent/tweet?url=${window.location.href}&text='} target="_blank"><CiTwitter /></Link>
-            {/* <Link href={'mailto:info@example.com?&subject=&cc=&bcc=&body=${window.location.href}%0A'} target="_blank"><CiMail /></Link> */}
             <Link href={'https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}'} target="_blank"><FaLinkedin /></Link>
-            {/* <Link href={'https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}'} target="_blank"><AiOutlinePrinter /></Link> */}
 
         </div>
     )
