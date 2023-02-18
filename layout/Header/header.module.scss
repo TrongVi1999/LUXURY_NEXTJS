@@ -19,10 +19,12 @@
 
     justify-content: space-between;
     align-items: center;
-
-    .logo {
-        width: 13rem;
-        height: 7.5rem;
+    .linkHomepage {
+        height: 60%;
+        .logo {
+            height: 100%;
+            width: auto;
+        }
     }
 
     .menubody {

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const cx = classNames.bind(style)
 
-function BoxCar({ className, click, data }) {
+function BoxCar({ className, data }) {
     return (
         <Link href={`/transfer-detail/${data.id}`} className={cx('card', { [className]: className })}>
             <div className={cx('boxImg')}>

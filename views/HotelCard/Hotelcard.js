@@ -4,6 +4,7 @@ import style from './style.module.scss';
 import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 import { ImFire } from 'react-icons/im';
+import { GetlistImg } from '@/hook/GetListImg';
 
 import Link from 'next/link';
 
@@ -13,7 +14,7 @@ const Hotelcard = ({ data }) => {
     return (
         <Link href={`/hotel-detail/${data.id}`} className={cx('card')}>
             <div className={cx('card-img')}>
-                <Image src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width='1000' height='1000' />
+                <Image src={GetlistImg(data.gallery)[0]} alt="vnxpedia-tour-img" className={cx('img')} width='1000' height='1000' />
             </div>
             <div className={cx('infor')}>
                 <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
