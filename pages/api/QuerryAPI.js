@@ -230,8 +230,6 @@ export function EditBookingDefault(data) {
                     },
                 }
             );
-            console.log("data", data);
-            console.log("response", response);
             return response.data;
         }
     );

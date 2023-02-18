@@ -189,7 +189,7 @@ function Booking({ onClick, datas, title, long }) {
                             />
                             <input
                                 type="text"
-                                placeholder="Infant(s) (0-2 years old)"
+                                placeholder="Infant(s) (2-6 years old)"
                                 className={cx("book-age")}
                                 min="0"
 
@@ -197,7 +197,7 @@ function Booking({ onClick, datas, title, long }) {
                             />
                             <input
                                 type="text"
-                                placeholder="Child(ren) (2-6 years old)"
+                                placeholder="Child(ren) (0-2 years old)"
                                 className={cx("book-age")}
                                 min="0"
 

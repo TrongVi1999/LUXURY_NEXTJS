@@ -12,6 +12,10 @@ import EditBookMice from "@/views/EditBooking/EditBookMice";
 import EditBookTransfer from "@/views/EditBooking/EditBookTransfer";
 import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import { Getbookinglist } from "@/pages/api/QuerryAPI";
+import WatchBookDefault from "@/views/WatchBook/WatchBookDeafult";
+import WatchBookMice from "@/views/WatchBook/WatchBookMice";
+import WatchBookHotel from "@/views/WatchBook/WatchBookHotel";
+import WatchBookTransfer from "@/views/WatchBook/WatchBookTransfer";
 
 const cx = classNames.bind(style);
 
@@ -21,15 +25,13 @@ function BookingUser({ user, reload, setreload }) {
 
     const [Bookdata, setBookdata] = useState([]);
     const [page, setPage] = useState(1);
-    const [showEdit, setShowEdit] = useState(false);
+    const [showDetail, setShowDetail] = useState(false);
 
     const [data, setData] = useState();
 
     const lastIndex = page * 6;
     const firstIndex = lastIndex - 6;
     const listBook = Getbookinglist(user, reload);
-
-
 
     return (<div className={cx('wrapper')}>
         {listBook.data && <>
@@ -40,7 +42,7 @@ function BookingUser({ user, reload, setreload }) {
                 <ItemBookingUser key={index}
                     img={banners.banner2}
                     data={item}
-                    toggle={setShowEdit}
+                    toggle={setShowDetail}
                     setData={setData}
                 />
             ))}
@@ -49,11 +51,15 @@ function BookingUser({ user, reload, setreload }) {
         }
         <Pagination totalPosts={Bookdata.length} postPerPage={6} setPage={setPage} pageIndex={page} />
 
-        {showEdit && data.Type == "TOUR" && <EditBookDefault dataOld={data} toggle={setShowEdit} reload={reload} setreload={setreload} />}
-        {showEdit && data.Type == "MICE" && <EditBookMice dataOld={data} toggle={setShowEdit} reload={reload} setreload={setreload} />}
-        {showEdit && data.Type == "TRANSFER" && <EditBookTransfer dataOld={data} toggle={setShowEdit} reload={reload} setreload={setreload} />}
-        {showEdit && data.Type == "HOTEL" && <EditBookHotel dataOld={data} toggle={setShowEdit} reload={reload} setreload={setreload} />}
+        {/* {showDetail && data.Type == "TOUR" && <WatchBookDefault dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "MICE" && <WatchBookMice dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "TRANSFER" && <WatchBookTransfer dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "HOTEL" && <WatchBookHotel dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />} */}
 
+        {showDetail && data.Type == "TOUR" && <EditBookDefault dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "MICE" && <EditBookMice dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "TRANSFER" && <EditBookTransfer dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
+        {showDetail && data.Type == "HOTEL" && <EditBookHotel dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
     </div>);
 }
 

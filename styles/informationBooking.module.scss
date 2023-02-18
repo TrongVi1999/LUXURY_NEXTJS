@@ -21,7 +21,6 @@
 }
 
 .back {
-    //color: red;
     width: 70%;
     margin: 0 auto;
     cursor: pointer;
@@ -81,22 +80,6 @@
     cursor: pointer;
     z-index: 2;
 }
-// .check-in {
-//     color: #6f6f6f;
-//     border: 1px solid #b1b1b1;
-//     border-radius: 4px;
-//     padding: 10px 14px !important;
-//     width: 100%;
-//     margin-top: 20px;
-// }
-// .check-out {
-//     color: #6f6f6f;
-//     border: 1px solid #b1b1b1;
-//     border-radius: 4px;
-//     padding: 10px 14px !important;
-//     width: 100%;
-//     margin-top: 20px;
-// }
 .book-content-edit {
     background-color: white;
     width: 70%;
@@ -104,6 +87,7 @@
     position: relative;
     margin-top: 10px;
     padding-top: 20px;
+    top: 5%;
 }
 
 .content-header {
@@ -143,6 +127,10 @@
 .content-mid {
     width: 91%;
     margin: 0 70px 35px 35px;
+}
+
+.h6-header {
+    font-size: 12px;
 }
 
 .item-form {
@@ -421,15 +409,16 @@
     }
     .item-form {
         display: block !important;
+        margin-bottom: 15px;
     }
     .cus-infor,
     .our-services {
         width: 100% !important;
-        margin-top: 10px;
+        margin-top: 5px;
     }
     .item-form div {
         width: 100% !important;
-        margin-top: 10px;
+        margin-top: 5px;
     }
 
     .line {
@@ -444,11 +433,15 @@
 
     .content-mid {
         width: 88%;
-        margin: 0 70px 35px 18px;
+        margin: 0 70px 20px 18px;
+    }
+
+    .content-bot {
+        padding-bottom: 20px;
     }
 
     .label-booking {
-        font-size: 14px;
+        font-size: 16px;
         width: 46%;
         margin-right: 4%;
     }
@@ -553,7 +546,7 @@
 
         div {
             width: 100%;
-            margin-top: 20px;
+            margin-top: 5px;
         }
     }
 }
