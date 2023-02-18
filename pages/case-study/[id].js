@@ -29,29 +29,22 @@ const index = () => {
     const caseStudy = Gettour(router.query.id);
 
 
-    if (caseStudy.isLoading) {
-        return <p>Loading...</p>;
-    }
-
-    if (caseStudy.error) {
-        return <p>Error: {error.message}</p>;
-    }
 
 
     return (
         <div className={cx('container')}>
             <Headpage />
-            <div className={cx('main')}>
-                {(caseStudy.data.Object[0] && caseStudy.data.Object[0].BannerImg && caseStudy.data.Object[0].HightlightImg) ?
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.Object[0].BannerImg}`} title={caseStudy.data.Object[0].TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.Object[0].TourDescription)} /> :
-                    <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.Object[0].HightlightImg}`} title={caseStudy.data.Object[0].TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.Object[0].TourDescription)} />
+            {caseStudy.data && <div className={cx('main')}>
+                {(caseStudy.data && caseStudy.data.BannerImg && caseStudy.data.HightlightImg) ?
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.BannerImg}`} title={caseStudy.data.TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.TourDescription)} /> :
+                    <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.HightlightImg}`} title={caseStudy.data.TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.TourDescription)} />
                 }
 
 
                 {Book ?
                     <div className={cx('main-infor')}>
 
-                        {caseStudy.data.Object[0] && <Highlight data={caseStudy.data.Object[0]} />}
+                        {caseStudy.data && <Highlight data={caseStudy.data} />}
                         <InEx data={Data.Inclusions} type='inc' />
                         <InEx data={Data.Exclusions} type='exc' />
 
@@ -69,7 +62,7 @@ const index = () => {
 
 
             </div>
-
+            }
         </div>
     )
 }

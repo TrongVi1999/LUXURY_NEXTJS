@@ -26,7 +26,7 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
 
     //Call API edit booking Mice
 
-
+    const [show, setShow] = useState(false);
     const [dataSelect, setDataSelect] = useState({ Country: '', Lenght: '', Perpose: '', Require: '', Note: '', Subcrible: '' });
 
     const CallEdit = async (data) => {
@@ -52,13 +52,10 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-
-
             <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
-
                 <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
                 <div className={cx("content-mid")}>
-                    <h6 className={cx("h6-header")}>PERSONAL DETAILS    <span>*Mandatory Field</span></h6>
+                    <h6 className={cx("h6-header")}>PERSONAL DETAILS<span>*Mandatory Field</span></h6>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             How should we call you? (*)
@@ -85,7 +82,6 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
                                     <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
-                            {/* {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -298,7 +294,7 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUBMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>
         </div>

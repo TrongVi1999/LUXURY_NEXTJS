@@ -143,7 +143,6 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {
                 isSearch ? (<div className={cx('inputSearch-div')}>
                     <input type='text' className={cx('inputSearch')} placeholder="search" onChange={(e) => setinput(e.target.value)} />
-                    <AiOutlineSearch className={cx('icon')} />
                 </div>) : null
             }
             <div className={cx('boxFillterMobile')}>
