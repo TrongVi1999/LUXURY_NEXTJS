@@ -21,10 +21,12 @@ const Author = () => {
             <div className={cx('author-avt')}>
                 < Image src={icon1} />
             </div>
-            <p>{data.auname}</p>
-            <p>{data.class}</p>
-            <Share />
-            <p>{data.about}</p>
+            <div className={cx('author-content')}>
+                <p>{data.auname}</p>
+                <p>{data.class}</p>
+                <Share />
+                <p>{data.about}</p>
+            </div>
 
         </div>
     )

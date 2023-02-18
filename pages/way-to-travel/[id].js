@@ -70,7 +70,7 @@ const index = () => {
             <div id='list' />
             {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}
 
-            <Section maxWidth={1170}>
+            <div className={cx('main')}>
                 <div className={cx('sort')}>
                     <span >Sort by :</span>
                     <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
@@ -84,23 +84,24 @@ const index = () => {
 
                 </div>
                 {tourList.data.Object.length > 0 && <Tourcard2 data={tourList.data.Object[0]} />}
-            </Section>
 
-            {tourList.data.Object.length > 0 &&
-                <Section maxWidth={1170} isWrap gapBox={3.2}>
-                    {
 
-                        sortp(tourList.data.Object).filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((d, i) => (
-                            <Tourcard1 data={d} key={i} />
-                        ))
+                {tourList.data.Object.length > 0 &&
+                    <div className={cx('list-tour')}>
+                        {
 
-                    }
+                            sortp(tourList.data.Object).filter((d, i) => i != 0 && d).slice(firstIndex, lastIndex).map((d, i) => (
+                                <Tourcard1 data={d} key={i} />
+                            ))
 
-                </Section>
+                        }
 
-            }
+                    </div>
 
-            <Pagination totalPosts={tourList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+                }
+
+                <Pagination totalPosts={tourList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />
+            </div>
         </div>
     )
 }
