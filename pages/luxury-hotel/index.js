@@ -32,7 +32,7 @@ const index = () => {
         <div className={cx('wrapper')}>
             <Headpage />
             {/* <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} /> */}
-            <BannerIMG img={banners.resolt} title={'LUXURY HOTEL'} descrip={'Best luxury hotel in Viet Nam and Asia'} />
+            <BannerIMG img={banners.hotel} title={'LUXURY HOTEL'} descrip={'Best luxury hotel in Viet Nam and Asia'} />
             <div className={cx('main')}>
                 {hotelList.isLoading && <Loading />}
                 {hotelList.data &&

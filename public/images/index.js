@@ -17,7 +17,7 @@ const banners = {
     phuquoc: require('./banner/phuquoc.jpg'),
     thuyendep: require('./banner/thuyendep.jpg'),
     halongbay: require('./banner/halongbay.jpg'),
-    resolt: require('./banner/des-vietnam.jpg'),
+    resolt: require('./banner/desvietnam.jpg'),
     hotel: require('./banner/resolt.png'),
     banner4: require('./banner/banner4.png'),
     banner6: require('./banner/banner6.jpg'),
