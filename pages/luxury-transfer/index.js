@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { ListTransfer } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
 import Headpage from '@/components/Head/head';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
 
 const cx = classNames.bind(style);
 
@@ -33,7 +34,8 @@ function index() {
     return (
         <div className={cx('wrapper')}>
             <Headpage />
-            <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
+            {/* <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} /> */}
+            <BannerIMG img={banners.luxuryTransfer} title={"LUXURY TRANSFER"} />
             <div className={cx('main')}>
                 <div className={cx('boxTitle')}>
                     <h2 className={cx('title')}>luxury transfer</h2>

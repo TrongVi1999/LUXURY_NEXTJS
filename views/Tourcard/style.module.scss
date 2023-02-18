@@ -92,6 +92,7 @@
 .img-card2 {
     flex: 1;
     height: auto;
+    position: relative;
 }
 
 .img2 {
@@ -143,7 +144,8 @@
 .salesticky {
     position: absolute;
     top: 0;
-    left: 42%;
+    // left: 42%;
+    right: 5%;
     background-color: rgb(241 164 26);
     padding: 20px 15px;
 
@@ -181,10 +183,10 @@
         margin: auto;
         margin-bottom: 6rem;
 
-        .salesticky {
-            right: 0;
-            left: unset;
-        }
+        // .salesticky {
+        //     // right: 0;
+        //     left: unset;
+        // }
 
         .infor2 {
             width: 100%;
