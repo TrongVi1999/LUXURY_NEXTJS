@@ -216,7 +216,7 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn-send")} >Send Message</button>
+                    <button className={cx("btn-send")} >SUBMIT</button>
                 </div>
             </form>
         </div>

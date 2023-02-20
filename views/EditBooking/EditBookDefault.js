@@ -257,7 +257,7 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn-submit")} >SUMMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>}
             {/* {show && <WatchBookDefault click={setShow} dataOld={data} />} */}
