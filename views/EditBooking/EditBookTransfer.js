@@ -43,8 +43,8 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
         })
         setreload(!reload);
     }
-    
-   
+
+
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
@@ -149,11 +149,10 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
                                 type="date"
                                 name="date"
                                 className={cx("cus-time")}
-                                placeholder={dataOld.StartDate}
+                                placeholder={dataOld.StartDate.getTimezoneOffset()}
                                 {...register('StartDate')}
                             />
                         </div>
-
                     </div>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
