@@ -149,8 +149,8 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
                                 type="date"
                                 name="date"
                                 className={cx("cus-time")}
-                                placeholder={dataOld.Time}
-                                {...register('Time')}
+                                placeholder={dataOld.StartDate}
+                                {...register('StartDate')}
                             />
                         </div>
 
