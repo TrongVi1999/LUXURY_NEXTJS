@@ -85,8 +85,8 @@ const Header = () => {
                     <OutsideClickHandler onOutsideClick={() => settranslate('none')}>
                         <div className={cx('gg-trans')}>
                             <Image src={Img1} className={cx('icon', { active: translate })} onClick={() => translate == 'none' ? settranslate('block') : settranslate('none')} alt='icon-language' />
-                            <div className={cx('sl-trans')} style={{ display: translate }}>
-                                <div id="google_translate_element" ></div>
+                            <div className={cx('sl-trans')} style={{ display: translate }} >
+                                <div id="google_translate_element"></div>
                             </div>
                         </div>
                     </OutsideClickHandler>
@@ -115,7 +115,7 @@ const Header = () => {
                         <div className={cx('search-icon')}>
                             <AiOutlineSearch className={cx('icon', { active: showSearch })} onClick={() => showSearch ? setShowSearch(false) : setShowSearch(true)} />
                         </div>
-                        {showSearch && <Searchkey />}
+                        {showSearch && <Searchkey close={setShowSearch} />}
                     </OutsideClickHandler>
                     <AiOutlineMenu className={cx('icon', 'menuIcon', { active: showMenu })} onClick={handelShowMenu} />
                     <div className={cx('button-call')} >

@@ -4,13 +4,11 @@ import classNames from "classnames/bind";
 import style from './booking.module.scss';
 
 import { Pagination } from "@/components";
-import { Getbookinglist } from "@/pages/api/QuerryAPI";
 import { banners } from "@/public/images";
 import EditBookDefault from "@/views/EditBooking/EditBookDefault";
 import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import EditBookMice from "@/views/EditBooking/EditBookMice";
 import EditBookTransfer from "@/views/EditBooking/EditBookTransfer";
-import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import { Getbookinglist } from "@/pages/api/QuerryAPI";
 import { useApppContext } from "@/pages/_app";
 import ItemBookingUser from "./item";
