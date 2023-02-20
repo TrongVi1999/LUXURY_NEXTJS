@@ -1,18 +1,17 @@
-import React from 'react'
-import classNames from 'classnames/bind';
 import style from '@/styles/informationBooking.module.scss';
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from 'react';
 import axios from 'axios';
+import classNames from 'classnames/bind';
+import { useState } from 'react';
+import { useForm } from "react-hook-form";
 
-import $, { data } from 'jquery';
-import qs from 'qs';
+import ScrollToTop from '@/hook/scrollToTop';
 import { toastSuccess } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
-import ScrollToTop from '@/hook/scrollToTop';
-import Link from 'next/link';
-import { isPast } from 'date-fns';
 import { useApppContext } from '@/pages/_app';
+import { isPast } from 'date-fns';
+import $ from 'jquery';
+import Link from 'next/link';
+import qs from 'qs';
 
 const cx = classNames.bind(style);
 
@@ -168,12 +167,6 @@ function Booking({ onClick, datas, title, long }) {
                                 min="0"
                                 max="100"
                                 {...register('Adult', { required: true })}
-                            // onChange={(e) =>
-                            //     setBookinfor({
-                            //         ...Bookinfor,
-                            //         Adult: e.target.value,
-                            //     })
-                            // }
                             />
                             {errors.Adult && errors.Adult.type === 'required' && (
                                 <span className={cx("error-message")}>Adult cannot be empty !</span>
@@ -208,10 +201,6 @@ function Booking({ onClick, datas, title, long }) {
                         <label className={cx("label-booking")}>
                             Hotel categories you desire to stay?
                         </label>
-                        {/* <input
-                            type="select"
-                            className={cx("book-hotel")}
-                        /> */}
                         <div>
                             <select name='ourServices' className={cx("our-services")} onChange={(e) => sethotel(e.target.value)}>
                                 <option value="">-- Select --</option>
@@ -237,26 +226,6 @@ function Booking({ onClick, datas, title, long }) {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            {/* <div className={cx("sex")}>
-                                <input
-                                    name="gender"
-                                    type="checkbox"
-                                    value="male"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    MALE
-                                </label>
-                                <input
-                                    name="gender"
-                                    type="checkbox"
-                                    value="female"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    FEMALE
-                                </label>
-                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>

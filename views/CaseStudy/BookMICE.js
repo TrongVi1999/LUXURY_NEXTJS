@@ -1,14 +1,13 @@
-import React from 'react'
-import classNames from 'classnames/bind';
-import style from '@/styles/informationBooking.module.scss';
-import { useForm } from "react-hook-form";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import ScrollToTop from '@/hook/scrollToTop';
+import { toastSuccess, toastWarning } from '@/hook/toastr';
 import national from '@/pages/api/national.json';
 import { useApppContext } from '@/pages/_app';
+import style from '@/styles/informationBooking.module.scss';
+import axios from 'axios';
+import classNames from 'classnames/bind';
 import qs from 'qs';
-import { toastSuccess, toastWarning } from '@/hook/toastr';
-import ScrollToTop from '@/hook/scrollToTop';
+import { useState } from 'react';
+import { useForm } from "react-hook-form";
 
 const cx = classNames.bind(style);
 const ListLocation =
@@ -59,7 +58,6 @@ const BookMICE = ({ close }) => {
 
         else
             setlist([...listdes, e.target.value]);
-        // console.log(e.target.value)
     }
 
 
@@ -70,7 +68,6 @@ const BookMICE = ({ close }) => {
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
             data: qs.stringify({
-                // Ip: ipAddress,
                 Type: 'MICE',
                 TourCode: data.event,
                 UserName: CT.currentUser ? CT.currentUser.UserName : null,
@@ -153,26 +150,6 @@ const BookMICE = ({ close }) => {
                                     <span className={cx("error-message")}>Your Name cannot be empty !</span>
                                 )}
                             </div>
-                            {/* <div className={cx("sex")}>
-                                <input
-                                    name="gender"
-                                    type="radio"
-                                    value="male"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    MALE
-                                </label>
-                                <input
-                                    name="gender"
-                                    type="radio"
-                                    value="female"
-                                    className={cx("form-control")}
-                                />
-                                <label className={cx("sex-m")} for="">
-                                    FEMALE
-                                </label>
-                            </div> */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -186,7 +163,6 @@ const BookMICE = ({ close }) => {
                                     <option key={d.code} value={d.name}>{d.name}</option>
                                 ))}
                             </select>
-                            {/* {errsl && <span className={cx("error-message")}>Nationality cannot be empty !</span>} */}
                         </div>
                     </div>
                     <div className={cx("item-form")}>
@@ -335,10 +311,9 @@ const BookMICE = ({ close }) => {
                                             type="checkbox"
                                             value={d}
                                             className={cx("form-control")}
-                                            // ref={register("location", { required: true })}
+
                                             onClick={(e) => AddDes(e)}
                                         />
-                                        {/* {errsl && <span className={cx("error-message")}>Location cannot be empty !</span>} */}
                                         <label className={cx("sex-m")} for="">
                                             {d}
                                         </label>
@@ -362,22 +337,10 @@ const BookMICE = ({ close }) => {
                                     min="0"
                                     max="100"
                                     {...register('Adult', { required: true })}
-                                // onChange={(e) =>
-                                //     setBookinfor({
-                                //         ...Bookinfor,
-                                //         Adult: e.target.value,
-                                //     })
-                                // }
                                 />
                                 {errors.Adult && errors.Adult.type === 'required' && (
                                     <span className={cx("error-message")}>Adult cannot be empty !</span>
                                 )}
-                                {/* <select name='level' className={cx("our-services")} onChange={(e) => setselect(e.target.value)}>
-                                    <option value="1 - 5">1 - 5</option>
-                                    <option value="6 - 15">6 - 15</option>
-                                    <option value="> 16 ">{` > 16 `}</option>
-                                </select> */}
-                                {/* {errsl && <span className={cx("error-message")}>Persons Attending cannot be empty !</span>} */}
                             </div>
                         </div>
 
@@ -409,7 +372,6 @@ const BookMICE = ({ close }) => {
                                     <option value="2 - 3 days">6 - 15</option>
                                     <option value="> 3 days">{` > 3 days `}</option>
                                 </select>
-                                {/* {errsl && <span className={cx("error-message")}>Preliminary Duration cannot be empty !</span>} */}
                             </div>
                         </div>
 

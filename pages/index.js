@@ -1,19 +1,17 @@
-import Head from 'next/head';
-import classNames from 'classnames/bind';
 import styles from '@/styles/Home.module.scss';
 import BlogHome from '@/views/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
+import classNames from 'classnames/bind';
+import Head from 'next/head';
 
-import { banners } from '@/public/images';
-import { ItemInfoHome, BannerSlide } from '@/views';
 import Logo from '@/asset/iconlogo.png';
+import { banners } from '@/public/images';
+import { BannerSlide, ItemInfoHome } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
-import Headpage from '@/components/Head/head';
 
 
-console.log('logoooooooooooo', Logo)
 const cx = classNames.bind(styles);
 
 export default function Home() {

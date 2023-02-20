@@ -1,13 +1,11 @@
-import React from 'react'
 import classNames from 'classnames/bind';
-import style from './TransDetail.module.scss'
+import style from './TransDetail.module.scss';
 // import style from '@/styles/Hoteldetail.module.scss';
-import Image from 'next/image';
-import Link from 'next/link';
-import a4 from '@/public/oto4.png';
-import { AiFillStar } from 'react-icons/ai';
 import Loading from '@/components/Loading';
 import { ListTransfer } from '@/pages/api/QuerryAPI';
+import Image from 'next/image';
+import Link from 'next/link';
+import { AiFillStar } from 'react-icons/ai';
 
 
 const cx = classNames.bind(style);
@@ -40,7 +38,6 @@ const TransListDetail = () => {
                             </span>
                         </p>
                         <p className={cx('price')}>
-                            {/* <span className={cx('price1')}>$ {data.price}</span> */}
 
                         </p>
                         <p className={cx('describe')}>
