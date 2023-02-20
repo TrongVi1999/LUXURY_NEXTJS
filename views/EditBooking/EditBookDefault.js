@@ -28,7 +28,8 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            toastSuccess('Edit Success!')
+            toastSuccess('Edit Success!');
+            toggle(false);
         }
         else {
             toastError('Error')
@@ -39,7 +40,8 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
             Id: dataOld.Id,
             ...data,
             ...dataSelect
-        })
+        });
+
         setreload(!reload);
     }
 
