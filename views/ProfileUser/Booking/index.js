@@ -12,11 +12,8 @@ import EditBookMice from "@/views/EditBooking/EditBookMice";
 import EditBookTransfer from "@/views/EditBooking/EditBookTransfer";
 import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import { Getbookinglist } from "@/pages/api/QuerryAPI";
-import WatchBookDefault from "@/views/WatchBook/WatchBookDeafult";
-import WatchBookMice from "@/views/WatchBook/WatchBookMice";
-import WatchBookHotel from "@/views/WatchBook/WatchBookHotel";
-import WatchBookTransfer from "@/views/WatchBook/WatchBookTransfer";
 import { useApppContext } from "@/pages/_app";
+import ItemBookingUser from "./item";
 
 const cx = classNames.bind(style);
 
