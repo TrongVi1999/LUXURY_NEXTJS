@@ -99,13 +99,10 @@ const BookMICE = ({ close }) => {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-        console.log(response)
-        console.log(data.event);
+
         if (response.status === 200) {
-            console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
-
-
+            close(false);
 
         } else toastWarning('Invaild infor')
 

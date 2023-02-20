@@ -89,12 +89,10 @@ function Hotelbook({ click, hotel }) {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-        console.log(response.data)
 
         if (response.status === 200) {
-            console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
-            // console.log(Bookinfor);
+            click(false);
         } else alert('Invaild infor')
 
     };

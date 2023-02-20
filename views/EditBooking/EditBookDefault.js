@@ -28,7 +28,8 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            toastSuccess('Edit Success!')
+            toastSuccess('Edit Success!');
+            toggle(false);
         }
         else {
             toastError('Error')
@@ -39,7 +40,8 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
             Id: dataOld.Id,
             ...data,
             ...dataSelect
-        })
+        });
+
         setreload(!reload);
     }
 
@@ -255,7 +257,7 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn-submit")} >SUMMIT</button>
+                    <button className={cx("btn-submit")} >SUBMIT</button>
                 </div>
             </form>}
             {/* {show && <WatchBookDefault click={setShow} dataOld={data} />} */}

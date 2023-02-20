@@ -28,7 +28,8 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            toastSuccess('Edit Success!')
+            toastSuccess('Edit Success!');
+            toggle(false);
         }
         else {
             toastError('Error')
@@ -215,7 +216,7 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn-send")} >Send Message</button>
+                    <button className={cx("btn-send")} >SUBMIT</button>
                 </div>
             </form>
         </div>
