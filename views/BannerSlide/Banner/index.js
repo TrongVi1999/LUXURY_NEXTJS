@@ -6,6 +6,7 @@ import Image from 'next/image';
 const cx = classNames.bind(style);
 
 const Banner = ({ image, className, title, description }) => {
+    console.log('img', image)
     return (
         <>
             {/* <Image
@@ -16,7 +17,8 @@ const Banner = ({ image, className, title, description }) => {
                 // height={40}
                 priority
             /> */}
-            <Image src={image.default.src} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' />
+
+            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' />
         </>
     );
 };
