@@ -32,8 +32,9 @@ function EditBookMice({ dataOld, toggle, reload, setreload }) {
     const CallEdit = async (data) => {
         const response = await EditBooking(data);
         if (response.status == 200) {
-            console.log(response.data);
-            toastSuccess('Edit success!')
+            toastSuccess('Edit success!');
+            toggle(false);
+
         }
         else {
             toastError('Error')
