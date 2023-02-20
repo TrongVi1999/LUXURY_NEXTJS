@@ -1,6 +1,10 @@
 .wrapper {
     padding: 0 2rem;
 
+    .inputSearch {
+        width: 100%;
+    }
+
     .inputSearch-div {
         margin-bottom: 5rem;
         border: 1px solid gray;
@@ -34,6 +38,7 @@
 
     .boxFillterItem {
         margin-bottom: 6rem;
+        min-width: 100px;
 
         .itemCategory {
             display: flex;
@@ -406,6 +411,7 @@
                 font-size: 1.1rem;
                 color: var(--menu-text);
                 text-transform: uppercase;
+                background-color: #fff;
 
                 .icon {
                     font-size: 2rem;
@@ -445,5 +451,26 @@
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
+    }
+}
+
+@media only screen and (max-width: 840px) {
+    .itemMobileShow{
+        display: block !important;
+    }
+    .imgBox{
+        width: 17rem !important;
+        height: 14rem !important;
+        .img{
+            object-fit: cover;
+        }
+    }
+    .recentInfo{
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
+    .titleRecentPost{
+        margin-bottom: 5px !important;
     }
 }

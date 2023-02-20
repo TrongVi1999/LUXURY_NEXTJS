@@ -17,9 +17,9 @@ function BoxCar({ className, data }) {
             <div className={cx('infor')}>
                 <h2 className={cx('nameCar')}>{data.title}</h2>
                 <p className={cx('rate')}>
-                    {/* <span className={cx('seats')}> */}
+
                     <Image src={a4} alt='icon' /> <span> 6 seats</span>
-                    {/* </span> */}
+
                     <br />
                     <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>
                     <p className={cx('describe')}>

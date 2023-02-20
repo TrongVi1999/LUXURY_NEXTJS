@@ -10,6 +10,7 @@ import style from '@/styles/luxuryhotel.module.scss';
 import { ListHotel } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
 import Headpage from '@/components/Head/head';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
 
 
 const cx = classNames.bind(style);
@@ -30,8 +31,8 @@ const index = () => {
     return (
         <div className={cx('wrapper')}>
             <Headpage />
-            <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} />
-
+            {/* <BannerSlide imgBanner={[banners.resolt]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"Luxury hotel"} textBottom={"Best luxury hotel in Vietnam and Asia"} /> */}
+            <BannerIMG img={banners.hotel} title={'LUXURY HOTEL'} descrip={'Best luxury hotel in Viet Nam and Asia'} />
             <div className={cx('main')}>
                 {hotelList.isLoading && <Loading />}
                 {hotelList.data &&

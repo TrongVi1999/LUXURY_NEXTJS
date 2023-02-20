@@ -4,7 +4,6 @@ import style from '@/styles/Contact.module.scss';
 import ScrollToTop from '@/hook/scrollToTop';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
-// import style from '@/styles/informationBooking.module.scss';
 import national from '@/pages/api/national.json';
 import Link from "next/link";
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -23,7 +22,7 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
         formState: { errors },
     } = useForm();
 
-
+    const [show, setShow] = useState(false);
     const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '', TypeRoom: '' });
 
     const CallEdit = async (data) => {
@@ -47,11 +46,9 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-
-
-            <form className={cx("book-content")} onSubmit={handleSubmit(Submit)}>
+            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
                 <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
-                {/* <div className={cx("content-header")}>
+                <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Service Name:&nbsp;
                         <span className={cx("service-name-content")}>
@@ -61,17 +58,13 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
                     <p className={cx("tour-country")}>
                         Country:&nbsp;
                         <span className={cx("tour-country-content")}>
-                            VIET NAM
+                            {dataOld.Country}
                         </span>
                     </p>
                 </div>
-                <hr className={cx("line")}></hr> */}
-                <div className={cx("content-mid")}>
-                    {/* <div className={cx("header-form")}>
-                        <span className={cx("title-form")}>CONTACT US</span>
-                        <p className={cx("intro-form")}>SEND US A MESSAGE</p>
-                    </div> */}
+                <hr className={cx("line")}></hr>
 
+                <div className={cx("content-mid")}>
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             How should we call you? (*)
@@ -222,7 +215,7 @@ function EditBookHotel({ dataOld, toggle, reload, setreload }) {
                 </div>
                 {/* <ReCAPTCHA size="normal" className={cx("re-capcha")} sitekey="<YOUR SITE KEY>" /> */}
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >Send Message</button>
+                    <button className={cx("btn-send")} >Send Message</button>
                 </div>
             </form>
         </div>

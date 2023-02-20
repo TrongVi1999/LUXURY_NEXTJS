@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { ListTransfer } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
 import Headpage from '@/components/Head/head';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
 
 const cx = classNames.bind(style);
 
@@ -33,54 +34,57 @@ function index() {
     return (
         <div className={cx('wrapper')}>
             <Headpage />
-            <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} />
-            <Section maxWidth={850} className={cx('boxTitle')}>
-                <h2 className={cx('title')}>luxury transfer</h2>
-                <p className={cx('textTitle')}>At VNXpedia, we are disceming, opinionated, and beleve kairy should be part of the pleasure in exploring our beautiful country No matter what you need from your kury experience, we make sure than your journey is customized to your meds Fram commercialigns to private charters points and legge planning to luxury arexpenence</p>
-            </Section>
+            {/* <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} /> */}
+            <BannerIMG img={banners.luxuryTransfer} title={"LUXURY TRANSFER"} />
+            <div className={cx('main')}>
+                <div className={cx('boxTitle')}>
+                    <h2 className={cx('title')}>luxury transfer</h2>
+                    <p className={cx('textTitle')}>At VNXpedia, we are disceming, opinionated, and beleve kairy should be part of the pleasure in exploring our beautiful country No matter what you need from your kury experience, we make sure than your journey is customized to your meds Fram commercialigns to private charters points and legge planning to luxury arexpenence</p>
+                </div>
 
-            <Section maxWidth={800} isWrap className={cx('boxBtn')} gapBox={0}>
-                {listtype.map((d, i) =>
-                    <Button className={cx('btn', transActive === i ? 'active' : null)} onClick={() => { setTransActive(i); settype(d) }}>{d} </Button>
-                )}
+                <div className={cx('boxBtn')} >
+                    {listtype.map((d, i) =>
+                        <Button className={cx('btn', transActive === i ? 'active' : null)} onClick={() => { setTransActive(i); settype(d) }}>{d} </Button>
+                    )}
 
-            </Section>
+                </div>
 
-            <div className={cx('container')}>
-                <div className={cx('text')}>
-                    <h2>{Type}</h2>
-                    <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.<br /><br />
+                <div className={cx('container')}>
+                    <div className={cx('text')}>
+                        <h2>{Type}</h2>
+                        <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.<br /><br />
 
-                        Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
-                    <div className={cx('icon')}>
-                        <div>
-                            <Image src={a1} alt='car' />
-                            <h4>Professional Service</h4>
-                        </div>
-                        <div className={cx('seperate')}></div>
-                        <div>
-                            <Image src={a2} alt='car' />
-                            <h4>Professional Service</h4>
-                        </div>
-                        <div className={cx('seperate')}></div>
-                        <div className={cx('icon1')}>
-                            <Image src={a3} alt='car' />
-                            <h4>Professional Service</h4>
+                            Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
+                        <div className={cx('icon')}>
+                            <div>
+                                <Image src={a1} alt='car' />
+                                <h4>Professional Service</h4>
+                            </div>
+                            <div className={cx('seperate')}></div>
+                            <div>
+                                <Image src={a2} alt='car' />
+                                <h4>Professional Service</h4>
+                            </div>
+                            <div className={cx('seperate')}></div>
+                            <div className={cx('icon1')}>
+                                <Image src={a3} alt='car' />
+                                <h4>Professional Service</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {transferList.isLoading && <Loading />}
+                {transferList.data &&
+                    <div className={cx('list-car')}>
+                        {
+                            transferList.data.Object.map((d) => (
+                                <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
+                            ))
+                        }
+                    </div>}
+                {transferList.data &&
+                    <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />}
             </div>
-            {transferList.isLoading && <Loading />}
-            {transferList.data &&
-                <Section maxWidth={1270} isWrap gapBox={3.2}>
-                    {
-                        transferList.data.Object.map((d) => (
-                            <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} />
-                        ))
-                    }
-                </Section>}
-            {transferList.data &&
-                <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />}
         </div>
     );
 }

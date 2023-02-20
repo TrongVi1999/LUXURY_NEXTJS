@@ -49,7 +49,7 @@ export const Alltour = () => {
 export const Gettour = (tourcode) => {
     return useQuery(['gettour', tourcode], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/TourTable?tourcode=${tourcode}`);
-        return response.data;
+        return response.data.Object[0];
     });
 };
 
@@ -230,8 +230,6 @@ export function EditBookingDefault(data) {
                     },
                 }
             );
-            console.log("data", data);
-            console.log("response", response);
             return response.data;
         }
     );

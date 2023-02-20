@@ -16,8 +16,19 @@
 
 .book-content-edit {
     background-color: white;
+    width: 72%;
+    margin: 0 auto;
+    position: relative;
+    top: 5%;
+}
+
+.informationBooking_book-content-edit__Tcl1h {
+    background-color: white;
     width: 70%;
     margin: 0 auto;
+    position: relative;
+    margin-top: 10px;
+    padding-top: 20px;
 }
 
 .book-title {
@@ -373,6 +384,7 @@
     }
     .item-form {
         display: block !important;
+        margin-top: 10px;
     }
     .groupcheck {
         display: block;
@@ -420,6 +432,7 @@
     }
     .input-enquire {
         width: 100% !important;
+        margin-top: 10px;
     }
     .check-in {
         width: 100% !important;
@@ -429,6 +442,28 @@
     }
     .persons-attendtion {
         width: 100% !important;
+    }
+
+    .cus-adult,
+    .cus-children {
+        margin-top: 0;
+    }
+
+    .item-form {
+        margin-bottom: 0;
+    }
+
+    .book-note {
+        margin-top: 10px;
+    }
+
+    .check-in,
+    .check-out {
+        margin-top: 0;
+    }
+
+    .persons-attendtion {
+        margin-top: 10px;
     }
 }
 .btn-close {
@@ -445,7 +480,7 @@
         margin-left: 18px;
     }
     .book-content-edit {
-        width: 95%;
+        width: 80%;
         padding: 5% 5% !important;
         background-color: rgb(245 245 245);
     }
@@ -477,7 +512,20 @@
         font-size: 10px;
     }
 
-    // .item-form div {
-    //     width: 50%;
-    // }
+    .cus-adult,
+    .cus-children {
+        margin-top: 0;
+    }
+
+    .book-note {
+        margin-top: 10px;
+    }
+    .check-in,
+    .check-out {
+        margin-top: 0;
+    }
+
+    .persons-attendtion {
+        margin-top: 10px;
+    }
 }

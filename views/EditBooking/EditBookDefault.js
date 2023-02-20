@@ -9,6 +9,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import ScrollToTop from "@/hook/scrollToTop";
 import { EditBooking } from "@/pages/api/CallAPI";
 import { toastSuccess, toastError } from "@/components/Toast";
+import WatchBookDefault from "../WatchBook/WatchBookDeafult";
 
 const cx = classNames.bind(style);
 
@@ -21,7 +22,7 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
         formState: { errors },
     } = useForm();
 
-
+    const [show, setShow] = useState(false);
     const [dataSelect, setDataSelect] = useState({ Hotel: '', Country: '', Note: '' });
 
     const CallEdit = async (data) => {
@@ -42,18 +43,10 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
         setreload(!reload);
     }
 
-
-
-
-
-
-
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
-
-
-            <form className={cx("book-content-edit")} onSubmit={handleSubmit(Submit)}>
+            {!show && <form className={cx("book-content-edit")} setShow={setShow} onSubmit={handleSubmit(Submit)}>
                 <AiFillCloseCircle className={cx('btn-close')} onClick={() => toggle(false)} />
                 <div className={cx("content-header")}>
                     <p className={cx("tour-name")}>
@@ -262,9 +255,10 @@ function EditBookDefault({ dataOld, toggle, reload, setreload }) {
                     </div>
                 </div>
                 <div className={cx("content-bot")}>
-                    <button className={cx("btn")} >SUMMIT</button>
+                    <button className={cx("btn-submit")} >SUMMIT</button>
                 </div>
-            </form>
+            </form>}
+            {/* {show && <WatchBookDefault click={setShow} dataOld={data} />} */}
         </div>
 
     );

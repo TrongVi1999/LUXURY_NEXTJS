@@ -10,11 +10,13 @@
 }
 .blog .img {
     width: 100%;
-    // height: 25vw;
+    height: 30vw;
+    min-height: 250px;
 }
 .blog .img .blogImg {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
 }
 
 .blog .icon {
@@ -31,6 +33,10 @@
     border: solid 0.5px #d1d5db;
     width: 20%;
     margin-bottom: 2rem;
+}
+
+.icon-form span {
+    margin-right: 2%;
 }
 
 .blog .icon2 span {
@@ -54,7 +60,7 @@
     text-overflow: ellipsis;
 }
 
-.btn {
+.btn-read {
     margin: 7rem 0;
     height: 5.4rem;
 
