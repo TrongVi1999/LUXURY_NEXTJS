@@ -23,7 +23,7 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
                     'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
                 },
             });
-            console.log(response.data);
+
             return response.data.Object.filter(d => d.TourType != 'TYPE_MICE').filter(d => d.TourType != 'TYPE_GOLF');
         }
     );
