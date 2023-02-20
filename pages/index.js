@@ -6,13 +6,14 @@ import Hottour from '@/views/Tour/Hottour';
 
 import { banners } from '@/public/images';
 import { ItemInfoHome, BannerSlide } from '@/views';
-
+import Logo from '@/asset/iconlogo.png';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Feedback';
 import Introduce2 from '@/views/Introduce2';
+import Headpage from '@/components/Head/head';
 
 
-
+console.log('logoooooooooooo', Logo)
 const cx = classNames.bind(styles);
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
                 <title>Vietnam Luxury Tours - Incentive Tailor-made Trips</title>
                 <meta name="description" content="Vietnam Luxury Tours I Wellness Vietnam I Adventure Travel & Incentive Tailor-made Trips" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/assets/images/logo.png" />
+                <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
             </Head>
             <div className={cx('wrapperBanner')}>

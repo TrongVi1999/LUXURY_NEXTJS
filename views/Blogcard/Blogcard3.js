@@ -14,10 +14,10 @@ const Blogcard3 = ({ data }) => {
             <div className={cx('blog-infor')}>
                 <TitleLine text={data.type} color='white' />
 
-                <h1 className={cx('blog-title')}>{data.title.toUpperCase()}</h1>
+                <h2 className={cx('blog-title')}>{data.title.toUpperCase()}</h2>
                 <p className={cx('blog-by')}>by <span>{data.author}</span></p>
                 <p className={cx('month')}>November</p>
-                <h1 className={cx('day')}>30</h1>
+                <h2 className={cx('day')}>30</h2>
                 <p className={cx('num-cm')}><BsChat /> 20</p>
             </div>
         </div>

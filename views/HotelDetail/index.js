@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 import Loading from '@/components/Loading';
 import { ListHotel } from '@/pages/api/QuerryAPI';
+import { GetlistImg } from '@/hook/GetListImg';
+import Hotelcard from '@/views/HotelCard/Hotelcard';
 
 const cx = classNames.bind(style);
 
@@ -19,14 +21,12 @@ const HotelDetail = () => {
         return <p>Error: {error.message}</p>;
     }
     return (
-
-
-
         <div className={cx('Siminal-Hotel')}>
             {getHotelDetail.data && getHotelDetail.data.Object.slice(0, 3).map((d, i) =>
+                // <Hotelcard data={d} key={i} to={`/hotel-detail/${d.id}`} />
                 <Link href={`/hotel-detail/${d.id}`} className={cx('card')} key={i}>
                     <div className={cx('card-img')} >
-                        <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width={200} height={200} />
+                        <Image src={GetlistImg(d.gallery)[0]} alt="vnxpedia-tour-img" className={cx('img')} width={200} height={200} />
                     </div>
                     <div className={cx('infor')}>
                         <h6 className={cx('title')}>{d.title.toUpperCase()}</h6>
@@ -39,7 +39,6 @@ const HotelDetail = () => {
                             </span>
                         </p>
                         <p className={cx('price')}>
-                            {/* <span className={cx('price1')}>$ {data.price}</span> */}
 
                         </p>
                     </div>

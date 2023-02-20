@@ -5,7 +5,7 @@ const cx = classNames.bind(style)
 
 function TitleSection({ title, des }) {
     return (<div className={cx('titleBody')}>
-        <h1 className={cx('title')}>{title}</h1>
+        <h2 className={cx('title')}>{title}</h2>
         <p className={cx('des')}>{des}</p>
     </div>);
 }

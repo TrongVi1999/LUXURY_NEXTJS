@@ -6,6 +6,7 @@ import style from './header.module.scss';
 
 import { Button } from '@/components';
 import { images } from '@/public/images';
+import Logo from '@/asset/images/LogoFN1.png';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Menu from './Menu';
@@ -79,8 +80,8 @@ const Header = () => {
     return (
         <div className={cx(`header`)} id={bgheader}>
             <div className={cx(`wrapper`)}>
-                <Link href={'/'}>
-                    <Image src={images.LOGO} alt={'Logo'} priority className={cx('logo')} />
+                <Link href={'/'} className={cx(`linkHomepage`)}>
+                    <Image src={Logo} alt={'Logo'} priority className={cx('logo')} />
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} close={closeMenuMobile} />
                 <div className={cx('itemRight')}>

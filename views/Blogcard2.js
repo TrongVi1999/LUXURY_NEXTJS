@@ -21,7 +21,7 @@ const Blogcard2 = ({ className, data }) => {
         <div className={clases}>
             <div className={cx('blog')}>
                 <div className={cx('img')}>
-                    <img src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="blogimg" className={cx('blogImg')} />
+                    <Image src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="blogimg" className={cx('blogImg')} width='1000' height='1000' />
                 </div>
                 {/* <div className={cx('icon')}>
                     <Image src={icon} alt="blogerroimg" />

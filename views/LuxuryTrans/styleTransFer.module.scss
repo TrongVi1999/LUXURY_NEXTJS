@@ -1,4 +1,3 @@
-
 .card {
     width: 31.4%;
     min-width: 300px;
@@ -16,8 +15,8 @@
 }
 
 .img {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
 }
 
@@ -89,7 +88,6 @@
     .card {
         width: 40%;
     }
-    
 }
 
 @media only screen and (max-width: 485px) {

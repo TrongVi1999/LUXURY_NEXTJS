@@ -25,7 +25,8 @@ const Location = () => {
     return (
         <div className={cx('container')}>
             <br />
-            <h1 className={cx('tag')}>SOUTH EAST & MEKONG RIVER DELTA</h1>
+            <h2 className={cx('tag')}>SOUTH EAST&MEKONG RIVER DELTA</h2>
+
             {Localist.length > 0 && (
                 <div className={cx('cl')}>
                     {Localist.filter((f) => f.hash_tag.includes('SOUTH_EAST&MEKONG_RIVER_DELTA')).map((d, i) => (
@@ -47,7 +48,7 @@ const Location = () => {
                 </div>
             )}
             <br />
-            <h1 className={cx('tag')}>SOUTH CENTRAL COAST</h1>
+            <h2 className={cx('tag')}>SOUTH CENTRAL COAST</h2>
             {Localist.length > 0 && (
                 <div className={cx('title-card')}>
                     {Localist.filter((f) => f.hash_tag.includes('SOUTH_CENTRAL_COAST')).map((d, i) => (
@@ -69,7 +70,8 @@ const Location = () => {
                 </div>
             )}
             <br />
-            <h1 className={cx('tag')}>NORTH CENTRAL COAST</h1>
+            <h2 className={cx('tag')}>NORTH CENTRAL COAST</h2>
+
             {Localist.length > 0 && (
                 <div className={cx('title-card')}>
                     {Localist.filter((f) => f.hash_tag.includes('NORTH_CENTRAL_COAST')).map((d, i) => (
@@ -92,7 +94,7 @@ const Location = () => {
             )}
 
             <br />
-            <h1 className={cx('tag')}>RED RIVER DELTA</h1>
+            <h2 className={cx('tag')}>RED RIVER DELTA</h2>
 
             {Localist.length > 0 && (
                 <div className={cx('title-card')}>
@@ -116,7 +118,7 @@ const Location = () => {
             )}
 
             <br />
-            <h1 className={cx('tag')}>NORTH WEST</h1>
+            <h2 className={cx('tag')}>NORTH WEST</h2>
 
             {Localist.length > 0 && (
                 <div className={cx('title-card')}>

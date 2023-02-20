@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import style from './banner.module.scss';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 const cx = classNames.bind(style);
 
@@ -16,7 +16,7 @@ const Banner = ({ image, className, title, description }) => {
                 // height={40}
                 priority
             /> */}
-            <img src={image.default.src} alt="banner" className={cx('banner', { [className]: className })} />
+            <Image src={image.default.src} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' />
         </>
     );
 };

@@ -1,38 +1,28 @@
 import classNames from 'classnames/bind';
 import style from './bannerSlide.module.scss';
-
 import { SwiperSlide, Swiper } from 'swiper/react';
-
 import { EffectFade, Autoplay } from 'swiper';
 import Link from 'next/link';
 import Banner from './Banner';
-import { Input, Button } from '@/components';
-import { CiStar } from 'react-icons/ci';
 import { MdOutlinePlace } from 'react-icons/md';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useState, useEffect } from 'react';
-import { categoryFillerAddress } from '@/public/dataRender';
-import { useApppContext } from '@/pages/_app';
 import { GetSocial } from '@/pages/api/CallAPI';
 
 const cx = classNames.bind(style);
 
 function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, className, classNameTitle }) {
 
-    const CT = useApppContext();
 
 
     const [ip1, setip1] = useState('');
-    const [ip2, setip2] = useState();
     const [list1, setlist1] = useState([]);
     const [show1, setshow1] = useState(true)
     const [List2, setlist2] = useState()
-    const handleChange1 = (e) => {
-        setip1(e.targer.value);
-    }
+
     const CallList = async () => {
         const response = await GetSocial(6256);
         if (response.status == 200) {
@@ -69,7 +59,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                     {
                         textTop && <p className={cx('text')}>{textTop}</p>
                     }
-                    <h1 className={cx('titleHome', { [classNameTitle]: classNameTitle })}>{titleBanner}</h1>
+                    <h2 className={cx('titleHome', { [classNameTitle]: classNameTitle })}>{titleBanner}</h2>
                     {
                         textBottom && <p className={cx('textBottom')}>{textBottom}</p>
                     }

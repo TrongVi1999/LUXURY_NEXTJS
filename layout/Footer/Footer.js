@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import Image from 'next/image';
 import style from './footer.module.scss';
-import Logo from '../../public/logo-w-2.png';
+import Logo from '@/asset/images/LogoFN2.png';
 import { GiPhone } from 'react-icons/gi';
 import { MdEmail } from 'react-icons/md';
 import { GrFacebookOption } from 'react-icons/gr';
@@ -9,12 +9,12 @@ import { TiSocialInstagram } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
 import { BiCopyright } from 'react-icons/bi';
 import { TfiGoogle } from 'react-icons/tfi';
-import Img1 from '../../public/logo6.png';
-import Img2 from '../../public/logo5.png';
-import Img3 from '../../public/logo4.png';
-import Img4 from '../../public/logo3.png';
-import Img5 from '../../public/logo2.png';
-import Img6 from '../../public/logo1.png';
+import Img1 from '@/public/icon/logo6.png'
+import Img2 from '@/public/icon/logo5.png'
+import Img3 from '@/public/icon/logo4.png'
+import Img4 from '@/public/icon/logo3.png'
+import Img5 from '@/public/icon/logo2.png'
+import Img6 from '@/public/icon/logo1.png'
 import Link from 'next/link';
 import { Subcrise } from '@/pages/api/CallAPI';
 import { useState, useEffect } from 'react';
@@ -31,24 +31,22 @@ function Footer() {
             alert('Subcrise success !');
         }
     }
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('footer')}>
                 <div className={cx('list-logo')}>
-                    <Image src={Img1} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
-                    <Image src={Img2} className={cx('img-logo')} alt="logo-prize-vnxpedia" width='200' height='200' />
-                    <Image src={Img3} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
-                    <Image src={Img4} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
-                    <Image src={Img5} className={cx('img')} alt="logo-prize-vnxpedia" width='200' height='200' />
-                    <Image src={Img6} className={cx('img-logo')} alt="logo-prize-vnxpedia" width='200' height='200' />
+                    <Image src={Img1} className={cx('img')} alt="logo-prize-vnxpedia" />
+                    <Image src={Img2} className={cx('img-mini')} alt="logo-prize-vnxpedia" />
+                    <Image src={Img3} className={cx('img')} alt="logo-prize-vnxpedia" />
+                    <Image src={Img4} className={cx('img')} alt="logo-prize-vnxpedia" />
+                    <Image src={Img5} className={cx('img')} alt="logo-prize-vnxpedia" />
+                    <Image src={Img6} className={cx('img-mini')} alt="logo-prize-vnxpedia" />
                 </div>
                 <hr className={cx('hr')} />
                 <div className={cx('main')}>
                     <div className={cx('main-top')}>
                         <div className={cx('main-left')}>
                             <div className={cx('infor')}>
-                                {/* <img src={Logo} className={cx("logo-img")} alt="logo-VNXpedia" /> */}
                                 <Image src={Logo} className={cx('logo-img')} alt="logo-VNXpedia" />
                                 <div className={cx('infor-bot')}>
                                     <div className={cx('phone')}>

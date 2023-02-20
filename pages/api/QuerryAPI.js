@@ -24,7 +24,7 @@ export const Superfilter = (Country, Destination, Tourtype, Fromcost, Endcost, T
                 },
             });
             console.log(response.data);
-            return response.data.Object.filter(d => d.TourType != 'TYPE_MICE');
+            return response.data.Object.filter(d => d.TourType != 'TYPE_MICE').filter(d => d.TourType != 'TYPE_GOLF');
         }
     );
 };

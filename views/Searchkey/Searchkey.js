@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import style from './style.module.scss';
+import Image from 'next/image';
 
 import { Searchtour, Searchblog } from '@/pages/api/QuerryAPI';
 
@@ -28,7 +29,7 @@ const Searchkey = () => {
                         <p className={cx('title')}>Tour result</p>
                         {tourSearch.data.map((d, i) =>
                             <Link href={`/tour-detail/${d.TourCode}`} className={cx('result-tour')} key={i}>
-                                <img src={`https://vnxpedia.3i.com.vn${d.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} layout='fill' />
+                                <Image src={`https://vnxpedia.3i.com.vn${d.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} width='500' height='500' />
                                 <p>{d.TourName.toUpperCase()}</p>
                             </Link>
 
@@ -39,7 +40,7 @@ const Searchkey = () => {
                         <p className={cx('title')}> Blog result</p>
                         {blogSearch.data.map((d, i) =>
                             <Link href={`/tour-detail/${d.id}`} className={cx('result-tour')} key={i}>
-                                <img src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} />
+                                <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width='500' height='500' />
                                 <p>{d.title.toUpperCase()}</p>
                             </Link>
 

@@ -39,9 +39,11 @@
 }
 
 .logo-img {
-    width: 8vw;
-    min-width: 120px;
-    height: auto;
+    display: block;
+    width: 12vw !important;
+    min-width: 120px !important;
+    height: auto !important;
+    margin-bottom: 20px;
 }
 
 .phone,
@@ -186,15 +188,18 @@
 .img {
     display: block;
     width: 15% !important;
-    height: 100% !important;
+    height: 100%;
 }
-
-.img-logo {
+.img-mini {
     display: block;
-    width: 8% !important;
-    height: 80% !important;
+    width: 12% !important;
+    height: 100%;
 }
-
+@media only screen and (max-width: 1500px) {
+    .footer {
+        padding: 0 15%;
+    }
+}
 @media only screen and (max-width: 1200px) {
     .form-email {
         flex-direction: column;
@@ -212,15 +217,11 @@
     }
 
     .footer {
-        padding: 0 15%;
+        padding: 0 10%;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    .footer {
-        padding: 0 10%;
-    }
-
     .main-top {
         flex-direction: column;
     }
@@ -263,6 +264,9 @@
 
             .infor-bot {
                 width: 50%;
+            }
+            .logo-img {
+                height: 100% !important;
             }
         }
 

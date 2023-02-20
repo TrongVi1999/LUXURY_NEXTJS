@@ -11,6 +11,7 @@ import { ListHotel } from '../api/QuerryAPI';
 import Loading from '@/components/Loading';
 import Headpage from '@/components/Head/head';
 
+
 const cx = classNames.bind(style);
 
 

@@ -16,7 +16,7 @@ const Tourcard1 = ({ data }) => {
     return (
         <Link href={`/tour-detail/${data.TourCode}`} className={cx('card')}>
             <div className={cx('card-img')}>
-                <img src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} />
+                <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} width='1000' height='1000' />
             </div>
             <div className={cx('infor')}>
                 <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
@@ -33,8 +33,10 @@ const Tourcard1 = ({ data }) => {
                     <BsCalendarWeek /> {data.DETAIL.length} Day
                 </p>
                 <p className={cx('price-type')}>
-                    <span className={cx('price')}>$ {data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100)}</span> <ImFire />${' '}
-                    <span className={cx('real-price')}>{data.PRICE[0].price}</span>
+                    <span className={cx('price')}>$ {Math.floor(data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100))}</span>
+                    {data.Discount && data.Discount != 0 &&
+                        <span> <ImFire />${' '}
+                            <span className={cx('real-price')}>{data.PRICE[0].price}</span></span>}
                 </p>
                 <p className={cx('place')}>
                     <SlLocationPin />
