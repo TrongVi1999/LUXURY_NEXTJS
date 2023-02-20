@@ -10,18 +10,18 @@ import { useApppContext } from '@/pages/_app';
 const cx = classNames.bind(style);
 
 
-const WriteComment = ({ id, prid, loadcm, repname, setrepid, refet }) => {
+const WriteComment = ({ id, prid, repname, setrepid }) => {
     const [input, setinput] = useState('');
 
-    const [shouldFetch, setShouldFetch] = useState(false);
+
     const CT = useApppContext();
     const CreateComment = InsertComment(id, prid, CT.currentUser ? CT.currentUser.FullName : 'NoName', prid ? `@${repname} ` + input : input)
 
 
     const handleComment = () => {
         if (input != '') {
-            setShouldFetch(true);
-            refet(!loadcm);
+
+            CT.setreload(!CT.reload);
             CreateComment.refetch();
 
             setinput('');

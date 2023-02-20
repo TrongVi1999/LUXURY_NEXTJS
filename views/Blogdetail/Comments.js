@@ -4,13 +4,14 @@ import style from '@/styles/blogdetail.module.scss';
 import Comment from './Comment';
 import { Title } from '@/components';
 import { GetComment } from '@/pages/api/QuerryAPI';
+import { useApppContext } from '@/pages/_app';
 
 const cx = classNames.bind(style);
 
 
-const Comments = ({ id, setrepid, setrepname, loadcm }) => {
-
-    const listComment = GetComment(id, loadcm)
+const Comments = ({ id, setrepid, setrepname }) => {
+    const CT = useApppContext();
+    const listComment = GetComment(id, CT.reload);
 
     return (
         <div className={cx('comments')}>

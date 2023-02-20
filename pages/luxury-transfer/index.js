@@ -26,10 +26,15 @@ function index() {
 
 
     const transferList = ListTransfer(Type);
+    // const ChangeType = (i) => {
+    //     setTransActive(i);
+    //     settype(listtype(i));
+    // }
 
     const onChangePag = (page) => {
         setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     };
+    console.log(Type);
 
     return (
         <div className={cx('wrapper')}>
