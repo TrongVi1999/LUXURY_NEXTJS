@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import classNames from 'classnames/bind';
+import Headpage from '@/components/Head/head';
+import Loading from '@/components/Loading';
+import Imgpay from '@/public/images/iconpay.png';
+import ImgBn from '@/public/images/paymentbn.png';
 import styles from '@/styles/payment.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import ImgBn from '@/public/images/paymentbn.png';
-import Imgpay from '@/public/images/iconpay.png';
+import classNames from 'classnames/bind';
 import Image from 'next/image';
 import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
 import { GetSocial } from '../api/QuerryAPI';
-import Loading from '@/components/Loading';
-import Headpage from '@/components/Head/head';
 
 const cx = classNames.bind(styles);
 const ListMenu = ['Deposit & Payment', 'Cancellation Policy', 'Term & Conditions'];

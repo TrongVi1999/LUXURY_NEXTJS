@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
-import style from './booking.module.scss'
-import { useState } from "react";
+import style from './booking.module.scss';
 
 import Image from "next/image";
 const cx = classNames.bind(style)

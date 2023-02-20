@@ -18,23 +18,7 @@
         }
     }
 
-    // .searchFilterInput {
-    //     margin-left: 1.5rem;
-    //     padding-top: 1.4rem;
-    //     padding-bottom: 1.4rem;
-    //     margin-right: 1rem;
-
-    //     &::placeholder {
-    //         text-transform: uppercase;
-    //         font-size: 1.2rem;
-    //         font-weight: 400;
-    //         color: var(--black);
-    //     }
-
-    //     &::before {
-    //         display: none !important;
-    //     }
-    // }
+  
 
     .boxFillterItem {
         margin-bottom: 6rem;
@@ -385,11 +369,6 @@
 }
 @media only screen and (max-width: 600px) {
     .wrapper {
-        // position: absolute;
-        // top: -41px;
-        // left: 0;
-        // right: 0;
-        // height: 6rem;
         width: 100% !important;
         background-color: var(--white);
         z-index: 100;

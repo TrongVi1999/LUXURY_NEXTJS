@@ -19,7 +19,7 @@ const Comments = ({ id, setrepid, setrepname, loadcm }) => {
 
                 <div className={cx('comment-item')}>
 
-                    {listComment.data.Object.map((d, i) => <div><Comment data={d} setrepid={setrepid} setrepname={setrepname} id={d.ID} />
+                    {listComment.data.Object.map((d, i) => <div key={i}><Comment data={d} setrepid={setrepid} setrepname={setrepname} id={d.ID} />
                         {d.CommentChild.length > 0 && d.CommentChild.map(
                             a =>
                                 <div className={cx('comment-reply')}>
