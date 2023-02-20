@@ -21,7 +21,7 @@ function ItemBookingUser({
                 {data.TourName && <h2 className={cx('titleTour')}>{data.TourName}</h2>}
                 <div className={cx('boxInfoTour')}>
                     <span>Booking number: {data.Id}</span>
-                    <span>Time: {data.StartDate}</span>
+                    {data.Type == 'HOTEL' ? <span>CheckIn: {data.CheckIn} <br /> CheckOut: {data.CheckOut}</span> : <span>Time: {data.StartDate}</span>}
                     <span>Type: {data.Type}</span>
                 </div>
             </div>
