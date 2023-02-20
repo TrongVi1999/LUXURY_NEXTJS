@@ -79,15 +79,6 @@ const index = () => {
 
                         </div>
                     </div>
-
-
-
-
-                    {/* <ReactToPrint
-                    trigger={() => <button >In</button>}
-                    content={() => componentRef.current}
-                /> */}
-
                 </div>}
 
         </div>

@@ -1,6 +1,5 @@
 import classNames from "classnames/bind";
 import style from './booking.module.scss'
-import { useState } from "react";
 import { format } from "date-fns";
 
 import Image from "next/image";

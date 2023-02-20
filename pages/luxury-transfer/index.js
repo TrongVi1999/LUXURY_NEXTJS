@@ -1,17 +1,17 @@
-import style from '@/styles/luxuryTransfer.module.scss';
-import classNames from 'classnames/bind';
-import { Button, Pagination, Section } from '@/components';
+import { Button, Pagination } from '@/components';
+import Headpage from '@/components/Head/head';
+import Loading from '@/components/Loading';
 import a1 from '@/public/icon/transfer1.png';
 import a2 from '@/public/icon/transfer2.png';
 import a3 from '@/public/icon/transfer3.png';
 import { banners } from '@/public/images';
-import { BannerSlide, BoxCarTrans } from '@/views';
+import style from '@/styles/luxuryTransfer.module.scss';
+import { BoxCarTrans } from '@/views';
+import BannerIMG from '@/views/BannerSlide/BannerIMG';
+import classNames from 'classnames/bind';
 import Image from 'next/image';
 import { useState } from 'react';
 import { ListTransfer } from '../api/QuerryAPI';
-import Loading from '@/components/Loading';
-import Headpage from '@/components/Head/head';
-import BannerIMG from '@/views/BannerSlide/BannerIMG';
 
 const cx = classNames.bind(style);
 
@@ -39,7 +39,6 @@ function index() {
     return (
         <div className={cx('wrapper')}>
             <Headpage />
-            {/* <BannerSlide imgBanner={[banners.luxuryTransfer]} className={cx('bannerBody')} titleBanner={"luxury transfer"} classNameTitle={cx('titleBanner')} /> */}
             <BannerIMG img={banners.luxuryTransfer} title={"LUXURY TRANSFER"} />
             <div className={cx('main')}>
                 <div className={cx('boxTitle')}>
@@ -49,7 +48,7 @@ function index() {
 
                 <div className={cx('boxBtn')} >
                     {listtype.map((d, i) =>
-                        <Button className={cx('btn', transActive === i ? 'active' : null)} onClick={() => { setTransActive(i); settype(d) }}>{d} </Button>
+                        <Button className={cx('btn', transActive === i ? 'active' : null)} onClick={() => { setTransActive(i); settype(d) }} key={i}>{d} </Button>
                     )}
 
                 </div>

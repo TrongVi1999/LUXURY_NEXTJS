@@ -7,7 +7,6 @@ import Image from 'next/image';
 const cx = classNames.bind(style);
 
 const Imglist = ({ data }) => {
-    // const issv = useIsServer();
     return (
         <div className={cx('list-img')}>
             <Image src={data[0]} alt='img vnxpedia tour' className={cx('img1')} width="2000"

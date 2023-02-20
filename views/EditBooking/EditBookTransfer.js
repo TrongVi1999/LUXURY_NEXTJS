@@ -1,14 +1,12 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import national from '@/pages/api/national.json';
-import Link from "next/link";
-import classNames from 'classnames/bind';
-import style from '@/styles/Contact.module.scss';
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { toastError, toastSuccess } from "@/components/Toast";
 import ScrollToTop from "@/hook/scrollToTop";
 import { EditBooking } from "@/pages/api/CallAPI";
-import { toastSuccess, toastError } from "@/components/Toast";
+import national from '@/pages/api/national.json';
+import style from '@/styles/Contact.module.scss';
+import classNames from 'classnames/bind';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 const cx = classNames.bind(style);
 

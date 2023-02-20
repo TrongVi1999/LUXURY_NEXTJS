@@ -1,22 +1,19 @@
-// import { useEffect, useState } from "react";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 import classNames from "classnames/bind";
-import style from './booking.module.scss'
+import style from './booking.module.scss';
 
-import { banners } from "@/public/images";
-import ItemBookingUser from "./item";
 import { Pagination } from "@/components";
+import { Getbookinglist } from "@/pages/api/QuerryAPI";
+import { banners } from "@/public/images";
 import EditBookDefault from "@/views/EditBooking/EditBookDefault";
+import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import EditBookMice from "@/views/EditBooking/EditBookMice";
 import EditBookTransfer from "@/views/EditBooking/EditBookTransfer";
 import EditBookHotel from "@/views/EditBooking/EditBookHotel";
 import { Getbookinglist } from "@/pages/api/QuerryAPI";
-import WatchBookDefault from "@/views/WatchBook/WatchBookDeafult";
-import WatchBookMice from "@/views/WatchBook/WatchBookMice";
-import WatchBookHotel from "@/views/WatchBook/WatchBookHotel";
-import WatchBookTransfer from "@/views/WatchBook/WatchBookTransfer";
 import { useApppContext } from "@/pages/_app";
+import ItemBookingUser from "./item";
 
 const cx = classNames.bind(style);
 
@@ -53,10 +50,7 @@ function BookingUser({ user }) {
         }
         <Pagination totalPosts={Bookdata.length} postPerPage={6} setPage={setPage} pageIndex={page} />
 
-        {/* {showDetail && data.Type == "TOUR" && <WatchBookDefault dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
-        {showDetail && data.Type == "MICE" && <WatchBookMice dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
-        {showDetail && data.Type == "TRANSFER" && <WatchBookTransfer dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />}
-        {showDetail && data.Type == "HOTEL" && <WatchBookHotel dataOld={data} toggle={setShowDetail} reload={reload} setreload={setreload} />} */}
+
 
         {showDetail && data.Type == "TOUR" && <EditBookDefault dataOld={data} toggle={setShowDetail} reload={CT.reload} setreload={CT.setreload} />}
         {showDetail && data.Type == "MICE" && <EditBookMice dataOld={data} toggle={setShowDetail} reload={CT.reload} setreload={CT.setreload} />}

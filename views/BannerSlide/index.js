@@ -35,7 +35,6 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
 
 
     }, [ip1])
-    console.log(list1);
 
     return (
         <>
@@ -83,12 +82,6 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
 
 
                             </div>
-                            {/* <div className={cx('boxSearch-item')}>
-                                <CiStar />
-                                <div className={cx('boxSearch-ip')}>
-                                    <input type='text' className={cx('input')} placeholder="Travel Style" onChange={(e) => setip1(e.target.value)}></input>
-                                </div>
-                            </div> */}
 
                             <Link href={`/destination/VietNamdestination=${ip1}`} className={cx('btn-search')} onClick={() => CT.setloca(ip1)}>Search Tour </Link>
                         </div>
