@@ -59,7 +59,6 @@ function Transferbook({ click, transfer }) {
     }, [])
 
     const callApi = async (data) => {
-        console.log(data);
         const response = await axios({
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/InsertBooking',
@@ -85,13 +84,12 @@ function Transferbook({ click, transfer }) {
                 'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
         });
-        console.log(response.data)
+
 
         if (response.status === 200) {
-            console.log('Inquire complete!')
             toastSuccess(' Inquire complete!');
             callApiSendmail(data);
-            // console.log(Bookinfor);
+            click(false);
         } else alert('Invaild infor')
 
     };

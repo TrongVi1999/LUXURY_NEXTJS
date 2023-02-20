@@ -87,14 +87,13 @@ function Booking({ onClick, datas, title, long }) {
         console.log(response)
 
         if (response.status === 200) {
-            console.log('Inquire complete!')
-            toastSuccess(' Inquire complete!');
 
+            toastSuccess(' Inquire complete!');
+            onClick(false);
 
         } else alert('Invaild infor')
 
     };
-    console.log(datas.TourName)
 
     const callApiSendmail = async (data) => {
         const response = await axios({
