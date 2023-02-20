@@ -43,7 +43,8 @@ function EditBookTransfer({ dataOld, toggle, reload, setreload }) {
         })
         setreload(!reload);
     }
-
+    
+   
     return (
         <div className={cx("book-edit")}>
             <ScrollToTop />
