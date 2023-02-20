@@ -18,7 +18,7 @@ const Banner = ({ image, className, title, description }) => {
                 priority
             /> */}
 
-            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' />
+            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' loading='eager' />
         </>
     );
 };
