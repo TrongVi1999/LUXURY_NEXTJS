@@ -27,7 +27,7 @@ export default function Home() {
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
                     className={cx('bodyBanner')}
-                    titleBanner={'& BE SPOKE TOURS TO VIETNAM & SOUTHEAST ASIA'}
+                    titleBanner={'Adventure - Wellness - Incentive - Heritages Tours VietNam'}
                     textTop={'Luxury tailor-made'}
                     imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
                 />
