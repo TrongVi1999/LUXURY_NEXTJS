@@ -12,6 +12,7 @@ import Booking from '@/views/Tourdetail/Booking';
 import Shareemail from '@/views/Tourdetail/Shareemail';
 import { Gettour } from '../api/QuerryAPI';
 import Headpage from '@/components/Head/head';
+import { GetTourLength } from '@/hook/GetTourLength';
 
 const cx = classNames.bind(style);
 
@@ -49,7 +50,7 @@ const index = () => {
                             </div>
 
                             <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg1}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg2}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg3}`]} />
-                            <Highlight title={Tourdata.data.TourName} destination={Tourdata.data.Destination} long={Tourdata.data.DETAIL.length} highlight={Tourdata.data.Hightlight} click={setBook} btn cla='name' cla2='highlight' />
+                            <Highlight title={Tourdata.data.TourName} destination={Tourdata.data.Destination} long={GetTourLength(Tourdata.data.DETAIL)} highlight={Tourdata.data.Hightlight} click={setBook} btn cla='name' cla2='highlight' />
                             <Itinerary description={Tourdata.data.TourDescription} detail={Tourdata.data.DETAIL} click={setBook} btn dataref={componentRef.current} />
 
                         </div>}

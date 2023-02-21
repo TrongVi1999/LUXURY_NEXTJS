@@ -9,6 +9,7 @@ import { SlLocationPin } from 'react-icons/sl';
 import ChangeTextHTML from '@/hook/ChangetextHTML';
 import Link from 'next/link';
 import { RandomBook } from '@/hook/random';
+import { GetTourLength } from '@/hook/GetTourLength';
 
 const cx = classNames.bind(style);
 
@@ -30,7 +31,7 @@ const Tourcard1 = ({ data }) => {
                 </p>
 
                 <p className={cx('length')}>
-                    <BsCalendarWeek /> {data.DETAIL.length} Day
+                    <BsCalendarWeek /> {GetTourLength(data.DETAIL)} Day
                 </p>
                 <p className={cx('price-type')}>
                     <span className={cx('price')}>$ {Math.floor(data.PRICE[0].price - ((data.PRICE[0].price * data.Discount) / 100))}</span>
