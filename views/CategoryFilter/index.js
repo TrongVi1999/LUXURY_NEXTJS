@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 import style from './filter.module.scss';
-
+import { useRouter } from 'next/router';
 import Buttom from '@/components/Button';
 import { GetSocial } from '@/pages/api/CallAPI';
 import { banners } from '@/public/images';
 import { GrPowerReset } from 'react-icons/gr';
+// import { GetSocial } from '@/pages/api/QuerryAPI';
 
 
 const cx = classNames.bind(style);
@@ -22,12 +23,10 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     const [activeGroup, setActiveGroup] = useState(-1);
     const [activePrice, setActivePrice] = useState(-1);
     const [valueDay, setValueDay] = useState(50);
-
     const [listMonthArchives, setListMonthArchives] = useState([]);
-
     const [showFillter, setShowFillter] = useState(0)
     const [ListDes, setlist] = useState();
-
+    const router = useRouter();
     const convertTimeString = () => {
         const listMonths = [];
         var key = 0;
@@ -89,8 +88,8 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
 
     const handelActiveItemCate = (index) => {
         setActiveCategory(index)
-        setShowFillter(0)
-        setvldestination(ListDes[0][index]);
+        setShowFillter(0);
+        setvldestination(ListDes[router.query.id][index]);
     }
     const handelActivePrice = (index) => {
         setActivePrice(index)
@@ -124,6 +123,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     const clases = cx('wrapper', {
         [className]: className,
     });
+    console.log('Listdes', ListDes);
 
     return (
         <div className={clases}>
@@ -143,10 +143,10 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             </div>
 
 
-            {category && ListDes && (
+            {category && router.query.id && ListDes && (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
                     <h2 className={cx('title')}>Destination  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination(''); setShowFillter(0) }} /></h2>
-                    {ListDes[0].map((element, index) => (
+                    {ListDes[router.query.id].map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
                             key={index}
