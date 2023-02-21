@@ -17,7 +17,7 @@ const Tourcard1 = ({ data }) => {
     return (
         <Link href={`/tour-detail/${data.TourCode}`} className={cx('card')}>
             <div className={cx('card-img')}>
-                <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img')} width='1000' height='1000' />
+                <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="Luxuryvietravel-tour-img" className={cx('img')} width='1000' height='1000' />
             </div>
             <div className={cx('infor')}>
                 <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>

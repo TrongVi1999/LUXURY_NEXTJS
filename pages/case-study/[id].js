@@ -16,7 +16,7 @@ const cx = classNames.bind(style);
 
 const Data = {
     Img: '',
-    Infor: [`Time: May 2017 `, `Number of pax: 150`, `Venue: Mui Ne - Phan Thiet`, `Organizer: VNXPEDIA`],
+    Infor: [`Time: May 2017 `, `Number of pax: 150`, `Venue: Mui Ne - Phan Thiet`, `Organizer: Luxuryvietravel`],
     Inclusions: ['Food for 150 pax', 'Table and chair', 'Service proesinal staff', 'Drink', 'Decoration', 'Cleaning Service'],
     Exclusions: ['Food not in menu', 'Tip money for staff', 'Wine and alcoho', 'Tip money for staff', 'Tip money for staff', 'Tip money for staff'],
     hash_tag: "[\"#BBQ Party\",\"#Phan Thiet \",\"#Dailytour\"]"

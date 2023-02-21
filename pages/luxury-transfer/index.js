@@ -43,7 +43,7 @@ function index() {
             <div className={cx('main')}>
                 <div className={cx('boxTitle')}>
                     <h2 className={cx('title')}>luxury transfer</h2>
-                    <p className={cx('textTitle')}>At VNXpedia, we are disceming, opinionated, and beleve kairy should be part of the pleasure in exploring our beautiful country No matter what you need from your kury experience, we make sure than your journey is customized to your meds Fram commercialigns to private charters points and legge planning to luxury arexpenence</p>
+                    <p className={cx('textTitle')}>At Luxuryvietravel, we are disceming, opinionated, and beleve kairy should be part of the pleasure in exploring our beautiful country No matter what you need from your kury experience, we make sure than your journey is customized to your meds Fram commercialigns to private charters points and legge planning to luxury arexpenence</p>
                 </div>
 
                 <div className={cx('boxBtn')} >

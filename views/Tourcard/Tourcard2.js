@@ -19,7 +19,7 @@ const Tourcard2 = ({ data }) => {
     return (
         <div className={cx('card2')}>
             <div className={cx('img-card2')}>
-                <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="vnxpedia-tour-img" className={cx('img2')} width='1000' height='1000' />
+                <Image src={`https://vnxpedia.3i.com.vn${data.HightlightImg}`} alt="Luxuryvietravel-tour-img" className={cx('img2')} width='1000' height='1000' />
                 {data.Discount && data.Discount != 0 && data.Discount != 'null' &&
                     <div className={cx('salesticky')}>
                         <p className={cx('salenumber')}>
