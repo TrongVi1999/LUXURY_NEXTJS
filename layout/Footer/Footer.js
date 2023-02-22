@@ -60,9 +60,9 @@ function Footer() {
                                         <div>info@luxuryvietravel.com</div>
                                     </div>
                                     <div className={cx('icon')}>
-                                        <div className={cx('item-icon')}>
+                                        <Link href='https://www.facebook.com/profile.php?id=100090618182366' className={cx('item-icon')}>
                                             <GrFacebookOption />
-                                        </div>
+                                        </Link>
                                         <div className={cx('item-icon')}>
                                             <TiSocialInstagram />
                                         </div>
