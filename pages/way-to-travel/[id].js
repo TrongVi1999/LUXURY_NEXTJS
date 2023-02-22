@@ -71,11 +71,13 @@ const index = () => {
     return (
         <div className={cx('wrapper')}>
             {contentLuxury.data && <Headpage descrip={ChangeTextHTML(contentLuxury.data.Object[0].full_text)} title={`LUXURYVIETRAVEL ${(router.query.id).split('TYPE_')[1]} TOUR`} />}
-            {contentLuxury.data && <BannerSlide imgBanner={[GetlistImg(contentLuxury.data.Object[0].gallery)[0]]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} textBottom={ChangeTextHTML(contentLuxury.data.Object[0].full_text)} />}
+            {contentLuxury.data && <BannerSlide imgBanner={[GetlistImg(contentLuxury.data.Object[0].gallery)[0]]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} />}
             <div id='list' />
-            {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}
 
             <div className={cx('main')}>
+                {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}
+                {contentLuxury.data && <p className={cx('descrip')}>{ChangeTextHTML(contentLuxury.data.Object[0].full_text)}</p>}
+
                 <div className={cx('sort')}>
                     <span >Sort by :</span>
                     <select name='sort-price' id='sort-price' className={cx("sortp")} onChange={(e) => setsort(e.target.value)}>
