@@ -23,6 +23,9 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
+                <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+                <link rel="stylesheet" href="https://unpkg.com/swiper/modules/effect-cube/effect-cube.min.css" />
+
             </Head>
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
