@@ -25,7 +25,7 @@ const TransListDetail = () => {
             {getTransDetail.data && getTransDetail.data.Object.slice(0, 3).map((d, i) =>
                 <Link href={`/transfer-detail/${d.id}`} className={cx('card')} key={i}>
                     <div className={cx('card-img')} >
-                        <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="vnxpedia-tour-img" className={cx('img')} width={200} height={200} />
+                        <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="Luxuryvietravel-tour-img" className={cx('img')} width={200} height={200} />
                     </div>
                     <div className={cx('infor')}>
                         <h6 className={cx('title')}>{d.title.toUpperCase()}</h6>

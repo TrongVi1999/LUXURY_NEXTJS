@@ -70,7 +70,7 @@ const index = () => {
                         <p>- In correct card information</p>
                         <p>- Not enough credit balance (daily or monthly)</p>
                         <p>- Your card has not been activated for online payment. You should contact the Issuer Bank for the card activation.</p>
-                        <p>In case you input correct card information but you did not receive the transaction result from the payment gateway or from us. <span>Please do not try to make other payment. Contact us to get the transaction result and confirmation of the Order</span> (Email: experts@vnxpedia.com)</p>
+                        <p>In case you input correct card information but you did not receive the transaction result from the payment gateway or from us. <span>Please do not try to make other payment. Contact us to get the transaction result and confirmation of the Order</span> (Email: experts@Luxuryvietravel.com)</p>
                         <h6 >PAYMENT & DEPOSIT FOR BOOKING TOUR & HOLIDAY PACKAGES</h6>
                         <p>a - Deposit: A deposit of 30% of total value by credit card is required upon confirmation of your booking. Once deposit of your booking has been made, it is agreed that you have read, understood and accepted all our Terms and Conditions.</p>
                         <p>b - Remained balance: The remained balance of the tour value (70%) will be paid on arrival.</p>

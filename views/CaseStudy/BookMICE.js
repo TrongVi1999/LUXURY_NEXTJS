@@ -110,7 +110,7 @@ const BookMICE = ({ close }) => {
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
             data: qs.stringify({
-                header: `You have new travel from VNXpedia`,
+                header: `You have new travel from Luxuryvietravel`,
                 content: `Tour name: ${data.EventName}`,
                 mail: data.Email,
             }),
@@ -128,7 +128,7 @@ const BookMICE = ({ close }) => {
             <p onClick={() => close(true)}></p>
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
                 <div className={cx("content-header")}>
-                    <p className={cx("p-header")}>From intimate gatherings to large-scale operations, VNXpedia can make it happen.<br />
+                    <p className={cx("p-header")}>From intimate gatherings to large-scale operations, Luxuryvietravel can make it happen.<br />
                         If you're interested in a specific experience or need a bit of inspiration, reach out and we'll be glad to help.</p>
                 </div>
 
