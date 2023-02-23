@@ -40,9 +40,7 @@ const Blogcard2 = ({ className, data }) => {
                     <Image src={icon4} alt="blogimg" /> <span>{getHashtag(data.hash_tag)}</span>
                 </div>
                 <div className={cx('text')}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam volutpat dui at lacus aliquet, a consequat enim aliquet. Integer molestie sit amet sem et faucibus. Nunc ornare pharetra dui, vitae auctor orci fringilla eget. Pellentesque in placerat felis. Etiam mollis venenatis luctus. Morbi ac scelerisque maurisdunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc faucibus imperdiet vulputate.
-
-                        Morbi volutpat leo iaculis elit vehicula, eu convallis magna finibus. Suspendisse tristique ullamcorper erat a elementum. Cras eget elit non nunc aliquam ullamcorper quis sed metus. Lorem ipsum dolor sit amet</p>
+                    <p>{data.intro_text}</p>
                 </div>
                 <div className={cx('btn-read')}>
                     <Button to={`/blog-detail/${data.id}`} className={cx('readmore')}>READ MORE</Button>
