@@ -89,7 +89,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     const handelActiveItemCate = (index) => {
         setActiveCategory(index)
         setShowFillter(0);
-        setvldestination(ListDes[router.query.id][index]);
+        setvldestination(ListDes[(router.query.id).split('dest')[0]][index]);
     }
     const handelActivePrice = (index) => {
         setActivePrice(index)
@@ -146,7 +146,7 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
             {category && router.query.id && ListDes && (
                 <div className={cx('boxFillterItem', 'boxCategory', showFillter === 1 ? 'active' : null)}>
                     <h2 className={cx('title')}>Destination  <GrPowerReset className={cx('icon-reset')} onClick={() => { setActiveCategory(-1); blog ? setvldestination('Blog') : setvldestination(''); setShowFillter(0) }} /></h2>
-                    {ListDes[router.query.id].map((element, index) => (
+                    {ListDes[(router.query.id).split('dest')[0]].map((element, index) => (
                         <div
                             className={cx('itemCategory', 'itemMobileShow', activeCategory === index ? 'active' : null)}
                             key={index}
