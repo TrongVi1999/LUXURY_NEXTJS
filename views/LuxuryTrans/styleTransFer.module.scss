@@ -138,34 +138,38 @@
     .list-transfer {
         padding: 3vw 0;
     }
-    .listService {
-        display: flex;
-        position: relative;
-        padding: 1vw 0;
-        img {
-            width: 50% !important;
-            height: auto !important;
-        }
-        ul {
-            list-style: none;
-            margin-bottom: 3vw;
-            margin-left: 40px;
-            li {
-                text-align: start;
-                margin-bottom: 15px;
-                svg {
-                    color: #f5a623;
-                }
-            }
-        }
-    }
+
     .imgVIP {
         width: 100% !important;
         height: auto !important;
     }
     .list-car {
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
+    }
+}
+.listService {
+    display: flex;
+    position: relative;
+    padding: 1vw 0;
+    gap: 40px;
+    img {
+        width: 50% !important;
+        height: auto !important;
+        object-fit: cover;
+    }
+    ul {
+        list-style: none;
+        margin-bottom: 3vw;
+
+        li {
+            text-align: start;
+            margin-bottom: 15px;
+            svg {
+                color: #f5a623;
+            }
+        }
     }
 }
 @media only screen and (max-width: 900px) {
@@ -177,5 +181,14 @@
 @media only screen and (max-width: 700px) {
     .card {
         width: 100%;
+    }
+    .listService {
+        flex-direction: column;
+        img {
+            width: 100% !important;
+        }
+        ul {
+            width: 100% !important;
+        }
     }
 }
