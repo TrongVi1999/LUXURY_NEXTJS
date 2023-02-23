@@ -8,7 +8,7 @@ const cx = classNames.bind(style);
 const Banner = ({ image, className, title, description }) => {
     console.log('img', image)
     return (
-        <>
+        <div className={cx('banner-container')}>
             {/* <Image
                 src={image.default.blurDataURL}
                 alt="bannerError"
@@ -18,8 +18,8 @@ const Banner = ({ image, className, title, description }) => {
                 priority
             /> */}
 
-            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} width='2000' height='2000' loading='eager' />
-        </>
+            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} layout='fill' loading='eager' />
+        </div>
     );
 };
 

@@ -41,7 +41,7 @@ const index = () => {
                         <div className={cx('main-infor')}>
 
                             <div className={cx('crumb-cost')}>
-                                <Crumb text={Tourdata.data.TourName} />
+                                <Crumb text={Tourdata.data.TourName} type={Tourdata.data.TourType} />
                                 <div className={cx('cost')}>
                                     <sup>From</sup>
                                     <p>$ {Tourdata.data.PRICE[0].price}</p>
