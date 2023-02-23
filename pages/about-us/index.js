@@ -11,6 +11,8 @@ import History from '@/views/Aboutus/History';
 import AboutVideo from '@/views/Aboutus/Video';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Headpage from '@/components/Head/head';
+import Background from '@/views/Background/Background';
+import BnImg from '@/public/bn9.jpg';
 
 
 import Image from 'next/image';
@@ -54,7 +56,8 @@ const index = () => {
 
             </div>
             <History />
-            <AboutVideo />
+            {/* <AboutVideo /> */}
+            <Background img={BnImg} />
             <div id='this' ></div>
             <Section notPadding>
                 <OutTeamAboutUs />
