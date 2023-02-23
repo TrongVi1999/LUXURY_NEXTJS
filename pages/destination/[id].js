@@ -34,7 +34,7 @@ function Destimation() {
     const [vlendcost, setvlendcost] = useState(15000);
     const [sort, setsort] = useState()
     const router = useRouter();
-    const tourList = Superfilter((router.query.id).split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
+    const tourList = Superfilter((router.query.id), vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
 
     const [act, setact] = useState(['act', '', '', '']);
 
