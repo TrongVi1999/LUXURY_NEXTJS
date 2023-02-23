@@ -98,7 +98,7 @@ function Hotelbook({ click, hotel }) {
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
             data: qs.stringify({
-                header: `You inquired a hotel from VNXpedia`,
+                header: `You inquired a hotel from Luxuryvietravel`,
                 content: `Hotel: ${hotel}`,
                 mail: data.Email,
             }),

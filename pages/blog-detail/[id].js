@@ -92,8 +92,8 @@ const BlogDetail = () => {
                     </div>
 
                     <div className={cx('comment-container')}>
-                        {router.query.id && <Comments id={router.query.id} setrepid={setrepid} setrepname={setrepname} loadcm={loadcm} />}
-                        <WriteComment id={router.query.id} prid={repid} loadcm={loadcm} repname={repname} setrepid={setrepid} refet={setloadcm} />
+                        {router.query.id && <Comments id={router.query.id} setrepid={setrepid} setrepname={setrepname} />}
+                        <WriteComment id={router.query.id} prid={repid} repname={repname} setrepid={setrepid} />
                     </div>
                 </div>
             }

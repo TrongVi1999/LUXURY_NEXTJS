@@ -9,10 +9,27 @@ import qs from 'qs';
 import national from '@/pages/api/national.json';
 import { Sendmail } from '@/pages/api/CallAPI';
 import ScrollToTop from '@/hook/scrollToTop';
+import HandToast from '@/components/HandToast/HandToast';
 
 const cx = classNames.bind(style);
+const ListType = [
+    'BMW',
+    'Rolls Royce',
+    'Mercedes',
+    'Limousine',
+    'Vin bus'
+]
+const ListAirport = [
+    'Noi Bai (Ha Noi)',
+    'Tan Son Nhat (HCM city)',
+    'Da Nang',
+    'Nha Trang (Khanh Hoa)',
+    'Phu Quoc (Kien Giang)',
+    'Van Don (Quang Ninh)'
+]
 
-function Transferbook({ click, transfer }) {
+
+function Transferbook({ click, transfer, type }) {
 
     const {
         watch,
@@ -28,14 +45,15 @@ function Transferbook({ click, transfer }) {
     const email = watch('Email');
     const email2 = watch('Email2');
     const selectedValue = watch('Babycartseat');
+    const [showToast, setshowToast] = useState(false);
 
     const validateEmailMatch = () => {
         return email === email2 || 'Email not match';
     };
 
     const handleEnquire = (data) => {
-        callApi(data);
-
+        // callApi(data);
+        setshowToast(true);
 
 
     };
@@ -101,31 +119,208 @@ function Transferbook({ click, transfer }) {
 
     return (
         <div className={cx("booking-infor")}>
+            {showToast && <HandToast click={click} />}
             <ScrollToTop />
-            <div className={cx("book-crumb")}>Home | BOOK NOW
-                <p onClick={() => click(false)}>Back</p></div>
+            <div className={cx("book-crumb")}>
+                Home | <span onClick={() => click(false)}>LUXURY TRANSFER</span> | BOOK
+                {/* <p onClick={() => click(false)}>Back</p> */}
+            </div>
 
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
-                <div className={cx("content-header")}>
+                {/* <div className={cx("content-header")}>
                     <p className={cx("service-name")}>
                         Type of car:&nbsp;
                         <span className={cx("service-name-content")}>
                             Mercedes BENS AMS COUPE
                         </span>
                     </p>
-                    <p className={cx("tour-country")}>
-                        Country:&nbsp;
-                        <span className={cx("tour-country-content")}>
-                            VIET NAM
-                        </span>
-                    </p>
-                </div>
-                <hr className={cx("line")}></hr>
+
+                </div> */}
+                {/* <hr className={cx("line")}></hr> */}
                 <div className={cx("content-mid")}>
                     <div className={cx("header-form")}>
-                        <span className={cx("title-form")}>CONTACT US</span>
-                        <p className={cx("intro-form")}>SEND US A MESSAGE</p>
+                        <span className={cx("title-form")}>{type} BOOKING </span>
+                        {/* <p className={cx("intro-form")}>SEND US A MESSAGE</p> */}
                     </div>
+
+                    <div className={cx("item-form")}>
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                No of adult: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+
+                                <input
+                                    type="text"
+                                    placeholder="Enter your number of adult"
+                                    className={cx("cus-adult")}
+                                    {...register('Adult', { required: true })}
+                                /><br />
+                                {errors.Adult && errors.Adult.type === 'required' && (
+                                    <span className={cx("error-message")}>Adult Off cannot be empty !</span>
+                                )}
+
+                            </div>
+
+                        </div>
+
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                No of children: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+
+                                <input
+                                    type="text"
+                                    placeholder="Enter your number of children"
+                                    className={cx("cus-children")}
+                                    {...register('Children', { required: true })}
+                                /><br />
+                                {errors.Children && errors.Children.type === 'required' && (
+                                    <span className={cx("error-message")}>Children cannot be empty !</span>
+                                )}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div className={cx("item-form")}>
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                Date to VietNam: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+                                <div className={cx("input-enquire--name")}>
+                                    <input
+                                        type="date"
+
+                                        placeholder="Enter your number of adult"
+                                        className={cx("cus-adult")}
+                                    // {...register('Adult', { required: true })}
+                                    /><br />
+                                    {/* {errors.Adult && errors.Adult.type === 'required' && (
+                                        <span className={cx("error-message")}>Adult Off cannot be empty !</span>
+                                    )} */}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                Arrival Time: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+
+                                <input
+                                    type="time"
+                                    placeholder="Enter your number of adult"
+                                    className={cx("cus-adult")}
+                                // {...register('Adult', { required: true })}
+                                /><br />
+                                {errors.Children && errors.Children.type === 'required' && (
+                                    <span className={cx("error-message")}>Children cannot be empty !</span>
+                                )}
+
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                Flight: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+
+                                <input
+                                    type="text"
+                                    placeholder="Flight code"
+                                    className={cx("cus-children")}
+                                    {...register('Children', { required: true })}
+                                /><br />
+                                {errors.Children && errors.Children.type === 'required' && (
+                                    <span className={cx("error-message")}>Children cannot be empty !</span>
+                                )}
+
+                            </div>
+                        </div>
+
+                        <div className={cx("item-form-number")}>
+                            <label className={cx("label-booking")}>
+                                Entry: <br />
+                            </label>
+                            <div className={cx("cus-infor")}>
+
+                                <select name='Country' className={cx("select-input")} onChange={(e) => setcountry(e.target.value)}>
+                                    <option value="0" label="-- Select --" selected="selected">Select a airport ...</option>
+                                    {ListAirport.map((d, i) => (
+                                        <option key={i} value={d}>{d}</option>
+                                    ))}
+                                </select><br />
+                                {errors.Children && errors.Children.type === 'required' && (
+                                    <span className={cx("error-message")}>Children cannot be empty !</span>
+                                )}
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Sign up for VIP pick-up service :
+                        </label>
+                        <div className={cx("cus-infor")}>
+
+                            <input
+                                type="checkbox"
+                                placeholder="Enter Your Name"
+                                className={cx("check-input")}
+                            // {...register('FullName', { required: true })}
+                            />
+                            {/* {errors.FullName && errors.FullName.type === 'required' && (
+                                    <span className={cx("error-message")}>Your Name cannot be empty !</span>
+                                )} */}
+
+                        </div>
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Pick-up vehicle type:
+                        </label>
+                        <div>
+                            <select name='Country' className={cx("our-services")} onChange={(e) => setcountry(e.target.value)}>
+                                <option value="0" label="-- Select --" selected="selected">Select a country ...</option>
+                                {ListType.map((d, i) => (
+                                    <option key={i} value={d}>{d}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            Special request:
+                        </label>
+                        <div>
+                            <textarea
+                                placeholder="Message"
+                                className={cx("book-note")}
+
+                                {...register('Note', { required: true })}
+                            ></textarea>
+                            {errors.Note && errors.Note.type === 'required' && (
+                                <span className={cx("error-message")}>Note cannot be empty !</span>
+                            )}
+                        </div>
+                    </div>
+
+
+
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
@@ -185,7 +380,7 @@ function Transferbook({ click, transfer }) {
 
                     <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
-                            Do you expect a phone call?
+                            Your phone number (*):
                         </label>
                         <div className={cx("input-enquire")}>
                             <input
@@ -210,7 +405,21 @@ function Transferbook({ click, transfer }) {
                             )}
                         </div>
                     </div>
+
                     <div className={cx("item-form")}>
+                        <label className={cx("label-booking")}>
+                            How did you hear about our services?
+                        </label>
+                        <div>
+                            <select name='ourServices' className={cx("our-services")}>
+                                <option value="">-- Select --</option>
+                                <option value="Your Friend">Recommended by friend or colleague</option>
+                                <option value="Social Network">Social Network</option>
+                                <option value="Blog">Blog or publication</option>
+                            </select>
+                        </div>
+                    </div>
+                    {/* <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             Time:
                         </label>
@@ -275,8 +484,8 @@ function Transferbook({ click, transfer }) {
                                 <option value="No" label="No">No</option>
                             </select>
                         </div>
-                    </div>
-                    <div className={cx("item-form")}>
+                    </div> */}
+                    {/* <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             No of adult: <br />
                             <div className={cx("cus-infor")}>
@@ -311,8 +520,8 @@ function Transferbook({ click, transfer }) {
                                 </div>
                             </label>
                         </div>
-                    </div>
-                    <div className={cx("item-form")}>
+                    </div> */}
+                    {/* <div className={cx("item-form")}>
                         <label className={cx("label-booking")}>
                             Special request:
                         </label>
@@ -327,7 +536,7 @@ function Transferbook({ click, transfer }) {
                                 <span className={cx("error-message")}>Note cannot be empty !</span>
                             )}
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className={cx("content-bot")}>

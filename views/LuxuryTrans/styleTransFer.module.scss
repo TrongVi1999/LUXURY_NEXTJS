@@ -26,6 +26,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    text-align: start;
 
     p {
         padding: 5px 0;
@@ -59,7 +60,6 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-height: 5.9rem;
 
             span {
                 margin-left: 0 !important;
@@ -84,7 +84,90 @@
     margin-right: 5px;
     font-weight: bold;
 }
+//content
+.containerContent {
+    width: 100%;
+    position: relative;
+    h2 {
+        margin-bottom: 30px;
+    }
+    .icon {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        margin: 40px 20px;
+        div {
+            margin: 0 3%;
+            h4 {
+                color: #f5a623;
+                padding-top: 5px;
+            }
+        }
+        .seperate {
+            border-right: solid 1px black;
+        }
+        .icon1 {
+            border: none;
+        }
+    }
+    h3 {
+        margin: 40px 0;
+        text-align: start;
+        width: fit-content;
+        // border-bottom: var(--primary) 2px solid;
+    }
+    .text {
+        text-align: start;
+    }
 
+    .btn {
+        width: 21rem;
+        height: 4.6rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--buttonPagination);
+        background-color: var(--yellow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4rem auto 0;
+        border-radius: 0.2rem;
+        cursor: pointer;
+    }
+    .list-transfer {
+        padding: 3vw 0;
+    }
+    .listService {
+        display: flex;
+        position: relative;
+        padding: 1vw 0;
+        img {
+            width: 50% !important;
+            height: auto !important;
+        }
+        ul {
+            list-style: none;
+            margin-bottom: 3vw;
+            margin-left: 40px;
+            li {
+                text-align: start;
+                margin-bottom: 15px;
+                svg {
+                    color: #f5a623;
+                }
+            }
+        }
+    }
+    .imgVIP {
+        width: 100% !important;
+        height: auto !important;
+    }
+    .list-car {
+        display: flex;
+        gap: 20px;
+    }
+}
 @media only screen and (max-width: 900px) {
     .card {
         width: 40%;

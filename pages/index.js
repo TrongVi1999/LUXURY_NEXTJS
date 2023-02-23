@@ -18,16 +18,19 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Vietnam Luxury Tours - Incentive Tailor-made Trips</title>
-                <meta name="description" content="Vietnam Luxury Tours I Wellness Vietnam I Adventure Travel & Incentive Tailor-made Trips" />
+                <title>Tailor-Made Tours, Luxury Holidays I Wellness I Adventure I Incentive I Luxury Vietravel</title>
+                <meta name="description" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
+                <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+                <link rel="stylesheet" href="https://unpkg.com/swiper/modules/effect-cube/effect-cube.min.css" />
+
             </Head>
             <div className={cx('wrapperBanner')}>
                 <BannerSlide
                     className={cx('bodyBanner')}
-                    titleBanner={'& BE SPOKE TOURS TO VIETNAM & SOUTHEAST ASIA'}
+                    titleBanner={'Adventure - Wellness - Incentive - Heritages Tours VietNam'}
                     textTop={'Luxury tailor-made'}
                     imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
                 />

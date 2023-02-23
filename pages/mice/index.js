@@ -41,7 +41,7 @@ function Mice() {
                     </div>
 
                     <div className={cx('main')}>
-                        <TitleMice title={'WHAT ARE DIFFERENCE'} des={"We research, and select unique and clasey values to put into MICE products Customers can experiance the most different values when they have faith and order with VNXPEDIA"} />
+                        <TitleMice title={'WHAT ARE DIFFERENCE'} des={"We research, and select unique and clasey values to put into MICE products Customers can experiance the most different values when they have faith and order with Luxuryvietravel"} />
                         <div className={cx('sectionDiffCase')}>
                             <div className={cx('item-card')}>
                                 <BoxImageMice img={Img5} title="INNOVATIVE TEAM-BUIDLING" size={'45%'} />
@@ -57,7 +57,7 @@ function Mice() {
                             </div>
                         </div>
 
-                        <TitleMice title={'CASE STUDIES'} des={"We research, and select unique and classy values ​​to put into MICE products. Customers can experience the most different values ​​when they have faith and order with VNXPEDIA"} />
+                        <TitleMice title={'CASE STUDIES'} des={"We research, and select unique and classy values ​​to put into MICE products. Customers can experience the most different values ​​when they have faith and order with Luxuryvietravel"} />
                         {listTour.data && <div className={cx('sectionDiffCase-2')}>
                             {listTour.data.Object.map((d, i) =>
                                 <div className={cx('item-card-2')} key={i}>

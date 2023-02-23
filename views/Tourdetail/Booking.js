@@ -99,7 +99,7 @@ function Booking({ onClick, datas, title, long }) {
             method: 'post',
             url: 'https://vnxpedia.3i.com.vn/TravelAPI/SendMailCustom',
             data: qs.stringify({
-                header: `You have new travel from VNXpedia`,
+                header: `You have new travel from Luxuryvietravel`,
                 content: `Tour name: ${datas.TourName}`,
                 mail: data.Email,
             }),

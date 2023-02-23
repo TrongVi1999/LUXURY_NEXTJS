@@ -5,7 +5,12 @@
 .bannerMain {
     width: 100%;
     height: 100%;
+}
 
+.bannerAll {
+    width: 100vw;
+    height: 70vw;
+    position: relative;
 }
 
 .sheaderBox {
@@ -100,10 +105,12 @@
 
                 .list1 {
                     width: 100%;
+                    max-height: 50vh;
+                    overflow-y: scroll;
                     position: absolute;
                     top: 42px;
                     background-color: white;
-
+                    z-index: 5;
                     p {
                         padding: 10px;
                     }
@@ -167,7 +174,7 @@
     .text-img {
         padding: 0 10% !important;
 
-        h2 {
+        h1 {
             font-size: 2rem !important;
             letter-spacing: 0px !important;
         }
