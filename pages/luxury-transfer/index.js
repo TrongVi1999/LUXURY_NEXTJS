@@ -42,7 +42,7 @@ function index() {
         <div className={cx('wrapper')}>
             <Headpage />
             <BannerIMG img={banners.luxuryTransfer} title={"LUXURY TRANSFER"} />
-            {Book ? <Transferbook click={setbook} /> :
+            {Book ? <Transferbook click={setbook} type={Type} /> :
                 <div className={cx('main')}>
                     <div className={cx('boxTitle')}>
                         <h2 className={cx('title')}>luxury transfer</h2>

@@ -58,8 +58,9 @@ export const Vehicles = ({ setbook }) => {
 
             <button className={cx('btn')} onClick={() => setbook(true)}>BOOK NOW</button>
             <div className={cx('list-transfer')}>
-                <Title text='Dịch vụ xe VIP cho khách Bussiness và khách du lịch' align='center' />
-                <p>Lựa chọn các dòng xe sang trọng, đẳng cấp trong đội xe của Luxury Vietravel</p>
+                <Title text='VIP CAR SERVICE FOR BUSINESS AND TOURIST CUSTOMERS' align='center' />
+                <p>Choose luxury and high-class car models in the fleet of Luxury Vietravel<br />
+                    Luxury Vietravel provides VIP car service for business and tourist customers with a variety of luxurious and high-class car models to choose from. The car models are guaranteed for quality and safety, giving customers a comfortable and luxurious feeling while travelling.</p>
                 <h3>SEDAN</h3>
 
                 {transferList.data &&
@@ -131,8 +132,12 @@ export const Vehicles = ({ setbook }) => {
 export const CruiseYacht = () => {
     return (
         < div className={cx('containerContent')}>
+            <h2>YACHTS</h2>
             <p>
-                Vietnam is a coastal country, with beautiful coastlines stretching along the shape of the country, as well as magnificent and impressive Gulf regions. Luxury Vietravel wants to bring the experience of exploring these amazing natural landscapes on luxury cruises to tourists visiting Vietnam.
+                Vietnam, being a coastal nation, boasts not only of stunning beaches but also of majestic and impressive bays. Exploring these magnificent natural wonders on luxury cruises is what Luxury Vietravel offers to tourists visiting Vietnam. From the pristine beaches of Nha Trang to the iconic Ha Long Bay, Vietnam offers a unique experience of sailing on a yacht cruise.<br />
+                The Nha Trang Cruise takes visitors on a journey along the city's coastline, where they can enjoy the stunning views of the beaches, islands, and fishing villages. Meanwhile, the Ha Long Bay cruise offers a breathtaking experience of limestone cliffs and emerald waters, which is considered one of the most iconic destinations in Vietnam.<br />
+                Luxury Vietravel aims to provide a one-of-a-kind experience for travelers seeking adventure, luxury, and relaxation. With Vietnam Yacht Cruise, visitors can immerse themselves in the country's natural beauty while indulging in the finest amenities and services on board. The company takes pride in showcasing Vietnam's natural wonders and cultural heritage while ensuring the comfort and satisfaction of its guests
+
             </p>
         </div>
     )
@@ -141,7 +146,11 @@ export const CruiseYacht = () => {
 export const Helicopters = () => {
     return (
         < div className={cx('containerContent')}>
-            <p>Luxury Vietravel has partnered with reputable and high-end airlines to offer travel experiences aimed at bringing top-notch services to customers and saving time on transportation. Our flights are designed for tourism purposes and provide customers with a luxurious and comfortable journey. </p>
+            <h2>HELICOPTERS</h2>
+            <p>Luxury Vietravel partners with reputable airlines to provide customers with premium travel services and a time-saving experience. The company offers a wide range of flight options that cater to different travel purposes, particularly for those seeking luxury and comfort.<br />
+                Apart from air travel, Luxury Vietravel also offers unique travel experiences, such as Vietnam Helicopter Landing, which allows visitors to access remote and exclusive destinations. However, it's important to note that safety is always a top priority for the company. Luxury Vietravel ensures that all their helicopter tours are conducted by licensed and experienced pilots, and regular maintenance is carried out to prevent any accidents or incidents, such as the US Vietnam Helicopter Crash that occurred during the war.<br />
+                With Luxury Vietravel, travelers can expect an exceptional travel experience that combines luxury, comfort, and safety. The company is dedicated to providing its customers with the best travel options that showcase Vietnam's beauty, culture, and history, while ensuring their comfort and safety throughout their journey.
+            </p>
         </div>
     )
 }
@@ -149,7 +158,12 @@ export const Helicopters = () => {
 export const Luxtrain = () => {
     return (
         < div className={cx('containerContent')}>
-            <p>Luxury Vietravel has partnered with reputable and high-end airlines to offer travel experiences aimed at bringing top-notch services to customers and saving time on transportation. Our flights are designed for tourism purposes and provide customers with a luxurious and comfortable journey. </p>
+            <h2>LUX TRAIN</h2>
+            <p>Experiencing the 5-star train service in Vietnam is a precious opportunity to fully admire the beautiful scenery along every route. Luxury Vietravel partners with top train companies to provide customers with a premium Vietnam train travel experience.<br />
+                Traveling by train in Vietnam is not only a convenient and affordable option, but it also offers a unique cultural experience. The Vietnam train street is one such example, where visitors can see the daily life of local residents living alongside the railway tracks.<br />
+                Luxury Vietravel's Vietnam train packages include comfortable cabins, exceptional service, and breathtaking views of the Vietnamese countryside. The company's knowledgeable guides also provide interesting facts and historical insights about the regions the trains pass through.
+                With Luxury Vietravel, customers can expect a seamless and enjoyable train travel experience, allowing them to fully appreciate the beauty and culture of Vietnam.
+            </p>
         </div>
     )
 }
