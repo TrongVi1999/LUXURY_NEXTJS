@@ -1,20 +1,22 @@
 .wrapperBanner {
     width: 100%;
-    height: 60vw;
-    min-height: 700px;
+    height: auto;
+    // min-height: 700px;
     display: flex;
     flex-direction: column;
 
     .boxInfo {
         width: 100%;
-        height: 45rem;
+        height: 25vw;
+        min-height: 300px;
         display: flex;
     }
 
     .bodyBanner {
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 40vw;
+        min-height: 350px;
     }
 }
 .inforfake {

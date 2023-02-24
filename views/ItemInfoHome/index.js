@@ -29,13 +29,13 @@ function ItemInfoHome({ className }) {
                 0: {
                     slidesPerView: 1,
                 },
-                640: {
+                768: {
                     slidesPerView: 2,
                 },
-                768: {
+                900: {
                     slidesPerView: 3,
                 },
-                1024: {
+                1150: {
                     slidesPerView: 4,
                 },
             }}

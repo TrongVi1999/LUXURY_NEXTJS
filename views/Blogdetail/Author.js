@@ -4,28 +4,21 @@ import style from '@/styles/blogdetail.module.scss';
 import Share from '../Share/Share';
 import icon1 from '@/public/images/avt2.png';
 import Image from 'next/image';
+import { getAuthor } from '@/hook/getAuthor';
+
 const cx = classNames.bind(style);
 
-const data = {
-    avatar: icon1,
-    auname: 'NATASHA S.',
-    class: 'Co-Founder',
-    about: `Lorem ipsum dolor sit 
-    amet, consectetur adi
-    piscing accumsan`
-}
-
-const Author = () => {
+const Author = ({ id }) => {
     return (
         <div className={cx('author-container')}>
             <div className={cx('author-avt')}>
-                < Image src={icon1} />
+                < Image src={getAuthor(id).img} />
             </div>
             <div className={cx('author-content')}>
-                <p>{data.auname}</p>
-                <p>{data.class}</p>
-                <Share />
-                <p>{data.about}</p>
+                <p>{getAuthor(id).name}</p>
+                <p>{getAuthor(id).position}</p>
+                {/* <Share /> */}
+                <p className={cx('intro')}>{getAuthor(id).introduce}</p>
             </div>
 
         </div>

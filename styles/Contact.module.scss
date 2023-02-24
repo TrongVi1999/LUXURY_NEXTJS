@@ -123,10 +123,12 @@
 .item-form {
     display: flex;
     margin-bottom: 25px;
+    gap: 30px;
 }
 
 .header-form {
     margin-bottom: 42px;
+    padding-top: 30px;
 }
 
 .title-form {
@@ -140,7 +142,31 @@
     color: #2d3a4b;
     margin-top: 8px;
 }
-
+.item-form-number {
+    .cus-infor {
+        width: 100%;
+        input {
+            width: 100% !important;
+        }
+    }
+    // .cus-adult,
+    // .cus-children {
+    //     margin-top: 0 !important;
+    // }
+    .select-input {
+        margin-top: 20px;
+        color: #6f6f6f;
+        border: 1px solid #b1b1b1;
+        border-radius: 4px;
+        padding: 10px 14px !important;
+    }
+}
+.check-input {
+    width: 38px !important;
+    height: 38px;
+    border: 1px solid #b1b1b1 !important;
+    border-radius: 4px !important;
+}
 .label-booking {
     font-size: 16px;
     color: rgb(45, 58, 75);

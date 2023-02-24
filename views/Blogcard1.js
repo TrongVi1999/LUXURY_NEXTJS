@@ -15,7 +15,7 @@ const Blogcard1 = ({ Data }) => {
                 <p className={cx('title')}>{Data.title.toUpperCase()}</p>
                 <p className={cx('hr')}></p>
                 <p className={cx('content')}>
-                    Ha Long Bay, in the Gulf of Tonkin, includes some 1,600 islands and islets, forming a spectacular seascape of limestone pillars. Because of their precipitous nature, most of the islands are uninhabited and unaffected by a human presence. The sites outstanding scenic beauty is complemented by its great biological interest.
+                    {Data.intro_text}
                 </p>
             </div>
         </Link>

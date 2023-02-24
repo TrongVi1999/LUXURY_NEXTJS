@@ -56,7 +56,7 @@ const Index = () => {
                                 {hotelData.data.Object[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
 
                             </p>
-
+                            <p>{hotelData.data.Object[0].intro_text}</p>
 
                             <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
                         </div>

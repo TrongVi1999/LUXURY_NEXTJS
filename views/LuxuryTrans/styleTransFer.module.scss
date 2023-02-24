@@ -26,6 +26,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    text-align: start;
 
     p {
         padding: 5px 0;
@@ -59,7 +60,6 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-height: 5.9rem;
 
             span {
                 margin-left: 0 !important;
@@ -111,8 +111,10 @@
         }
     }
     h3 {
-        margin: 20px 0;
+        margin: 40px 0;
         text-align: start;
+        width: fit-content;
+        // border-bottom: var(--primary) 2px solid;
     }
     .text {
         text-align: start;
@@ -136,31 +138,38 @@
     .list-transfer {
         padding: 3vw 0;
     }
-    .listService {
-        display: flex;
-        position: relative;
-        padding: 1vw 0;
-        img {
-            width: 40% !important;
-            height: auto !important;
-        }
-        ul {
-            list-style: none;
-            margin-bottom: 3vw;
-            margin-left: 40px;
-            li {
-                text-align: start;
-                margin-bottom: 10px;
-            }
-        }
-    }
+
     .imgVIP {
         width: 100% !important;
         height: auto !important;
     }
     .list-car {
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
+    }
+}
+.listService {
+    display: flex;
+    position: relative;
+    padding: 1vw 0;
+    gap: 40px;
+    img {
+        width: 50% !important;
+        height: auto !important;
+        object-fit: cover;
+    }
+    ul {
+        list-style: none;
+        margin-bottom: 3vw;
+
+        li {
+            text-align: start;
+            margin-bottom: 15px;
+            svg {
+                color: #f5a623;
+            }
+        }
     }
 }
 @media only screen and (max-width: 900px) {
@@ -172,5 +181,14 @@
 @media only screen and (max-width: 700px) {
     .card {
         width: 100%;
+    }
+    .listService {
+        flex-direction: column;
+        img {
+            width: 100% !important;
+        }
+        ul {
+            width: 100% !important;
+        }
     }
 }

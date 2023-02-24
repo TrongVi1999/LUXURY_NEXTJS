@@ -22,9 +22,9 @@ const listmenu = [
     'Tour', 'About', 'Attraction/Activities', 'FAQ'
 ]
 
-function Destimation() {
-    const [valueFillter, setValueFillter] = useState({ category: -1, tourTag: -1 });
-    const [vlcountry, setvlcountry] = useState('');
+function Destination() {
+    // const [valueFillter, setValueFillter] = useState({ category: -1, tourTag: -1 });
+
     const [vldestination, setvldestination] = useState('');
     const [vltype, setvltype] = useState('');
     const [vltag, setvltag] = useState('');
@@ -34,7 +34,8 @@ function Destimation() {
     const [vlendcost, setvlendcost] = useState(15000);
     const [sort, setsort] = useState()
     const router = useRouter();
-    const tourList = Superfilter((router.query.id).split('dest')[0], vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
+    const [vlcountry, setvlcountry] = useState(router.query.id);
+    const tourList = Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
 
     const [act, setact] = useState(['act', '', '', '']);
 
@@ -185,4 +186,4 @@ function Destimation() {
     );
 }
 
-export default Destimation;
+export default Destination;
