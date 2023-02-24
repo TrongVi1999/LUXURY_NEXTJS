@@ -123,24 +123,15 @@ function Transferbook({ click, transfer, type }) {
             <ScrollToTop />
             <div className={cx("book-crumb")}>
                 Home | <span onClick={() => click(false)}>LUXURY TRANSFER</span> | BOOK
-                {/* <p onClick={() => click(false)}>Back</p> */}
+
             </div>
 
             <form className={cx("book-content")} onSubmit={handleSubmit(handleEnquire)}>
-                {/* <div className={cx("content-header")}>
-                    <p className={cx("service-name")}>
-                        Type of car:&nbsp;
-                        <span className={cx("service-name-content")}>
-                            Mercedes BENS AMS COUPE
-                        </span>
-                    </p>
 
-                </div> */}
-                {/* <hr className={cx("line")}></hr> */}
                 <div className={cx("content-mid")}>
                     <div className={cx("header-form")}>
                         <span className={cx("title-form")}>{type} BOOKING </span>
-                        {/* <p className={cx("intro-form")}>SEND US A MESSAGE</p> */}
+
                     </div>
 
                     <div className={cx("item-form")}>
@@ -198,11 +189,11 @@ function Transferbook({ click, transfer, type }) {
 
                                         placeholder="Enter your number of adult"
                                         className={cx("cus-adult")}
-                                    // {...register('Adult', { required: true })}
+                                        {...register('StartDate', { required: true })}
                                     /><br />
-                                    {/* {errors.Adult && errors.Adult.type === 'required' && (
-                                        <span className={cx("error-message")}>Adult Off cannot be empty !</span>
-                                    )} */}
+                                    {errors.StartDate && errors.StartDate.type === 'required' && (
+                                        <span className={cx("error-message")}>Date cannot be empty !</span>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -217,10 +208,10 @@ function Transferbook({ click, transfer, type }) {
                                     type="time"
                                     placeholder="Enter your number of adult"
                                     className={cx("cus-adult")}
-                                // {...register('Adult', { required: true })}
+                                    {...register('ArrivalTime', { required: true })}
                                 /><br />
-                                {errors.Children && errors.Children.type === 'required' && (
-                                    <span className={cx("error-message")}>Children cannot be empty !</span>
+                                {errors.ArrivalTime && errors.ArrivelTime.type === 'required' && (
+                                    <span className={cx("error-message")}>ArrivalTime cannot be empty !</span>
                                 )}
 
                             </div>
@@ -236,9 +227,9 @@ function Transferbook({ click, transfer, type }) {
                                     type="text"
                                     placeholder="Flight code"
                                     className={cx("cus-children")}
-                                    {...register('Children', { required: true })}
+                                    {...register('Flight', { required: true })}
                                 /><br />
-                                {errors.Children && errors.Children.type === 'required' && (
+                                {errors.Flight && errors.Flight.type === 'required' && (
                                     <span className={cx("error-message")}>Children cannot be empty !</span>
                                 )}
 

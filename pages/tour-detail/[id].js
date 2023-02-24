@@ -74,7 +74,7 @@ const index = () => {
                                 </div>
                             </div>
 
-                            <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`]} />
+                            <Imglist data={[`https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg1}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg2}`, `https://vnxpedia.3i.com.vn${Tourdata.data.HightlightImg3}`]} />
                             <Highlight title={Tourdata.data.TourName} destination={Tourdata.data.Destination} long={Tourdata.data.DETAIL.length} highlight={Tourdata.data.Hightlight} click={setBook} cla='name1' cla2='highlight2' />
                             <Itinerary description={Tourdata.data.TourDescription} detail={Tourdata.data.DETAIL} click={setBook} />
 

@@ -139,7 +139,10 @@
 
 .main-hotel {
     padding: 2% 0;
-
+    img {
+        width: 100% !important;
+        height: auto !important;
+    }
     h2 {
         padding: 0 !important;
         margin-top: 40px;

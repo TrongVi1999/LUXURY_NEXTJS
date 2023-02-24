@@ -62,40 +62,9 @@ function index() {
                         {Type == 'HELICOPTERS' && <Helicopters />}
                         {Type == 'LUX TRAIN' && <Luxtrain />}
 
-                        {/* <div className={cx('text')}>
-                        <h2>{Type}</h2>
-                        <p>We manually compare the prices from hundreds of airport transfer service suppliers in Vietnam to offer you the best value for money service. All of our transportation suppliers in Vietnam offer free cancellations and free amendments, up to 24 hours before pick up. Vietnam Airport pick ups include meet and greet and our prices are fully inclusive. Book your Vietnam taxi transfer online in minutes and enjoy a stress free transfer and a perfect start to your holiday. And while you are here, why not book your transfer from your home to the airport and back. You can find a list of all destinations we cover on our destinations page, or use the quote form.<br /><br />
 
-                            Our Private Cars are all new, modern with strong A/C and only use for our customers.</p>
-                        <div className={cx('icon')}>
-                            <div>
-                                <Image src={a1} alt='car' />
-                                <h4>Professional Service</h4>
-                            </div>
-                            <div className={cx('seperate')}></div>
-                            <div>
-                                <Image src={a2} alt='car' />
-                                <h4>Professional Service</h4>
-                            </div>
-                            <div className={cx('seperate')}></div>
-                            <div className={cx('icon1')}>
-                                <Image src={a3} alt='car' />
-                                <h4>Professional Service</h4>
-                            </div>
-                        </div>
-                    </div> */}
                     </div>
-                    {/* {transferList.isLoading && <Loading />}
-                {transferList.data &&
-                    <div className={cx('list-car')}>
-                     
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                       
-                    </div>}
-                {transferList.data &&
-                    <Pagination totalPosts={transferList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />} */}
+
                 </div>
             }
         </div>
