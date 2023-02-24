@@ -6,7 +6,7 @@ const infoHomeFake = [
         icon: iconInfos.icon1,
         title: `Luxury & peace of mind services.`,
         content:
-            `We provide absolute peace of mind through our top-notch service system.`,
+            `We provide absolute peace of mind with our top-notch service system, ensuring the highest level of excellence.`,
     },
     {
         icon: iconInfos.icon4,
