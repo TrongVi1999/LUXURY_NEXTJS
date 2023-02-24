@@ -17,6 +17,7 @@ const cx = classNames.bind(style);
 
 export const Vehicles = ({ setbook }) => {
     const transferList = ListTransfer('VEHICLES');
+
     return (
         <div className={cx('containerContent')}>
             {/* <h2>VEHICLES</h2> */}
@@ -66,61 +67,37 @@ export const Vehicles = ({ setbook }) => {
 
                 {transferList.data &&
                     <div className={cx('list-car')}>
-                        {/* {
-                            transferList.data.Object.map((d) => ( */}
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        {/* <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} /> */}
-                        {/* ))
-                        } */}
+                        {transferList.data.Object.slice(0, 3).map(d =>
+                            <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                        )}
+
                     </div>}
 
                 <h3>SUV</h3>
                 {transferList.data &&
                     <div className={cx('list-car')}>
-                        {/* {
-                            transferList.data.Object.map((d) => ( */}
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        {/* <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} /> */}
-                        {/* ))
-                        } */}
+                        {transferList.data.Object.slice(3, 6).map(d =>
+                            <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                        )}
+
                     </div>}
                 <h3>VAN</h3>
                 {transferList.data &&
                     <div className={cx('list-car')}>
-                        {/* {
-                            transferList.data.Object.map((d) => ( */}
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        {/* <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} /> */}
-                        {/* ))
-                        } */}
-                    </div>}
-                <h3>BUS</h3>
-                {transferList.data &&
-                    <div className={cx('list-car')}>
-                        {/* {
-                            transferList.data.Object.map((d) => ( */}
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        {/* <BoxCarTrans data={d} key={d} to={`/transfer-detail/${d.id}`} /> */}
-                        {/* ))
-                        } */}
+                        {transferList.data.Object.slice(6, 8).map(d =>
+                            <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                        )}
+
+
                     </div>}
                 <h3>COACH</h3>
                 {transferList.data &&
                     <div className={cx('list-car')}>
-
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                        <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-
+                        {transferList.data.Object.slice(8, 9).map(d =>
+                            <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                        )}
                     </div>}
+
             </div>
 
         </div>
@@ -128,7 +105,7 @@ export const Vehicles = ({ setbook }) => {
 }
 
 export const CruiseYacht = () => {
-    const transferList = ListTransfer('VEHICLES');
+    const transferList = ListTransfer('YACHTS');
     return (
         < div className={cx('containerContent')}>
 
@@ -144,29 +121,23 @@ export const CruiseYacht = () => {
             <h3>Ha Long Bay</h3>
             {transferList.data &&
                 <div className={cx('list-car')}>
-
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-
+                    {transferList.data.Object.slice(0, 3).map(d =>
+                        <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                    )}
                 </div>}
             <h3>Nha Trang Bay</h3>
             {transferList.data &&
                 <div className={cx('list-car')}>
-
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-
+                    {transferList.data.Object.slice(3, 4).map(d =>
+                        <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                    )}
                 </div>}
             <h3>Sai Gon river</h3>
             {transferList.data &&
                 <div className={cx('list-car')}>
-
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-                    <BoxCarTrans data={transferList.data.Object[0]} to={`/transfer-detail/${(transferList.data.Object[0]).id}`} />
-
+                    {transferList.data.Object.slice(4, 7).map(d =>
+                        <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                    )}
                 </div>}
 
         </div>

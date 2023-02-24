@@ -13,6 +13,18 @@
             margin: 1vw 0 3vw 0;
         }
     }
+    .box {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 4vw 0;
+            gap: 30px;
+            li {
+                width: 30%;
+            }
+        }
+    }
     table {
         display: flex;
         justify-content: center;
@@ -58,23 +70,22 @@
 @media only screen and (max-width: 768px) {
     .container {
         padding: 0 10% 5% 10% !important;
-         table {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        tr {
-            width: 60% !important;
+        table {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            tr {
+                width: 60% !important;
+            }
         }
     }
-    }
-   
 }
 @media only screen and (max-width: 550px) {
-    .container{
-    table {
-        tr {
-            width: 80% !important;
+    .container {
+        table {
+            tr {
+                width: 80% !important;
+            }
         }
     }
-}
 }

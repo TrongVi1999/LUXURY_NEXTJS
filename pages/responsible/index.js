@@ -61,7 +61,7 @@ const Responsible = () => {
                     <Image src={anh6} alt='img-person' />
                 </div> */}
                 <div className={cx('img3')}>
-                    <Image src={anh8} alt='img-elephant' layout='responsive' />
+                    <Image src={anh8} alt='cogai-dantoc' layout='responsive' />
                 </div>
 
             </div>

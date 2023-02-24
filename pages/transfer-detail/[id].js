@@ -5,7 +5,7 @@ import a3 from '@/public/oto3.png';
 import a4 from '@/public/oto4.png';
 import style from '@/styles/transferDetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
-import Transferbook from '@/views/BookTransfer';
+import Bookairport from '@/views/BookAirport/BookAirport';
 import Crumb from '@/views/Crumb/Crumb';
 import Imglist from '@/views/Tourdetail/Imglist';
 import TransListDetail from '@/views/TransDetail';
@@ -14,6 +14,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { GetLuxservice } from '../api/QuerryAPI';
 import Headpage from '@/components/Head/head';
+import { GetlistImg } from '@/hook/GetListImg';
+import { Title } from '@/components';
 
 const cx = classNames.bind(style);
 
@@ -34,20 +36,24 @@ const index = () => {
     return (
         <div>
             <Headpage />
-            <div>
+            {transferData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
-                {book ? <Transferbook click={setbook} transfer={transferData.data.Object[0].title} /> :
+                {book ? <Bookairport click={setbook} transfer={transferData.data.Object[0].title} typecar={'SEDAN'} /> :
                     <div className={cx('container')}>
                         <Crumb text='Luxury Transfer | Vehicles Mercedes' />
-                        {transferData.data && transferData.data.Object[0] && <Imglist data={[`https://vnxpedia.3i.com.vn${transferData.data.Object[0].gallery}`, a2, a3, a4]} issv={false} />}
+                        {transferData.data.Object[0] && <Imglist data={GetlistImg(transferData.data.Object[0].gallery)} />}
                         <div className={cx('des')}>
-                            <h2>MERSEDES BENS AMG COUPE</h2>
-                            <p>The sporty Mercedes-AMG C 43 4MATIC vehicles enhance the new generation of the C-Class. This facelift is characterised by the sharpened design and the stronger differentiation from the AMG Line of the series-production models. Sporty, striking features reflect the level of performance which is to be expected. The enhanced 3.0-litre V6 biturbo engine, together with the all-wheel drive system offering maximum agility, enables optimum acceleration values. In the interior too, the AMG experience is discernible in every detail – the result is a perfect fusion of first-class comfort and a sporty ambience.</p>
+                            <h2>{transferData.data.Object[0].title}</h2>
+                            <p>{transferData.data.Object[0].intro_text}</p>
 
                         </div>
-                        <div className={cx('box')}>
 
-                            <table>
+                        <Title text='Technical specifications' align='center' />
+                        <div className={cx('box')} dangerouslySetInnerHTML={{
+                            __html: transferData.data.Object[0].full_text,
+                        }}>
+
+                            {/* <table>
                                 <tr>
                                     <p>Engine: <span>2.143 cm3</span><br />
                                         Airbags: <span>8</span><br />
@@ -68,7 +74,7 @@ const index = () => {
                                     <p>Big/Small suitcases: <span>8/8</span><br /></p>
                                     <p>Year: <span>2014</span></p>
                                 </tr>
-                            </table>
+                            </table> */}
                         </div>
                         <div className={cx('book')}>
 
@@ -81,7 +87,7 @@ const index = () => {
                         <TransListDetail />
 
                     </div>}
-            </div>
+            </div>}
         </div>)
 }
 

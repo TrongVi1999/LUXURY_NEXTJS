@@ -167,12 +167,16 @@
     border: 1px solid #b1b1b1 !important;
     border-radius: 4px !important;
 }
+.item-form-1 {
+    display: flex;
+}
 .label-booking {
     font-size: 16px;
     color: rgb(45, 58, 75);
     font-weight: bold;
     line-height: 1.2;
     width: 38%;
+    white-space: nowrap;
 }
 
 .item-form div {
@@ -386,6 +390,9 @@
 }
 
 @media only screen and (max-width: 854px) {
+    .item-form-1 {
+        flex-direction: column;
+    }
     .conatiner {
         width: 100%;
         padding: 5% 10% !important;

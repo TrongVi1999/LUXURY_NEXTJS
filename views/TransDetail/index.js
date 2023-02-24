@@ -1,28 +1,39 @@
 import classNames from 'classnames/bind';
 import style from './TransDetail.module.scss';
+
 // import style from '@/styles/Hoteldetail.module.scss';
 import Loading from '@/components/Loading';
-import { ListTransfer } from '@/pages/api/QuerryAPI';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { AiFillStar } from 'react-icons/ai';
-
+import { ListTransfer } from '@/pages/api/QuerryAPI';
+import { BoxCarTrans } from '..';
 
 const cx = classNames.bind(style);
 
 const TransListDetail = () => {
-    const getTransDetail = ListTransfer()
-    if (getTransDetail.isLoading) {
-        return <Loading />;
-    }
+    const transferList = ListTransfer('VEHICLES');
+    // const getTransDetail = ListTransfer()
+    // if (getTransDetail.isLoading) {
+    //     return <Loading />;
+    // }
 
-    if (getTransDetail.error) {
-        return <p>Error: {error.message}</p>;
-    }
-    console.log("get", getTransDetail.data);
+    // if (getTransDetail.error) {
+    //     return <p>Error: {error.message}</p>;
+    // }
+    // console.log("get", getTransDetail.data);
     return (
         <div className={cx('Siminal-Hotel')}>
-            {getTransDetail.data && getTransDetail.data.Object.slice(0, 3).map((d, i) =>
+
+            {transferList.data &&
+                <div className={cx('list-car')}>
+                    {transferList.data.Object.slice(0, 3).map(d =>
+                        <BoxCarTrans data={d} to={`/transfer-detail/${d.id}`} />
+                    )}
+
+                </div>}
+            {/* {getTransDetail.data && getTransDetail.data.Object.slice(0, 3).map((d, i) =>
                 <Link href={`/transfer-detail/${d.id}`} className={cx('card')} key={i}>
                     <div className={cx('card-img')} >
                         <Image src={`https://vnxpedia.3i.com.vn${d.gallery}`} alt="Luxuryvietravel-tour-img" className={cx('img')} width={200} height={200} />
@@ -47,7 +58,7 @@ const TransListDetail = () => {
                     </div>
                 </Link>
             )
-            }
+            } */}
         </div>
     )
 }
