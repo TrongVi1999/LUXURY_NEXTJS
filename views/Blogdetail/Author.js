@@ -18,7 +18,6 @@ const Author = ({ id }) => {
                 <p>{getAuthor(id).name}</p>
                 <p>{getAuthor(id).position}</p>
                 {/* <Share /> */}
-                <p className={cx('intro')}>{getAuthor(id).introduce}</p>
             </div>
 
         </div>
