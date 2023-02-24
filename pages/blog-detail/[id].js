@@ -7,9 +7,11 @@ import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import GalleryIMG from '@/public/images/gallery.png';
 import Image from 'next/image';
 import { Author, Comments, WriteComment, Blogrecomment } from '@/views/Blogdetail';
-
+import avt2 from '@/public/avt4.jpg';
+import avt4 from '@/public/avt6.jpg';
+import avt5 from '@/public/avt7.jpg';
 import { Getblog, GetComment } from '../api/QuerryAPI';
-
+import { getAuthor } from '@/hook/getAuthor';
 import Listtag from '@/views/Blogdetail/Listtag';
 import Loading from '@/components/Loading';
 import Headpage from '@/components/Head/head';
@@ -55,6 +57,7 @@ const datafake = {
     ]
 }
 
+
 const BlogDetail = () => {
     const router = useRouter();
     const [loadcm, setloadcm] = useState(false);
@@ -70,7 +73,7 @@ const BlogDetail = () => {
         <div className={cx('container')}>
             <Headpage />
             {BlogDetail.isLoading && <Loading />}
-            {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={datafake.author} number={datafake.comments.length} />}
+            {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={getAuthor(BlogDetail.data.Object[0].id).name} number={datafake.comments.length} />}
 
             {BlogDetail.data &&
                 <div className={cx('main')} >
@@ -79,7 +82,7 @@ const BlogDetail = () => {
 
                     <div className={cx('main-top')}>
                         <div className={cx('author')}>
-                            <Author />
+                            <Author id={BlogDetail.data.Object[0].id} />
                         </div>
 
                         <div className={cx('content')} dangerouslySetInnerHTML={{ __html: BlogDetail.data.Object[0].full_text }}></div>
