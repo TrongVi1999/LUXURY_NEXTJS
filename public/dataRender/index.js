@@ -4,28 +4,27 @@ import { banners } from '@/public/images';
 const infoHomeFake = [
     {
         icon: iconInfos.icon1,
-        title: `excellent <br/>services`,
+        title: `Luxury & peace of mind services.`,
         content:
-            `We know Flipper lives in a world full of wonder flying there-under under the sea. Come and play. Everything's A-OK.`,
+            `We provide absolute peace of mind through our top-notch service system.`,
     },
     {
         icon: iconInfos.icon4,
         title: 'local experts',
         content:
-            `Friendly neighbors there that's where we meet. Can you tell me how to get how to get to Sesame Street.`,
+            `We believe that to create a great product, it must be designed by those who have a deep understanding of the country, its people, and culture.`,
     },
     {
         icon: iconInfos.icon7,
-        title: 'local price',
+        title: 'Brand reputation through credibility',
         content:
-            `Give us any chance well take it. Give us any rule we'll break it. We're gonna make our dreams come true.`,
+            `Luxury Travel's profits are built on the foundation of trust and reputation developed over many years.`,
     },
     {
         icon: iconInfos.icon3,
-        title: 'authentic <br/>& tailor-made tours',
+        title: 'Responsibility',
         content:
-            `There's nothing can hold me when I hold you. Feels so right it 
-            cant be wrong. Rockin'`,
+            `Our commitment to the community, environment, and sustainability is at the heart of everything we do.`,
     },
 ];
 
