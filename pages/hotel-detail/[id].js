@@ -53,7 +53,7 @@ const Index = () => {
 
                             <p className={cx('icon-star')}><span><AiFillStar />4.8</span>&#40; 28.091 Đánh giá &#41; |600 Đã được đặt</p>
                             <p className={cx('address')}><CiLocationOn />
-                                {hotelData.data.Object[0].DETAIL.find(d => d.TYPE == 'ADDRESS_HOTEL')}
+                                {hotelData.data.Object[0].DETAIL.find(d => d.Type == "ADDRESS_HOTEL").Value}
 
                             </p>
                             <p>{hotelData.data.Object[0].intro_text}</p>
