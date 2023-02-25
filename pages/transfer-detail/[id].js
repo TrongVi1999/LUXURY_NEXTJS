@@ -13,7 +13,7 @@ import { GetLuxservice } from '../api/QuerryAPI';
 import Headpage from '@/components/Head/head';
 import { GetlistImg } from '@/hook/GetListImg';
 import { Title } from '@/components';
-import { getModel } from '@/hook/getModel';
+import { getModel, getType } from '@/hook/getModel';
 
 const cx = classNames.bind(style);
 
@@ -76,7 +76,7 @@ const index = () => {
                         <h2>Similar Vehicles</h2>
 
 
-                        <TransListDetail id={transferData.data.id} />
+                        <TransListDetail type={getType(transferData.data.DETAIL)} />
 
                     </div>}
             </div>}

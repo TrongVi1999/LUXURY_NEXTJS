@@ -9,11 +9,12 @@ import Link from 'next/link';
 import { AiFillStar } from 'react-icons/ai';
 import { ListTransfer } from '@/pages/api/QuerryAPI';
 import { BoxCarTrans } from '..';
+import { getType } from '@/hook/getModel';
 
 const cx = classNames.bind(style);
 
-const TransListDetail = () => {
-    const transferList = ListTransfer('VEHICLES');
+const TransListDetail = ({ type }) => {
+    const transferList = ListTransfer(type);
 
     return (
         <div className={cx('Siminal-Hotel')}>
