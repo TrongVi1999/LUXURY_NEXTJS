@@ -1,8 +1,5 @@
 import Loading from '@/components/Loading';
 import { banners } from '@/public/images';
-import a2 from '@/public/oto2.png';
-import a3 from '@/public/oto3.png';
-import a4 from '@/public/oto4.png';
 import style from '@/styles/transferDetail.module.scss';
 import BannerIMG from '@/views/BannerSlide/BannerIMG';
 import Bookairport from '@/views/BookAirport/BookAirport';
@@ -16,6 +13,7 @@ import { GetLuxservice } from '../api/QuerryAPI';
 import Headpage from '@/components/Head/head';
 import { GetlistImg } from '@/hook/GetListImg';
 import { Title } from '@/components';
+import { getModel } from '@/hook/getModel';
 
 const cx = classNames.bind(style);
 
@@ -26,31 +24,25 @@ const index = () => {
     // const onChangePag = (page) => {
     //     setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
     // };
-    if (transferData.isLoading) {
-        return <Loading />;
-    }
 
-    if (transferData.error) {
-        return <p>Error: {error.message}</p>;
-    }
     return (
         <div>
             <Headpage />
             {transferData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
-                {book ? <Bookairport click={setbook} transfer={transferData.data.Object[0].title} typecar={'SEDAN'} /> :
+                {book ? <Bookairport click={setbook} transfer={transferData.data.title} typecar={getModel(transferData.data.DETAIL)} /> :
                     <div className={cx('container')}>
-                        <Crumb text={`Luxury Transfer | ${transferData.data.Object[0].title}`} />
-                        {transferData.data.Object[0] && <Imglist data={GetlistImg(transferData.data.Object[0].gallery)} />}
+                        <Crumb text={`Luxury Transfer | ${transferData.data.title}`} />
+                        <Imglist data={GetlistImg(transferData.data.gallery)} />
                         <div className={cx('des')}>
-                            <h2>{transferData.data.Object[0].title}</h2>
-                            <p>{transferData.data.Object[0].intro_text}</p>
+                            <h2>{transferData.data.title}</h2>
+                            <p>{transferData.data.intro_text}</p>
 
                         </div>
 
                         <Title text='Technical specifications' align='center' />
                         <div className={cx('box')} dangerouslySetInnerHTML={{
-                            __html: transferData.data.Object[0].full_text,
+                            __html: transferData.data.full_text,
                         }}>
 
                             {/* <table>
@@ -84,7 +76,7 @@ const index = () => {
                         <h2>Similar Vehicles</h2>
 
 
-                        <TransListDetail id={transferData.data.Object[0].id} />
+                        <TransListDetail id={transferData.data.id} />
 
                     </div>}
             </div>}

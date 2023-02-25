@@ -175,7 +175,7 @@ export const ListTransfer = (type, value) => {
 export const GetLuxservice = (id) => {
     return useQuery(['gethotel/transfer', id], async () => {
         const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/PostLuxury?Id=${id}`);
-        return response.data;
+        return response.data.Object[0];
     });
 };
 
