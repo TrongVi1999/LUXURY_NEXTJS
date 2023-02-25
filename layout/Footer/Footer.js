@@ -98,8 +98,7 @@ function Footer() {
                         <div className={cx('about')}>
                             <div className={cx('title')}>ABOUT</div>
                             <p>
-                                img elements must have an alt prop, either with meaningful text, or an empty string for
-                                decorative img elements must have an alt prop, either with meaningful text
+                                We are proud to be the branch company specialized in organizing in Indochina under Voyages Saigon – a travel company that was born and operated in the 1980s and officially brought the brand to customers in 1991. Voyages Saigon serves Serving delegations from North America, Canada with extremely selected and designed products to most destinations around the world.
                             </p>
                             <div className={cx('new-letter')}>Newsletter Sign up</div>
                             <div className={cx('form-email')}>
