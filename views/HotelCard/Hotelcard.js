@@ -20,7 +20,7 @@ const Hotelcard = ({ data }) => {
                 <h6 className={cx('title')}>{data.title.toUpperCase()}</h6>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
-                        <AiFillStar /> 4.8
+                        <AiFillStar />{(Math.random() * (5 - 4) + 4).toFixed(1)}
                     </span>
                     <span className={cx('ratecount')}>
                         (1000 rate) | {data.featured_ordering} book

@@ -2,6 +2,7 @@
     width: 100%;
     background-color: var(--black);
 }
+
 .footer {
     width: 100%;
     padding: 0 20%;
@@ -11,6 +12,7 @@
     align-items: center;
     height: auto;
 }
+
 .main {
     width: 100%;
     display: flex;
@@ -18,10 +20,12 @@
     flex-direction: column;
     padding: 3% 0;
 }
+
 .main-top {
     display: flex;
     width: 100%;
 }
+
 //left
 .main-left {
     display: flex;
@@ -33,6 +37,7 @@
 .infor {
     width: 40%;
 }
+
 .logo-img {
     display: block;
     width: 12vw !important;
@@ -40,22 +45,26 @@
     height: auto !important;
     margin-bottom: 20px;
 }
+
 .phone,
 .email {
     display: flex;
     margin-bottom: 20px;
     color: gray;
 }
-.phone > div,
-.email > div {
+
+.phone>div,
+.email>div {
     margin-left: 10px;
 }
+
 .icon {
     display: flex;
     width: 100%;
     justify-content: flex-start;
     color: gray;
 }
+
 .item-icon {
     border: 1px solid gray;
     border-radius: 50%;
@@ -67,48 +76,58 @@
     cursor: pointer;
     margin-right: 7px;
 }
+
 //
 .list-link {
     width: 60%;
     display: flex;
 }
+
 .list {
     width: 50%;
     display: flex;
     flex-direction: column;
+
     a {
         margin-bottom: 15px;
         color: gray;
     }
 }
-.list > p {
+
+.list>p {
     margin-bottom: 15px;
     color: gray;
 }
+
 //
 .about {
     width: 30%;
     display: flex;
     flex-direction: column;
 }
-.about > .title {
+
+.about>.title {
     margin-top: 0.8rem;
 }
-.about > p {
+
+.about>p {
     color: gray;
     text-align: justify;
     text-justify: inter-word;
 }
-.about > .new-letter {
+
+.about>.new-letter {
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 15px;
 }
-.about > .form-email {
+
+.about>.form-email {
     display: flex;
     color: black;
 }
-.about > .form-email > button {
+
+.about>.form-email>button {
     background-image: var(--linear-gradient-btn2);
     // width: 40%;
     font-weight: bold;
@@ -116,7 +135,8 @@
     // font-size: 14px;
     padding: 10px 20px;
 }
-.about > .form-email > input {
+
+.about>.form-email>input {
     width: 60%;
     // height: 30px;
     padding: 10px 15px;
@@ -138,6 +158,7 @@
     background-color: rgb(74, 74, 74);
     width: 100%;
 }
+
 .end {
     color: white;
     width: 100%;
@@ -146,8 +167,10 @@
     color: gray;
     margin: 30px 0 100px 0;
 }
+
 .end-left {
     display: flex;
+
     svg {
         margin-right: 5px;
     }
@@ -159,7 +182,9 @@
     align-items: center;
     width: 100%;
     margin: 2.5vw 0;
+
 }
+
 .img {
     display: block;
     width: 15% !important;
@@ -178,43 +203,53 @@
 @media only screen and (max-width: 1200px) {
     .form-email {
         flex-direction: column;
+
         button {
             margin: 5px 0;
             width: 100%;
             padding: 7px !important;
         }
+
         input {
             width: 100% !important;
             padding: 7px !important;
         }
     }
+
     .footer {
         padding: 0 10%;
     }
 }
+
 @media only screen and (max-width: 900px) {
     .main-top {
         flex-direction: column;
     }
+
     .main-left {
         margin: 0;
         width: 100%;
     }
+
     .about {
         width: 100%;
     }
+
     .form-email {
         flex-direction: row;
+
         button {
             margin: 0 !important;
             width: 40%;
         }
     }
 }
+
 @media only screen and (max-width: 600px) {
     .end {
         margin: 20px 0 40px 0;
     }
+
     .main-left {
         flex-direction: column;
 
@@ -226,6 +261,7 @@
             display: flex;
             justify-content: space-between;
             margin: 10px 0;
+
             .infor-bot {
                 width: 50%;
             }
@@ -233,10 +269,12 @@
                 height: 100% !important;
             }
         }
+
         .list-link {
             width: 100%;
         }
     }
+
     .item-icon {
         font-size: 12px;
         width: 24px;
@@ -244,6 +282,7 @@
         padding-top: 5px;
         margin-right: 3px;
     }
+
     .phone,
     .email {
         div {

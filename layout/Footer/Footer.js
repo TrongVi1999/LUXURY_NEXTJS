@@ -31,7 +31,6 @@ function Footer() {
             alert('Subcrise success !');
         }
     }
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('footer')}>
@@ -89,7 +88,6 @@ function Footer() {
                                     <div className={cx('title')}>AS TOUR OPERATOR</div>
                                     <Link href='/about-us'>Why travel with us</Link>
                                     <Link href='/about-us#this' >Meat Luxuryvietravel team</Link>
-
                                     <Link href='/responsible'>Responsible Travel</Link>
                                     <Link href='/payment/conditions'>Terms & Conditions</Link>
                                     <Link href='/payment/Deposit&Payment'>Deposit & Payment</Link>

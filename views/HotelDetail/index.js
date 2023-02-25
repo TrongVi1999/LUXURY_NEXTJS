@@ -19,9 +19,6 @@ const HotelDetail = () => {
         return <p>Error: {error.message}</p>;
     }
     return (
-
-
-
         <div className={cx('Siminal-Hotel')}>
             {getHotelDetail.data && getHotelDetail.data.Object.slice(0, 3).map((d, i) =>
                 <Link href={`/hotel-detail/${d.id}`} className={cx('card')} key={i}>

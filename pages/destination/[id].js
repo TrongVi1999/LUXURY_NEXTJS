@@ -39,7 +39,6 @@ function Destination() {
 
     const [act, setact] = useState(['act', '', '', '']);
 
-
     const Pickmenu = (a) => {
         let arr = act;
         arr = arr.map((d, i) => i == a ? 'act' : '');

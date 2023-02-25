@@ -26,8 +26,6 @@ const index = () => {
     const lastIndex = page * 8
     const firstIndex = lastIndex - 8;
 
-
-
     return (
         <div className={cx('wrapper')}>
             <Headpage />
@@ -44,8 +42,11 @@ const index = () => {
                                 <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
                             ))
                         }
+                        {/* <span>Showing {(page - 1) * 8 + 1} - {(page - 1) * 8 + hotelList.data.slice(firstIndex, lastIndex).length} of {hotelList.data.length} products</span> */}
                     </div>
+                    
                 }
+               
                 <CategoryFilter
                     category={categoryFillerAddress}
                     className={cx('boxFilter')}
