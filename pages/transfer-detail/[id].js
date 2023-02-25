@@ -23,9 +23,9 @@ const index = () => {
     const [book, setbook] = useState(false);
     const router = useRouter();
     const transferData = GetLuxservice(router.query.id);
-    const onChangePag = (page) => {
-        setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
-    };
+    // const onChangePag = (page) => {
+    //     setcurrent(Tourresult.slice((page - 1) * 9, page * 9));
+    // };
     if (transferData.isLoading) {
         return <Loading />;
     }
@@ -40,7 +40,7 @@ const index = () => {
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
                 {book ? <Bookairport click={setbook} transfer={transferData.data.Object[0].title} typecar={'SEDAN'} /> :
                     <div className={cx('container')}>
-                        <Crumb text='Luxury Transfer | Vehicles Mercedes' />
+                        <Crumb text={`Luxury Transfer | ${transferData.data.Object[0].title}`} />
                         {transferData.data.Object[0] && <Imglist data={GetlistImg(transferData.data.Object[0].gallery)} />}
                         <div className={cx('des')}>
                             <h2>{transferData.data.Object[0].title}</h2>
@@ -84,7 +84,7 @@ const index = () => {
                         <h2>Similar Vehicles</h2>
 
 
-                        <TransListDetail />
+                        <TransListDetail id={transferData.data.Object[0].id} />
 
                     </div>}
             </div>}
