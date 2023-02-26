@@ -18,10 +18,9 @@ const index = () => {
     const router = useRouter();
     const [Content, setcontent] = useState(router.query.id);
     const [Active, setactive] = useState(['act', '', '']);
-    const [Data, setdata] = useState();
-    const [Data2, setData2] = useState();
 
     const dataContent1 = GetSocial(5262);
+    const dataContent2 = GetSocial(6320);
     const handlePick = (i) => {
         setcontent(ListMenu[i]);
         let list = Active;
@@ -33,8 +32,10 @@ const index = () => {
 
 
     useEffect(() => {
-        setcontent(router.query.id);
+        { router.query.id == 'payment' && handlePick(0) }
+        // setcontent(router.query.id);
         { router.query.id == 'policy' && handlePick(1) }
+        { router.query.id == 'conditions' && handlePick(2) }
 
     }, [router.query.id]);
     if (dataContent1.isLoading) {
@@ -80,6 +81,12 @@ const index = () => {
                     <div className={cx('content')}>
 
                         <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: dataContent1.data.Object[0].full_text }}></div>
+                    </div>
+                }
+                {Active[2] == 'act' &&
+                    <div className={cx('content')}>
+
+                        <div className={cx('policy')} dangerouslySetInnerHTML={{ __html: dataContent2.data.Object[0].full_text }}></div>
                     </div>
                 }
 

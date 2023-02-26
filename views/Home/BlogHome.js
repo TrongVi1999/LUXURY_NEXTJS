@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import style from '@/styles/bloghome.module.scss';
+import style from './bloghome.module.scss';
 import { Title } from '@/components';
 import Blogcard1 from './Blogcard1';
 import { Getbloghot } from '@/pages/api/QuerryAPI';

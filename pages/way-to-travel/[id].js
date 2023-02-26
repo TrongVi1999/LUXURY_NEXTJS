@@ -60,23 +60,16 @@ const index = () => {
         else return data
     }
 
-    if (tourList.isLoading) {
-        return <Loading />;
-    }
 
-    if (tourList.error) {
-        return <p>Error: {tourList.error.message}</p>;
-    }
-    console.log('dataaaa', contentLuxury.data);
     return (
         <div className={cx('wrapper')}>
-            {contentLuxury.data && <Headpage descrip={ChangeTextHTML(contentLuxury.data.Object[0].full_text)} title={`LUXURYVIETRAVEL ${(router.query.id).split('TYPE_')[1]} TOUR`} />}
-            {contentLuxury.data && <BannerSlide imgBanner={[GetlistImg(contentLuxury.data.Object[0].gallery)[0]]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} />}
+            {contentLuxury.data && contentLuxury.data.Object[0] && <Headpage descrip={ChangeTextHTML(contentLuxury.data.Object[0].full_text)} title={`LUXURYVIETRAVEL ${(router.query.id).split('TYPE_')[1]} TOUR`} />}
+            {contentLuxury.data && contentLuxury.data.Object[0] && <BannerSlide imgBanner={[GetlistImg(contentLuxury.data.Object[0].gallery)[0]]} className={cx('bannerBody')} classNameTitle={cx('titleBanner')} titleBanner={"choose your own trip style"} />}
             <div id='list' />
 
-            <div className={cx('main')}>
+            {tourList.data && <div className={cx('main')}>
                 {router.query.id && <Title text={`luxury ${(router.query.id).split('TYPE_')[1]} tour`} align={'center'} className={cx('titleTravel')} />}
-                {contentLuxury.data && <p className={cx('descrip')}>{ChangeTextHTML(contentLuxury.data.Object[0].full_text)}</p>}
+                {contentLuxury.data && contentLuxury.data.Object[0] && <p className={cx('descrip')}>{ChangeTextHTML(contentLuxury.data.Object[0].full_text)}</p>}
 
                 <div className={cx('sort')}>
                     <span >Sort by :</span>
@@ -108,7 +101,7 @@ const index = () => {
                 }
 
                 <Pagination totalPosts={tourList.data.Object.length} postPerPage={9} setPage={setPage} pageIndex={page} />
-            </div>
+            </div>}
         </div>
     )
 }

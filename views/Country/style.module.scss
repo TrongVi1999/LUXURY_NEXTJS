@@ -32,7 +32,11 @@
 .img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover;
+    .imgIMG {
+        object-fit: cover;
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
 .text {
     position: relative;

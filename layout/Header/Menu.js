@@ -113,7 +113,7 @@ const menuAbouUs = [
     },
     {
         title: 'Payment',
-        to: '/payment/DEPOSIT & PAYMENT'
+        to: '/payment/payment'
     },
     {
         title: 'Responsible',
@@ -204,7 +204,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
                 <span onClick={() => showList4 ? setshow4(false) : setshow4(true)}>
                     luxury service
                 </span>
-                {cclosed4 && <MenuHover items={menuService} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close4={setclose4} />}
+                {cclosed4 && <MenuHover items={menuService} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose4} />}
                 {showList4 && <div className={cx('listMobile')}>
 
                     <div className={cx('listMobileDiv')}>

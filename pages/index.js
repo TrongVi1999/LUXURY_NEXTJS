@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.scss';
-import BlogHome from '@/views/BlogHome';
+import BlogHome from '@/views/Home/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
 import classNames from 'classnames/bind';
 import Head from 'next/head';
@@ -8,8 +8,8 @@ import Logo from '@/asset/iconlogo.png';
 import { banners } from '@/public/images';
 import { BannerSlide, ItemInfoHome } from '@/views';
 import Country from '@/views/Country/Country';
-import Feedback from '@/views/Feedback';
-import Introduce2 from '@/views/Introduce2';
+import Feedback from '@/views/Home/Feedback';
+import Introduce2 from '@/views/Home/Introduce2';
 
 
 const cx = classNames.bind(styles);

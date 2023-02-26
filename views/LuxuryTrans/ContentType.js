@@ -44,13 +44,13 @@ export const Vehicles = ({ setbook }) => {
             <Image src={Bn0} alt='service VIP' className={cx('imgVIP')} />
             <h3>Luxury Airport Transfer Services in Vietnam:</h3>
             <p className={cx('text')}>
-                If you're looking for a premium and comfortable way to get to and from the airport in Vietnam, our luxury airport transfer service is the perfect solution. We provide private transportation with professional drivers to and from major airports across the country, including Tan Son Nhat International Airport in Ho Chi Minh City, Noi Bai International Airport in Hanoi, and Da Nang International Airport.
+                If you're looking for a premium and comfortable way to get to and from the airport in Vietnam, our luxury airport transfer service is the perfect solution. We provide private transportation with professional drivers to and from major airports across the country, including Tan Son Nhat International Airport in Ho Chi Minh City, Noi Bai International Airport in Hanoi, and Da Nang International Airport.<br /><br />
 
-                Our airport transfer service offers a range of high-end vehicles to choose from, including luxury sedans, SUVs, and vans. All of our vehicles are meticulously maintained and equipped with modern amenities to ensure a safe and comfortable ride.
+                Our airport transfer service offers a range of high-end vehicles to choose from, including luxury sedans, SUVs, and vans. All of our vehicles are meticulously maintained and equipped with modern amenities to ensure a safe and comfortable ride.<br /><br />
 
-                Our professional drivers are experienced and knowledgeable about the city, ensuring that you will arrive at your destination on time and in style. They will meet you at the airport with a personalized sign, help you with your luggage, and escort you to your vehicle.
+                Our professional drivers are experienced and knowledgeable about the city, ensuring that you will arrive at your destination on time and in style. They will meet you at the airport with a personalized sign, help you with your luggage, and escort you to your vehicle.<br /><br />
 
-                We offer competitive pricing for our airport transfer service, and our booking process is quick and easy. Simply provide us with your flight details, and we will take care of the rest.
+                We offer competitive pricing for our airport transfer service, and our booking process is quick and easy. Simply provide us with your flight details, and we will take care of the rest.<br /><br />
 
                 Whether you are traveling for business or leisure, our luxury airport transfer service will provide you with a stress-free and enjoyable experience. Book with us today and start your trip to Vietnam on the right foot!
                 {/* The airport procedures in Vietnam have significantly improved in recent times, but waiting for baggage, going through visa checks, customs, etc., still takes up a lot of time, causing fatigue and stress, which is understandable. Furthermore, it creates a chaotic and unrefined atmosphere. You should give Luxury Vietravel the opportunity to provide you with convenience all the way once you arrive in Vietnam. */}

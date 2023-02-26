@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import fb3 from '../public/fb3.png';
+import fb3 from '@/public/fb3.png';
 import fb1 from '@/public/fb1.jpg';
 import fb2 from '@/public/fb2.jpg';
 import style from './feedback.module.scss';

@@ -2,14 +2,16 @@ import React from 'react';
 import style from './Introduce2.module.scss';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
-import gt2 from '../public/gt2.png';
+import gt2 from '@/public/gt2.png';
 
 const cx = classNames.bind(style);
 
 const Introduce2 = () => {
     return (
         <div className={cx('container')}>
-            <Image src={gt2} className={cx('img')} alt='img-Introduce' />
+            <div className={cx('img')}>
+                <Image src={gt2} className={cx('imgIMG')} alt='img-Introduce' layout='responsive' />
+            </div>
 
             <div className={cx('h2')}>
                 <h2> WE OFFER LUXURY PRIVATE TOURS TO SOUTHEAST ASIA</h2>

@@ -85,10 +85,15 @@ export const GetAllblog = (tag, keyword, page) => {
     });
 };
 
-//Lấy 1 bài content
+//Lấy 1 bài content :id=${id}&tag=${tag.replace('TYPE_', '').toLowerCase()}
 export const GetSocial = (id, tag) => {
     return useQuery(['getsocial', id, tag], async () => {
-        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPostSocial?id=${id}&tag=${tag.replace('TYPE_', '').toLowerCase()}`);
+        const response = await axios.post(`https://vnxpedia.3i.com.vn/TravelAPI/ListPostSocial?`,
+            qs.stringify({
+                tag: tag && tag.replace('TYPE_', '').toLowerCase(),
+                id: id,
+            })
+        );
         return response.data;
     });
 };

@@ -9,7 +9,10 @@ const cx = classNames.bind(style);
 const Countrycard = ({ data }) => {
     return (
         <div className={cx('card-main')}>
-            <Image src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="vietnam-Luxuryvietravel" className={cx('img')} width='1000' height='1000' />
+            <div className={cx('img')}>
+                <Image src={`https://vnxpedia.3i.com.vn${data.gallery}`} alt="vietnam-Luxuryvietravel" className={cx('imgIMG')} layout="responsive" width={0}
+                    height={0} />
+            </div>
             <div className={cx('text')}>
                 <h2 className={cx('title')}>{data.title.toUpperCase()}</h2>
                 <p className={cx('content')}>

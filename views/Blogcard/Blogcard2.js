@@ -1,19 +1,12 @@
 import style from './Blogcard2.module.scss';
 import classNames from 'classnames/bind';
 import Image from 'next/image';
-import blogcard2 from '../public/blogcard2.png'
-import icon from '../public/icon.png'
-import icon1 from '../public/icon/1.png'
-import icon2 from '../public/icon/2.png'
-import icon3 from '../public/icon/3.png'
-import icon4 from '../public/icon/4.png'
-import avt2 from '@/public/avt4.jpg';
-import avt4 from '@/public/avt6.jpg';
-import avt5 from '@/public/avt7.jpg';
-
+import icon1 from '@/public/icon/1.png'
+import icon2 from '@/public/icon/2.png'
+import icon3 from '@/public/icon/3.png'
+import icon4 from '@/public/icon/4.png'
 import { Button } from '@/components';
 import { GetlistImg } from '@/hook/GetListImg';
-import { randomDate } from '@/hook/randomDate';
 import { changeLongdate } from '@/hook/randomDate';
 import { getHashtag } from '@/hook/getHashtag';
 import { getAuthor } from '@/hook/getAuthor';
@@ -39,7 +32,7 @@ const Blogcard2 = ({ className, data }) => {
                 <hr className={cx('hr')} />
                 <div className={cx('icon-form')}>
                     <Image src={icon1} alt="blogimg" />  <span>By {getAuthor(data.id).name}</span>
-                    <Image src={icon2} alt="blogimg" /> <span>{changeLongdate(data.created)}</span>
+                    <Image src={icon2} alt="blogimg" /> <span>{changeLongdate(data.date_post)}</span>
                     <Image src={icon3} alt="blogimg" /> <span>05</span>
                     <Image src={icon4} alt="blogimg" /> <span>{getHashtag(data.hash_tag)}</span>
                 </div>

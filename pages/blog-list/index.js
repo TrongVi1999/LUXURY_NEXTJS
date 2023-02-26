@@ -53,7 +53,7 @@ function BlogList() {
                     {listBlog.data &&
                         <div className={cx('listBlogBody')}>
                             <span className={cx('bodyPage')}>Showing {(page - 1) * 10 + 1} - {(page - 1) * 10 + listBlog.data.Object.length} of {listBlog.data.Title} products</span>
-                            {sortDate(listBlog.data.Object.map(a => ({ ...a, created: randomDate() }))).map((d) =>
+                            {sortDate(listBlog.data.Object).map((d) =>
                                 <BlogCard2 className={cx('bodyBlogItem')} data={d} />)
                             }
                             <Pagination totalPosts={listBlog.data.Title} postPerPage={10} setPage={setPage} pageIndex={page} />
