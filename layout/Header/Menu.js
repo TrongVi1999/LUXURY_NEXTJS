@@ -37,46 +37,61 @@ const menuDes = [
 ]
 
 const menuWayTravel = [
+    // {
+    //     title: 'luxury tour',
+    //     children: {
+    //         title: 'luxury tour',
+    //         data: [
     {
-        title: 'luxury tour',
-        children: {
-            title: 'luxury tour',
-            data: [
-                {
-                    title: 'Classic Tour',
-                    to: '/way-to-travel/TYPE_CLASSIC',
-                },
-                {
-                    title: 'Family Tour',
-                    to: '/way-to-travel/TYPE_FAMILY',
-                },
-                {
-                    title: 'Culinary',
-                    to: '/way-to-travel/TYPE_CULINARY',
-                },
-                {
-                    title: 'Beach Break',
-                    to: '/way-to-travel/TYPE_BEACH',
-                },
-                {
-                    title: 'Adventure',
-                    to: '/way-to-travel/TYPE_ADVENTURE',
-                },
-                {
-                    title: 'Heritage',
-                    to: '/way-to-travel/TYPE_HERITAGES',
-                },
-                {
-                    title: 'Wellness',
-                    to: '/way-to-travel/TYPE_WELLNESS',
-                },
-                {
-                    title: 'MICE',
-                    to: '/mice',
-                },
-            ],
-        },
+        title: 'Classic Tour',
+        to: '/way-to-travel/TYPE_CLASSIC',
     },
+    {
+        title: 'Family Tour',
+        to: '/way-to-travel/TYPE_FAMILY',
+    },
+    {
+        title: 'Culinary',
+        to: '/way-to-travel/TYPE_CULINARY',
+    },
+    {
+        title: 'Beach Break',
+        to: '/way-to-travel/TYPE_BEACH',
+    },
+    {
+        title: 'Adventure',
+        to: '/way-to-travel/TYPE_ADVENTURE',
+    },
+    {
+        title: 'Heritage',
+        to: '/way-to-travel/TYPE_HERITAGES',
+    },
+    {
+        title: 'Wellness',
+        to: '/way-to-travel/TYPE_WELLNESS',
+    },
+    {
+        title: 'MICE',
+        to: '/mice',
+    },
+    //         ],
+    //     },
+    // },
+    // {
+    //     title: 'luxury cruise',
+    //     to: '/way-to-travel/TYPE_CRUISE',
+    // },
+    // {
+    //     title: 'luxury transfer',
+    //     to: '/luxury-transfer',
+    // },
+    // {
+    //     title: 'luxury hotel',
+    //     to: '/luxury-hotel',
+    // },
+]
+
+const menuService = [
     {
         title: 'luxury cruise',
         to: '/way-to-travel/TYPE_CRUISE',
@@ -88,7 +103,7 @@ const menuWayTravel = [
     {
         title: 'luxury hotel',
         to: '/luxury-hotel',
-    },
+    }
 ]
 
 const menuAbouUs = [
@@ -117,17 +132,19 @@ function Menu({ className, showmenu, menuBgr, close }) {
     const [cclosed1, setclose1] = useState();
     const [cclosed2, setclose2] = useState();
     const [cclosed3, setclose3] = useState();
+    const [cclosed4, setclose4] = useState();
 
     const [showList1, setshow1] = useState(false);
     const [showList2, setshow2] = useState(false);
     const [showList3, setshow3] = useState(false);
-    // const [showList4, setshow4] = useState(false);
+    const [showList4, setshow4] = useState(false);
     const [showList5, setshow5] = useState(false);
 
     const CloseAll = () => {
         setshow1(false);
         setshow2(false);
         setshow3(false);
+        setshow4(false);
         setshow5(false);
         close();
     }
@@ -158,7 +175,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
                 <span onClick={() => showList2 ? setshow2(false) : setshow2(true)}> way to travel</span>
                 {cclosed2 && <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} close1={setclose2} />}
                 {showList2 && <div className={cx('listMobile')}>
-                    <p className={cx('listMobile-1')} onClick={() => showList5 ? setshow5(false) : setshow5(true)}>Luxury tour <MdOutlineKeyboardArrowDown /></p>
+                    {/* <p className={cx('listMobile-1')} onClick={() => showList5 ? setshow5(false) : setshow5(true)}>Luxury tour <MdOutlineKeyboardArrowDown /></p>
                     {showList5 && <div className={cx('listMobileDiv')}>
                         {menuWayTravel[0].children.data.map((d, i) =>
                             <Link href={d.to} className={cx('linkMobile')} onClick={() => CloseAll()} key={i}>{d.title}</Link>
@@ -168,12 +185,39 @@ function Menu({ className, showmenu, menuBgr, close }) {
                     }
                     {menuWayTravel.slice(1, 4).map((d, i) =>
                         <Link href={d.to} className={cx('linkMobile')} onClick={() => CloseAll()} key={i}>{d.title}</Link>
-                    )}
+                    )} */}
+                    <div className={cx('listMobileDiv')}>
+                        {menuWayTravel.map((d, i) =>
+                            <Link href={d.to} className={cx('linkMobile')} onClick={() => CloseAll()} key={i}>{d.title}</Link>
+                        )}
+
+                    </div>
+
                 </div>
                 }
             </div>
 
-            <Link href={'/blog-list'} className={cx('item')} onClick={() => { close(); CloseAll() }} ><span>Inspirations</span></Link>
+            {/* <Link href={'/blog-list'} className={cx('item')} onClick={() => { close(); CloseAll() }} ><span>Inspirations</span></Link> */}
+
+            <div className={cx('item')} onMouseEnter={() => setclose4(true)}
+                onMouseLeave={() => setclose4(false)} >
+                <span onClick={() => showList4 ? setshow4(false) : setshow4(true)}>
+                    luxury service
+                </span>
+                {cclosed4 && <MenuHover items={menuService} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close4={setclose4} />}
+                {showList4 && <div className={cx('listMobile')}>
+
+                    <div className={cx('listMobileDiv')}>
+                        {menuService.map((d, i) =>
+                            <Link href={d.to} className={cx('linkMobile')} onClick={() => CloseAll()} key={i}>{d.title}</Link>
+                        )}
+
+                    </div>
+                </div>
+                }
+
+            </div>
+
             <div className={cx('item')} onMouseEnter={() => setclose3(true)}
                 onMouseLeave={() => setclose3(false)}>
                 <span onClick={() => showList3 ? setshow3(false) : setshow3(true)}>about us</span>
