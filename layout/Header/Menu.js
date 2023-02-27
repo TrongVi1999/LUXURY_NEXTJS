@@ -220,7 +220,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
 
             <div className={cx('item')} onMouseEnter={() => setclose3(true)}
                 onMouseLeave={() => setclose3(false)}>
-                <span onClick={() => showList3 ? setshow3(false) : setshow3(true)}>about us</span>
+                <span onClick={() => showList3 ? setshow3(false) : setshow3(true)}>the company</span>
                 {cclosed3 && <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} close1={setclose3} />}
                 {showList3 && <div className={cx('listMobile')}>
 

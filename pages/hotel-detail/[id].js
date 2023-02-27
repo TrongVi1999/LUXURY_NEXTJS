@@ -46,15 +46,18 @@ const Index = () => {
                             </p>
                             <p>{hotelData.data.intro_text}</p>
 
-                            <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
+                            {/* <button onClick={() => setbook(true)}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button> */}
                         </div>
                     </div>
 
                     <div className={cx('main-hotel')} dangerouslySetInnerHTML={{ __html: hotelData.data.full_text }}></div>
+                    <button onClick={() => setbook(true)} className={cx('btn-hotel')}>BOOK NOW <span className={cx('hr-left')}></span> <BsCheckLg /></button>
 
-                    <h2>Siminal Hotels</h2>
-                    {hotelData.data && <HotelDetail />
-                    }
+
+                    <h2 className={cx('h2-hotel')}>Siminal Hotels</h2>
+                    {/* {hotelData.data &&  */}
+                    <HotelDetail />
+                    {/* } */}
                 </div>
                 }
             </div>}

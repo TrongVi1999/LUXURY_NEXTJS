@@ -98,12 +98,11 @@ function Footer() {
                         <div className={cx('about')}>
                             <div className={cx('title')}>INSPIRATIONS</div>
                             <Link href='/blog-list'>View all</Link>
-                            <Link href='/blog-list'>Videos</Link>
-                            <Link href='/blog-list'>Passions</Link>
+                            <Link href='/blog-list'>Pictures</Link>
+                            <Link href='/blog-list'>News</Link>
                             <Link href='/blog-list'>Places</Link>
-                            <Link href='/blog-list'>Plates</Link>
-                            <Link href='/blog-list'>Portraits</Link>
-                            <Link href='/blog-list'>Travel trend : 2023</Link>
+                            <Link href='/blog-list'>Videos</Link>
+                            <Link href='/blog-list'>Lux travel trends</Link>
                             {/* <p>
                                 We are proud to be the branch company specialized in organizing in Indochina under Voyages Saigon – a travel company that was born and operated in the 1980s and officially brought the brand to customers in 1991. Voyages Saigon serves Serving delegations from North America, Canada with extremely selected and designed products to most destinations around the world.
                             </p> */}
@@ -118,7 +117,7 @@ function Footer() {
                     <div className={cx('end')}>
                         <div className={cx('end-left')}>
                             <BiCopyright />
-                            <div>Copyright 2019 Luxuryvietravel</div>
+                            <div>Copyright 2022 by Luxuryvietravel </div>
                         </div>
                         <div>All Rights Reserved</div>
                     </div>

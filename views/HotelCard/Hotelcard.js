@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { AiFillStar } from 'react-icons/ai';
 import { ImFire } from 'react-icons/im';
 import { GetlistImg } from '@/hook/GetListImg';
-
+import { CiLocationOn } from 'react-icons/ci';
 import Link from 'next/link';
 
 const cx = classNames.bind(style);
@@ -29,6 +29,10 @@ const Hotelcard = ({ data }) => {
                 <p className={cx('price-type')}>
                     <span className={cx('price')}>$ {1500 - ((1500 * 0.1) / 100)}</span> <ImFire />${' '}
                     <span className={cx('real-price')}>1500</span>
+                </p>
+                <p className={cx('address')}><CiLocationOn />
+                    {data.DETAIL.find(d => d.Type == "ADDRESS_HOTEL").Value}
+
                 </p>
             </div>
         </Link>

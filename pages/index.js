@@ -32,7 +32,7 @@ export default function Home() {
                     className={cx('bodyBanner')}
                     titleBanner={'Adventure - Wellness - Incentive - Heritages Tours VietNam'}
                     textTop={'Luxury tailor-made'}
-                    imgBanner={[banners.banner4, banners.banner6, banners.banner7, banners.banner8]}
+                    imgBanner={[banners.banner4, banners.bn00, banners.banner7, banners.bn01]}
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
             </div>

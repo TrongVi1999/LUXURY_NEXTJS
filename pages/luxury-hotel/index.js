@@ -39,14 +39,15 @@ const index = () => {
                         </div>
                         {
                             hotelList.data.Object.slice(firstIndex, lastIndex).map((d) => (
-                                <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
+                                <div className={cx('hotelCard')}>  <Hotelcard data={d} key={d} to={`/hotel-detail/${d.id}`} />
+                                </div>
                             ))
                         }
                         {/* <span>Showing {(page - 1) * 8 + 1} - {(page - 1) * 8 + hotelList.data.slice(firstIndex, lastIndex).length} of {hotelList.data.length} products</span> */}
                     </div>
-                    
+
                 }
-               
+
                 <CategoryFilter
                     category={categoryFillerAddress}
                     className={cx('boxFilter')}
