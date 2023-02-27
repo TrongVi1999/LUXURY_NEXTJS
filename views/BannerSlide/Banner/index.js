@@ -11,7 +11,7 @@ const Banner = ({ image, className, title, description }) => {
         <div className={cx('banner-container')}>
 
 
-            <Image src={image} alt="banner" className={cx('banner', { [className]: className })} layout='responsive' loading='eager' />
+            <Image src={image} alt="luxury-travel" className={cx('banner', { [className]: className })} layout='responsive' loading='eager' />
         </div>
     );
 };
