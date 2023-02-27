@@ -52,6 +52,7 @@ const index = () => {
                     category={categoryFillerAddress}
                     className={cx('boxFilter')}
                     setvldestination={settag}
+                    blog
 
                 />
             </div>
