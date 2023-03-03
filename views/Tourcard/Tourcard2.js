@@ -32,7 +32,7 @@ const Tourcard2 = ({ data }) => {
             </div>
 
             <div className={cx('infor2')}>
-                <h6 className={cx('title')}>{data.TourName.toUpperCase()}</h6>
+                <Link href={`/tour-detail/${data.TourCode}`} className={cx('title')}>{data.TourName.toUpperCase()}</Link>
                 <p className={cx('rate')}>
                     <span className={cx('rating')}>
                         <AiFillStar /> {(Math.random() * (5 - 4) + 4).toFixed(1)}
