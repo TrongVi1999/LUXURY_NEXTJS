@@ -1,7 +1,12 @@
 User-agent: Googlebot
 
 
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://www.example.com/sitemap.xml
+# Host
+Host: https://www.luxuryvietravel.com
+
+# Sitemaps
+Sitemap: https://www.luxuryvietravel.com/sitemap.xml
