@@ -14,15 +14,15 @@ const Introduce2 = () => {
             </div>
 
             <div className={cx('h2')}>
-                <h2> WE OFFER LUXURY PRIVATE TOURS TO SOUTHEAST ASIA</h2>
+                <h2>
+                    BESPOKE LUXURY & PRIVATE HOLIDAYS IN VIETNAM and INDOCHINA
+                    {/* WE OFFER LUXURY PRIVATE TOURS TO SOUTHEAST ASIA */}
+                </h2>
             </div>
             <div className={cx('text')}>
                 <p>
-                    <span>Luxuryvietravel </span>specializes in <span>Private Tours & Tailor-Made Holiday Packages</span> by
-                    Inside Travel Experts.
-                    <br /> We are proudly the Best Inside Travel DMCs & Tour Operators in each destination where you
-                    travel to, our local professional team is always by your side & take care of your trip from start to
-                    end to make your tour incredible & unforgettable experiences...
+                    <span>Luxuryvietravel </span>is a pioneer in providing exclusive, private, and diverse travel products to discerning travelers.
+                    <br /> We are proud to have brought absolute satisfaction to the most demanding customers through our system of Vietnam and Indochina travel products over the past period. All you need to do is let us know your desired travel experience, whether it be Adventure travel, Wellness & treatment, Vietnam luxury vacations, or Vietnam MICE travel programs. Here - with <span>Luxuryvietravel </span>, you will receive the highest value for your choice.
                 </p>
 
             </div>

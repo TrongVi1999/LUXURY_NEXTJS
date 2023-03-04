@@ -10,7 +10,23 @@ const nextConfig = {
             'vnxpedia.3i.com.vn',
         ],
     },
-    // async rewrites() {
+    async headers() {
+        return [
+            {
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'public, max-age=3600, must-revalidate'
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+module.exports = nextConfig;
+  // async rewrites() {
     //     return [
     //         { source: '/destination', destination: '/destination.html' },
     //         { source: '/way-to-travel', destination: '/way-to-travel.html' },
@@ -21,6 +37,3 @@ const nextConfig = {
     //         { source: '/blog-detail', destination: '/blog-detail.html' },
     //     ]
     // },
-}
-
-module.exports = nextConfig;
