@@ -3,7 +3,7 @@ Allow: /
 
 # *
 User-agent: *
-Allow: /
+Disallow:
 
 # Host
 Host: https://www.luxuryvietravel.com
