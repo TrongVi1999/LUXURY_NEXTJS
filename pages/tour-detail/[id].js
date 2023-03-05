@@ -25,7 +25,6 @@ const index = () => {
     const Tourdata = Gettour(router.query.id);
 
 
-
     return (
         <div className={cx('container')}>
             <Headpage />

@@ -15,7 +15,7 @@ const Introduce2 = () => {
 
             <div className={cx('h2')}>
                 <h2>
-                    BESPOKE LUXURY & PRIVATE HOLIDAYS IN VIETNAM and INDOCHINA
+                    BESPOKE LUXURY & PRIVATE HOLIDAYS IN VIETNAM AND INDOCHINA
                     {/* WE OFFER LUXURY PRIVATE TOURS TO SOUTHEAST ASIA */}
                 </h2>
             </div>

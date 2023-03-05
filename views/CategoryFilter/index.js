@@ -123,7 +123,6 @@ function CategoryFilter({ isSearch, category, price, priceft, day, tourTags, gro
     const clases = cx('wrapper', {
         [className]: className,
     });
-    console.log('Listdes', ListDes);
 
     return (
         <div className={clases}>

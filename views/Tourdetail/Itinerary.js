@@ -44,7 +44,7 @@ const Itinerary = ({ data, click, btn }) => {
                                     <div className={cx('main-day')}>
                                         <p className={cx('title-day')}>{d.Title.split(':')[1]}</p>
                                         <p className={cx('text-day')} dangerouslySetInnerHTML={{
-                                            __html: d.Description,
+                                            __html: (d.Description).replace(/Hanoi/g, '<a href=\"https://www.luxuryvietravel.com/destination/VietNamdestination=Hanoi\" title=\"destination - Ha Noi\">Ha Noi</a>'),
                                         }}></p>
                                         {d.Image && <Image src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" width='1000' height='1000' />}
                                     </div>

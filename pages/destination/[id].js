@@ -35,7 +35,7 @@ function Destination() {
     const [sort, setsort] = useState()
     const router = useRouter();
     const [vlcountry, setvlcountry] = useState(router.query.id);
-    const tourList = Superfilter(vlcountry, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
+    const tourList = Superfilter(router.query.id, vldestination, vltype, vlfromcost, vlendcost, vltag, vlseason, vlgroup)
 
     const [act, setact] = useState(['act', '', '', '']);
 
@@ -77,11 +77,18 @@ function Destination() {
     }
 
 
-
     useEffect(() => {
 
         { router.query.id && setvldestination((router.query.id).substring(router.query.id.indexOf('destination=') + 'destination='.length)) }
-    }, [router.query.id])
+        console.log('country', vlcountry);
+        setvltype('');
+        setvltag('');
+        setvlseason('');
+        setvlgroup('');
+        setvlfromcost(0);
+        setvlendcost(15000)
+    }, [router.query.id]);
+
 
     // Phân trang
     const [page, setPage] = useState(1)

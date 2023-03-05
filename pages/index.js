@@ -3,7 +3,7 @@ import BlogHome from '@/views/Home/BlogHome';
 import Hottour from '@/views/Tour/Hottour';
 import classNames from 'classnames/bind';
 import Head from 'next/head';
-
+import Link from 'next/link';
 import Logo from '@/asset/iconlogo.png';
 import { banners } from '@/public/images';
 import { BannerSlide, ItemInfoHome } from '@/views';
@@ -22,6 +22,7 @@ export default function Home() {
                 <meta name="description" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="keyworks" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
+                <meta charset="utf-8" />
                 <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -37,7 +38,7 @@ export default function Home() {
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
             </div>
-
+            <Link href={'https://www.luxuryvietravel.com/destination/VietNamdestination=Hanoi'} title='destination - Ha Noi'>Ha Noi</Link>
             <Introduce2 />
             <Country />
             <Hottour />
