@@ -43,9 +43,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
         setshow1(false);
         setip1(d);
         setlist1([]);
-        // Object.values(list0).map((a, i) => { a.includes(d) && setpickCountry(Object.keys(i)) });
         setpickCountry(Object.keys(list0).find(b => list0[b].includes(d)))
-
     }
     function findKeyWithX(obj, x) {
         Object.values(obj).map((d, i) => { d.includes(x) && setpickCountry(Object.keys(i)) })

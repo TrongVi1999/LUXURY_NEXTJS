@@ -3,11 +3,7 @@ import Layout from '../layout/Layout';
 import { useEffect, useState, useContext } from 'react'
 import { useRouter } from 'next/router';
 import { createContext } from "react";
-import { GetSocial } from './api/QuerryAPI';
 import {
-    useQuery,
-    useMutation,
-    useQueryClient,
     QueryClient,
     QueryClientProvider,
 } from '@tanstack/react-query'
@@ -40,8 +36,6 @@ export default function App({ Component, pageProps }) {
         }
     }, [URL])
 
-
-    const [loca, setloca] = useState('')
 
     const { isFallback, events } = useRouter()
 
