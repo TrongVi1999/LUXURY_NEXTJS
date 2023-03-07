@@ -22,11 +22,13 @@ export default function Home() {
                 <meta name="description" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="keyworks" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
+                <meta name="google-site-verification" content="krE1CbLg9G4lw0eqa87jxVfBTSAlaCXGcljqLYxOsdE" />
                 <meta charset="utf-8" />
                 <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/modules/effect-cube/effect-cube.min.css" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
             </Head>
             <div className={cx('wrapperBanner')}>
