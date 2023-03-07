@@ -45,28 +45,7 @@ const index = () => {
                             __html: transferData.data.full_text,
                         }}>
 
-                            {/* <table>
-                                <tr>
-                                    <p>Engine: <span>2.143 cm3</span><br />
-                                        Airbags: <span>8</span><br />
-                                        Air conditioning: <span>Yes</span><br />
-                                        Interrior Color: <span>Lite-Gray</span><br />
-                                        Seats: <span>6</span></p>
-                                </tr>
-                                <tr>
-                                    <p>Types: <span>2143 cm3</span><br /></p>
-                                    <p>Doors: <span>4</span><br /></p>
-                                    <p>Interior: <span>Leather</span><br /></p>
-                                    <p>Entertainment: <span>CD/DVD Player I Radio | Microcomputer</span><br /></p>
-                                </tr>
-                                <tr>
-                                    <p>Model: <span>Mercedes-Benz AMG COUPE</span><br /></p>
-                                    <p>Roof type: <span>Simple</span><br /></p>
-                                    <p>Smoking: <span>Prohubited</span><br /></p>
-                                    <p>Big/Small suitcases: <span>8/8</span><br /></p>
-                                    <p>Year: <span>2014</span></p>
-                                </tr>
-                            </table> */}
+
                         </div>
                         <div className={cx('book')}>
 

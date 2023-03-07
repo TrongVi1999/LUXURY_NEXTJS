@@ -18,12 +18,15 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Tailor-Made Tours, Luxury Holidays I Wellness I Adventure I Incentive I Luxury Vietravel</title>
-                <meta name="description" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
+                <title>Tailor-Made Tours, Holidays-Wellness-Adventure-Incentive Luxury Vietravel</title>
+                <meta name="description" content="Luxury Vietravel provides tailor-made holidays & private tours for authentic experiences in Vietnam & Indochina (Laos, Cambodia). We are the leading DMC offering full travel services." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="keyworks" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
                 <meta name="google-site-verification" content="krE1CbLg9G4lw0eqa87jxVfBTSAlaCXGcljqLYxOsdE" />
                 <meta charset="utf-8" />
+                <meta property="og:title" content="Tailor-Made Tours, Holidays I Wellness I Adventure I Incentive I Luxury Vietravel" />
+                <meta property="og:description" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
+                <meta property="og:image" content={Logo.src} />
                 <link rel="icon" type="image/png" sizes="20x20" href={Logo.src} />
                 <link rel="canonical" href="https://www.luxuryvietravel.com/" />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -40,7 +43,6 @@ export default function Home() {
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
             </div>
-            <Link href={'https://www.luxuryvietravel.com/destination/VietNamdestination=Hanoi'} title='destination - Ha Noi'>Ha Noi</Link>
             <Introduce2 />
             <Country />
             <Hottour />

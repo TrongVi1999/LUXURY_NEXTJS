@@ -85,7 +85,7 @@ function BannerSlide({ titleBanner, textTop, textBottom, imgBanner, notSearch, c
                 {
                     textTop && <p className={cx('text')}>{textTop}</p>
                 }
-                <h1 className={cx('titleHome', { [classNameTitle]: classNameTitle })}>{titleBanner}</h1>
+                {titleBanner && <h1 className={cx('titleHome')}>{titleBanner}</h1>}
                 {
                     textBottom && <p className={cx('textBottom')}>{textBottom}</p>
                 }
