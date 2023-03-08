@@ -27,7 +27,7 @@ function Mice() {
     console.log(listTour.data)
     return (
         <div className={cx('wrapper')}>
-            <Headpage />
+            <Headpage title='Create Unforgettable Corporate Experiences with LuxuryVietTravel MICE Services' />
             <BannerIMG className={cx('bannerBody')} bg='bg' title={"mice"} img={Img11} />
 
             {book ? <Booking click={setbook} /> :

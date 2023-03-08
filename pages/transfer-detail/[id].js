@@ -27,7 +27,7 @@ const index = () => {
 
     return (
         <div>
-            <Headpage />
+            <Headpage title="Arrive in Style - LuxuryVietTravel's Premium Transfer Services" />
             {transferData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.transferDetail} title='LUXURY TRANSFER' bg='bg' />
                 {book ? <Bookairport click={setbook} transfer={transferData.data.title} typecar={getModel(transferData.data.DETAIL)} /> :

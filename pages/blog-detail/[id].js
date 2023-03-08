@@ -71,7 +71,7 @@ const BlogDetail = () => {
 
     return (
         <div className={cx('container')}>
-            <Headpage />
+            <Headpage title="LuxuryVietTravel Blog - Explore Vietnam's Hidden Gems" />
             {BlogDetail.isLoading && <Loading />}
             {BlogDetail.data && <BannerIMG img={IMGbn} title={BlogDetail.data.Object[0].title.toUpperCase()} bg='bg' type={datafake.type} color='black' date={datafake.date} by={getAuthor(BlogDetail.data.Object[0].id).name} number={datafake.comments.length} />}
 

@@ -33,7 +33,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
-            <Headpage />
+            <Headpage title='Customized Luxury Travel Experiences - Our Case Studies | LuxuryVietTravel' />
             {caseStudy.data && <div className={cx('main')}>
                 {(caseStudy.data && caseStudy.data.BannerImg && caseStudy.data.HightlightImg) ?
                     <BannerIMG img={`https://vnxpedia.3i.com.vn${caseStudy.data.BannerImg}`} title={caseStudy.data.TourName} bg='bg' descrip={ChangeTextHTML(caseStudy.data.TourDescription)} /> :

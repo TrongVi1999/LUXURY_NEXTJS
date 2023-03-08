@@ -117,7 +117,7 @@ function Destination() {
 
     return (
         <div className={cx('wrapper')}>
-            <Headpage />
+            <Headpage title="Explore Vietnam's | Indochine Treasures and Beyond - LuxuryVietTravel Destinations" />
 
             {router.query.id && <BannerIMG img={banners.resolt} title={(router.query.id).split('dest')[0]} bg='bg' descrip='Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content' />}
             <div className={cx('list-menu')} id='list'>

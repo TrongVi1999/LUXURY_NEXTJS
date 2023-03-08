@@ -23,7 +23,7 @@ const cx = classNames.bind(styles)
 const index = () => {
     return (
         <>
-            <Headpage data='about us luxuryvietravel' />
+            <Headpage title='About luxuryvietravel - Luxury Tours' descrip='Learn about our mission and commitment to providing unparalleled luxury travel experiences in Vietnam. At LuxuryVietTravel, we combine exceptional service with authentic cultural immersion, ensuring that each of our guests leaves with unforgettable memories. Discover more about our story and team today.' />
             <div className={cx('wrapperBanner')}>
                 <BannerIMG bg='bg' title={"about Luxuryvietravel"} descrip={"The tours featured throughout our website are intended to give you ideas for whats possible when you travel with us. Treat them simply as inspiration"} img={banners.banner4} crumb={{ title: 'About' }} crumbStyle2 />
                 <div className={cx('boxInfo')}>

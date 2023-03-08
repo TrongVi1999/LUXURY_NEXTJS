@@ -48,7 +48,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
-            <Headpage />
+            <Headpage title="Flexible and Secure Payment Options - LuxuryVietTravel Payment Information" />
             {Content && <BannerIMG img={ImgBn} title={Content.toUpperCase()} bg='bg' />}
             <div className={cx(`main`)}>
                 <div className={cx('menu')}>

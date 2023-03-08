@@ -44,7 +44,7 @@ function BlogList() {
 
     return (
         <div className={cx('wrapper')}>
-            <Headpage />
+            <Headpage title="LuxuryVietTravel Blog - Explore Vietnam's Hidden Gems" />
             <BannerIMG className={cx('bannerBlogList')} img={banners.banner2} title='Luxuryvietravel blog list' bg='bg' crumb={{ title: 'BLOG' }} />
             <div id='list'></div>
 

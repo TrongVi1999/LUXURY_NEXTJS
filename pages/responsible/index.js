@@ -18,7 +18,7 @@ const cx = classNames.bind(style);
 const Responsible = () => {
     return (
         <div className={cx('container')}>
-            <Headpage />
+            <Headpage title='Responsible Travel with LuxuryVietTravel' descrip='Discover the beauty of Vietnam with a conscience. Our responsible travel practices at LuxuryVietTravel ensure that you can explore the country while minimizing your impact on the environment and supporting local communities. Book your trip now.' />
             <BannerIMG img={anh1} title='OUR FOCUS ON SUSTAINABILITY' bg='bg' />
             <div className={cx('text1')}>
                 <p>At LuxuryVietTravel, we strongly believe in the transformative power of travel. It's not just about personal experiences, but also about the impact it can have on the destinations we visit and the world as a whole.

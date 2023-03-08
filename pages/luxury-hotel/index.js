@@ -28,7 +28,7 @@ const index = () => {
 
     return (
         <div className={cx('wrapper')}>
-            <Headpage />
+            <Headpage title='LuxuryVietTravel Partner Hotels - Unmatched Comfort and Style' />
             <BannerIMG img={banners.hotel} title={'LUXURY HOTEL'} descrip={'Best luxury hotel in Viet Nam and Asia'} />
             <div className={cx('main')}>
                 {hotelList.isLoading && <Loading />}
