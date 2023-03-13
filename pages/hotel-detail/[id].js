@@ -29,7 +29,7 @@ const Index = () => {
 
     return (
         <div>
-            <Headpage />
+            <Headpage title='LuxuryVietTravel Partner Hotels - Unmatched Comfort and Style' />
             {hotelData.data && <div>
                 <BannerIMG className={cx('bannerHotelDetial')} img={banners.hoteldetail} title={hotelData.data.title} bg='bg' />
                 {book ? <Hotelbook click={setbook} hotel={hotelData.data.title} /> : <div className={cx('container')}>

@@ -40,7 +40,7 @@ function index() {
 
     return (
         <div className={cx('wrapper')}>
-            <Headpage />
+            <Headpage title="Arrive in Style - LuxuryVietTravel's Premium Transfer Services" />
             <BannerIMG img={banners.luxuryTransfer} title={"LUXURY TRANSFER"} />
             {Book ? <Transferbook click={setbook} type={Type} /> :
                 <div className={cx('main')}>

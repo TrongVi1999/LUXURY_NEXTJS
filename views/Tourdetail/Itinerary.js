@@ -8,6 +8,7 @@ import { GrDocumentPdf } from 'react-icons/gr';
 import Image from 'next/image';
 import Imglist from './Imglist';
 import Highlight from './Highlight';
+import { InsertLink } from '@/hook/InsertLink';
 
 const cx = classNames.bind(style);
 
@@ -18,7 +19,7 @@ const Itinerary = ({ data, click, btn }) => {
 
     const dataContent = GetSocial(Data);
 
-
+    console.log('listlocal', InsertLink());
 
     return (
         <div className={cx('iti-container')}>
@@ -44,7 +45,8 @@ const Itinerary = ({ data, click, btn }) => {
                                     <div className={cx('main-day')}>
                                         <p className={cx('title-day')}>{d.Title.split(':')[1]}</p>
                                         <p className={cx('text-day')} dangerouslySetInnerHTML={{
-                                            __html: (d.Description).replace(/Hanoi/g, '<a href=\"https://www.luxuryvietravel.com/destination/VietNamdestination=Hanoi\" title=\"destination - Ha Noi\">Ha Noi</a>'),
+                                            // __html: (d.Description).replace(/Hanoi/g, '<a href=\"https://www.luxuryvietravel.com/destination/VietNamdestination=Hanoi\" title=\"destination - Ha Noi\">Ha Noi</a>'),
+                                            __html: InsertLink(d.Description),
                                         }}></p>
                                         {d.Image && <Image src={`https://vnxpedia.3i.com.vn${d.Image}`} alt="tour Image" width='1000' height='1000' />}
                                     </div>

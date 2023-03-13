@@ -27,7 +27,7 @@ const index = () => {
 
     return (
         <div className={cx('container')}>
-            <Headpage />
+            <Headpage title="Indochina's Best-Kept Secrets Unveiled - LuxuryVietTravel's Tour Details" canonical />
             {Tourdata.data &&
                 <div className={cx('main')}>
                     {Tourdata.data.BannerImg ?

@@ -6,7 +6,8 @@ import { createContext } from "react";
 import {
     QueryClient,
     QueryClientProvider,
-} from '@tanstack/react-query'
+} from '@tanstack/react-query';
+import { GetSocial } from './api/CallAPI';
 
 const queryClient = new QueryClient();
 
@@ -34,7 +35,29 @@ export default function App({ Component, pageProps }) {
         } else {
             setCurrentUser(null);
         }
-    }, [URL])
+    }, [URL]);
+
+    //list Địa danh
+    const [listLocal, setlistLocal] = useState();
+    const [listNamelocal, setlistNamelocal] = useState();
+    const CAllAPIList = async () => {
+        const response = await GetSocial(6256);
+        if (response.status == 200) {
+            let Allarray = Object.values(JSON.parse(response.data.Object[0].intro_text));
+            let Newarray = [];
+            Allarray.map(d => { Newarray = [...Newarray, ...d] });
+            //đây là list tất cả địa danh
+            setlistNamelocal(Newarray);
+            //đây là list cơ bản lúc đầu có cả quốc gia
+            setlistLocal(JSON.parse(response.data.Object[0].intro_text));
+        }
+
+    }
+    useEffect(() => {
+        CAllAPIList();
+
+    }, [])
+
 
 
     const { isFallback, events } = useRouter()
@@ -75,11 +98,13 @@ export default function App({ Component, pageProps }) {
         }
     }, [])
 
+    console.log('list', listLocal)
+
 
 
     return (
         <QueryClientProvider client={queryClient}>
-            <AppContext.Provider value={{ currentUser, setCurrentUser, reload, setreload }} >
+            <AppContext.Provider value={{ currentUser, setCurrentUser, reload, setreload, listLocal, listNamelocal }} >
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
