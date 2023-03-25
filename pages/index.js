@@ -18,10 +18,10 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Tailor-Made Tours, Holidays-Wellness-Adventure-Incentive Luxury Vietravel</title>
+                <title>Luxury Vietnam Travel Tailor-Made Tours,Holidays-Wellness-Adventure</title>
                 <meta name="description" content="Luxury Vietravel provides tailor-made holidays & private tours for authentic experiences in Vietnam & Indochina (Laos, Cambodia). We are the leading DMC offering full travel services." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="keyworks" content="Luxury Vietravel specialises in tailor-made holidays & private tours for travellers seeking the real and authentic experiences in Vietnam and Indochina ( Laos, Cambodia). We are leading Vietnam Travel & DMC that offering full travel services" />
+                <meta name="keyworks" content="Luxury ,Vietravel , tailor-made holidays , tours , travel , Vietnam and Indochina ( Laos, Cambodia)." />
                 <meta name="google-site-verification" content="krE1CbLg9G4lw0eqa87jxVfBTSAlaCXGcljqLYxOsdE" />
                 <meta charset="utf-8" />
                 <meta property="og:title" content="Tailor-Made Tours, Holidays I Wellness I Adventure I Incentive I Luxury Vietravel" />

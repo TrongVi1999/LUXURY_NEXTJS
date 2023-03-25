@@ -18,7 +18,7 @@ const infoHomeFake = [
         icon: iconInfos.icon7,
         title: 'Brand reputation through credibility',
         content:
-            `Luxury Travel's profits are built on the foundation of trust and reputation developed over many years.`,
+            `Our profits are built on the foundation of trust and reputation developed over many years.`,
     },
     {
         icon: iconInfos.icon3,

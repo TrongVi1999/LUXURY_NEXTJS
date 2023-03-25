@@ -87,7 +87,7 @@ function Footer() {
                                 <div className={cx('list')}>
                                     <div className={cx('title')}>AS TOUR OPERATOR</div>
                                     <Link href='/about-us'>Why travel with us</Link>
-                                    <Link href='/about-us#this' >Meat Luxuryvietravel team</Link>
+                                    <Link href='/about-us#this' >Meat Our team</Link>
                                     <Link href='/responsible'>Responsible Travel</Link>
                                     <Link href='/payment/conditions'>Terms & Conditions</Link>
                                     <Link href='/payment/payment'>Deposit & Payment</Link>
