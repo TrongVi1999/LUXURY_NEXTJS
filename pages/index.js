@@ -10,6 +10,7 @@ import { BannerSlide, ItemInfoHome } from '@/views';
 import Country from '@/views/Country/Country';
 import Feedback from '@/views/Home/Feedback';
 import Introduce2 from '@/views/Home/Introduce2';
+import Loading from '@/components/Loading';
 
 
 const cx = classNames.bind(styles);
@@ -48,6 +49,7 @@ export default function Home() {
             <Hottour />
             <BlogHome />
             <Feedback />
+
         </>
     );
 }

@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }) {
     const { isFallback, events } = useRouter()
 
     const googleTranslateElementInit = () => {
-        new window.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element')
+        new window.google.translate.TranslateElement({ pageLanguage: 'en', defaultLanguage: 'en' }, 'google_translate_element')
     }
 
     useEffect(() => {
@@ -97,6 +97,7 @@ export default function App({ Component, pageProps }) {
             events.off('routeChangeComplete', addScript)
         }
     }, [])
+
 
     console.log('list', listLocal)
 

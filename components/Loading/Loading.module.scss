@@ -8,11 +8,35 @@
         font-weight: bold;
         font-size: 24px;
     }
-    svg {
-        color: green;
-        font-size: 42px;
+    img {
+        // color: green;
+        // font-size: 42px;
+        height: auto !important;
         margin-bottom: 9px;
         margin-left: 5px;
+        animation: rotate 2s infinite;
+    }
+    .dot {
+        animation: toog 1s infinite;
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(30deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+    }
+    100% {
+        transform: rotate(30deg);
+    }
+}
+@keyframes toog {
+    0% {
+        display: inline-block;
+    }
+    100% {
+        display: none;
     }
 }
 
