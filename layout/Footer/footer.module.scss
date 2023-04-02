@@ -60,11 +60,13 @@
     width: auto !important;
     height: 3rem !important;
 }
-.phone > div,
-.email > div {
-    margin-left: 10px;
-}
 
+.phone {
+    svg {
+        margin-right: 10px;
+    }
+    padding-right: 10px;
+}
 .icon {
     display: flex;
     width: 100%;

@@ -7,6 +7,7 @@ import { MdEmail } from 'react-icons/md';
 import { GrFacebookOption } from 'react-icons/gr';
 import { TiSocialInstagram } from 'react-icons/ti';
 import { BsTwitter } from 'react-icons/bs';
+import { FaBuilding } from 'react-icons/fa';
 import { BiCopyright } from 'react-icons/bi';
 import { TfiGoogle } from 'react-icons/tfi';
 import Img1 from '@/public/icon/logo6.png'
@@ -54,13 +55,17 @@ function Footer() {
                                 <div className={cx('infor-bot')}>
                                     <div className={cx('phone')}>
                                         <GiPhone />
-                                        <div>+84 901591111</div>
+                                        +84 901591111
                                     </div>
                                     <div className={cx('email')}>
                                         <Image src={Emailimg} alt='email luxuryvietravel' width={100} height={20} className={cx('email-img')} />
                                     </div>
+                                    <div className={cx('phone')} itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                                        <FaBuilding />
+                                        4, Road 10B, Trung Yen, Cau Giay District, Hanoi, 10000
+                                    </div>
                                     <div className={cx('icon')}>
-                                        <Link href='https://www.facebook.com/profile.php?id=100090618182366&__tn__=-UC%2CP-R' className={cx('item-icon')}>
+                                        <Link href='https://www.facebook.com/LuxuryVietravel' className={cx('item-icon')}>
                                             <GrFacebookOption />
                                         </Link>
                                         <div className={cx('item-icon')}>
