@@ -14,7 +14,8 @@ import Img2 from '@/public/icon/logo5.png'
 import Img3 from '@/public/icon/logo4.png'
 import Img4 from '@/public/icon/logo3.png'
 import Img5 from '@/public/icon/logo2.png'
-import Img6 from '@/public/icon/logo1.png'
+import Img6 from '@/public/icon/logo1.png';
+import Emailimg from '@/public/emailinfo.png';
 import Link from 'next/link';
 import { Subcrise } from '@/pages/api/CallAPI';
 import { useState, useEffect } from 'react';
@@ -56,8 +57,7 @@ function Footer() {
                                         <div>+84 901591111</div>
                                     </div>
                                     <div className={cx('email')}>
-                                        <MdEmail />
-                                        <div>info@luxuryvietravel.com</div>
+                                        <Image src={Emailimg} alt='email luxuryvietravel' width={100} height={20} className={cx('email-img')} />
                                     </div>
                                     <div className={cx('icon')}>
                                         <Link href='https://www.facebook.com/profile.php?id=100090618182366&__tn__=-UC%2CP-R' className={cx('item-icon')}>
