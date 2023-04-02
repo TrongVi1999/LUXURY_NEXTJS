@@ -78,7 +78,7 @@ const Header = () => {
         <div className={cx(`header`)} id={bgheader}>
             <div className={cx(`wrapper`)}>
                 <Link href={'/'} className={cx(`linkHomepage`)}>
-                    <Image src={Logo} alt={'Logo'} priority className={cx('logo')} />
+                    <Image src={Logo} alt='Logo' priority className={cx('logo')} />
                 </Link>
                 <Menu className={'menubody'} showmenu={showMenu} menuBgr={bgheader} close={closeMenuMobile} />
                 <div className={cx('itemRight')}>

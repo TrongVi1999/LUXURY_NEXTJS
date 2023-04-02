@@ -11,6 +11,7 @@ import Country from '@/views/Country/Country';
 import Feedback from '@/views/Home/Feedback';
 import Introduce2 from '@/views/Home/Introduce2';
 import Loading from '@/components/Loading';
+import MySchemaData from '@/components/Schema/Schema';
 
 
 const cx = classNames.bind(styles);
@@ -20,7 +21,7 @@ export default function Home() {
         <>
             <Head>
                 <title>Luxury Tours VietNam - Tailor-Made Holidays,Wellness,Adventure</title>
-                <meta name="description" content="Luxury Vietravel provides tailor-made holidays & private tours for authentic experiences in Vietnam & Indochina (Laos, Cambodia). We are the leading DMC offering full travel services." />
+                <meta name="description" content="Luxury Vietravel provides tailor-made holidays & private tours for authentic experiences in Vietnam & Indochina. We are the leading DMC offering full travel service" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta name="keyworks" content="Luxury tours Vietnam , tailor-made tours, holidays , travel , Vietnam and Indochina ( Laos, Cambodia)." />
                 <meta name="google-site-verification" content="krE1CbLg9G4lw0eqa87jxVfBTSAlaCXGcljqLYxOsdE" />
@@ -33,7 +34,7 @@ export default function Home() {
                 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
                 <link rel="stylesheet" href="https://unpkg.com/swiper/modules/effect-cube/effect-cube.min.css" />
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
+                <MySchemaData />
             </Head>
             <div className={cx('wrapperBanner')}>
                 <BannerSlide

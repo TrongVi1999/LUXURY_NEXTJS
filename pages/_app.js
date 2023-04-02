@@ -67,7 +67,8 @@ export default function App({ Component, pageProps }) {
     }
 
     useEffect(() => {
-        const id = 'google-translate-script'
+        const id = 'google-translate-script';
+
 
         const addScript = () => {
             const s = document.createElement('script')
@@ -78,6 +79,11 @@ export default function App({ Component, pageProps }) {
                 document.body.appendChild(s)
                 window.googleTranslateElementInit = googleTranslateElementInit
             }
+        }
+
+        const translateIcon = document.querySelector('.goog-te-gadget-icon');
+        if (translateIcon) {
+            translateIcon.setAttribute('alt', 'Google Translate');
         }
 
         const removeScript = () => {
@@ -96,6 +102,7 @@ export default function App({ Component, pageProps }) {
             events.off('routeChangeStart', removeScript)
             events.off('routeChangeComplete', addScript)
         }
+
     }, [])
 
 

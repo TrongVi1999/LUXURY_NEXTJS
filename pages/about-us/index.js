@@ -29,7 +29,7 @@ const index = () => {
                 <div className={cx('boxInfo')}>
                     <div className={cx('box')}>
                         <div className={cx('icon')} >
-                            <Image src={icon1} alt='icon' />
+                            <Image src={icon1} alt='icon-address' />
                         </div>
                         <h2>Address</h2>
 
@@ -38,7 +38,7 @@ const index = () => {
                     </div>
                     <div className={cx('box')}>
                         <div className={cx('icon')}>
-                            <Image src={icon2} alt='icon' />
+                            <Image src={icon2} alt='icon-email' />
                         </div>
                         <h2>Email Address</h2>
 
@@ -47,7 +47,7 @@ const index = () => {
                     </div>
                     <div className={cx('box')}>
                         <div className={cx('icon')}>
-                            <Image src={icon3} alt='icon' />
+                            <Image src={icon3} alt='icon-phone' />
                         </div>
                         <h2>Contacts info</h2>
                         <p>+ 84 901591111</p>

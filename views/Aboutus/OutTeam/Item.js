@@ -18,20 +18,6 @@ function Item({ avatar, name, position, intro }) {
         <div className={cx('intro')}>
             {intro}</div>
 
-
-        {/* <div className={cx('wrapperItem-hover')}>
-            <div className={cx('div-main')}>
-                <div className={cx('avatar')}>
-                    <Image src={avatar || IMG} alt='avatar' className={cx('img')} />
-                </div>
-                <h3 className={cx('name')}>{name}</h3>
-                <p className={cx('position')}>{position}</p>
-            </div>
-            <p className={cx('intro')}>{intro}</p>
-
-
-        </div> */}
-
     </div>);
 }
 

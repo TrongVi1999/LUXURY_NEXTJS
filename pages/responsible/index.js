@@ -29,7 +29,7 @@ const Responsible = () => {
 
                 </p>
             </div>
-            {/* <BannerIMG img={anh2} title='CARBON OFFSETTING' /> */}
+
             <Background img={anh2} text='CARBON OFFSETTING' />
             <div className={cx('text2')}>
                 <div className={cx('img')}>
@@ -51,15 +51,13 @@ const Responsible = () => {
                     </p>
                 </div>
             </div>
-            {/* <BannerIMG img={anh4} title='COMMUNITY IMPACT' /> */}
+
             <Background img={anh4} text='COMMUNITY IMPACT' />
             <div className={cx('image')}>
                 <div className={cx('img1')}>
                     <Image src={anh5} alt="img-children" />
                 </div>
-                {/* <div className={cx('img2')}>
-                    <Image src={anh6} alt='img-person' />
-                </div> */}
+
                 <div className={cx('img3')}>
                     <Image src={anh8} alt='cogai-dantoc' layout='responsive' />
                 </div>
