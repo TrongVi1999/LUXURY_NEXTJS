@@ -2,12 +2,6 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import Countrycard from './Countrycard';
-import IMG4 from '@/public/images/myanmar.png';
-import IMG5 from '@/public/images/laos.png';
-import IMG3 from '@/public/images/combodia.png';
-import IMG1 from '@/public/images/vietnam.png';
-import IMG2 from '@/public/images/thailan.png';
-import { CallAllcountry, AllCountry } from '@/pages/api/CallAPI';
 import { GetAllCountry } from '@/pages/api/QuerryAPI';
 
 

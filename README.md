@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Dự án được viết dựa trên NextJS - react ,trang chủ www.luxuryvietravel.com
 
-## Getting Started
-
-First, run the development server:
+## Để chạy dự án , sau khi clone , gõ :
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Sau đo mở trình duyệt vào cổng (http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Cấu trúc dự án :
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Website chia thành nhiều page , mỗi page từ nhiều component tạo thành ,các thư mục chính :
+-asset : đặt logo , file phương tiện cần cho thẻ <head>
+-components : các khối component nhỏ có thể xuất hiện trong nhiều pages ,ví dụ như banner , button...
+-hook : các hàm logic , xử lí dữ liệu
+-layout : chứa Header và Footer
+-pages : là thư mục đặc biệt của nextjs , chứa các đường dẫn đến các page ,chỉ cần tạo file tên tương ứng hoặc thư mục , nextjs sẽ tự cấu hình đường dẫn cho mình , ví dụ tạo thư mục about-us , trong có file index.js ,policy.js ,[id].js ta sẽ có các pages là :
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+-   /about-us
+-   /about-us/policy
+-   [id].js tương ứng với truyền params đàng sau - /about-us/id
+    -public : chứa các file phương tiện như hình ảnh ,tài liệu ...
+    -styles : chứa các file css cho page , ở đây dùng scss module
+    -views : chứa các component riêng của từng page và file scss của chúng
+    -Còn lại là các file hệ thống
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Các vấn đề đáng chú ý khác :
 
-## Learn More
+-Dự án được css thuần hoàn toàn ( ko dùng bootstrap hay tailwhil) ,chỉ sử dụng 1 số thư viện hỗ trợ như swiper ,antd ..
+-Font chữ dùng font-google ,câu lệnh @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap') đặt ở global.scss , có thể chỉnh tại đây
+-Gọi Api sử dụng react-query kết hợp axios ,danh sách API và cú pháp xem tại pages/api ( dùng chủ yếu tại queryAPI.js , 1 số trong CallAPI.js)
+-Quản lí biến bằng useState kết hợp useContext
 
-To learn more about Next.js, take a look at the following resources:
+## Chức năng website :
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-Lấy dữ liệu các tour , hotel , transfer , blog từ backend rồi hiển thị ra , chức năng phân loại , tìm kiếm , sắp xêp ...
+-Đăng nhập , đăng kí, quản lí tài khoản , thông tin book (chưa có tính năng mã hóa , bảo mật) .
+-Đặt tour,hotel...
+-Chuyển ngôn ngữ - dùng plugin của google , xem chi tiết code tại pages/\_add.js
+-website đã có sitemap , cài data Analyticst của google (\_document.js), schema.org (pages/Schema)
+-SEO đã được tối ưu rất nhiều , hầu như chỉ còn thiếu tương tác với facebook , twitter ... , điều chỉnh phù hợp keyword và mô tả
