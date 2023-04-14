@@ -8,6 +8,7 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query';
 import { GetSocial } from './api/CallAPI';
+import ChatMess from '@/components/MessChat/Chat';
 
 const queryClient = new QueryClient();
 
@@ -113,6 +114,7 @@ export default function App({ Component, pageProps }) {
     return (
         <QueryClientProvider client={queryClient}>
             <AppContext.Provider value={{ currentUser, setCurrentUser, reload, setreload, listLocal, listNamelocal }} >
+                <ChatMess />
                 <Layout>
                     <Component {...pageProps} />
                 </Layout>
