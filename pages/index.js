@@ -12,6 +12,10 @@ import Feedback from '@/views/Home/Feedback';
 import Introduce2 from '@/views/Home/Introduce2';
 import Loading from '@/components/Loading';
 import MySchemaData from '@/components/Schema/Schema';
+import BannerNew from '@/components/BannerNew';
+import Start from '@/views/Home/Start';
+import More from '@/views/Home/More';
+import Spotlight from '@/views/Home/Spotlight';
 
 
 const cx = classNames.bind(styles);
@@ -36,7 +40,13 @@ export default function Home() {
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <MySchemaData />
             </Head>
-            <div className={cx('wrapperBanner')}>
+            <BannerNew />
+            <Start />
+            <More />
+            <Spotlight />
+
+            {/* <div className={cx('wrapperBanner')}>
+
                 <BannerSlide
                     className={cx('bodyBanner')}
                     titleBanner={'Adventure - Wellness - Incentive - Heritages Luxury Tours VietNam'}
@@ -44,12 +54,12 @@ export default function Home() {
                     imgBanner={[banners.banner4, banners.bn00, banners.banner7, banners.bn01]}
                 />
                 <ItemInfoHome className={cx('boxInfo')} />
-            </div>
-            <Introduce2 />
-            <Country />
+            </div> */}
+            {/* <Introduce2 /> */}
+            {/* <Country />
             <Hottour />
-            <BlogHome />
-            <Feedback />
+            <BlogHome /> */}
+            {/* <Feedback /> */}
 
         </>
     );
