@@ -154,10 +154,12 @@ function Menu({ className, showmenu, menuBgr, close }) {
         <nav className={clases}>
             <div className={cx('item')} onMouseEnter={() => setclose1(true)}
                 onMouseLeave={() => setclose1(false)} >
-                <span onClick={() => showList1 ? setshow1(false) : setshow1(true)}>
+
+                <Link href='/destination' onClick={() => showList1 ? setshow1(false) : setshow1(true)} className={cx('menu-lv1')}>
                     destination
-                </span>
-                {cclosed1 && <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose1} />}
+                </Link>
+
+                {/* {cclosed1 && <MenuHover items={menuDes} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose1} />}
                 {showList1 && <div className={cx('listMobile')}>
 
                     <div className={cx('listMobileDiv')}>
@@ -167,12 +169,12 @@ function Menu({ className, showmenu, menuBgr, close }) {
 
                     </div>
                 </div>
-                }
+                } */}
 
             </div>
             <div className={cx('item')} onMouseEnter={() => setclose2(true)}
                 onMouseLeave={() => setclose2(false)}>
-                <span onClick={() => showList2 ? setshow2(false) : setshow2(true)}> way to travel</span>
+                <span onClick={() => showList2 ? setshow2(false) : setshow2(true)} className={cx('menu-lv1')}> way to travel</span>
                 {cclosed2 && <MenuHover items={menuWayTravel} className={cx('menuHoverBody')} close={close} close1={setclose2} />}
                 {showList2 && <div className={cx('listMobile')}>
                     {/* <p className={cx('listMobile-1')} onClick={() => showList5 ? setshow5(false) : setshow5(true)}>Luxury tour <MdOutlineKeyboardArrowDown /></p>
@@ -201,7 +203,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
 
             <div className={cx('item')} onMouseEnter={() => setclose4(true)}
                 onMouseLeave={() => setclose4(false)} >
-                <span onClick={() => showList4 ? setshow4(false) : setshow4(true)}>
+                <span onClick={() => showList4 ? setshow4(false) : setshow4(true)} className={cx('menu-lv1')}>
                     luxury service
                 </span>
                 {cclosed4 && <MenuHover items={menuService} className={cx('menuHoverBody')} isScroll={!!menuBgr.length} close={close} close1={setclose4} />}
@@ -220,7 +222,7 @@ function Menu({ className, showmenu, menuBgr, close }) {
 
             <div className={cx('item')} onMouseEnter={() => setclose3(true)}
                 onMouseLeave={() => setclose3(false)}>
-                <span onClick={() => showList3 ? setshow3(false) : setshow3(true)}>the company</span>
+                <span onClick={() => showList3 ? setshow3(false) : setshow3(true)} className={cx('menu-lv1')}>the company</span>
                 {cclosed3 && <MenuHover items={menuAbouUs} className={cx('menuHoverBody')} close={close} close1={setclose3} />}
                 {showList3 && <div className={cx('listMobile')}>
 

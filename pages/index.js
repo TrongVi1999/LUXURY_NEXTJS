@@ -16,6 +16,8 @@ import BannerNew from '@/components/BannerNew';
 import Start from '@/views/Home/Start';
 import More from '@/views/Home/More';
 import Spotlight from '@/views/Home/Spotlight';
+import Blog from '@/views/Home/Blog';
+import Follow from '@/views/Home/Follow';
 
 
 const cx = classNames.bind(styles);
@@ -44,6 +46,8 @@ export default function Home() {
             <Start />
             <More />
             <Spotlight />
+            <Blog />
+            <Follow />
 
             {/* <div className={cx('wrapperBanner')}>
 

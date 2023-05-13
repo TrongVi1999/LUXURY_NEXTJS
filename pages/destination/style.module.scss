@@ -1,0 +1,58 @@
+.list-des {
+    display: flex;
+    margin-top: 100px;
+    width: 100%;
+    height: 40vw;
+}
+.col1 {
+    width: 50%;
+    height: 40vw;
+    .full {
+        height: 100%;
+    }
+}
+.col2 {
+    width: 30%;
+    height: 40vw;
+    .big {
+        height: 60%;
+    }
+    .small {
+        height: 40%;
+    }
+}
+.col3 {
+    width: 20%;
+    height: 40vw;
+    .normal {
+        height: 50%;
+    }
+}
+.des-item {
+    width: 100%;
+    position: relative;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .des-text {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(2, 2, 2, 0);
+        color: rgb(255, 255, 255, 0);
+        position: absolute;
+        top: 0;
+        transition: 0.4s;
+        padding: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+.des-item:hover {
+    .des-text {
+        background-color: rgba(2, 2, 2, 0.5);
+        color: white;
+    }
+}
