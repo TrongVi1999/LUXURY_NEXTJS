@@ -75,7 +75,7 @@ const Header = () => {
     }, [showMenu]);
 
     return (
-        <div className={cx(`header`)} id={bgheader}>
+        <div className={cx(`header`, bgheader)} id={bgheader}>
             <div className={cx(`wrapper`)}>
                 <Link href={'/'} className={cx(`linkHomepage`)}>
                     <Image src={Logo} alt='Logo' priority className={cx('logo')} />
