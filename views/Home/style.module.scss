@@ -44,11 +44,10 @@
                 border-radius: 5px;
                 margin-bottom: 5%;
             }
-            .button-style:hover{
+            .button-style:hover {
                 background-color: goldenrod;
                 color: white;
                 border: 1px solid white;
-
             }
         }
     }
@@ -66,7 +65,7 @@
     .more-list {
         display: flex;
         justify-content: space-between;
-        padding-top:5rem;
+        padding-top: 5rem;
         h2 {
             font-size: 3.5rem;
             text-align: center;
@@ -118,6 +117,12 @@
     background: black;
     margin: 0 auto;
 }
+.hr2 {
+    height: 3px;
+    width: 200px;
+    background: orange;
+    margin: 0 auto;
+}
 .sl-text {
     text-align: center;
     margin: 4rem 0;
@@ -150,11 +155,70 @@
                 font-size: 2rem;
             }
         }
+    }
+}
+
+//blog
+.list-blog {
+    padding: 0% 20% 5% 20%;
+    display: flex;
+    gap: 2rem;
+    .blog-item {
+        flex: 1;
+        img {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+        p {
+            font-weight: 600;
+            padding: 1.5rem 0;
+        }
         .hr2 {
-            height: 3px;
-            width: 200px;
-            background: orange;
-            margin: 0 auto;
+            margin: 0;
+        }
+        h4 {
+            padding: 1rem 0;
+            font-weight: 400;
+        }
+        a {
+            color: limegreen;
+            font-weight: bold;
+            border-bottom: 2px limegreen solid;
         }
     }
+}
+
+//follow
+.follow {
+    background-color: rgb(237, 237, 232);
+    padding: 5% 0;
+}
+.title-h2 {
+    text-align: center;
+    padding: 2rem 0;
+}
+.title-h3 {
+    text-align: center;
+}
+.list-social {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    svg {
+        color: goldenrod;
+        font-size: 2.5rem;
+    }
+}
+.link-gold {
+    display: block;
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    padding: 2rem;
+    background-color: goldenrod;
+    margin: 0 auto;
+    border-radius: 3rem;
 }
