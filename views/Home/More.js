@@ -12,6 +12,7 @@ const More = () => {
 
         <div className={cx('more')}>
             <h2 className={cx('more-h2')}>MORE ABOUT US</h2>
+            <div className={cx('hr')}></div>
             <div className={cx('more-list')}>
                 <div className={cx('item1')}>
 

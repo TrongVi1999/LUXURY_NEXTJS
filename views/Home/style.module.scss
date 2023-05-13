@@ -8,6 +8,7 @@
         width: 30vw !important;
         height: 30vw !important;
         object-fit: cover;
+        border-radius: 8px;
     }
     .text {
         background-color: white;
@@ -19,7 +20,7 @@
         height: 26vw;
         border-radius: 8px;
         h4 {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             padding-bottom: 2rem;
             font-weight: normal;
         }
@@ -35,13 +36,19 @@
             padding: 5%;
             justify-content: center;
             align-items: center;
-            button {
+            .button-style {
                 padding: 1rem 2rem;
                 width: 200px;
                 background: none;
-                border: 1px solid black;
+                border: 1px solid grey;
                 border-radius: 5px;
                 margin-bottom: 5%;
+            }
+            .button-style:hover{
+                background-color: goldenrod;
+                color: white;
+                border: 1px solid white;
+
             }
         }
     }
@@ -53,11 +60,13 @@
     .more-h2 {
         text-align: center;
         font-size: 3rem;
-        padding: 5rem 0;
+        padding: 1rem 0;
+        color: orange;
     }
     .more-list {
         display: flex;
         justify-content: space-between;
+        padding-top:5rem;
         h2 {
             font-size: 3.5rem;
             text-align: center;
@@ -72,6 +81,7 @@
         button {
             background: white;
             padding: 2rem 4rem;
+            border-radius: 8px;
         }
         .item1 {
             background-image: url('/images/bnn2.jpg');

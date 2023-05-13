@@ -15,8 +15,8 @@ const cx = classNames.bind(style);
 
 const listdes = [
     {
-        img: img1, title: 'Ha Noi'
-    }, { img: img2, title: 'Ho Chi Minh City' }, { img: img3, title: 'Da Nang' }, { img: img4, title: 'Sapa' }, { img: img5, title: 'Ninh Binh' }, { img: img6, title: 'Phu Quoc' }, { img: img7, title: 'Bangkok' }, { img: img8, title: 'Phnom Penh' }
+        img: img1, title: 'Ha Noi, Viet Nam'
+    }, { img: img2, title: 'Ho Chi Minh City, Viet Nam' }, { img: img3, title: 'Da Nang, Viet Nam' }, { img: img4, title: 'Sapa, Viet Nam' }, { img: img5, title: 'Ninh Binh, Viet Nam' }, { img: img6, title: 'Phu Quoc, Viet Nam' }, { img: img7, title: 'Bangkok, Thailand' }, { img: img8, title: 'Phnom Penh, Cambodia' }
 ]
 
 const Spotlight = () => {
