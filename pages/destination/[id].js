@@ -78,6 +78,7 @@ const Destination = () => {
             <ListMonth />
             <BannerDes />
             <Hottour />
+            <Guide />
         </div>
     )
 }
@@ -196,8 +197,36 @@ export const TourCard = ({ data }) => {
     )
 }
 
+const listguide = [
+    {
+        title: 'Best time to visit VietNam',
+        img: img1,
+    },
+    {
+        title: 'Best time to visit VietNam',
+        img: img2,
+    },
+    {
+        title: 'Our favorite food tours in Vietnam',
+        img: img3,
+    },
+]
 const Guide = () => {
     return (
-        <div></div>
+        <div className={cx('guide')}>
+            <h2>Vietnam guide</h2>
+            <p>If we were asked to choose our top three places in Vietnam, we’d go for these.</p>
+            <div className={cx('list-guide')}>
+                {listguide.map((d, i) =>
+                    <div className={cx('item-guide')} key={i}>
+                        <Image src={d.img} alt='guide' />
+                        <div className={cx('text-guide')}>
+                            <h6>Guide</h6>
+                            <p>{d.title}</p>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </div>
     )
 }
