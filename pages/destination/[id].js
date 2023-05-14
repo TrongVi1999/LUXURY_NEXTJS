@@ -16,7 +16,7 @@ import img10 from '@/public/month/1thang10.png'
 import img11 from '@/public/month/1thang11.png'
 import img12 from '@/public/month/1thang12.png'
 import { BsPlayCircle } from 'react-icons/bs';
-import { Banner } from '@/views';
+import Banner2 from '@/components/BannerNew/Banner2';
 
 const cx = classNames.bind(style);
 
@@ -75,10 +75,13 @@ const listmonth = [
 const Destination = () => {
     return (
         <div className={cx('container')}>
+            <Banner2 />
             <ListMonth />
             <BannerDes />
             <Hottour />
             <Guide />
+            <Listtour />
+            <Advise />
         </div>
     )
 }
@@ -125,34 +128,49 @@ const BannerDes = () => {
 
 const listtour = [
     {
-        title: 'Hot tour 1',
+        title: 'Vietnam Highlights: Pearl of Indochina',
         img: img1,
-        destination: 'Viet Nam',
-        price: '1000'
+        price: '3000',
+        intro: 'Delve into scenic natural wonders on this journey through Vietnamese history',
+        day: 10,
+        tag: 'BESTSELLER'
     },
     {
-        title: 'Hot tour 2',
+        title: 'Highlights of Saigon, the Mekong, & Angkor Wat',
         img: img2,
-        destination: 'Viet Nam',
-        price: '1000'
+        intro: 'Cruise the Mekong River and discover ancient ruins and hidden gems along the way',
+        price: '6600',
+        day: 12,
+        tag: 'BESTSELLER'
     },
     {
-        title: 'Hot tour 3',
+        title: 'Vietnam & Cambodia Signature',
         img: img3,
-        destination: 'Viet Nam',
-        price: '1000'
+        intro: 'Experience centuries of shared history and culture between these two countries',
+        price: '5500',
+        day: 7,
+        tag: 'NEW'
     },
     {
-        title: 'Hot tour 4',
+        title: 'Vietnam & Cambodia Signature',
         img: img4,
-        destination: 'Viet Nam',
-        price: '1000'
+        intro: 'Experience centuries of shared history and culture between these two countries',
+        price: '4000',
+        day: 15
     },
     {
-        title: 'Hot tour 5',
+        title: 'Vietnam & Cambodia Signature',
         img: img5,
-        destination: 'Viet Nam',
-        price: '1000'
+        intro: 'Experience centuries of shared history and culture between these two countries',
+        price: '3000',
+        day: 14
+    },
+    {
+        title: 'Vietnam & Cambodia Signature',
+        img: img6,
+        intro: 'Experience centuries of shared history and culture between these two countries',
+        price: '3000',
+        day: 14
     },
 ]
 
@@ -183,15 +201,13 @@ const Hottour = () => {
 export const TourCard = ({ data }) => {
     return (
         <div className={cx('tour-card')}>
+            {data.tag && <p className={cx('tag')}>{data.tag}</p>}
             <Image src={data.img} alt='tour-img' />
             <div className={cx('tour-text')}>
                 <h3>{data.title}</h3>
-                <p>{data.destination}</p>
-                <h4>17 days from <span>${data.price}pp</span></h4>
-                <div className={cx('list-link')}>
-                    <Link href='/'>View detail</Link>
-                    <Link href='/'>Request a quote</Link>
-                </div>
+                <p>{data.intro}</p>
+                <h4>{data.day} days from <span>${data.price}pp</span></h4>
+                <Link href='/'>View this itinerary</Link>
             </div>
         </div>
     )
@@ -230,3 +246,62 @@ const Guide = () => {
         </div>
     )
 }
+
+const listsp = [
+    {
+        name: 'Phu',
+        img: img1,
+        class: 'Southeast Asia Specialist'
+    },
+    {
+        name: 'Vi',
+        img: img2,
+        class: 'Southeast Asia Specialist'
+    },
+    {
+        name: 'Tuan',
+        img: img3,
+        class: 'Southeast Asia Specialist'
+    },
+]
+const Advise = () => {
+    return (
+        <div className={cx('advise')}>
+            <div className={cx('callme')}>
+                <h2>Speak to an Vietnam specialist to start planning your tailor-made tour...</h2>
+                <p>Call one of our experts or arrange a video appointment for ideas and advice.</p>
+                <button>MAKE AN ENQUIRY</button>
+            </div>
+            <div className={cx('list-sp')}>
+                {listsp.map((d, i) =>
+                    <div className={cx('item-sp')}>
+                        <Image src={d.img} alt='avatar' />
+                        <h5>{d.name}</h5>
+                        <p>{d.class}</p>
+                    </div>
+                )}
+
+            </div>
+        </div>
+    )
+}
+
+const Listtour = () => {
+    return (
+        <div className={cx('list-tour')}>
+            <div className={cx('text-box-tour')}>
+                <h2>Ideas for your trip to VietNam</h2>
+                <p>Discover the staggering beauty of this majestic country with a tailor-made Vietnam tour! From the calm to the chaotic and the ancient to the innovative, Vietnam is a veritable melting pot of unique experiences.</p>
+            </div>
+            <div className={cx('hottour')}>
+                {listtour.map((d, i) =>
+                    <div className={cx('tour-box')} key={i}>
+                        <TourCard data={d} />
+                    </div>
+                )}
+
+            </div>
+        </div>
+    )
+}
+
