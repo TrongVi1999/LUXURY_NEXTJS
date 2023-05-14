@@ -31,6 +31,7 @@
 .des-item {
     width: 100%;
     position: relative;
+    display: block;
     img {
         width: 100%;
         height: 100%;
@@ -54,5 +55,291 @@
     .des-text {
         background-color: rgba(2, 2, 2, 0.5);
         color: white;
+    }
+}
+
+//des-id
+.container {
+    text-align: center;
+    width: 100%;
+    background-image: url('/10.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+.list-month-container {
+    width: 100%;
+    background-color: white;
+
+    .text {
+        padding: 5% 30%;
+
+        h5 {
+            font-size: 2rem;
+            padding: 2rem 0;
+        }
+        .hr {
+            height: 1px;
+            width: 200px;
+            background-color: black;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+    }
+    .list-month {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 20%;
+    }
+    .item-month {
+        width: 9vw;
+        height: 9vw;
+        margin-bottom: 2vw;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-color: rgb(9, 9, 9, 0.5);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+//banner
+.banner {
+    height: 30vw;
+    background: none;
+
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        font-size: 3.5rem;
+    }
+    p {
+        font-size: 1.5rem;
+        padding: 2rem 0;
+    }
+    svg {
+        font-size: 3.5rem;
+    }
+}
+
+//hottour
+.hottour {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    padding: 5% 20%;
+    background-color: rgb(237, 242, 242);
+}
+.tour-box {
+    width: 32%;
+    height: 27vw;
+    background-color: white;
+    margin-bottom: 1.5vw;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.hr2 {
+    height: 2px;
+    width: 150px;
+    background-color: orange;
+}
+.intro {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 2rem;
+    text-align: start;
+    h2 {
+        font-size: 2rem;
+        padding-bottom: 1.5rem;
+        color: darkgreen;
+    }
+    p {
+        font-size: 1.5rem;
+        padding: 3rem 0;
+    }
+    button {
+        width: 100%;
+        background: none;
+        padding: 12px;
+        color: green;
+        border: 2px solid green;
+    }
+}
+
+//card
+.tour-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .tag {
+        position: absolute;
+        padding: 10px;
+        background-color: goldenrod;
+        color: white;
+    }
+    img {
+        width: 100%;
+        height: 45%;
+        object-fit: cover;
+    }
+    .tour-text {
+        text-align: start;
+        padding: 2rem;
+        display: flex;
+        height: 55%;
+        flex-direction: column;
+        h3 {
+            font-size: 2.5rem;
+            padding-bottom: 2rem;
+            flex: 1;
+            color: #914614;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        h4 {
+            font-size: 1.7rem;
+            padding: 1.5rem 0;
+            color: #2e2e2e;
+            font-weight: normal;
+            span {
+                font-weight: bold;
+            }
+        }
+    }
+    a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border: 2px solid #914614;
+        color: #914614;
+        border-radius: 5px;
+        text-align: center;
+    }
+}
+
+//guide
+.guide {
+    padding: 5% 20%;
+    text-align: center;
+    background-color: white;
+    h2 {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 1.5rem;
+        padding: 1rem 0 2rem 0;
+    }
+}
+.list-guide {
+    display: flex;
+    justify-content: space-between;
+}
+.item-guide {
+    width: 32%;
+    height: 15vw;
+    position: relative;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .text-guide {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 3rem;
+        h6 {
+            padding: 1rem;
+            background-color: white;
+            font-size: 1.5rem;
+            width: fit-content;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+        p {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: start;
+            padding: 0;
+        }
+    }
+}
+
+//advise
+.advise {
+    padding: 5% 20%;
+    display: flex;
+    background-color: white;
+}
+.callme {
+    text-align: center;
+    width: 45%;
+    padding-right: 2rem;
+    h2 {
+        font-size: 2.5rem;
+    }
+    p {
+        font-size: 1.5rem;
+        padding: 1.5rem 0;
+    }
+    button {
+        color: white;
+        background-color: darkblue;
+        border-radius: 5px;
+        padding: 1.5rem 3rem;
+    }
+}
+.list-sp {
+    display: flex;
+    width: 55%;
+    gap: 2rem;
+    .item-sp {
+        flex: 1;
+        img {
+            width: 8vw;
+            height: 8vw;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        h5 {
+            font-size: 2rem;
+            padding: 1rem 0;
+            color: darkgreen;
+        }
+        p {
+            font-size: 1.5rem;
+            padding: 0 20%;
+        }
+    }
+}
+
+//listtour
+.list-tour {
+    padding-top: 5%;
+    background-color: rgb(237, 242, 242);
+}
+.text-box-tour {
+    padding: 0% 30%;
+    p {
+        padding-top: 2rem;
     }
 }

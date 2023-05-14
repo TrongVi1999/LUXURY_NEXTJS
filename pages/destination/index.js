@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
 import img1 from '@/public/images/bnn4.jpg'
 import img2 from '@/public/images/bnn5.jpg'
 import img3 from '@/public/images/bnn6.jpg'
@@ -64,13 +65,13 @@ export default index
 
 const DesItem = ({ data, hey }) => {
     return (
-        <div className={cx('des-item', hey)}>
+        <Link href='/destination/vn' className={cx('des-item', hey)}>
             <Image src={data.img} alt='destination' />
             <div className={cx('des-text')}>
                 <h2>{data.title}</h2>
                 <p>{data.intro}</p>
             </div>
-        </div>
+        </Link>
     )
 }
 
