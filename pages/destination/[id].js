@@ -188,7 +188,7 @@ const Hottour = () => {
                     <button>View all Tours</button>
                 </div>
             </div>
-            {listtour.map((d, i) =>
+            {listtour.slice(0, 5).map((d, i) =>
                 <div className={cx('tour-box')} key={i}>
                     <TourCard data={d} />
                 </div>
