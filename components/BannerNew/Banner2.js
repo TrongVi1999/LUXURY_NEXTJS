@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import style from './style.module.scss';
 import Link from 'next/link';
-import bnimg from '@/public/images/bnn0.jpg';
+import bnimg from '@/public/images/pexels-thanhhoa-tran-1582977.jpg';
 import Image from 'next/image';
 
 const cx = classNames.bind(style);
