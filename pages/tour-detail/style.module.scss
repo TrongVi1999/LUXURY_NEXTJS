@@ -124,14 +124,13 @@
         display: flex;
         justify-content: space-between;
         h6 {
-            padding-right: 35px;
             white-space: nowrap;
         }
         svg {
             display: block;
             font-size: 2rem;
             position: relative;
-            left: 5px;
+            left: 10px;
             color: goldenrod;
         }
     }
