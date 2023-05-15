@@ -200,7 +200,7 @@ const Hottour = () => {
 
 export const TourCard = ({ data }) => {
     return (
-        <div className={cx('tour-card')}>
+        <Link href='/tour-detail/vn' className={cx('tour-card')}>
             {data.tag && <p className={cx('tag')}>{data.tag}</p>}
             <Image src={data.img} alt='tour-img' />
             <div className={cx('tour-text')}>
@@ -209,7 +209,7 @@ export const TourCard = ({ data }) => {
                 <h4>{data.day} days from <span>${data.price}pp</span></h4>
                 <Link href='/'>View this itinerary</Link>
             </div>
-        </div>
+        </Link>
     )
 }
 
