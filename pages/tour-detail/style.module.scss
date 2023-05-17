@@ -105,6 +105,10 @@
 .bot-detail {
     padding: 4rem 10%;
 }
+.acttab {
+    font-weight: bold;
+    color: goldenrod;
+}
 
 //detail
 .adetail {
@@ -153,7 +157,7 @@
 }
 .right-detail {
     flex: 1;
-    padding: 2rem 0;
+    padding: 3rem 0;
     padding-bottom: 5rem;
     .aday {
         padding: 1rem 0;
@@ -168,6 +172,31 @@
         }
         .p2 {
             color: goldenrod;
+        }
+    }
+    .acc-text {
+        padding-top: 2rem;
+    }
+}
+
+//notes
+.notes {
+    padding: 4rem 20%;
+}
+.order {
+    padding: 2rem;
+    h3 {
+        padding-bottom: 3rem;
+    }
+    .list-law {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        p {
+            width: 48%;
+            svg {
+                margin-right: 10px;
+            }
         }
     }
 }

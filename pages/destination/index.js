@@ -70,6 +70,7 @@ const DesItem = ({ data, hey }) => {
             <div className={cx('des-text')}>
                 <h2>{data.title}</h2>
                 <p>{data.intro}</p>
+
             </div>
         </Link>
     )
